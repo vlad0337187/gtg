@@ -49,8 +49,10 @@ import os
 import sys
 import logging
 import dbus
+import gi
 
 from optparse import OptionParser
+gi.require_version('Gdk', '3.0')
 from gi.repository.Gdk import Screen
 
 from GTG import info

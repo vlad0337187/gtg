@@ -20,6 +20,9 @@
 
 """ Communicate with Network Manager """
 
+import gi
+gi.require_version('NMClient', '1.0')
+gi.require_version('NetworkManager', '1.0')
 from gi.repository import NetworkManager, NMClient
 
 

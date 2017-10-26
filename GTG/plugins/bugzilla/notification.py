@@ -39,6 +39,8 @@ _notify_handler = None
 try:
     # Primarily, pynotify is used to send notification. However, it might not
     # appear in user's machine. So, we'll try another alternative.
+    import gi
+    gi.require_version('Notify', '0.7')
     from gi.repository import Notify
     _notify_handler = _notify_via_notify
 except ImportError:
