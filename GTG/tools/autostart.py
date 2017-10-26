@@ -20,9 +20,9 @@
 import os
 import shutil
 
-from xdg.BaseDirectory import xdg_config_home
+from xdg import XDG_CONFIG_HOME
 
-AUTOSTART_DIRECTORY = os.path.join(xdg_config_home, "autostart")
+AUTOSTART_DIRECTORY = os.path.join(XDG_CONFIG_HOME, "autostart")
 AUTOSTART_FILE = "gtg.desktop"
 AUTOSTART_PATH = os.path.join(AUTOSTART_DIRECTORY, AUTOSTART_FILE)
 

@@ -21,12 +21,12 @@ Information where various resources like config, icons, etc. are stored
 """
 import os
 
-from xdg.BaseDirectory import xdg_data_home, xdg_config_home, xdg_cache_home
+from xdg import XDG_DATA_HOME, XDG_CONFIG_HOME, XDG_CACHE_HOME
 
 # Folder where core GTG data is stored like services information, tags, etc
-DATA_DIR = os.path.join(xdg_data_home, 'gtg')
+DATA_DIR = os.path.join(XDG_DATA_HOME, 'gtg')
 # Folder where configuration like opened tasks is stored
-CONFIG_DIR = os.path.join(xdg_config_home, 'gtg')
+CONFIG_DIR = os.path.join(XDG_CONFIG_HOME, 'gtg')
 
 # File defining used services and their parameters
 PROJECTS_XMLFILE = os.path.join(DATA_DIR, 'projects.xml')
@@ -42,7 +42,7 @@ ICONS_DIR = os.path.join(local_rootdir, 'data', 'icons')
 
 # Where data & cache for synchronization services is stored
 SYNC_DATA_DIR = os.path.join(DATA_DIR, 'backends')
-SYNC_CACHE_DIR = os.path.join(xdg_cache_home, 'gtg')
+SYNC_CACHE_DIR = os.path.join(XDG_CACHE_HOME, 'gtg')
 
 # Folders where to look for plugins
 PLUGIN_DIRS = [os.path.join(local_rootdir, 'GTG', 'plugins')]
