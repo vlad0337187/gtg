@@ -19,6 +19,8 @@
 """
 Manager loads the prefs and launches the gtk main loop
 """
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import GObject, Gtk
 import configparser
 

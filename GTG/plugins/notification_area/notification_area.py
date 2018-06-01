@@ -18,6 +18,9 @@
 
 import os
 
+import gi
+gi.require_version('AppIndicator3', '0.1')
+
 from gi.repository import Gtk
 try:
     from gi.repository import AppIndicator3 as appindicator
