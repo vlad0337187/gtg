@@ -21,7 +21,7 @@ Information where various resources like config, icons, etc. are stored
 """
 import os
 
-from xdg import XDG_DATA_HOME, XDG_CONFIG_HOME, XDG_CACHE_HOME
+from GTG.wrappers.xdg import XDG_DATA_HOME, XDG_CONFIG_HOME, XDG_CACHE_HOME
 
 # Folder where core GTG data is stored like services information, tags, etc
 DATA_DIR = os.path.join(XDG_DATA_HOME, 'gtg')

@@ -20,7 +20,7 @@
 import os
 import shutil
 
-from xdg import XDG_CONFIG_HOME
+from GTG.wrappers.xdg import XDG_CONFIG_HOME
 
 AUTOSTART_DIRECTORY = os.path.join(XDG_CONFIG_HOME, "autostart")
 AUTOSTART_FILE = "gtg.desktop"
