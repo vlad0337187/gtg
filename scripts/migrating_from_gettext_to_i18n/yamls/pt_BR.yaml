@@ -1,41 +1,41 @@
 ' minutes': &id001
     many: ' minutos'
     one: ' minuto'
-'%{days}d days ago': &id012
-    many: Há %{days}d dias atrás
+'%{count} active tasks': &id002
+    many: '%{count} tarefas ativas'
+    one: '%{count} tarefa ativa'
+'%{count} days ago': &id013
+    many: Há %{count} dias atrás
     one: Ontem
-'%{days}d days left': &id007
-    many: '%{days}d dias restantes'
+'%{count} days left': &id008
+    many: '%{count} dias restantes'
     one: Para amanhã!
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d tarefas ativas'
-    one: '%{tasks}d tarefa ativa'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: Você tem certeza de que deseja excluir estas tarefas?
     one: Você tem certeza de que deseja excluir esta tarefa?
-Authors: &id005
+Authors: &id004
     many: Autores
     one: Autor
-Completed %{days}d days early: &id002
-    many: Concluído %{days}d dias mais cedo
-    one: Concluído %{days}d dia mais cedo
-Completed %{days}d days late:
-    many: Concluído com %{days}d dias de atraso
-    one: Completa com  %{days}d dia de atraso
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Concluído %{count} dias mais cedo
+    one: Concluído %{count} dia mais cedo
+Completed %{count} days late: &id006
+    many: Concluído com %{count} dias de atraso
+    one: Completa com  %{count} dia de atraso
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: 'Excluir uma tarefa não pode ser desfeito, e irá excluir as seguintes tarefas: '
     one: 'Excluir uma tarefa não pode ser desfeito, e irá excluir a seguinte tarefa: '
-In %{days}d days: &id011
-    many: Em %{days}d dias
+In %{count} days: &id012
+    many: Em %{count} dias
     one: Amanhã
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: Manter a tarefas selecionadas
     one: Manter a tarefa selecionada
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: Remover permanentemente as tarefas
     one: Remover permanentemente a tarefa
-Was %{days}d days ago: &id008
-    many: Foi %{days}d dias atrás
+Was %{count} days ago: &id009
+    many: Foi %{count} dias atrás
     one: Venceu ontem!
 pt:
     ? '
@@ -80,9 +80,7 @@ pt:
         which is required by the Tomboy/Gnote plugin in GTG.'
     : '%s parece estar instalado no seu sistema, mas ele não provê uma interface DBus
         requerida pelo plugin Tomboy/Gnote do GTG.'
-    '%{days}d': *id002
-    '%{task_title}s': 'Tarefa: %{task_title}s'
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Dependências</b>
     <b>Editor</b>: <b>Editor</b>
     <b>Location Determination Method</b>: <b>Método de determinação de localização</b>
@@ -181,10 +179,10 @@ pt:
     All tasks: Todas as tarefas
     An error has occurred: Ocorreu um erro
     Apply to subtasks: Aplicar a subtarefas
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Associar com um marcador existente
     Associate with new tag: Associar com um novo marcador
-    Author: *id005
+    Author: *id004
     Bug: Problema
     Cancel: Cancelar
     Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Desabilitei
@@ -203,6 +201,8 @@ pt:
         um Ícone'
     Closed date: Data fechada
     Closed on: Encerrado em
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service: Configurar o serviço de sincronização
     Confirm: Confirmar
     Confirm task deletion: Confirma a exclusão da tarefa
@@ -213,7 +213,7 @@ pt:
     Create a new task: Criar uma nova tarefa
     D_ismiss: D_escartar
     Delete: Excluir
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Desativar sincronização
     Dismiss: Descartar
     Display only the currently actionable tasks: Exibe somente as tarefas acionáveis
@@ -226,8 +226,8 @@ pt:
         posso contactar o serviço de sincronização <b>%s</b> por conta de um problema
         na rede.
     Due today!: Para hoje!
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Editar
     Edit Tag...: Editar marcador...
     Edit the selected task: Editar a tarefa selecionada
@@ -467,7 +467,7 @@ pt:
     It looks like an error has occurred.: Parece que ocorreu um erro.
     'Just these                                                                       tags:': 'Apenas
         estas etiquetas:'
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad: Launchpad
     Learn How To Search For Tasks: Aprenda a Localizar Tarefas
     Learn How To Use Plugins: Aprenda a usar Plugins
@@ -517,7 +517,7 @@ pt:
     Open GTG help: Abrir a ajuda o GTG
     Open Task: Tarefa aberta
     'Password:': 'Senha:'
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Remover permanentemente a tarefa selecionada
     Permanently remove this task: Remover esta tarefa permanentemente
     'Please install or start the following components:': 'Por favor instale ou inicie
@@ -618,6 +618,7 @@ pt:
     Tags: Marcadores
     Tags to sync: Marcadores para sincronizar
     Task: Tarefa
+    'Task: %{count}': 'Tarefa: %{count}'
     Tasks: Tarefas
     'Tasks with                                                                 these tags:': 'Tarefas
         com estas etiquetas:'
@@ -790,7 +791,7 @@ pt:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         não encontrado. Por favor, instale-o ou desabilite o plugin Tomboy/Gnote no
         GTG
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday: Terça-feira
     Und_ismiss: Desfazer descartar
     Undismiss: Desfazer ação de descartar
@@ -901,7 +902,7 @@ pt:
     :   many: null
         one: ''
     Work View: Visão de trabalho
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here: Você pode criar, abrir ou filtrar
         suas tarefas aqui
     'Your tasks are saved in a text file (XML format). ': 'Suas tarefas foram salvas

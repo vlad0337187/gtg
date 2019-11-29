@@ -1,40 +1,40 @@
 ' minutes': &id001
     many: ''
     one: ''
-'%{days}d days ago': &id012
+'%{count} active tasks': &id002
     many: ''
     one: ''
-'%{days}d days left': &id007
+'%{count} days ago': &id013
     many: ''
     one: ''
-'%{tasks}d active tasks': &id003
+'%{count} days left': &id008
     many: ''
     one: ''
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: ''
     one: ''
-Authors: &id005
+Authors: &id004
     many: ''
     one: ''
-Completed %{days}d days early: &id002
+Completed %{count} days early: &id005
     many: ''
     one: ''
-Completed %{days}d days late:
+Completed %{count} days late: &id006
     many: ''
     one: ''
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: ''
     one: ''
-In %{days}d days: &id011
+In %{count} days: &id012
     many: ''
     one: ''
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: ''
     one: ''
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: ''
     one: ''
-Was %{days}d days ago: &id008
+Was %{count} days ago: &id009
     many: ''
     one: ''
 te:
@@ -71,11 +71,7 @@ te:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>:
         many: null
         one: ''
@@ -181,14 +177,14 @@ te:
     Apply to subtasks:
         many: null
         one: ''
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag:
         many: null
         one: ''
     Associate with new tag:
         many: null
         one: ''
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -221,6 +217,8 @@ te:
     Closed on:
         many: null
         one: ''
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service:
         many: null
         one: ''
@@ -242,7 +240,7 @@ te:
         many: null
         one: ''
     Delete: తొలగించు
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing:
         many: null
         one: ''
@@ -270,8 +268,8 @@ te:
     Due today!:
         many: null
         one: ''
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: మార్చు
     Edit Tag...:
         many: null
@@ -498,7 +496,7 @@ te:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad:
         many: null
         one: ''
@@ -617,7 +615,7 @@ te:
     'Password:':
         many: null
         one: ''
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task:
         many: null
         one: ''
@@ -777,6 +775,9 @@ te:
         many: null
         one: ''
     Task: పని
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -945,7 +946,7 @@ te:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG:
         many: null
         one: ''
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday:
         many: null
         one: ''
@@ -1082,7 +1083,7 @@ te:
     Work View:
         many: null
         one: ''
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

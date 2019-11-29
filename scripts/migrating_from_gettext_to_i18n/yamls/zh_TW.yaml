@@ -1,26 +1,26 @@
 ' minutes': ' 分鐘'
-'%{days}d days ago': '%{days}d 天前'
-'%{days}d days left': &id003
+'%{count} active tasks': '%{count} 進行中的工作任務'
+'%{count} days ago': '%{count} 天前'
+'%{count} days left': &id003
     many: null
     one: ''
-'%{tasks}d active tasks': '%{tasks}d 進行中的工作任務'
 Are you sure you want to delete these tasks?: &id001
     many: null
     one: ''
 Authors: 作者
-Completed %{days}d days early: 提早 %{days}d 天完成
-Completed %{days}d days late: 延遲 %{days}d 天完成
+Completed %{count} days early: 提早 %{count} 天完成
+Completed %{count} days late: 延遲 %{count} 天完成
 'Deleting a task cannot be undone, and will delete the following tasks: ': &id002
     many: null
     one: ''
-In %{days}d days: '%{days}d 天後'
+In %{count} days: '%{count} 天後'
 Keep selected tasks: &id005
     many: null
     one: ''
 Permanently remove tasks: &id006
     many: null
     one: ''
-Was %{days}d days ago: &id004
+Was %{count} days ago: &id004
     many: null
     one: ''
 zh:
@@ -57,11 +57,7 @@ zh:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': 提早 %{days}d 天完成
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': '%{tasks}d 進行中的工作任務'
+    '%{count} active task': '%{count} 進行中的工作任務'
     <b>Dependencies</b>: <b>相依套件</b>
     <b>Editor</b>:
         many: null
@@ -174,6 +170,8 @@ zh:
         many: null
         one: ''
     Closed on: 結束於
+    Completed %{count} day early: 提早 %{count} 天完成
+    Completed %{count} day late: 延遲 %{count} 天完成
     Configure synchronization service: 設定同步服務
     Confirm: 確認
     Confirm task deletion: 確認任務刪除
@@ -610,6 +608,9 @@ zh:
         many: null
         one: ''
     Task: 工作任務
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -767,7 +768,7 @@ zh:
         one: ''
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: 找不到
         Tomboy/Gnote。請安裝它或是關閉此擴充套件。
-    Tomorrow: '%{days}d 天後'
+    Tomorrow: '%{count} 天後'
     Tuesday:
         many: null
         one: ''
@@ -882,7 +883,7 @@ zh:
     :   many: null
         one: ''
     Work View: 任務總覽
-    Yesterday: '%{days}d 天前'
+    Yesterday: '%{count} 天前'
     You can create, open or filter your tasks here:
         many: null
         one: ''

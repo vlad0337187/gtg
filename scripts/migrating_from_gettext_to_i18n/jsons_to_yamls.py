@@ -15,18 +15,6 @@ REGEXP_COUNT_STR = '''
 '''
 REGEXP_COUNT = re.compile(REGEXP_COUNT_STR, re.VERBOSE)
 
-REGEXP_COUNT_TO_EXTRACT_VALUES_STR = '''
-	\%\(    # exact match to: %(
-	(       # group 1
-	.*      # any character 0 or more times
-	)       # group 1 end
-	\)      # close brace: )
-	(       # group 2
-	\S*     # not space character 0 or more times
-	)       # group 2 end
-'''
-REGEXP_COUNT_TO_EXTRACT_VALUES = re.compile(REGEXP_COUNT_TO_EXTRACT_VALUES_STR, re.VERBOSE)
-
 
 def get(obj, key_or_index):
 	try:
@@ -35,21 +23,25 @@ def get(obj, key_or_index):
 		return None
 
 
-def convert_formatted_strings_from_old_to_new_format(string_old):
+def convert_all_substitutions_to_new_format(string):
 	"""
 	Convert earlier met Python formatted strings to `python-i18n` format.
 	Earlier examples:
-		%(tasks)d
-		%(days)d
-		%(task_title)s
+		'%(tasks)d per week (+ 1 task except %(tasks)d per week)'
+		'%(days)d ago'
+		'%(task_title)s together'
 	New examples:
-		...
+		'%{count} per week (+ 1 task except %{count} per week)'
+		'%{count} ago'
+		'%{count} together'
 	"""
-	match_obj   = re.search(REGEXP_COUNT_TO_EXTRACT_VALUES, string_old)
-	word_inside = match_obj.group(1)
-	ending      = match_obj.group(2)
-	string_new = '%{' + word_inside + '}' + ending
-	return string_new
+	if string and '%(' in string:
+		substitutions_old = REGEXP_COUNT.findall(string)
+
+		for substitution_old in substitutions_old:
+			string = string.replace(substitution_old, '%{count}')
+
+	return string
 
 
 def convert_json_translations_into_python_i18n_format(translation_source: dict, lang: str) -> dict:
@@ -62,9 +54,7 @@ def convert_json_translations_into_python_i18n_format(translation_source: dict, 
 		if is_technical_info:
 			continue
 
-		# fix substitutions in item
-		if '%(' in item:
-			item = convert_formatted_strings_from_old_to_new_format(item)
+		item = convert_all_substitutions_to_new_format(item)
 
 		# fix substitutions in translations
 		for translation in translations:
@@ -72,12 +62,7 @@ def convert_json_translations_into_python_i18n_format(translation_source: dict, 
 			if isinstance(translation, list):
 				translation = translation[0]
 
-			if translation and '%(' in translation:
-				substitutions_old = REGEXP_COUNT.findall(translation)
-
-				for substitution_old in substitutions_old:
-					substitution_new = convert_formatted_strings_from_old_to_new_format(substitution_old)
-					translation = translation.replace(substitution_old, substitution_new)
+			translation = convert_all_substitutions_to_new_format(translation)
 
 			translations_fixed.append(translation)
 

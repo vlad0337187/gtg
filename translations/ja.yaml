@@ -1,11 +1,11 @@
 ' minutes': &id001
     many: null
     one: ''
-'%{days}d days ago': '%{days}d 日前'
-'%{days}d days left': &id006
+'%{count} active tasks': &id002
     many: null
     one: ''
-'%{tasks}d active tasks': &id002
+'%{count} days ago': '%{count} 日前'
+'%{count} days left': &id006
     many: null
     one: ''
 Are you sure you want to delete these tasks?: &id003
@@ -14,12 +14,12 @@ Are you sure you want to delete these tasks?: &id003
 Authors: &id004
     many: null
     one: ''
-Completed %{days}d days early: '%{days}d 日早く完了'
-Completed %{days}d days late: '%{days}d 日遅れで完了'
+Completed %{count} days early: '%{count} 日早く完了'
+Completed %{count} days late: '%{count} 日遅れで完了'
 'Deleting a task cannot be undone, and will delete the following tasks: ': &id005
     many: null
     one: ''
-In %{days}d days: &id010
+In %{count} days: &id010
     many: null
     one: ''
 Keep selected tasks: &id008
@@ -28,7 +28,7 @@ Keep selected tasks: &id008
 Permanently remove tasks: &id009
     many: null
     one: ''
-Was %{days}d days ago: &id007
+Was %{count} days ago: &id007
     many: null
     one: ''
 ja:
@@ -65,11 +65,7 @@ ja:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': '%{days}d 日早く完了'
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id002
+    '%{count} active task': *id002
     <b>Dependencies</b>:
         many: null
         one: ''
@@ -194,6 +190,8 @@ ja:
     Closed on:
         many: null
         one: ''
+    Completed %{count} day early: '%{count} 日早く完了'
+    Completed %{count} day late: '%{count} 日遅れで完了'
     Configure synchronization service:
         many: null
         one: ''
@@ -694,6 +692,9 @@ ja:
         many: null
         one: ''
     Task: タスク
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -977,7 +978,7 @@ ja:
     :   many: null
         one: ''
     Work View: 作業の表示
-    Yesterday: '%{days}d 日前'
+    Yesterday: '%{count} 日前'
     You can create, open or filter your tasks here:
         many: null
         one: ''

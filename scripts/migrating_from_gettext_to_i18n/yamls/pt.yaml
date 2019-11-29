@@ -1,41 +1,41 @@
 ' minutes': &id001
     many: ' minutos'
     one: ' minuto'
-'%{days}d days ago': &id012
+'%{count} active tasks': &id002
+    many: '%{count} tarefas activas'
+    one: '%{count} tarefa activa'
+'%{count} days ago': &id013
     many: ''
     one: ''
-'%{days}d days left': &id007
+'%{count} days left': &id008
     many: ''
     one: ''
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d tarefas activas'
-    one: '%{tasks}d tarefa activa'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: ''
     one: ''
-Authors: &id005
+Authors: &id004
     many: Autores
     one: Autor
-Completed %{days}d days early: &id002
-    many: Completada %{days}d dias antes do prazo
-    one: Completada %{days}d dia antes do prazo
-Completed %{days}d days late:
-    many: Completada com um atraso de %{days}d dias
-    one: Completada com um atraso de %{days}d dia
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Completada %{count} dias antes do prazo
+    one: Completada %{count} dia antes do prazo
+Completed %{count} days late: &id006
+    many: Completada com um atraso de %{count} dias
+    one: Completada com um atraso de %{count} dia
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: ''
     one: ''
-In %{days}d days: &id011
+In %{count} days: &id012
     many: ''
     one: ''
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: ''
     one: ''
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: ''
     one: ''
-Was %{days}d days ago: &id008
-    many: O prazo terminou há %{days}d dias
+Was %{count} days ago: &id009
+    many: O prazo terminou há %{count} dias
     one: O prazo terminou ontem!
 pt:
     ? '
@@ -72,11 +72,7 @@ pt:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Dependências</b>
     <b>Editor</b>:
         many: null
@@ -165,10 +161,10 @@ pt:
     All tasks: Todas as tarefas
     An error has occurred: Ocorreu um erro
     Apply to subtasks: Aplicar às subtarefas
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Associar com uma etiqueta existente
     Associate with new tag: Associar com uma nova etiqueta
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -195,6 +191,8 @@ pt:
     Closed on:
         many: null
         one: ''
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service:
         many: null
         one: ''
@@ -212,7 +210,7 @@ pt:
     Create a new task: Criar uma nova tarefa
     D_ismiss: D_esactivar
     Delete: Eliminar
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Desactivar sincronização
     Dismiss: Desactivar
     Display only the currently actionable tasks:
@@ -234,8 +232,8 @@ pt:
         many: null
         one: ''
     Due today!: O prazo termina hoje!
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Editar
     Edit Tag...:
         many: null
@@ -440,7 +438,7 @@ pt:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad:
         many: null
         one: ''
@@ -540,7 +538,7 @@ pt:
         many: null
         one: ''
     'Password:': Senha
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Remover permanentemente a tarefa seleccionada
     Permanently remove this task: Remover permanentemente esta tarefa
     'Please install or start the following components:': 'Por favor instale ou inicie
@@ -680,6 +678,9 @@ pt:
     Tags: Etiquetas
     Tags to sync: Etiquetas a sincronizar
     Task: Tarefa
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks: Tarefas
     'Tasks with                                                                 these tags:':
         many: null
@@ -841,7 +842,7 @@ pt:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG:
         many: null
         one: ''
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday:
         many: null
         one: ''
@@ -957,7 +958,7 @@ pt:
     :   many: null
         one: ''
     Work View: Vista de Trabalho
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

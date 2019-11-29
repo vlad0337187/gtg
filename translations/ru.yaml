@@ -1,40 +1,40 @@
 ' minutes': &id001
     many: ' минуты'
     one: ' минута'
-'%{days}d days ago': &id012
-    many: '%{days}d дня назад'
+'%{count} active tasks': &id002
+    many: '%{count} активные задачи'
+    one: '%{count} активная задача'
+'%{count} days ago': &id013
+    many: '%{count} дня назад'
     one: вчера
-'%{days}d days left': &id007
-    many: осталось %{days}d дня
+'%{count} days left': &id008
+    many: осталось %{count} дня
     one: Задания на завтра
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d активные задачи'
-    one: '%{tasks}d активная задача'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: Вы уверены, что хотите удалить эти задачи?
     one: Вы уверены, что хотите удалить эту задачу?
-Authors: &id005
+Authors: &id004
     many: Авторы
     one: Автор
-Completed %{days}d days early: &id002
-    many: Выполнено за %{days}d дня до срока
-    one: Выполнено за %{days}d день до срока
-Completed %{days}d days late:
-    many: Просрочено на %{days}d дня
-    one: Просрочено на %{days}d день
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Выполнено за %{count} дня до срока
+    one: Выполнено за %{count} день до срока
+Completed %{count} days late: &id006
+    many: Просрочено на %{count} дня
+    one: Просрочено на %{count} день
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: 'Удаление задачи нельзя отменить! Будут удалены и другие задачи: '
     one: 'Удаление задачи нельзя отменить! Будет удалена и задача: '
-In %{days}d days: &id011
-    many: В течение %{days}d дней
-    one: В течение %{days}d дня
-Keep selected tasks: &id009
+In %{count} days: &id012
+    many: В течение %{count} дней
+    one: В течение %{count} дня
+Keep selected tasks: &id010
     many: Оставить эти задачи
     one: Оставить эту задачу
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: Удалить задачи навсегда
     one: Удалить задачу навсегда
-Was %{days}d days ago: &id008
+Was %{count} days ago: &id009
     many: Вчерашние задания
     one: Вчерашние задания
 ru:
@@ -76,9 +76,7 @@ ru:
         which is required by the Tomboy/Gnote plugin in GTG.'
     : Скорее всего, %s уже установлен в вашей системе, однако не предоставляет интерфейса
         DBus который необходим  дополнению Tomboy/Gnote в GTG.
-    '%{days}d': *id002
-    '%{task_title}s': 'Задача: %{task_title}s'
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Зависимости</b>
     <b>Editor</b>: <b>Редактор</b>
     <b>Location Determination Method</b>: <b>Способ определения положения</b>
@@ -172,10 +170,10 @@ ru:
     All tasks: Все задачи
     An error has occurred: Произошла ошибка
     Apply to subtasks: Применить к подзадачам
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Пометить существующей меткой
     Associate with new tag: Пометить новой меткой
-    Author: *id005
+    Author: *id004
     Bug: Ошибка
     Cancel: Отменить
     Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Нет
@@ -192,6 +190,8 @@ ru:
         иконки'
     Closed date: Дата закрытия
     Closed on: Выполнено
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service: Настроить сервис синхронизации
     Confirm: Подвердить
     Confirm task deletion: Подтвердите удаление задачи
@@ -202,7 +202,7 @@ ru:
     Create a new task: Создать новую задачу
     D_ismiss: _Отменить
     Delete: Удалить
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Запретить синхронизацию
     Dismiss: Отменить
     Display only the currently actionable tasks: Показать только доступные для выполнения
@@ -215,8 +215,8 @@ ru:
     Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: Из-за
         проблем с сетью, не возможно соединиться с сервисом синхронизации <b>%s</b>.
     Due today!: Задания на сегодня
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Правка
     Edit Tag...: Редактировать метку...
     Edit the selected task: Изменить выбранную задачу
@@ -442,7 +442,7 @@ ru:
     It looks like an error has occurred.: Возможно, произошла ошибка
     'Just these                                                                       tags:': 'Только
         с этими метками:'
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad: Launchpad
     Learn How To Search For Tasks: Как найти задачу
     Learn How To Use Plugins: Научиться использовать расширения
@@ -491,7 +491,7 @@ ru:
     Open GTG help: Открыть справку по GTG
     Open Task: Открыть задачу
     'Password:': 'Пароль:'
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Навсегда удалить выбраную задачу
     Permanently remove this task: Удалить эту задачу навсегда
     'Please install or start the following components:': 'Пожалуйста, установите или
@@ -586,6 +586,7 @@ ru:
     Tags: Метки
     Tags to sync: Метки для синхронизации
     Task: Задача
+    'Task: %{count}': 'Задача: %{count}'
     Tasks: Задачи
     'Tasks with                                                                 these tags:': 'Задачи
         с этими метками:'
@@ -752,7 +753,7 @@ ru:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         не найден. Пожалуйста, установите его или отключите модуль Tomboy/Gnote в
         GTG
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday: вторник
     Und_ismiss: _Восстановить
     Undismiss: Восстановить
@@ -864,7 +865,7 @@ ru:
     :   many: null
         one: ''
     Work View: Рабочий план
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here: Тут можно создавать, открывать
         и фильтровать задачи
     'Your tasks are saved in a text file (XML format). ': 'Ваши задачи сохранены в

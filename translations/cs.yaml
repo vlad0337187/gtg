@@ -1,41 +1,41 @@
 ' minutes': &id001
     many: ' minuty'
     one: ' minuta'
-'%{days}d days ago': &id012
-    many: Před %{days}d dny
+'%{count} active tasks': &id002
+    many: '%{count} aktivních úkolů'
+    one: '%{count} aktivní úkol'
+'%{count} days ago': &id013
+    many: Před %{count} dny
     one: Včera
-'%{days}d days left': &id007
-    many: Termín za %{days}d dny
+'%{count} days left': &id008
+    many: Termín za %{count} dny
     one: Termín zítra!
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d aktivních úkolů'
-    one: '%{tasks}d aktivní úkol'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: Opravdu chcete smazat tyto úkoly?
     one: Opravdu chcete smazat tento úkol?
-Authors: &id005
+Authors: &id004
     many: Autoři
     one: 'Autor:'
-Completed %{days}d days early: &id002
-    many: Dokončeno o %{days}d dnů dříve
-    one: Dokončeno o %{days}d den dříve
-Completed %{days}d days late:
-    many: Dokončeno o %{days}d dnů později
-    one: Dokončeno o %{days}d den později
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Dokončeno o %{count} dnů dříve
+    one: Dokončeno o %{count} den dříve
+Completed %{count} days late: &id006
+    many: Dokončeno o %{count} dnů později
+    one: Dokončeno o %{count} den později
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: 'Smazání úkolu nelze vrátit zpět, budou smazány tyto úkoly: '
     one: 'Smazání úkolu nelze vrátit zpět, bude smazán tento úkol: '
-In %{days}d days: &id011
-    many: Za %{days}d dny
+In %{count} days: &id012
+    many: Za %{count} dny
     one: Zítra
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: Ponechat vybrané úkoly
     one: Ponechat vybraný úkol
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: Trvale odstranit úkoly
     one: Trvale odstranit úkol
-Was %{days}d days ago: &id008
-    many: Bylo před %{days}d dny
+Was %{count} days ago: &id009
+    many: Bylo před %{count} dny
     one: Termín včera!
 cs:
     ? '
@@ -79,9 +79,7 @@ cs:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s': 'Úkol: %{task_title}s'
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Závislosti</b>
     <b>Editor</b>: <b>Editor</b>
     <b>Location Determination Method</b>: <b>Způsob určení polohy</b>
@@ -182,10 +180,10 @@ cs:
     All tasks: Všechny úkoly
     An error has occurred: Vyskytla se chyba
     Apply to subtasks: Aplikovat na podúkoly
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Spojit s existujícícm štítkem
     Associate with new tag: Spojit s novým štítkem
-    Author: *id005
+    Author: *id004
     Bug: Chyba
     Cancel: Zrušit
     Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Nemohu
@@ -202,6 +200,8 @@ cs:
         ikonu'
     Closed date: Datum dokončení
     Closed on: Ukončeno
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service: Nastavení synchronizační služby
     Confirm: Potvrdit
     Confirm task deletion: Potvrdit smazání úkolu
@@ -212,7 +212,7 @@ cs:
     Create a new task: Vytvořit nový úkol
     D_ismiss: _Zahodit
     Delete: Smazat
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Zakázat synchronizaci
     Dismiss: Zahodit
     Display only the currently actionable tasks: Zobrazit pouze v současnosti proveditelné
@@ -225,8 +225,8 @@ cs:
     Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: Kvůli
         síťovým potížím se nemohu spojit se synchronizační službou <b>%s</b>.
     Due today!: Termín dnes!
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Upravit
     Edit Tag...: Upravit štítek…
     Edit the selected task: Upravit vybraný úkol
@@ -450,7 +450,7 @@ cs:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad: Launchpad
     Learn How To Search For Tasks: Naučte se jak vyhledávat v úkolech
     Learn How To Use Plugins: Naučte se jak používat zásuvné moduly
@@ -503,7 +503,7 @@ cs:
     Open GTG help: Otevřít nápovědu GTG
     Open Task: Otevřít úkol
     'Password:': 'Heslo:'
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Trvale smazat vybraný úkol
     Permanently remove this task: Trvale vymazat tento úkol
     'Please install or start the following components:': 'Prosím, nainstalujte nebo
@@ -598,6 +598,7 @@ cs:
     Tags: Štítky
     Tags to sync: Synchronizovat štítky
     Task: Úkol
+    'Task: %{count}': 'Úkol: %{count}'
     Tasks: Úkoly
     'Tasks with                                                                 these tags:':
         many: null
@@ -765,7 +766,7 @@ cs:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         nebyl nalezen. Prosím nainstalujte program nebo vypněte Tomboy/Gnote plugin
         v GTG.
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday: Úterý
     Und_ismiss: Nez_ahodit
     Undismiss: Nezahodit
@@ -879,7 +880,7 @@ cs:
     :   many: null
         one: ''
     Work View: Pracovní pohled
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

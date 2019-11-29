@@ -1,26 +1,26 @@
 ' minutes': ' 分钟'
-'%{days}d days ago': '%{days}d 天前'
-'%{days}d days left': &id003
+'%{count} active tasks': '%{count} 个进行中的任务'
+'%{count} days ago': '%{count} 天前'
+'%{count} days left': &id003
     many: null
     one: ''
-'%{tasks}d active tasks': '%{tasks}d 个进行中的任务'
 Are you sure you want to delete these tasks?: &id001
     many: null
     one: ''
 Authors: 创作者
-Completed %{days}d days early: 提前 %{days}d 天完成
-Completed %{days}d days late: 延迟 %{days}d 天完成
+Completed %{count} days early: 提前 %{count} 天完成
+Completed %{count} days late: 延迟 %{count} 天完成
 'Deleting a task cannot be undone, and will delete the following tasks: ': &id002
     many: null
     one: ''
-In %{days}d days: '%{days}d 天后'
+In %{count} days: '%{count} 天后'
 Keep selected tasks: &id005
     many: null
     one: ''
 Permanently remove tasks: &id006
     many: null
     one: ''
-Was %{days}d days ago: &id004
+Was %{count} days ago: &id004
     many: null
     one: ''
 zh:
@@ -63,9 +63,7 @@ zh:
     ? '%s seems to be installed on your system, but it does not provide a DBus interface
         which is required by the Tomboy/Gnote plugin in GTG.'
     : '%s 似乎已存在于您的系统中，但是并没有提供Tomboy/Gnote插件所需的DBus接口。'
-    '%{days}d': 提前 %{days}d 天完成
-    '%{task_title}s': 任务：%{task_title}s
-    '%{tasks}d': '%{tasks}d 个进行中的任务'
+    '%{count} active task': '%{count} 个进行中的任务'
     <b>Dependencies</b>: <b>依赖关系</b>
     <b>Editor</b>: <b>编辑器</b>
     <b>Location Determination Method</b>: <b>位置判定方法</b>
@@ -164,6 +162,8 @@ zh:
         many: null
         one: ''
     Closed on: 结束于
+    Completed %{count} day early: 提前 %{count} 天完成
+    Completed %{count} day late: 延迟 %{count} 天完成
     Configure synchronization service:
         many: null
         one: ''
@@ -563,6 +563,7 @@ zh:
     Tags: 标签
     Tags to sync: 同步的标签
     Task: 任务
+    'Task: %{count}': 任务：%{count}
     Tasks:
         many: null
         one: ''
@@ -710,7 +711,7 @@ zh:
     Tomboy: Tomboy
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: 未找到
         Tomboy 或 Gnote。请安装这些软件，或在 GTG 中禁用 Tomboy/Gnote 插件。
-    Tomorrow: '%{days}d 天后'
+    Tomorrow: '%{count} 天后'
     Tuesday: 周二
     Und_ismiss: 取消解除(_i)
     Undismiss: 撤销解除
@@ -823,7 +824,7 @@ zh:
     :   many: null
         one: ''
     Work View: 工作视图
-    Yesterday: '%{days}d 天前'
+    Yesterday: '%{count} 天前'
     You can create, open or filter your tasks here: 你可以在这里创建、打开或者筛选你的任务
     'Your tasks are saved in a text file (XML format). ': '你的任务会保存在一个文本文件中(XML格式)。 '
     _About Plugin: 关于插件(_A)

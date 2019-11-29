@@ -1,40 +1,40 @@
 ' minutes': &id001
     many: ''
     one: ''
-'%{days}d days ago': &id012
-    many: Prieš %{days}d dienų
+'%{count} active tasks': &id002
+    many: '%{count} aktyvios užduotys'
+    one: '%{count} aktyvi užduotis'
+'%{count} days ago': &id013
+    many: Prieš %{count} dienų
     one: Vakar
-'%{days}d days left': &id007
+'%{count} days left': &id008
     many: ''
     one: ''
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d aktyvios užduotys'
-    one: '%{tasks}d aktyvi užduotis'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: ''
     one: ''
-Authors: &id005
+Authors: &id004
     many: ''
     one: ''
-Completed %{days}d days early: &id002
-    many: Užbaigta %{days}d dienomis anksčiau
-    one: Užbaigta %{days}d diena anksčiau
-Completed %{days}d days late:
-    many: Užbaigta %{days}d dienomis per vėlai
-    one: Užbaigta %{days}d diena per vėlai
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Užbaigta %{count} dienomis anksčiau
+    one: Užbaigta %{count} diena anksčiau
+Completed %{count} days late: &id006
+    many: Užbaigta %{count} dienomis per vėlai
+    one: Užbaigta %{count} diena per vėlai
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: ''
     one: ''
-In %{days}d days: &id011
-    many: Po %{days}d dienų
+In %{count} days: &id012
+    many: Po %{count} dienų
     one: Rytoj
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: ''
     one: ''
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: ''
     one: ''
-Was %{days}d days ago: &id008
+Was %{count} days ago: &id009
     many: ''
     one: ''
 lt:
@@ -71,11 +71,7 @@ lt:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Priklausomybės</b>
     <b>Editor</b>:
         many: null
@@ -164,10 +160,10 @@ lt:
         many: null
         one: ''
     Apply to subtasks: Pritaikyti použduotims
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Susieti su esama žyma
     Associate with new tag: Susieti su nauja žyma
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -194,6 +190,8 @@ lt:
         many: null
         one: ''
     Closed on: Užbaigta
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service:
         many: null
         one: ''
@@ -211,7 +209,7 @@ lt:
     Create a new task: Sukurti naują užduotį
     D_ismiss: _Pašalinti
     Delete: Ištrinti
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing:
         many: null
         one: ''
@@ -231,8 +229,8 @@ lt:
     Due today!:
         many: null
         one: ''
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Taisa
     Edit Tag...:
         many: null
@@ -446,7 +444,7 @@ lt:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad:
         many: null
         one: ''
@@ -547,7 +545,7 @@ lt:
     'Password:':
         many: null
         one: ''
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Negrįžtamai ištrinti pažymėtą užduotį
     Permanently remove this task: Negrįžtamai ištrinti šią užduotį
     'Please install or start the following components:': 'Įdiekite arba paleiskite
@@ -679,6 +677,9 @@ lt:
         many: null
         one: ''
     Task: Užduotis
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -839,7 +840,7 @@ lt:
         one: ''
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         nerastas. Įdiekite jį arba išjunkite GTG Tomboy/Gnote įskiepį.
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday:
         many: null
         one: ''
@@ -959,7 +960,7 @@ lt:
     :   many: null
         one: ''
     Work View: Darbinis rodinys
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

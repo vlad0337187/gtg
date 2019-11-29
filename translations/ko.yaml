@@ -1,13 +1,13 @@
 ' minutes': &id001
     many: null
     one: ''
-'%{days}d days ago': &id011
+'%{count} active tasks': &id002
     many: null
     one: ''
-'%{days}d days left': &id006
+'%{count} days ago': &id011
     many: null
     one: ''
-'%{tasks}d active tasks': &id002
+'%{count} days left': &id006
     many: null
     one: ''
 Are you sure you want to delete these tasks?: &id003
@@ -16,12 +16,12 @@ Are you sure you want to delete these tasks?: &id003
 Authors: &id004
     many: null
     one: ''
-Completed %{days}d days early: '%{days}d일 일찍 완료'
-Completed %{days}d days late: '%{days}d일 후에 완료'
+Completed %{count} days early: '%{count} 일찍 완료'
+Completed %{count} days late: '%{count} 후에 완료'
 'Deleting a task cannot be undone, and will delete the following tasks: ': &id005
     many: null
     one: ''
-In %{days}d days: &id010
+In %{count} days: &id010
     many: null
     one: ''
 Keep selected tasks: &id008
@@ -30,7 +30,7 @@ Keep selected tasks: &id008
 Permanently remove tasks: &id009
     many: null
     one: ''
-Was %{days}d days ago: &id007
+Was %{count} days ago: &id007
     many: null
     one: ''
 ko:
@@ -67,11 +67,7 @@ ko:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': '%{days}d일 일찍 완료'
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id002
+    '%{count} active task': *id002
     <b>Dependencies</b>: 의존성
     <b>Editor</b>:
         many: null
@@ -197,6 +193,8 @@ ko:
         many: null
         one: ''
     Closed on: 닫기
+    Completed %{count} day early: '%{count} 일찍 완료'
+    Completed %{count} day late: '%{count} 후에 완료'
     Configure synchronization service:
         many: null
         one: ''
@@ -684,6 +682,9 @@ ko:
         many: null
         one: ''
     Task: 할일
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''

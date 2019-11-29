@@ -1,40 +1,40 @@
 ' minutes': &id001
     many: ''
     one: ''
-'%{days}d days ago': &id012
-    many: '%{days}d hari yang lalu'
+'%{count} active tasks': &id002
+    many: '%{count} tugas aktif'
+    one: '%{count} tugas aktif'
+'%{count} days ago': &id013
+    many: '%{count} hari yang lalu'
     one: Semalam
-'%{days}d days left': &id007
+'%{count} days left': &id008
     many: ''
     one: ''
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d tugas aktif'
-    one: '%{tasks}d tugas aktif'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: ''
     one: ''
-Authors: &id005
+Authors: &id004
     many: ''
     one: ''
-Completed %{days}d days early: &id002
-    many: '%{days}d hari terawal selesai'
-    one: '%{days}d hari terawal selesai'
-Completed %{days}d days late:
-    many: '%{days}d hari terlambat selesai'
-    one: '%{days}d hari terlambat selesai'
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: '%{count} hari terawal selesai'
+    one: '%{count} hari terawal selesai'
+Completed %{count} days late: &id006
+    many: '%{count} hari terlambat selesai'
+    one: '%{count} hari terlambat selesai'
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: ''
     one: ''
-In %{days}d days: &id011
-    many: dalam %{days}d hari
+In %{count} days: &id012
+    many: dalam %{count} hari
     one: Esok
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: ''
     one: ''
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: ''
     one: ''
-Was %{days}d days ago: &id008
+Was %{count} days ago: &id009
     many: ''
     one: ''
 ms:
@@ -71,11 +71,7 @@ ms:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Dependencies</b>
     <b>Editor</b>:
         many: null
@@ -164,10 +160,10 @@ ms:
         many: null
         one: ''
     Apply to subtasks: Terap pada subtugasan
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Kaitkan dengan tag yang sedia ada
     Associate with new tag: Kaitkan dengan tag baru
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -194,6 +190,8 @@ ms:
         many: null
         one: ''
     Closed on: Ditutup pada
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service:
         many: null
         one: ''
@@ -211,7 +209,7 @@ ms:
     Create a new task: Binakan task baru
     D_ismiss: K_etepikan
     Delete: Padam
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing:
         many: null
         one: ''
@@ -232,8 +230,8 @@ ms:
     Due today!:
         many: null
         one: ''
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Sunting
     Edit Tag...:
         many: null
@@ -447,7 +445,7 @@ ms:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad:
         many: null
         one: ''
@@ -549,7 +547,7 @@ ms:
     'Password:':
         many: null
         one: ''
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Buang tugas yang dipilih
     Permanently remove this task: Buang tugas ini
     'Please install or start the following components:': 'Sila pasang atau mula komponen
@@ -682,6 +680,9 @@ ms:
         many: null
         one: ''
     Task: Tugas
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -843,7 +844,7 @@ ms:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         tidak dijumpai. Sila install program tersebut atau disable Tomboy/Gnote plugin
         dalam GTG
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday:
         many: null
         one: ''
@@ -963,7 +964,7 @@ ms:
     :   many: null
         one: ''
     Work View: Paparan Kerja
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

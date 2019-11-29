@@ -1,43 +1,43 @@
 ' minutes': &id001
     many: ' minutes'
     one: ' minute'
-'%{days}d days ago': &id012
-    many: Il y a %{days}d jours
+'%{count} active tasks': &id002
+    many: '%{count} tâches actives'
+    one: '%{count} tâche active'
+'%{count} days ago': &id013
+    many: Il y a %{count} jours
     one: Hier
-'%{days}d days left': &id007
-    many: '%{days}d jours restants'
+'%{count} days left': &id008
+    many: '%{count} jours restants'
     one: Pour demain !
-'%{tasks}d active tasks': &id003
-    many: '%{tasks}d tâches actives'
-    one: '%{tasks}d tâche active'
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: Voulez-vous vraiment supprimer ces tâches ?
     one: Voulez-vous vraiment supprimer cette tâche ?
-Authors: &id005
+Authors: &id004
     many: Auteurs
     one: Auteur
-Completed %{days}d days early: &id002
-    many: Terminée %{days}d jours en avance
-    one: Terminée %{days}d jour en avance
-Completed %{days}d days late:
-    many: Terminée avec %{days}d jours de retard
-    one: Terminée avec %{days}d jour de retard
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+Completed %{count} days early: &id005
+    many: Terminée %{count} jours en avance
+    one: Terminée %{count} jour en avance
+Completed %{count} days late: &id006
+    many: Terminée avec %{count} jours de retard
+    one: Terminée avec %{count} jour de retard
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: 'La suppression d''une tâche est irréversible et supprimera les tâches suivantes
         : '
     one: 'La suppression d''une tâche est irréversible et supprimera la tâche suivante
         : '
-In %{days}d days: &id011
-    many: Dans %{days}d jours
+In %{count} days: &id012
+    many: Dans %{count} jours
     one: Demain
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: Garder les tâches sélectionnées
     one: Garder la tâche sélectionnée
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: Supprimer les tâches définitivement
     one: Supprimer la tâche définitivement
-Was %{days}d days ago: &id008
-    many: Il y a %{days}d jours
+Was %{count} days ago: &id009
+    many: Il y a %{count} jours
     one: Pour hier !
 fr:
     ? '
@@ -73,9 +73,7 @@ fr:
         which is required by the Tomboy/Gnote plugin in GTG.'
     : '%s semble être installé sur votre système, mais ne fournit pas l''interface
         DBus requise par le plugin Tomboy/Gnote dans GTG.'
-    '%{days}d': *id002
-    '%{task_title}s': 'Tâche : %{task_title}s'
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Dépendances</b>
     <b>Editor</b>: <b>Éditeur</b>
     <b>Location Determination Method</b>: <b>Méthode de détermination de la position</b>
@@ -174,10 +172,10 @@ fr:
     All tasks: Toutes les tâches
     An error has occurred: Une erreur est survenue
     Apply to subtasks: Appliquer aux sous-tâches
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Associer avec une étiquette existante
     Associate with new tag: Associer avec une nouvelle étiquette
-    Author: *id005
+    Author: *id004
     Bug: Bug
     Cancel: Annuler
     Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Connexion
@@ -194,6 +192,8 @@ fr:
         l''icône'
     Closed date: Date de clôture
     Closed on: Terminée le
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service: Configurer le service de synchronisation
     Confirm: Confirmer
     Confirm task deletion: Confirmer la suppression de la tâche
@@ -204,7 +204,7 @@ fr:
     Create a new task: Créer une nouvelle tâche
     D_ismiss: _Abandonner
     Delete: Supprimer
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Désactiver la synchronisation
     Dismiss: Abandonner
     Display only the currently actionable tasks: Afficher uniquement les tâches réalisables
@@ -216,8 +216,8 @@ fr:
     Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: En
         raison d'un problème réseau, le service de synchronisation <b>%s</b> est injoignable.
     Due today!: Pour aujourd'hui !
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Modifier
     Edit Tag...: Modifier l'étiquette...
     Edit the selected task: Modifier la tache selectionnée
@@ -493,7 +493,7 @@ fr:
     It looks like an error has occurred.: Il semble qu'une erreur soit survenue.
     'Just these                                                                       tags:': 'Seulement
         ces mots-clés &nbsp:'
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad: Launchpad
     Learn How To Search For Tasks: Apprendre à chercher des tâches
     Learn How To Use Plugins: Apprendre à utiliser les extensions
@@ -543,7 +543,7 @@ fr:
     Open GTG help: Ouvrir l'aide de GTG
     Open Task: Ouvrir une tâche
     'Password:': 'Mot de passe :'
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Supprimer la tâche sélectionnée de façon
         permanente
     Permanently remove this task: Supprimer définitivement cette tâche
@@ -647,6 +647,7 @@ fr:
     Tags: Étiquettes
     Tags to sync: Étiquettes à synchroniser
     Task: Tâche
+    'Task: %{count}': 'Tâche : %{count}'
     Tasks: Tâches
     'Tasks with                                                                 these tags:': 'Tâches
         avec ces môts-clés &nbsp:'
@@ -865,7 +866,7 @@ fr:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
         non trouvé. Vous devriez l'installer ou désactiver le greffon Tomboy/Gnote
         dans GTG
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday: mardi
     Und_ismiss: Annuler l'a_bandon
     Undismiss: Restaurer
@@ -1076,7 +1077,7 @@ fr:
 
         L''équipe GTG.'
     Work View: Vue de travail
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here: Vous pouvez créer, ouvrir et filtrer
         vos tâches ici
     'Your tasks are saved in a text file (XML format). ': 'Vos tâches sont sauvegardées

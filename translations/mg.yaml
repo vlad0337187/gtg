@@ -1,34 +1,34 @@
 ' minutes': &id001
     many: null
     one: ''
-'%{days}d days ago': "Omaly\r\n%{days}d andro taloha"
-'%{days}d days left': &id007
+'%{count} active tasks': &id002
     many: null
     one: ''
-'%{tasks}d active tasks': &id003
+'%{count} days ago': "Omaly\r\n%{count} andro taloha"
+'%{count} days left': &id007
     many: null
     one: ''
-Are you sure you want to delete these tasks?: &id004
+Are you sure you want to delete these tasks?: &id003
     many: null
     one: ''
-Authors: &id005
+Authors: &id004
     many: null
     one: ''
-Completed %{days}d days early: &id002
+Completed %{count} days early: &id005
     many: null
     one: ''
-Completed %{days}d days late: Vita tara %{days}d andro
+Completed %{count} days late: Vita tara %{count} andro
 'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
     many: null
     one: ''
-In %{days}d days: "Rahampitso\r\nAfaka %{days}d andro"
+In %{count} days: "Rahampitso\r\nAfaka %{count} andro"
 Keep selected tasks: &id009
     many: null
     one: ''
 Permanently remove tasks: &id010
     many: null
     one: ''
-Was %{days}d days ago: &id008
+Was %{count} days ago: &id008
     many: null
     one: ''
 mg:
@@ -65,11 +65,7 @@ mg:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>:
         many: null
         one: ''
@@ -179,14 +175,14 @@ mg:
     Apply to subtasks:
         many: null
         one: ''
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag:
         many: null
         one: ''
     Associate with new tag:
         many: null
         one: ''
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -219,6 +215,8 @@ mg:
     Closed on:
         many: null
         one: ''
+    Completed %{count} day early: *id005
+    Completed %{count} day late: Vita tara %{count} andro
     Configure synchronization service:
         many: null
         one: ''
@@ -811,6 +809,9 @@ mg:
     Task:
         many: null
         one: ''
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks:
         many: null
         one: ''
@@ -981,7 +982,7 @@ mg:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG:
         many: null
         one: ''
-    Tomorrow: "Rahampitso\r\nAfaka %{days}d andro"
+    Tomorrow: "Rahampitso\r\nAfaka %{count} andro"
     Tuesday:
         many: null
         one: ''
@@ -1118,7 +1119,7 @@ mg:
     Work View:
         many: null
         one: ''
-    Yesterday: "Omaly\r\n%{days}d andro taloha"
+    Yesterday: "Omaly\r\n%{count} andro taloha"
     You can create, open or filter your tasks here:
         many: null
         one: ''

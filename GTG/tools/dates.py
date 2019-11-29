@@ -434,7 +434,7 @@ class Date(object):
             abs_days = abs(days_left)
             return translate('Yesterday', abs_days)
         elif days_left > 0 and days_left <= 15:
-            return translate('In %{days}d days', days_left)
+            return translate('In %{count} days', days_left)
         else:
             locale_format = locale.nl_langinfo(locale.D_FMT)
             if calendar.isleap(datetime.date.today().year):

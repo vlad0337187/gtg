@@ -1,43 +1,43 @@
 ' minutes': &id001
     many: ' Minuten'
     one: ' Minute'
-'%{days}d days ago': &id012
-    many: ''
-    one: ''
-'%{days}d days left': &id007
-    many: ''
-    one: ''
-'%{tasks}d active tasks': &id003
+'%{count} active tasks': &id002
     many: Aufgaben) aktive Aufgaben
     one: (Aufgaben) aktive Aufgabe
-Are you sure you want to delete these tasks?: &id004
+'%{count} days ago': &id013
+    many: ''
+    one: ''
+'%{count} days left': &id008
+    many: ''
+    one: ''
+Are you sure you want to delete these tasks?: &id003
     many: Bist du sicher, dass du diese Aufgaben löschen willst?
     one: Bist du sicher, dass du diese Aufgabe löschen willst?
-Authors: &id005
+Authors: &id004
     many: Autoren
     one: Autor
-Completed %{days}d days early: &id002
+Completed %{count} days early: &id005
     many: ''
     one: ''
-Completed %{days}d days late:
+Completed %{count} days late: &id006
     many: ''
     one: ''
-'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id007
     many: 'Das Löschen einer Aufgabe kann nicht rückgängig gemacht werden und wird
         die folgenden Aufgaben löschen: '
     one: 'Das Löschen einer Aufgabe kann nicht rückgängig gemacht werden und wird
         die folgende Aufgabe löschen: '
-In %{days}d days: &id011
+In %{count} days: &id012
     many: ''
     one: ''
-Keep selected tasks: &id009
+Keep selected tasks: &id010
     many: Behalte ausgewählte Aufgaben
     one: Behalte ausgwählte Aufgabe
-Permanently remove tasks: &id010
+Permanently remove tasks: &id011
     many: Dauerhaft Aufgaben entfernen
     one: Dauerhaft Aufgabe entfernen
-Was %{days}d days ago: &id008
-    many: War vor %{days}d fällig!
+Was %{count} days ago: &id009
+    many: War vor %{count} fällig!
     one: Gestern fällig!
 nds:
     ? '
@@ -75,11 +75,7 @@ nds:
         which is required by the Tomboy/Gnote plugin in GTG.'
     :   many: null
         one: ''
-    '%{days}d': *id002
-    '%{task_title}s':
-        many: null
-        one: ''
-    '%{tasks}d': *id003
+    '%{count} active task': *id002
     <b>Dependencies</b>: <b>Abhängigkeiten</b>
     <b>Editor</b>: <b>Editor</b>
     <b>Location Determination Method</b>:
@@ -163,10 +159,10 @@ nds:
     All tasks: Alle Aufgaben
     An error has occurred: Ein Fehler ist aufgetreten
     Apply to subtasks: Bei den Unteraufgaben verwenden
-    Are you sure you want to delete this task?: *id004
+    Are you sure you want to delete this task?: *id003
     Associate with existing tag: Mit vorhandenem Schlagwort assoziieren
     Associate with new tag: Mit neuem Schlagwort assoziieren
-    Author: *id005
+    Author: *id004
     Bug:
         many: null
         one: ''
@@ -188,6 +184,8 @@ nds:
         Setze Icon'
     Closed date: Abgeschlossenes Datum
     Closed on: Abgeschlossen am
+    Completed %{count} day early: *id005
+    Completed %{count} day late: *id006
     Configure synchronization service: Konfiguriere den Synchronisationsdienst
     Confirm: Bestätigen
     Confirm task deletion: Bestätige Löschen der Aufgabe
@@ -198,7 +196,7 @@ nds:
     Create a new task: Erstelle eine neue Aufgabe
     D_ismiss: A_aufgeben
     Delete: Löschen
-    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    'Deleting a task cannot be undone, and will delete the following task: ': *id007
     Disable syncing: Deaktiviere Synchronisieren
     Dismiss: Aufgeben
     Display only the currently actionable tasks: Zeige nur die aktuellen ausführbaren
@@ -212,8 +210,8 @@ nds:
         eines Netzwerksproblems, kann ich nicht den  <b>%s</b> Synchronisationsdienst
         kontaktieren.
     Due today!: Fällig heute!
-    Due tomorrow!: *id007
-    Due yesterday!: *id008
+    Due tomorrow!: *id008
+    Due yesterday!: *id009
     Edit: Bearbeiten
     Edit Tag...: Bearbeite Schlagwort
     Edit the selected task: Bearbeite die ausgewählte Aufgabe
@@ -406,7 +404,7 @@ nds:
     'Just these                                                                       tags:':
         many: null
         one: ''
-    Keep selected task: *id009
+    Keep selected task: *id010
     Launchpad:
         many: null
         one: ''
@@ -487,7 +485,7 @@ nds:
     Open GTG help: Öffne GTG Hilfe
     Open Task: Öffne Aufgabe
     'Password:': 'Passwort:'
-    Permanently remove task: *id010
+    Permanently remove task: *id011
     Permanently remove the selected task: Dauerhaft die ausgewählte Aufgabe entfernen
     Permanently remove this task: Dauerhaft diese Aufgabe entfernen
     'Please install or start the following components:':
@@ -593,6 +591,9 @@ nds:
     Tags: Tags
     Tags to sync: Schlagwörter zum  Synchronisieren
     Task: Aufgabe
+    'Task: %{count}':
+        many: null
+        one: ''
     Tasks: Aufgaben
     'Tasks with                                                                 these tags:': 'Aufgaben
         mit diesen Schlagworten:'
@@ -759,7 +760,7 @@ nds:
     Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG:
         many: null
         one: ''
-    Tomorrow: *id011
+    Tomorrow: *id012
     Tuesday:
         many: null
         one: ''
@@ -884,7 +885,7 @@ nds:
     :   many: null
         one: ''
     Work View: Arbeitsansicht
-    Yesterday: *id012
+    Yesterday: *id013
     You can create, open or filter your tasks here:
         many: null
         one: ''

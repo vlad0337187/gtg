@@ -16,6 +16,10 @@ def init():
     i18n.load_path.append(dirs.TRANSLATIONS_DIR)
 
 
-def translate(phrase_single, count=1):
-    translated = i18n.t(phrase_single, count=count)
+def translate(phrase_single, count=None):
+    if count:
+        translated = i18n.t(phrase_single, count=count)
+    else:
+        translated = i18n.t(phrase_single)  # avoid pluralization, more fast
+
     return translated

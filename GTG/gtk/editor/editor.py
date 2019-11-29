@@ -396,22 +396,22 @@ class TaskEditor(object):
             elif delay == 0:
                 txt = "Completed on time"
             elif delay >= 1:
-                txt = translate("Completed %{days}d day late", delay)
+                txt = translate("Completed %{count} day late", delay)
             elif delay <= -1:
                 abs_delay = abs(delay)
-                txt = translate("Completed %{days}d day early", abs_delay)
+                txt = translate("Completed %{count} day early", abs_delay)
         else:
             due_date = self.task.get_due_date()
             result = due_date.days_left()
             if due_date.is_fuzzy():
                 txt = ""
             elif result > 0:
-                txt = translate("%{days}d days left", result)
+                txt = translate("%{count} days left", result)
             elif result == 0:
                 txt = translate("Due today!")
             elif result < 0:
                 abs_result = abs(result)
-                txt = translate("Was %{days}d days ago",  abs_result)
+                txt = translate("Was %{count} days ago",  abs_result)
 
         style_context = self.window.get_style_context()
         color = style_context.get_color(Gtk.StateFlags.INSENSITIVE).to_color()
