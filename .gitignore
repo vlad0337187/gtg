@@ -8,6 +8,8 @@ tmp
 **/**.glade.h
 **/**.gladep
 **/**.gladep.bak
+# temporary .ui files of glade
+**.ui~
 MANIFEST
 **.patch
 gtg.prof

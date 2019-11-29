@@ -119,27 +119,28 @@ class TaskBrowser(GObject.GObject):
         """
         defines aliases for UI elements found in the glide file
         """
-        self.window = self.builder.get_object("MainWindow")
-        self.taskpopup = self.builder.get_object("task_context_menu")
-        self.defertopopup = self.builder.get_object("defer_to_context_menu")
-        self.ctaskpopup = self.builder.get_object("closed_task_context_menu")
-        self.about = self.builder.get_object("about_dialog")
-        self.main_pane = self.builder.get_object("main_pane")
-        self.workview_pane = self.builder.get_object("workview_pane")
-        self.closed_pane = self.builder.get_object("closed_pane")
+        self.window             = self.builder.get_object("MainWindow")
+        self.main_menu          = self.builder.get_object("main_menu")
+        self.taskpopup          = self.builder.get_object("task_context_menu")
+        self.defertopopup       = self.builder.get_object("defer_to_context_menu")
+        self.ctaskpopup         = self.builder.get_object("closed_task_context_menu")
+        self.about              = self.builder.get_object("about_dialog")
+        self.main_pane          = self.builder.get_object("main_pane")
+        self.workview_pane      = self.builder.get_object("workview_pane")
+        self.closed_pane        = self.builder.get_object("closed_pane")
         self.menu_view_workview = self.builder.get_object("view_workview")
-        self.toggle_workview = self.builder.get_object("workview_toggle")
-        self.search_entry = self.builder.get_object("search_entry")
-        self.searchbar = self.builder.get_object("searchbar")
-        self.search_button = self.builder.get_object("search_button")
-        self.quickadd_entry = self.builder.get_object("quickadd_field")
-        self.quickadd_pane = self.builder.get_object("quickadd_pane")
-        self.sidebar = self.builder.get_object("sidebar_vbox")
-        self.sidebar_container = self.builder.get_object("sidebar-scroll")
-        self.sidebar_notebook = self.builder.get_object("sidebar_notebook")
-        self.main_notebook = self.builder.get_object("main_notebook")
+        self.toggle_workview    = self.builder.get_object("workview_toggle")
+        self.search_entry       = self.builder.get_object("search_entry")
+        self.searchbar          = self.builder.get_object("searchbar")
+        self.search_button      = self.builder.get_object("search_button")
+        self.quickadd_entry     = self.builder.get_object("quickadd_field")
+        self.quickadd_pane      = self.builder.get_object("quickadd_pane")
+        self.sidebar            = self.builder.get_object("sidebar_vbox")
+        self.sidebar_container  = self.builder.get_object("sidebar-scroll")
+        self.sidebar_notebook   = self.builder.get_object("sidebar_notebook")
+        self.main_notebook      = self.builder.get_object("main_notebook")
         self.accessory_notebook = self.builder.get_object("accessory_notebook")
-        self.vbox_toolbars = self.builder.get_object("vbox_toolbars")
+        self.vbox_toolbars      = self.builder.get_object("vbox_toolbars")
 
         self.tagpopup = TagContextMenu(self.req, self.vmanager)
 
@@ -202,162 +203,97 @@ class TaskBrowser(GObject.GObject):
         """
         Show the about dialog
         """
-        self.about.set_website(info.URL)
-        self.about.set_website_label(info.URL)
-        self.about.set_version(info.VERSION)
-        self.about.set_authors(info.AUTHORS)
-        self.about.set_artists(info.ARTISTS)
-        self.about.set_documenters(info.DOCUMENTERS)
+        self.about.set_website           (info.URL)
+        self.about.set_website_label     (info.URL)
+        self.about.set_version           (info.VERSION)
+        self.about.set_authors           (info.AUTHORS)
+        self.about.set_artists           (info.ARTISTS)
+        self.about.set_documenters       (info.DOCUMENTERS)
         self.about.set_translator_credits(info.TRANSLATORS)
 
     def _init_signal_connections(self):
         """
         connects signals on UI elements
         """
+
         SIGNAL_CONNECTIONS_DIC = {
-            "on_add_task":
-            self.on_add_task,
-            "on_edit_active_task":
-            self.on_edit_active_task,
-            "on_edit_done_task":
-            self.on_edit_done_task,
-            "on_delete_task":
-            self.on_delete_tasks,
-            "on_modify_tags":
-            self.on_modify_tags,
-            "on_mark_as_done":
-            self.on_mark_as_done,
-            "on_mark_as_started":
-            self.on_mark_as_started,
-            "on_start_for_tomorrow":
-            self.on_start_for_tomorrow,
-            "on_start_for_next_week":
-            self.on_start_for_next_week,
-            "on_start_for_next_month":
-            self.on_start_for_next_month,
-            "on_start_for_next_year":
-            self.on_start_for_next_year,
-            "on_start_for_specific_date":
-            self.on_start_for_specific_date,
-            "on_start_clear":
-            self.on_start_clear,
-            "on_set_due_today":
-            self.on_set_due_today,
-            "on_set_due_tomorrow":
-            self.on_set_due_tomorrow,
-            "on_set_due_next_week":
-            self.on_set_due_next_week,
-            "on_set_due_next_month":
-            self.on_set_due_next_month,
-            "on_set_due_next_year":
-            self.on_set_due_next_year,
-            "on_set_due_soon":
-            self.on_set_due_soon,
-            "on_set_due_someday":
-            self.on_set_due_someday,
-            "on_set_due_for_specific_date":
-            self.on_set_due_for_specific_date,
-            "on_set_due_clear":
-            self.on_set_due_clear,
-            "on_dismiss_task":
-            self.on_dismiss_task,
-            "on_move":
-            self.on_move,
-            "on_size_allocate":
-            self.on_size_allocate,
-            "gtk_main_quit":
-            self.on_close,
-            "on_add_subtask":
-            self.on_add_subtask,
-            "on_tagcontext_deactivate":
-            self.on_tagcontext_deactivate,
-            "on_view_sidebar_toggled":
-            self.on_sidebar_toggled,
-            "on_quickadd_field_activate":
-            self.on_quickadd_activate,
-            "on_quickadd_field_icon_press":
-            self.on_quickadd_iconpress,
-            "on_view_quickadd_toggled":
-            self.on_toggle_quickadd,
-            "on_about_clicked":
-            self.on_about_clicked,
-            "on_about_delete":
-            self.on_about_close,
-            "on_about_close":
-            self.on_about_close,
-            "on_documentation_clicked":
-            lambda w: openurl(info.HELP_URI),
-            "on_translate_clicked":
-            lambda w: openurl(info.TRANSLATE_URL),
-            "on_report_bug_clicked":
-            lambda w: openurl(info.REPORT_BUG_URL),
-            "on_preferences_activate":
-            self.open_preferences,
-            "on_edit_plugins_activate":
-            self.open_plugins,
-            "on_edit_backends_activate":
-            self.open_edit_backends,
-            "on_search_activate":
-            self.on_search_toggled,
-            "on_save_search":
-            self.on_save_search,
-            "on_search":
-            self.on_search,
+            "on_add_task"                 : self.on_add_task,
+            "on_edit_active_task"         : self.on_edit_active_task,
+            "on_edit_done_task"           : self.on_edit_done_task,
+            "on_delete_task"              : self.on_delete_tasks,
+            "on_modify_tags"              : self.on_modify_tags,
+            "on_mark_as_done"             : self.on_mark_as_done,
+            "on_mark_as_started"          : self.on_mark_as_started,
+            "on_start_for_tomorrow"       : self.on_start_for_tomorrow,
+            "on_start_for_next_week"      : self.on_start_for_next_week,
+            "on_start_for_next_month"     : self.on_start_for_next_month,
+            "on_start_for_next_year"      : self.on_start_for_next_year,
+            "on_start_for_specific_date"  : self.on_start_for_specific_date,
+            "on_start_clear"              : self.on_start_clear,
+            "on_set_due_today"            : self.on_set_due_today,
+            "on_set_due_tomorrow"         : self.on_set_due_tomorrow,
+            "on_set_due_next_week"        : self.on_set_due_next_week,
+            "on_set_due_next_month"       : self.on_set_due_next_month,
+            "on_set_due_next_year"        : self.on_set_due_next_year,
+            "on_set_due_soon"             : self.on_set_due_soon,
+            "on_set_due_someday"          : self.on_set_due_someday,
+            "on_set_due_for_specific_date": self.on_set_due_for_specific_date,
+            "on_set_due_clear"            : self.on_set_due_clear,
+            "on_dismiss_task"             : self.on_dismiss_task,
+            "on_move"                     : self.on_move,
+            "on_size_allocate"            : self.on_size_allocate,
+            "gtk_main_quit"               : self.on_close,
+            "on_add_subtask"              : self.on_add_subtask,
+            "on_tagcontext_deactivate"    : self.on_tagcontext_deactivate,
+            "on_view_sidebar_toggled"     : self.on_sidebar_toggled,
+            "on_quickadd_field_activate"  : self.on_quickadd_activate,
+            "on_quickadd_field_icon_press": self.on_quickadd_iconpress,
+            "on_view_quickadd_toggled"    : self.on_toggle_quickadd,
+            "on_about_clicked"            : self.on_about_clicked,
+            "on_about_delete"             : self.on_about_close,
+            "on_about_close"              : self.on_about_close,
+            "on_documentation_clicked"    : lambda w: openurl(info.HELP_URI),
+            "on_translate_clicked"        : lambda w: openurl(info.TRANSLATE_URL),
+            "on_report_bug_clicked"       : lambda w: openurl(info.REPORT_BUG_URL),
+            "on_preferences_activate"     : self.open_preferences,
+            "on_edit_plugins_activate"    : self.open_plugins,
+            "on_edit_backends_activate"   : self.open_edit_backends,
+            "on_search_activate"          : self.on_search_toggled,
+            "on_save_search"              : self.on_save_search,
+            "on_search"                   : self.on_search,
+            "on_main_menu_button_pressed" : lambda widget: self.main_menu.popup(None, None, None, None, 0, 0)
         }
         self.builder.connect_signals(SIGNAL_CONNECTIONS_DIC)
 
         # When destroying this window, quit GTG
-        self.window.connect("destroy", self.quit)
+        self.window.connect("destroy",      self.quit)
         self.window.connect("delete-event", self.quit)
 
         # Active tasks TreeView
-        self.vtree_panes['active'].connect('row-activated',
-                                           self.on_edit_active_task)
-        tsk_treeview_btn_press = self.on_task_treeview_button_press_event
-        self.vtree_panes['active'].connect('button-press-event',
-                                           tsk_treeview_btn_press)
-        task_treeview_key_press = self.on_task_treeview_key_press_event
-        self.vtree_panes['active'].connect('key-press-event',
-                                           task_treeview_key_press)
-        self.vtree_panes['active'].connect('node-expanded',
-                                           self.on_task_expanded)
-        self.vtree_panes['active'].connect('node-collapsed',
-                                           self.on_task_collapsed)
+        self.vtree_panes['active'].connect('row-activated',      self.on_edit_active_task)
+        self.vtree_panes['active'].connect('button-press-event', self.on_task_treeview_button_press_event)
+        self.vtree_panes['active'].connect('key-press-event',    self.on_task_treeview_key_press_event)
+        self.vtree_panes['active'].connect('node-expanded',      self.on_task_expanded)
+        self.vtree_panes['active'].connect('node-collapsed',     self.on_task_collapsed)
 
         # Workview tasks TreeView
-        self.vtree_panes['workview'].connect('row-activated',
-                                             self.on_edit_active_task)
-        tsk_treeview_btn_press = self.on_task_treeview_button_press_event
-        self.vtree_panes['workview'].connect('button-press-event',
-                                             tsk_treeview_btn_press)
-        task_treeview_key_press = self.on_task_treeview_key_press_event
-        self.vtree_panes['workview'].connect('key-press-event',
-                                             task_treeview_key_press)
-        self.vtree_panes['workview'].connect('node-expanded',
-                                             self.on_task_expanded)
-        self.vtree_panes['workview'].connect('node-collapsed',
-                                             self.on_task_collapsed)
+        self.vtree_panes['workview'].connect('row-activated',      self.on_edit_active_task)
+        self.vtree_panes['workview'].connect('button-press-event', self.on_task_treeview_button_press_event)
+        self.vtree_panes['workview'].connect('key-press-event',    self.on_task_treeview_key_press_event)
+        self.vtree_panes['workview'].connect('node-expanded',      self.on_task_expanded)
+        self.vtree_panes['workview'].connect('node-collapsed',     self.on_task_collapsed)
         self.vtree_panes['workview'].set_col_visible('startdate', False)
 
         # Closed tasks Treeview
-        self.vtree_panes['closed'].connect('row-activated',
-                                           self.on_edit_done_task)
-        # I did not want to break the variable and there was no other
-        # option except this name:(Nimit)
-        clsd_tsk_btn_prs = self.on_closed_task_treeview_button_press_event
-        self.vtree_panes['closed'].connect('button-press-event',
-                                           clsd_tsk_btn_prs)
-        clsd_tsk_key_prs = self.on_closed_task_treeview_key_press_event
-        self.vtree_panes['closed'].connect('key-press-event',
-                                           clsd_tsk_key_prs)
+        self.vtree_panes['closed'].connect('row-activated',      self.on_edit_done_task)
+        self.vtree_panes['closed'].connect('button-press-event', self.on_closed_task_treeview_button_press_event)
+        self.vtree_panes['closed'].connect('key-press-event',    self.on_closed_task_treeview_key_press_event)
         self.closedtree.apply_filter(self.get_selected_tags()[0], refresh=True)
 
         b_signals = BackendSignals()
-        b_signals.connect(b_signals.BACKEND_FAILED, self.on_backend_failed)
-        b_signals.connect(b_signals.BACKEND_STATE_TOGGLED,
-                          self.remove_backend_infobar)
-        b_signals.connect(b_signals.INTERACTION_REQUESTED,
-                          self.on_backend_needing_interaction)
+        b_signals.connect(b_signals.BACKEND_FAILED,        self.on_backend_failed)
+        b_signals.connect(b_signals.BACKEND_STATE_TOGGLED, self.remove_backend_infobar)
+        b_signals.connect(b_signals.INTERACTION_REQUESTED, self.on_backend_needing_interaction)
         self.selection = self.vtree_panes['active'].get_selection()
 
     def _add_accelerator_for_widget(self, agr, name, accel):
