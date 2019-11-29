@@ -34,7 +34,7 @@ from GTG.backends.periodicimportbackend import PeriodicImportBackend
 from GTG.backends.syncengine import SyncEngine, SyncMeme
 from GTG.core.dirs import SYNC_CACHE_DIR
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.info import NAME as GTG_NAME
 from GTG.tools.logger import Log
 
@@ -48,11 +48,11 @@ class Backend(PeriodicImportBackend):
 
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_launchpad",
-        GenericBackend.BACKEND_HUMAN_NAME: _("Launchpad"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("Launchpad"),
         GenericBackend.BACKEND_AUTHORS: ["Luca Invernizzi"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READONLY,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("This synchronization service lets you import the bugs assigned"
+        translate("This synchronization service lets you import the bugs assigned"
           " to you (or someone else) on Launchpad in GTG. As the"
           " bug state changes in Launchpad, the GTG task is "
           " updated.\n"
@@ -236,7 +236,7 @@ class Backend(PeriodicImportBackend):
             task.set_status(Task.STA_ACTIVE)
         if task.get_title() != bug_dic['title']:
             task.set_title("{} {}: {}".format(
-                _("Bug"), bug_dic["number"], bug_dic['title']))
+                translate("Bug"), bug_dic["number"], bug_dic['title']))
         text = self._build_bug_text(bug_dic)
         if task.get_excerpt() != text:
             task.set_text(text)
@@ -317,11 +317,11 @@ class Backend(PeriodicImportBackend):
         '''
         Creates the text that describes a bug
         '''
-        text = _("Reported by: ") + '%s(karma: %s)' % \
+        text = translate("Reported by: ") + '%s(karma: %s)' % \
             (bug_dic["owner"], bug_dic["owner_karma"]) + '\n'
         # one link is enough, since they're all alias
         bug_project = bug_dic['projects'][0]['project_short']
-        text += _("Link to bug: ") + \
+        text += translate("Link to bug: ") + \
             "https://bugs.edge.launchpad.net/%s/+bug/%s" % \
             (bug_project, bug_dic["number"]) + '\n'
         text += '\n' + bug_dic["text"]

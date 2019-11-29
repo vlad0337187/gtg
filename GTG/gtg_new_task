@@ -27,7 +27,7 @@ import sys
 
 from optparse import OptionParser
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 
 def new_task(title, body):
@@ -43,7 +43,7 @@ def main():
     parser = OptionParser()
     parser.add_option('-i', '--interactive', action='store_true',
                       dest='interactive',
-                      help=_("Use input as the text of a new task"),
+                      help=translate("Use input as the text of a new task"),
                       default=False)
     (options, args) = parser.parse_args()
 

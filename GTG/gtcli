@@ -23,7 +23,7 @@ import getopt
 import textwrap
 from datetime import datetime, date, timedelta
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 MSG_ERROR_TASK_ID_INVALID = '[Error] Task ID Invalid'
 
@@ -32,37 +32,37 @@ def usage():
     """ Print usage info """
     spaces = "  %-30s %s\n"
 
-    text = _("gtcli -- a command line interface to gtg\n")
+    text = translate("gtcli -- a command line interface to gtg\n")
     text += "\n"
 
-    text += _("Options:\n")
-    text += spaces % ("-h, --help", _("This help"))
+    text += translate("Options:\n")
+    text += spaces % ("-h, --help", translate("This help"))
     text += "\n"
 
-    text += _("Basic commands:\n")
-    text += spaces % ("gtcli new", _("Create a new task"))
+    text += translate("Basic commands:\n")
+    text += spaces % ("gtcli new", translate("Create a new task"))
     text += spaces % ("gtcli show <tid>",
-                      _("Display detailed information on given task id"))
+                      translate("Display detailed information on given task id"))
     text += spaces % ("gtcli edit <tid>",
-                      _("Opens the GUI editor for the given task id"))
+                      translate("Opens the GUI editor for the given task id"))
     text += spaces % ("gtcli delete <tid>",
-                      _("Removes task identified by tid"))
+                      translate("Removes task identified by tid"))
     text += spaces % ("gtcli list [all|today|<filter>|<tag>]...",
-                      _("List tasks"))
-    text += spaces % ("gtcli search <expression>", _("Search tasks"))
+                      translate("List tasks"))
+    text += spaces % ("gtcli search <expression>", translate("Search tasks"))
     text += spaces % ("gtcli count [all|today|<filter>|<tag>]...",
-                      _("Number of tasks"))
+                      translate("Number of tasks"))
     text += spaces % ("gtcli summary [all|today|<filter>|<tag>]...",
-                      _("Report how many tasks starting/due each day"))
+                      translate("Report how many tasks starting/due each day"))
     text += spaces % ("gtcli overview <count of days>",
-                      _("Report which tasks are scheduled on each day, \
+                      translate("Report which tasks are scheduled on each day, \
                         default 7 days"))
     text += spaces % ("gtcli postpone <tid> <date>",
-                      _("Updates the start date of task"))
+                      translate("Updates the start date of task"))
     text += spaces % ("gtcli close <tid>",
-                      _("Sets state of task identified by tid to closed"))
+                      translate("Sets state of task identified by tid to closed"))
     text += spaces % ("gtcli browser [hide|show]",
-                      _("Hides or shows the task browser window"))
+                      translate("Hides or shows the task browser window"))
 
     text += "\n"
     text += "http://gtg.fritalk.com/\n"

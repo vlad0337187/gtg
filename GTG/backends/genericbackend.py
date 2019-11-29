@@ -57,12 +57,12 @@ class GenericBackend(object):
     # _general_description has this format:
     # _general_description = {
     #    GenericBackend.BACKEND_NAME:       "backend_unique_identifier", \
-    #    GenericBackend.BACKEND_HUMAN_NAME: _("Human friendly name"), \
+    #    GenericBackend.BACKEND_HUMAN_NAME: translate("Human friendly name"), \
     #    GenericBackend.BACKEND_AUTHORS:    ["First author", \
     #                                        "Chuck Norris"], \
     #    GenericBackend.BACKEND_TYPE:       GenericBackend.TYPE_READWRITE, \
     #    GenericBackend.BACKEND_DESCRIPTION: \
-    #        _("Short description of the backend"),\
+    #        translate("Short description of the backend"),\
     #    }
     # The complete list of constants and their meaning is given below.
     _general_description = {}

@@ -21,7 +21,7 @@
 
 Tasks should serve as a quick tutorial how GTG works """
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools import cleanxml
 from GTG.tools.tags import extract_tags_from_text
 
@@ -32,8 +32,8 @@ def populate():
     doc, root = cleanxml.emptydoc("project")
 
     # Task 0@1: Getting started with GTG
-    title1 = _("Getting Started With GTG")
-    text1 = _(
+    title1 = translate("Getting Started With GTG")
+    text1 = translate(
         "Welcome to Getting Things GNOME!, your new task manager! In Getting "
         "Things GNOME! (GTG), everything is a task. From building a bridge"
         " over the Pacific Ocean to changing a light bulb or organizing a"
@@ -111,8 +111,8 @@ def populate():
     root.appendChild(task1)
 
     # Task 1@1: Learn to use subtasks
-    title2 = _("Learn How To Use Subtasks")
-    text2 = _(
+    title2 = translate("Learn How To Use Subtasks")
+    text2 = translate(
         "A &quot;Subtask&quot; is something that you need to do first before "
         "being able to accomplish your task. In GTG, the purpose of subtasks "
         "is to cut down a task in smaller subtasks that are easier to achieve"
@@ -139,8 +139,8 @@ def populate():
     root.appendChild(task2)
 
     # Task 2@1: Learn to use tags
-    title3 = _("Learn How To Use Tags")
-    text3 = _(
+    title3 = translate("Learn How To Use Tags")
+    text3 = translate(
         "In GTG, you use tags to sort your tasks. A tag is a simple word that"
         " begins with &quot;@&quot;.\n"
         "\n"
@@ -171,8 +171,8 @@ def populate():
     root.appendChild(task3)
 
     # Task 3@1: Using the Workview
-    title4 = _("Learn How To Use The Work View")
-    text4 = _(
+    title4 = translate("Learn How To Use The Work View")
+    text4 = translate(
         "If you press the &quot;Work View&quot; button, only actionable tasks"
         " will be displayed in your list.\n"
         "\n"
@@ -207,8 +207,8 @@ def populate():
     root.appendChild(task4)
 
     # Task 5@1: Plugins
-    title5 = _("Learn How To Use Plugins")
-    text5 = _(
+    title5 = translate("Learn How To Use Plugins")
+    text5 = translate(
         "GTG has the ability to add plugins to extend its core functionality."
         "\n\n"
         "Some examples of the currently available plugins are the "
@@ -222,8 +222,8 @@ def populate():
     root.appendChild(task5)
 
     # Task 5@1: Reporting bugs
-    title6 = _("Reporting Bugs")
-    text6 = _(
+    title6 = translate("Reporting Bugs")
+    text6 = translate(
         "GTG is still beta software. We like it and use it everyday but you "
         "will probably encounter some bugs will you do.\n"
         "\n"
@@ -239,8 +239,8 @@ def populate():
     root.appendChild(task6)
 
     # Task 6@1: Learn how to use the QuickAdd Entry
-    title7 = _("Learn How To Use The Quick Add Entry")
-    text7 = _(
+    title7 = translate("Learn How To Use The Quick Add Entry")
+    text7 = translate(
         "The Quick Add Entry is the fastest way to create a new task. Use "
         "the check box in the View menu to enable and disable the entry field"
         ".\n\n"
@@ -286,8 +286,8 @@ def populate():
     root.appendChild(task7)
 
     # Task 7@1: Learn How To Use Synchonization Services
-    title8 = _("Learn How To Use Synchronization Services")
-    text8 = _(
+    title8 = translate("Learn How To Use Synchronization Services")
+    text8 = translate(
         "Synchronization Services allow GTG to synchronize (meaning to have "
         "access or to import) tasks, notes or bugs from other sites or "
         "services like Launchpad, Remember the Milk, Tomboy, etc.\n"
@@ -310,8 +310,8 @@ def populate():
     root.appendChild(task8)
 
     # Task 8@1: Learn How To Search For Tasks
-    title9 = _("Learn How To Search For Tasks")
-    text9 = _(
+    title9 = translate("Learn How To Search For Tasks")
+    text9 = translate(
         "To help you to find specific tasks more easily, GTG allows you to "
         "search for tasks based on their content.\n"
         "\n"

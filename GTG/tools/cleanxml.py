@@ -94,13 +94,15 @@ def readTextNode(node, title):
 
 def _try_openxmlfile(zefile, root):
     """ Open an XML file and clean whitespaces in it """
-    f = open(zefile, "r")
-    stringed = f.read()
+
+    with open(zefile, encoding='utf-8') as file:
+        stringed = file.read()
+
     stringed = cleanString(stringed, tab, enter)
-    doc = xml.dom.minidom.parseString(stringed)
+    doc      = xml.dom.minidom.parseString(stringed)
     cleanDoc(doc, tab, enter)
     xmlproject = doc.getElementsByTagName(root)[0]
-    f.close()
+
     return doc, xmlproject
 
 

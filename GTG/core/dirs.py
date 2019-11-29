@@ -54,6 +54,8 @@ if os.path.exists(USER_PLUGINS_DIR):
 
 UI_DIR = os.path.join(local_rootdir, 'GTG', 'gtk', 'ui')
 
+TRANSLATIONS_DIR = os.path.join(local_rootdir, 'translations')
+
 
 def plugin_configuration_dir(plugin_name):
     """ Returns the directory for plugin configuration. """

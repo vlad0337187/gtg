@@ -34,7 +34,7 @@ import os
 
 from gi.repository import GObject, Gtk, Gdk, Pango
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.editor import taskviewserial
 from GTG.tools import urlregex
 
@@ -1423,13 +1423,13 @@ class TaskView(Gtk.TextView):
             popup.prepend(item_separator)
 
             item_open_link = Gtk.MenuItem()
-            item_open_link.set_label(_("Open Link"))
+            item_open_link.set_label(translate("Open Link"))
             item_open_link.connect("activate", self.__open_link,
                                    self.__clicked_link)
             popup.prepend(item_open_link)
 
             item_copy_link = Gtk.MenuItem()
-            item_copy_link.set_label(_("Copy Link to Clipboard"))
+            item_copy_link.set_label(translate("Copy Link to Clipboard"))
             item_copy_link.connect("activate", self.__copy_link,
                                    self.__clicked_link)
             popup.prepend(item_copy_link)

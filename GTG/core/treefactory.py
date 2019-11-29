@@ -22,7 +22,7 @@ from datetime import datetime
 from GTG.core.search import search_filter
 from GTG.core import tag
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 from liblarch import Tree
 
@@ -74,7 +74,7 @@ class TreeFactory(object):
         alltag = tag.Tag(tag.ALLTASKS_TAG, req=req)
         alltag.set_attribute("special", "all")
         alltag.set_attribute("label", "<span weight='bold'>%s</span>"
-                             % _("All tasks"))
+                             % translate("All tasks"))
         alltag.set_attribute("icon", "gtg-tags-all")
         alltag.set_attribute("order", 0)
         tagtree.add_node(alltag)
@@ -85,7 +85,7 @@ class TreeFactory(object):
         notag_tag = tag.Tag(tag.NOTAG_TAG, req=req)
         notag_tag.set_attribute("special", "notag")
         notag_tag.set_attribute("label", "<span weight='bold'>%s</span>"
-                                % _("Tasks with no tags"))
+                                % translate("Tasks with no tags"))
         notag_tag.set_attribute("icon", "gtg-tags-none")
         notag_tag.set_attribute("order", 2)
         tagtree.add_node(notag_tag)
@@ -97,7 +97,7 @@ class TreeFactory(object):
         search_tag = tag.Tag(tag.SEARCH_TAG, req=req)
         search_tag.set_attribute("special", "search")
         search_tag.set_attribute("label",
-                                 "<span weight='bold'>%s</span>" % _("Search"))
+                                 "<span weight='bold'>%s</span>" % translate("Search"))
         search_tag.set_attribute("icon", "search")
         search_tag.set_attribute("order", 1)
         tagtree.add_node(search_tag)

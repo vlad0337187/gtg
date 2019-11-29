@@ -25,7 +25,7 @@ from gi.repository import GObject, Gtk, Pango
 from GTG.core.search import parse_search_query, search_filter
 from GTG.core.tag import SEARCH_TAG
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk import colors
 from GTG.gtk.browser.CellRendererTags import CellRendererTags
 from GTG.tools.dates import Date
@@ -279,7 +279,7 @@ class TreeviewFactory(object):
         col = {}
         render_tags = CellRendererTags()
         render_tags.set_property('ypad', 3)
-        col['title'] = _("Tags")
+        col['title'] = translate("Tags")
         col['renderer'] = ['tag', render_tags]
         col['value'] = [GObject.TYPE_PYOBJECT, lambda node: node]
         col['expandable'] = False
@@ -322,7 +322,7 @@ class TreeviewFactory(object):
         # "startdate" column
         col_name = 'startdate'
         col = {}
-        col['title'] = _("Start date")
+        col['title'] = translate("Start date")
         col['expandable'] = False
         col['resizable'] = False
         col['value'] = [str, self.task_sdate_column]
@@ -333,7 +333,7 @@ class TreeviewFactory(object):
         # 'duedate' column
         col_name = 'duedate'
         col = {}
-        col['title'] = _("Due")
+        col['title'] = translate("Due")
         col['expandable'] = False
         col['resizable'] = False
         col['value'] = [str, self.task_duedate_column]
@@ -353,7 +353,7 @@ class TreeviewFactory(object):
         # "startdate" column
         col_name = 'closeddate'
         col = {}
-        col['title'] = _("Closed date")
+        col['title'] = translate("Closed date")
         col['expandable'] = False
         col['resizable'] = False
         col['value'] = [str, self.task_cdate_column]
@@ -414,7 +414,7 @@ class TreeviewFactory(object):
         # "label" column
         col_name = 'label'
         col = {}
-        col['title'] = _(title_label)
+        col['title'] = translate(title_label)
         render_text = Gtk.CellRendererText()
         render_text.set_property("ellipsize", Pango.EllipsizeMode.END)
         col['renderer'] = ['markup', render_text]

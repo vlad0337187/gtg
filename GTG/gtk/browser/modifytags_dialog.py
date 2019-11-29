@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.browser import GnomeConfig
 from GTG.tools.tags import parse_tag_list
 
@@ -38,7 +38,7 @@ class ModifyTagsDialog(object):
         self.tag_entry.set_completion(tag_completion)
 
         # Rember values from last time
-        self.last_tag_entry = _("NewTag")
+        self.last_tag_entry = translate("NewTag")
         self.last_apply_to_subtasks = False
 
     def _init_dialog(self):

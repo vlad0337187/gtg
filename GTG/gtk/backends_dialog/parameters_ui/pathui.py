@@ -21,7 +21,7 @@ import os.path
 
 from gi.repository import Gtk
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 
 class PathUI(Gtk.Box):
@@ -47,7 +47,7 @@ class PathUI(Gtk.Box):
 
         @param width: the width of the Gtk.Label object
         '''
-        label = Gtk.Label(label=_("Filename:"))
+        label = Gtk.Label(label=translate("Filename:"))
         label.set_line_wrap(True)
         label.set_alignment(xalign=0, yalign=0.5)
         label.set_size_request(width=width, height=-1)

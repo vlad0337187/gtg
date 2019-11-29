@@ -29,7 +29,7 @@ import functools
 from gi.repository import Gtk
 
 from GTG.backends.genericbackend import GenericBackend
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.backends_dialog.parameters_ui.checkboxui import CheckBoxUI
 from GTG.gtk.backends_dialog.parameters_ui.importtagsui import ImportTagsUI
 from GTG.gtk.backends_dialog.parameters_ui.passwordui import PasswordUI
@@ -60,46 +60,46 @@ class ParametersUI(Gtk.Box):
         # list of tuples: (backend_parameter_name, widget_generator)
         self.parameter_widgets = (
             ("import-tags", self.UI_generator(ImportTagsUI, {
-                "title": _("Import tags"),
-                "anybox_text": _("All tags"),
-                "somebox_text": _("Just these tags:"),
+                "title": translate("Import tags"),
+                "anybox_text": translate("All tags"),
+                "somebox_text": translate("Just these tags:"),
                 "parameter_name": "import-tags",
             })),
             ("attached-tags", self.UI_generator(ImportTagsUI, {
-                "title": _("Tags to sync"),
-                "anybox_text": _("All tasks"),
-                "somebox_text": _("Tasks with these tags:"),
+                "title": translate("Tags to sync"),
+                "anybox_text": translate("All tasks"),
+                "somebox_text": translate("Tasks with these tags:"),
                 "parameter_name": "attached-tags",
             })),
             ("path", self.UI_generator(PathUI)),
             ("username", self.UI_generator(TextUI, {
-                "description": _("Username"),
+                "description": translate("Username"),
                 "parameter_name": "username",
             })),
             ("password", self.UI_generator(PasswordUI)),
             ("period", self.UI_generator(PeriodUI)),
             ("service-url", self.UI_generator(TextUI, {
-                "description": _("Service URL"),
+                "description": translate("Service URL"),
                 "parameter_name": "service-url",
             })),
             ("import-from-replies", self.UI_generator(CheckBoxUI, {
-                "text": _("Import tasks from @ replies directed to you"),
+                "text": translate("Import tasks from @ replies directed to you"),
                 "parameter": "import-from-replies",
             })),
             ("import-from-direct-messages", self.UI_generator(CheckBoxUI, {
-                "text": _("Import tasks from direct messages"),
+                "text": translate("Import tasks from direct messages"),
                 "parameter": "import-from-direct-messages",
             })),
             ("import-from-my-tweets", self.UI_generator(CheckBoxUI, {
-                "text": _("Import tasks from your tweets"),
+                "text": translate("Import tasks from your tweets"),
                 "parameter": "import-from-my-tweets",
             })),
             ("import-bug-tags", self.UI_generator(CheckBoxUI, {
-                "text": _("Tag your GTG tasks with the bug tags"),
+                "text": translate("Tag your GTG tasks with the bug tags"),
                 "parameter": "import-bug-tags",
             })),
             ("tag-with-project-name", self.UI_generator(CheckBoxUI, {
-                "text": _("Tag your GTG tasks with the project "
+                "text": translate("Tag your GTG tasks with the project "
                           "targeted by the bug"),
                 "parameter": "tag-with-project-name",
             })),

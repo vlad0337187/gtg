@@ -45,7 +45,7 @@ def read_node(xmlnode, name):
 
 def task_from_xml(task, xmlnode):
     # print "********************************"
-    # print xmlnode.toprettyxml()
+    #print(xmlnode.toprettyxml())
 
     task.set_uuid(xmlnode.getAttribute("uuid"))
     task.set_title(read_node(xmlnode, "title"))

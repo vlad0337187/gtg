@@ -30,7 +30,7 @@ import os
 from GTG.backends.backendsignals import BackendSignals
 from GTG.backends.genericbackend import GenericBackend
 from GTG.core.dirs import DATA_DIR
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools import cleanxml, taskxml
 
 # Ignore all other elements but this one
@@ -55,12 +55,12 @@ class Backend(GenericBackend):
     # translated.
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_localfile",
-        GenericBackend.BACKEND_HUMAN_NAME: _("Local File"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("Local File"),
         GenericBackend.BACKEND_AUTHORS: ["Lionel Dricot",
                                          "Luca Invernizzi"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READWRITE,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("Your tasks are saved in a text file (XML format). " +
+        translate("Your tasks are saved in a text file (XML format). " +
           " This is the most basic and the default way " +
           "for GTG to save your tasks."),
     }
@@ -220,7 +220,7 @@ class Backend(GenericBackend):
         """ This function causes the inforbar to show up with the message
         about file recovery.
         """
-        message = _(
+        message = translate(
             "Oops, something unexpected happened! "
             "GTG tried to recover your tasks from backups. \n"
         ) + self.backup_file_info()

@@ -78,23 +78,23 @@ For more information see unittests:
 
 import re
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 
 # Generate keywords and their possible translations
 # They must be listed because of gettext
 KEYWORDS = {
-    "not": _("not"),
-    "or": _("or"),
-    "after": _("after"),
-    "before": _("before"),
-    "today": _("today"),
-    "tomorrow": _("tomorrow"),
-    "nodate": _("nodate"),
-    "now": _("now"),
-    "soon": _("soon"),
-    "someday": _("someday"),
-    "notag": _("notag"),
+    "not": translate("not"),
+    "or": translate("or"),
+    "after": translate("after"),
+    "before": translate("before"),
+    "today": translate("today"),
+    "tomorrow": translate("tomorrow"),
+    "nodate": translate("nodate"),
+    "now": translate("now"),
+    "soon": translate("soon"),
+    "someday": translate("someday"),
+    "notag": translate("notag"),
 }
 
 # transform keywords and their translations into a list of possible commands

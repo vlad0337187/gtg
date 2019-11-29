@@ -25,7 +25,7 @@ shared with the tomboy backend.
 
 from GTG.backends.genericbackend import GenericBackend
 from GTG.backends.generictomboy import GenericTomboy
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 
 class Backend(GenericTomboy):
@@ -37,15 +37,15 @@ class Backend(GenericTomboy):
 
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_gnote",
-        GenericBackend.BACKEND_HUMAN_NAME: _("Gnote"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("Gnote"),
         GenericBackend.BACKEND_AUTHORS: ["Luca Invernizzi"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READWRITE,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("This service can synchronize all or part of your Gnote"
-          " notes in GTG. If you decide it would be handy to"
-          " have one of your notes in your TODO list, just tag it "
-          "with the tag you have chosen (you'll configure it later"
-          "), and it will appear in GTG."),
+        translate("This service can synchronize all or part of your Gnote"
+                  " notes in GTG. If you decide it would be handy to"
+                  " have one of your notes in your TODO list, just tag it "
+                  "with the tag you have chosen (you'll configure it later"
+                  "), and it will appear in GTG."),
     }
 
     _static_parameters = {

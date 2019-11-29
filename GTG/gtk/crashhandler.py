@@ -39,6 +39,7 @@ import threading
 from contextlib import contextmanager
 
 from GTG import info
+from GTG.core.translations import translate
 
 
 try:
@@ -49,10 +50,8 @@ except Exception:
 else:
     _gtk_initialized = True
 
-from gettext import gettext as _
-
 APP_NAME = None
-MESSAGE = _("We're terribly sorry. Could you help us fix the problem by "
+MESSAGE = translate("We're terribly sorry. Could you help us fix the problem by "
             "reporting the crash?")
 USE_APPORT = False
 
@@ -77,9 +76,9 @@ def initialize(app_name=None, message=None, use_apport=False):
     """
     global APP_NAME, MESSAGE, USE_APPORT, _gtk_initialized, _old_sys_excepthook
     if app_name:
-        APP_NAME = _(app_name)
+        APP_NAME = translate(app_name)
     if message is not None:
-        MESSAGE = _(message)
+        MESSAGE = translate(message)
     if use_apport:
         USE_APPORT = use_apport
     if _gtk_initialized is True and _old_sys_excepthook is None:
@@ -166,7 +165,7 @@ def show_error_window(error_string, add_apport_button=False):
     3 for apport.
     """
     # initialize dialog
-    title = _("An error has occurred")
+    title = translate("An error has occurred")
     global APP_NAME
     if APP_NAME:
         title = APP_NAME
@@ -179,7 +178,7 @@ def show_error_window(error_string, add_apport_button=False):
 
     # title Label
     label = Gtk.Label()
-    label.set_markup("<b>%s</b>" % _("It looks like an error has occurred."))
+    label.set_markup("<b>%s</b>" % translate("It looks like an error has occurred."))
     label.set_alignment(0, 0.5)
     dialog.get_content_area().pack_start(label, False, True, 0)
 

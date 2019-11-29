@@ -1,0 +1,918 @@
+' minutes': &id001
+    many: ' минуты'
+    one: ' минута'
+'%{days}d days ago': &id012
+    many: '%{days}d дня назад'
+    one: вчера
+'%{days}d days left': &id007
+    many: осталось %{days}d дня
+    one: Задания на завтра
+'%{tasks}d active tasks': &id003
+    many: '%{tasks}d активные задачи'
+    one: '%{tasks}d активная задача'
+Are you sure you want to delete these tasks?: &id004
+    many: Вы уверены, что хотите удалить эти задачи?
+    one: Вы уверены, что хотите удалить эту задачу?
+Authors: &id005
+    many: Авторы
+    one: Автор
+Completed %{days}d days early: &id002
+    many: Выполнено за %{days}d дня до срока
+    one: Выполнено за %{days}d день до срока
+Completed %{days}d days late:
+    many: Просрочено на %{days}d дня
+    one: Просрочено на %{days}d день
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+    many: 'Удаление задачи нельзя отменить! Будут удалены и другие задачи: '
+    one: 'Удаление задачи нельзя отменить! Будет удалена и задача: '
+In %{days}d days: &id011
+    many: В течение %{days}d дней
+    one: В течение %{days}d дня
+Keep selected tasks: &id009
+    many: Оставить эти задачи
+    one: Оставить эту задачу
+Permanently remove tasks: &id010
+    many: Удалить задачи навсегда
+    one: Удалить задачу навсегда
+Was %{days}d days ago: &id008
+    many: Вчерашние задания
+    one: Вчерашние задания
+ru:
+    ? '
+
+        And %d more tasks'
+    : '
+
+        И еще %d задач'
+    ? '
+
+        Subtasks:
+
+        %s'
+    : "\nПодзадачи: \n%s"
+    ? '
+
+        Tags: %s'
+    : '
+
+        Метки: %s'
+    ? '
+
+        Task content:
+
+        %s'
+    : '
+
+        Описание задачи:
+
+        %s'
+    ? ' has crashed. Please report the bug on <a href="http://bugs.edge.launchpad.net/gtg">our
+        Launchpad page</a>. If you have Apport installed, it will be started for you.'
+    : ' завершился ошибкой. Пожалуйста, сообщите об этой ошибке на <a href="http://bugs.edge.launchpad.net/gtg">нашей
+        странице в Launchpad</a>. Если у вас установлено приложение Apport, оно будет
+        вызвано автоматически.'
+    ' minute': *id001
+    ? '%s seems to be installed on your system, but it does not provide a DBus interface
+        which is required by the Tomboy/Gnote plugin in GTG.'
+    : Скорее всего, %s уже установлен в вашей системе, однако не предоставляет интерфейса
+        DBus который необходим  дополнению Tomboy/Gnote в GTG.
+    '%{days}d': *id002
+    '%{task_title}s': 'Задача: %{task_title}s'
+    '%{tasks}d': *id003
+    <b>Dependencies</b>: <b>Зависимости</b>
+    <b>Editor</b>: <b>Редактор</b>
+    <b>Location Determination Method</b>: <b>Способ определения положения</b>
+    <b>Proximity Factor</b>: <b>Фактор близости</b>
+    <b>System</b>: <b>Система</b>
+    <b>Task Browser</b>: <b>Просмотр задач</b>
+    ? "<small>Distance in kilometers from \nthe current location.</small>"
+    : "<small>Расстояние в километрах \nот текущего места.</small>"
+    ? 'A &quot;Subtask&quot; is something that you need to do first before being able
+        to accomplish your task. In GTG, the purpose of subtasks is to cut down a
+        task in smaller subtasks that are easier to achieve and to track down.
+
+
+        To insert a subtask in the task description (this window, for instance), begin
+        a line with &quot;-&quot;, then write the subtask title and press Enter.
+
+
+        Try inserting one subtask below. Type &quot;- This is my first subtask!&quot;,
+        for instance, and press Enter:
+
+
+
+
+        Alternatively, you can also use the &quot;Insert Subtask&quot; button.
+
+
+        Note that subtasks obey to some rules: first, a subtask''s due date can never
+        happen after its parent''s due date and, second, when you mark a parent task
+        as done, its subtasks will also be marked as done.
+
+
+        And if you are not happy with your current tasks/subtasks organization, you
+        can always change it by drag-and-dropping tasks on each other in the tasks
+        list.'
+    : '&quot;Подзадачу&quot; надо решить для выполнения основной задачи. Цель использования
+        подзадач в GTG - облегчить выполнение основной задачи и упростить отслеживание
+        результата работы.
+
+
+        Чтобы добавить подзадачу к описанию задачи (например, прямо тут, в этом окне),
+        начните новую строку с дефиса &quot;-&quot;, потом введите название подзадачи
+        и нажмите Enter (Ввод).
+
+
+        Давайте попробуем прямо тут. Наберите, например: &quot;- Это моя первая подзадача!&quot;и
+        нажмите Enter:
+
+
+
+
+        Другой способ сделать то же самое - щелкнуть по кнопке &quot;Вставить подзадачу&quot;.
+
+
+        Заметим, что к подзадачи должны подчиняться правилам. Во-первых, дата завершения
+        подзадачи никогда не может быть позже даты завершения основной задачи. Во-вторых,
+        если Вы помечаете основную задачу выполненной, то все ее подзадачи тоже будут
+        отмечены выполненными.
+
+
+        И наконец: если порядок задач и подзадач Вам не удобен, его всегда можно изменить,
+        просто перетащив мышью  подзадачи между задачами.'
+    A professional-looking HTML page: Профессионально оформленная HTML страница
+    A simple Web page that can be easily printed.: Простая web-страница, удобная для
+        печати.
+    ? 'A template to create
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, which is a small foldable
+
+        booklet. Packages <b>pdflatex</b>, <b>pdftk</b> and <b>pdfjam</b>
+
+        are required.'
+    : "Шаблон для создания\n<a href=\"http://www.pocketmod.com\">PocketMod</a>, узкого\n\
+        буклета-\"раскладушки\". Требуются пакеты \n<b>pdflatex</b>, <b>pdftk</b>\
+        \ and <b>pdfjam</b>."
+    A template to create a HTML page with some tasks and tags. Tags colors are also displayed.: Шаблон
+        простой HTML страницы с несколькими задачами. Метки будут цветными.
+    A template to create a compact text file listing only task titles.: Шаблон краткого
+        списка заголовков задач.
+    A template to create a simple HTML page with some tasks that can be easily printed.: Шаблон
+        простой HTML страницы с несколькими задачами для удобной распечатки.
+    A template to create a simple text file with some tasks.: Шаблон текстового списка
+        задач.
+    About GTG!: О GTG!
+    Add Task: Добавить задачу
+    Add Tomboy note: Добавить заметку Tomboy
+    Add _New Task: Добавить _новую задачу
+    Add a subtask: Добавить подзадачу
+    Add custom color: Добавить цвет
+    Add/Remove Tags: Добавить/удалить метки
+    All tags: Все метки
+    All tasks: Все задачи
+    An error has occurred: Произошла ошибка
+    Apply to subtasks: Применить к подзадачам
+    Are you sure you want to delete this task?: *id004
+    Associate with existing tag: Пометить существующей меткой
+    Associate with new tag: Пометить новой меткой
+    Author: *id005
+    Bug: Ошибка
+    Cancel: Отменить
+    Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Нет
+        соединения с DBus, поэтому сервис синхронизации <b>%s</b> не используется.
+    Check for new tasks every: Проверять новые задачи каждые
+    Choose a color: Выбрать цвет
+    Choose where to save your list: Укажите, где сохранить ваш список
+    Clear: Очистить
+    ? 'Click To
+
+        Set Icon'
+    : 'выбор
+
+        иконки'
+    Closed date: Дата закрытия
+    Closed on: Выполнено
+    Configure synchronization service: Настроить сервис синхронизации
+    Confirm: Подвердить
+    Confirm task deletion: Подтвердите удаление задачи
+    Continue: Далее
+    Copyright © 2008-2013 Lionel Dricot, Bertrand Rousseau: Copyright © 2008-2013
+        Lionel Dricot, Bertrand Rousseau
+    Create a new subtask: Создать новую подзадачу
+    Create a new task: Создать новую задачу
+    D_ismiss: _Отменить
+    Delete: Удалить
+    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    Disable syncing: Запретить синхронизацию
+    Dismiss: Отменить
+    Display only the currently actionable tasks: Показать только доступные для выполнения
+        задачи
+    Do it tomorrow: На завтра!
+    Do you really want to remove the '%s' synchronization service?: Вы действительно
+        хотите удалить сервис синхронизации '%s'?
+    Due: Завершить к
+    Due for: Срок
+    Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: Из-за
+        проблем с сетью, не возможно соединиться с сервисом синхронизации <b>%s</b>.
+    Due today!: Задания на сегодня
+    Due tomorrow!: *id007
+    Due yesterday!: *id008
+    Edit: Правка
+    Edit Tag...: Редактировать метку...
+    Edit the selected task: Изменить выбранную задачу
+    Enable colored backgrounds in the task list: Разрешить выделение цветом фона в
+        списке задач
+    Enable syncing: Разрешить синхронизацию
+    Enter tag name here: Введите тут метку
+    'Enter the name of the tag(s) you wish to add or remove:': 'Введите метку(и) для
+        добавления или удаления:'
+    Everything necessary to run this plugin is available.: Есть всё для запуска этого
+        расширения.
+    Evolution tasks: Задачи в Evolution
+    Export the tasks currently listed: Экспортировать перечисленные задачи
+    'Filename:': 'Имя файла:'
+    Foldable booklet (PDF): Складной буклет (PDF)
+    'Font :': 'Шрифт:'
+    Friday: пятница
+    'GTG could not generate the document: %s': 'GTG не удалось создать документ: %s'
+    ? 'GTG has the ability to add plugins to extend its core functionality.
+
+
+        Some examples of the currently available plugins are the notification icon
+        which displays a handy shortcut to GTG in your notification space, or the
+        closed tasks remover which automatically deletes old tasks from your closed
+        tasks list.
+
+
+        You can find the Plugin Manager by selecting Edit in the Menu Bar, then clicking
+        Plugins.'
+    : 'В GTG предусмотрено подключение расширений, они дают дополнительные возможности.
+
+
+        Например, иконка в области уведомлений со ссылкой на GTG является одним из
+        расширений. Другое расширение автоматически удаляет выполненные задачи.
+
+
+        Менеджер расширений вызывается из меню Правка, пункт Расширения.'
+    GTG is a personal tasks and TODO-list items organizer for the GNOME desktop environment.: GTG
+        - персональный органайзер для задач и дел, работающий в в среде GNOME.
+    GTG is a personal tasks and TODO-list items organizer for the GNOME.: GTG персональный
+        инструмент ведения списков задач и дел для GNOME.
+    ? 'GTG is still beta software. We like it and use it everyday but you will probably
+        encounter some bugs will you do.
+
+
+        Please, help us improving GTG by reporting them on our Launchpad page:https://bugs.launchpad.net/gtg/+filebug
+
+
+        We need you to make this software better. Any contribution, any idea is welcome!
+
+
+        If you have some trouble with GTG, we might be able to help you or to solve
+        your problem really quickly.'
+    : 'GTG продолжает разрабатываться. Мы будем рады, если Вы будете пользоваться
+        им повседневно, однако Вы можете столкнуться с ошибками.
+
+
+        Если Вы обнаружили ошибку, пожалуйста, сообщите нам об этом на нашей странице
+        в Launchpad: https://bugs.launchpad.net/gtg/+filebug
+
+
+        Мы хотим сделать GTG лучше. Мы приветствуем любой вклад, любые идеи!
+
+
+        Если вы столкнулись со сложностями при использовании GTG, мы постараемся решить
+        проблему в самые сжатые сроки.'
+    GTG website: Веб-сайт GTG
+    Geolocalized-tasks Preferences: Задачи привязаные к расположению
+    Getting Started With GTG: Начнем пользоваться GTG?
+    Getting Things GNOME!: Приведите дела в порядок вместе с GNOME!
+    ? 'Getting Things GNOME! is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by the Free
+        Software Foundation; either version 3 of the License, or (at your option)
+        any later version.
+
+
+        Getting Things GNOME! is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+        more details.
+
+
+        You should have received a copy of the GNU General Public License along with
+        Getting Things GNOME!; if not, write to the Free Software Foundation, Inc.,
+        51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    : 'Getting Things GNOME! - свободное программное обеспечение; вы можете распространять
+        или модифицировать его на условиях GNU General Public License, опубликованной
+        Free Software Foundation; версия 3 или (по вашему выбору) старше.
+
+
+        Getting Things GNOME! распространяется с надеждой на то, что он будет вам
+        полезен, однако без каких-либо гарантий, включая гарантию применимости или
+        полезности для решения какой-либо функции. Все детали изложены в GNU General
+        Public License.
+
+
+        Копия GNU General Public License имеется в Getting Things GNOME!. Вы также
+        можете направить запрос в Free Software Foundation, Inc., по адресу: 51 Franklin
+        Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    Gnote: Gnote
+    Help to translate GTG into your language: Помогите перевести GTG на язык, которым
+        владеете
+    Hide this tag from the workview: Скрыть эту метку из рабочего плана
+    ? 'Hint: you can add several tags by separating them with
+
+        space. Place ''!'' before tags you want to remove.'
+    : 'Подсказка: вводите несколько меток, разделяя их
+
+        пробелом. Перед удаляемыми метками введите ''!''.'
+    ? 'If you press the &quot;Work View&quot; button, only actionable tasks will be
+        displayed in your list.
+
+
+        What is an actionable task? It''s a task you can do directly, right now.
+
+
+        It''s a task that is already &quot;start-able&quot;, i.e. the start date is
+        already over.
+
+
+        It''s a task that doesn''t have open subtasks, i.e. you can do the task itself
+        directly.
+
+
+        It''s a task that has a due date different than &quot;Someday&quot;, since
+        this kind of date is reserved for things that needs more thoughts before being
+        actionable.
+
+
+        Thus, in short, the Work View shows you tasks that you can do right now. It''s
+        very useful when you want to get things done and to focus on the relevant
+        tasks!
+
+
+        If you use tags, you can right click on a tag in the sidebar and choose to
+        hide tasks assigned to this particular tag in the Work View. It is very useful
+        if you have a tag like &quot;@wait&quot; that you use for tasks blocked by
+        some external event (i.e. a phone call you wait to receive).
+
+
+        And finally, an important note regarding the Work View: since the Work View
+        is updated instantaneously, if you edit your task while using the Work View,
+        this task might disappear due to the change you just made (e.g. adding a subtask,
+        adding a tag hidden in the Work View, etc.). To avoid this, it''s better not
+        to edit your task while using the Work View. '
+    :   many: null
+        one: ''
+    Ignore: Пропустить
+    ? Import                                                                  tasks
+        from                                                                  your
+        tweets
+    : Импортировать задачи из ваших твитов
+    Import tags: Импорт меток
+    'Import tasks                                                         from @ replies ':
+        many: null
+        one: ''
+    Import tasks from direct messages: Импортировать задачи из сообщений
+    ? 'In GTG, you use tags to sort your tasks. A tag is a simple word that begins
+        with &quot;@&quot;.
+
+
+        Try to type a word beginning with &quot;@&quot; here:
+
+
+        Once it becomes yellow, it is a tag! And this tag is now linked to the task!
+
+
+        Using the View menu, you can enable a sidebar which displays all the tags
+        you are using. This allows you to easily see all tasks associated to a given
+        tag.
+
+
+        If you right-click on a tag in the sidebar, you can also edit it. It allows
+        you to assign it a color or an icon for instance. This is handy if you want
+        to quickly identify the tasks associated to a given tag in the task list!
+
+
+        New tags are always added exclusively to the currently edited task, and never
+        to its subtasks. However, when you create a new subtask, it will inherit its
+        parent''s tags.
+
+
+        If you need a more advanced task organization, you can also create a hierarchy
+        of tags by drag-and-dropping a tag onto another. This is useful when you want
+        to regroup several tags together and see all related tasks easily. For instance,
+        if you have two tags @money and @to_pay, and you drag @to_pay on @money, every
+        task tagged with @to_pay will also appear when you select @money.'
+    : 'Для сортировки задач в GTG, применяются метки. Метка - это слово, перед которым
+        стоит значок &quot;@&quot;.
+
+
+        Попробуйте ввести любое слово сразу после значка &quot;@&quot;
+
+
+        Если оно выделилось желтым, то оно стало меткой! И эта метка уже связана с
+        этой задачей. Всё просто!
+
+
+        В меню Вид можно включить боковую панель со списком меток.
+
+
+        Если щелкнуть по метке правой кнопкой мыши, метку можно изменить. Метку можно
+        выделить цветом или иконкой. Все это удобно для быстрого поиска задач, помеченных
+        какой-то меткой.
+
+
+        Новые метки, всегда назначаются основной задаче, но никогда ее подзадачам.
+        Но если создается новая подзадача к уже отмеченной метками задаче, то подзадача
+        будет помечена также, как и основная.
+
+
+        Кстати, если нужно создать иерархию меток, то это можно сделать, перетаскивая
+        одну метку на другую. Это полезно, чтобы сгруппировать задачи и иметь возможность
+        отображать их в списке задач одновременно. Например, есть пара меток @деньги
+        и @оплатить, если перетащить метку @оплатить на @деньги, все задачи с меткой
+        @оплатить будут показаны, если выбрать @деньги.'
+    Insert a subtask in this task: Добавить подзадачу
+    Insert a tag in this task: Добавить метку к этой задаче
+    Insert subtask: Вставить подзадачу
+    Insert tag: Вставить метку
+    Invalid state: Недопустимое состояние
+    Iss.: Iss.
+    It looks like an error has occurred.: Возможно, произошла ошибка
+    'Just these                                                                       tags:': 'Только
+        с этими метками:'
+    Keep selected task: *id009
+    Launchpad: Launchpad
+    Learn How To Search For Tasks: Как найти задачу
+    Learn How To Use Plugins: Научиться использовать расширения
+    Learn How To Use Subtasks: Научиться пользоваться подзадачами
+    Learn How To Use Synchronization Services: Научиться использовать сервисы синхронизации
+    Learn How To Use Tags: Научиться пользоваться метками
+    Learn How To Use The Quick Add Entry: Научиться использовать быстрый ввод задач
+    Learn How To Use The Work View: Научиться пользоваться Рабочим Планом
+    Lets you synchronize your GTG tasks with Evolution tasks: Синхронизирует ваши
+        задачи в GTG и Evolution
+    'Link to bug: ': 'Ссылка на ошибку: '
+    'Link to issue: ': 'Ссылка на задание: '
+    Local File: Локальный файл
+    MantisBT: MantisBT
+    Mark Done: Отметить выполнение
+    Mark as Done: Отметить как «выполнено»
+    Mark as Not Done: Отметить как невыполненную
+    Mark as _Done: Отметить _выполнение
+    Mark as not Done: Пометить НЕ выполнено
+    Mark the selected task as done: Отметить выбранную задачу выполненной
+    Mark the selected task as to be done: Отметить выбранную задачу как требующую
+        выполнения
+    Mark the task as not to be done anymore: Отметить выбранную задачу как не требующую
+        выполнения
+    Mark this task as done: Отметить задачу выполненной
+    Mark this task as not to be done anymore: Пометить задачу как не требующую выполнения
+    Mark this task as to be done: Отметить, что эта задача должна быть выполнена
+    Modify Tags: Изменить метки
+    Modify Tags...: Изменить метки...
+    Monday: понедельник
+    My new task: Моя новая задача
+    'Name : ': 'Название: '
+    New Subtask: Новая подзадача
+    New Task: Новая задача
+    'New Task Shortcut :': 'Комбинация клавиш для новой задачи:'
+    New _Subtask: Новая _подзадача
+    New _Task: Новая _задача
+    NewTag: Новая метка
+    Next _Month: В следующем месяце
+    Next _Week: На следующей неделе
+    Next _Year: На будущий год
+    No task matches your criteria. Empty report can't be generated.: Нет задач, удовлетворяющих
+        критериям. Пустой отчет создать нельзя.
+    Now: Сейчас
+    Ok: ОК
+    Open GTG help: Открыть справку по GTG
+    Open Task: Открыть задачу
+    'Password:': 'Пароль:'
+    Permanently remove task: *id010
+    Permanently remove the selected task: Навсегда удалить выбраную задачу
+    Permanently remove this task: Удалить эту задачу навсегда
+    'Please install or start the following components:': 'Пожалуйста, установите или
+        запустите приложения:'
+    'Please install the following python modules:': 'Пожалуйста, установите эти модули
+        python:'
+    'Please start the following applications:': 'Пожалуйста, запустите эти приложения:'
+    Plugins - %s: Расширения - %s
+    Preferences - %s: Предпочтения - %s
+    Redo: Повторить
+    Remember The Milk: Remember The Milk
+    Remove selected icon: Удалить выбранные иконки
+    Report a problem to GTG developers: Сообщить об ошибке разработчикам GTG
+    'Reported by: ': 'Сообщил(а): '
+    Reporting Bugs: Сообщить об ошибках
+    Saturday: суббота
+    Search: Поиск
+    'Select Tag Color:': 'Выбрать цвет для метки:'
+    'Select synchronization service:': Выберите сервис синхронизации
+    Send via email: Послать по почте
+    Service URL: URL службы
+    Set Due Date: Завершить к
+    Set the task's location: Установить расположение задачи
+    'Show Tag in Work View :': Показать метки в рабочем плане
+    Show description preview in the task list.: Показать краткое описание в списке
+        задач.
+    Show this tag in the workview: Показывать эту метку в рабочем плане
+    Some modules and remote dbus objects are missing.: Отсутствуют некоторые модули
+        и объекты dbus.
+    Some python modules are missing: Отсутствуют нужные модули python
+    Some remote dbus objects are missing.: Отсутствуют некоторые объекты dbus.
+    Someday: Когда-нибудь
+    Soon: Скоро
+    Start Getting Things GNOME! on every login: Запускать Getting Things GNOME! при
+        каждом входе в систему
+    'Start a new activity in Hamster Time Tracker ': 'Создать новую задачу в Hamster
+        Time Tracker '
+    Start date: Дата начала
+    Start in Hamster: Начать в Hamster
+    Start task in Hamster: Начать задачу в Hamster
+    Starting on: Дата начала
+    Status report: Отчет о состоянии
+    'Status: %s': 'Статус: %s'
+    Sunday: воскресенье
+    Synchronization Services - %s: Сервисы синхронизации - %s
+    ? 'Synchronization Services allow GTG to synchronize (meaning to have access or
+        to import) tasks, notes or bugs from other sites or services like Launchpad,
+        Remember the Milk, Tomboy, etc.
+
+
+        This can incredibly useful if, for instance, you want to access your tasks
+        on several instances of GTG running on separate computers, or if you want
+        to edit your tasks using an online service. GTG can also import tasks from
+        specific sites like launchpad for instance, which allows you to manage the
+        bug reports you''re working on in GTG!
+
+
+        To use Synchronization Services, use the Edit menu, and select &quot;Synchronization
+        Services&quot;. You will then have the possibility to select among several
+        online or local services from/to where you can import or export your tasks.
+
+
+        If you want to know more about Synchronization Services, you can read more
+        about them by in the dedicated documentation in GTG''s help (use the Help
+        menu or press F1 to get access to it).'
+    : 'Сервисы синхронизации дают возможность GTG синхронизироваться (импортировать
+        или получать доступ) с задачами, заметками или ошибками таких служб, как  Launchpad,
+        Remember the Milk, Tomboy и т.п.
+
+
+        Это особенно полезно, если Вы пользуетесь GTG на нескольких разных компьютерах,
+        или для редактирования задач с использованием других сайтов и служб. GTG также
+        может импортировать задачи, например, из Launchpad, что удобно для управления
+        задачами, связанными с работой над ошибками, используя GTG!
+
+
+        Чтобы воспользоваться сервисами синхронизации, выберите в меню Правка &quot;Сервисы
+        синхронизации&quot;. Это позволит выбрать локальные программы или удаленные
+        службы, чтобы импортировать или экспортировать задачи.
+
+
+        Подробно узнать про работу сервисов синхронизации можно в документации GTG
+        (используйте меню Помощь или клавишу F1, чтобы вывести документацию).'
+    Syncing is <span color="red">disabled</span>.: Синхронизация <span color="red">запрещена</span>.
+    Syncing is enabled.: Синхронизация разрешена.
+    T_oday: Сегодня
+    T_oolbar: Панель _инструментов
+    Tag your GTG tasks with the bug tags: Присвоить вашим задачам из GTG метки ошибок
+    Tag your GTG tasks with the project targeted by the bug: Пометить задачи в GTG
+        как проект, назначенный на ошибку
+    TagName: ИмяМетки
+    Tags: Метки
+    Tags to sync: Метки для синхронизации
+    Task: Задача
+    Tasks: Задачи
+    'Tasks with                                                                 these tags:': 'Задачи
+        с этими метками:'
+    Tasks with no tags: Задачи без меток
+    Text-only: Только текст
+    That note does not exist!: Заметка не существует!
+    That note does not exist. Do you want to create a new one?: Заметка не существует!
+        Создать её?
+    ? The <b>%s</b> synchronization service cannot login with the  supplied authentication
+        data and has been disabled. To retry the login, re-enable the service.
+    : Сервис синхронизации <b>%s</b> не авторизован введенными сведениями для аутентификации
+        и поэтому недоступен. Чтобы повторить вход, отключите и вновь включите этот
+        сервис.
+    ? 'The Quick Add Entry is the fastest way to create a new task. Use the check
+        box in the View menu to enable and disable the entry field.
+
+
+        To add a task simply type its title in the entry and press Enter. The task
+        will be created and selected in the task browser. If a tag is selected in
+        the Tags Sidebar, it will be applied to the task you created.
+
+
+        You can also create a task in the Quick Add Entry and at the same time specify
+        its tags, due and defer date. Follow these format rules:
+
+
+        tags:tag1,tag2,tag3
+
+
+        Using this you can apply as many tags as you wish using comma as separator.
+        Note that any word in the title that begins with &quot;@&quot; will also be
+        interpreted as a tag!
+
+
+        due:date
+
+        defer:date
+
+
+        Using this you can apply a due date or a defer date. Dates can be formated
+        as per your locale or yyyy-mm-dd (for example 2012-04-01) or yyyymmdd (20120401)
+        or mmdd (0401 - the year being implicitly the current one) or today, tomorrow
+        or a weekday name (due:monday means due next Monday). Dates which are added
+        in this way will not appear in the task title.
+
+
+        Examples:
+
+
+        buy stationary tags:purchases,office due:20120330 defer:tuesday
+
+
+        The above example tells GTG to create a new task with the title &quot;buy
+        stationary&quot;, under the tags &quot;purchases&quot; and &quot;office&quot;,
+        with the due date March 30, 2012 and the start date next Tuesday.
+
+
+        call mum tags:family,calls due:sunday defer:tomorrow
+
+
+        The above example tells GTG to create a new task with the title &quot;call
+        mum&quot;, under the tags &quot;family&quot; and &quot;calls&quot;, with the
+        due date next Sunday and the start date tomorrow.'
+    :   many: null
+        one: ''
+    The plugin can not be loaded: Расширение нельзя загрузить
+    ? 'The shortcut "%s" cannot be used because it will become impossible to type
+        using this key.
+
+        Please try with a key such as Control, Alt or Shift at the same time.'
+    : 'Клавишу «%s» нельзя использовать, поскольку ее станет невозможно использовать
+        для обычного набора.
+
+        Попробуйте  в сочетании с Control, Alt или Shift.'
+    ? This Tomboy note                                        does not exist anymore.
+        Do you want to                                        create it?
+    : Эта заметка Tomboy больше не существует. Создать ее?
+    This is the default synchronization service: Сервис синхронизации по умолчанию
+    ? This service can synchronize all or part of your Gnote notes in GTG. If you
+        decide it would be handy to have one of your notes in your TODO list, just
+        tag it with the tag you have chosen (you'll configure it later), and it will
+        appear in GTG.
+    : Этот сервис позволяет синхронизировать все или часть заметок Gnote с задачами
+        GTG. Пометьте заметки, которые Вы желаете видеть в списке задач в GTG, какой-нибудь
+        меткой (её можно настроить потом).
+    ? "This service synchronizes your tasks with the web service RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nNote: This product uses the Remember The\
+        \ Milk API but is not endorsed or certified by Remember The Milk"
+    : "Этот сервис позволяет синхронизировать задачи в GTG с веб-сервисом RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nПредупреждение: Используется API сервиса\
+        \ Remember The Milk без его официального одобрения или сертификации"
+    ? This synchronization service can synchronize all or part of your Tomboy notes
+        in GTG. If you decide it would be handy to have one of your notes in your
+        TODO list, just tag it with the tag you have chosen (you'll configure it later),
+        and it will appear in GTG.
+    : Этот сервис позволяет синхронизировать часть или все заметки Tomboy с GTG. Пометьте
+        заметки Tomboy, которые Вы желаете видеть в списке задач в GTG, какой-нибудь
+        меткой (её можно настроить потом).
+    ? "This synchronization service lets you import the bugs assigned to you (or someone\
+        \ else) on Launchpad in GTG. As the bug state changes in Launchpad, the GTG\
+        \ task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated bug is modified. Apart from those, you are\
+        \ free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to bug"
+    : "Этот сервис позволяет синхронизировать ошибки, назначенные Вам (или кому-то),\
+        \ в Launchpad с задачами GTG. Если в Launchpad описание ошибки изменяется,\
+        \ задача в GTG также обновляется.\nОбратите внимание: этот сервис работает\
+        \ только на чтение. Это означает, что изменения внесенные в GTG в:\n  - название,\n\
+        \  - описание,\n  - метки задачи\n<b>пропадут</b> при изменении связанного\
+        \ описания ошибки. В то же время, изменения в других полях (дата начала и\
+        \ окончания, подзадачи, ...) будут сохранены. Этим можно пользоваться, чтобы\
+        \ делать различные заметки."
+    ? "This synchronization service lets you import the issues found on Mantis using\
+        \ a prestablished filter called 'gtg'. As the issue state changes in Mantis,\
+        \ the GTG task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated issue is modified. Apart from those, you\
+        \ are free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to issue"
+    : "Этот сервис позволяет импортировать записи из Mantis с использованием стандартного\
+        \ фильтра 'gtg'. Если запись в Mantis изменяется, обновляется также и задача\
+        \ в GTG.\nОбратите внимание: этот сервис работает только на чтение. Это означает,\
+        \ что изменения внесенные в GTG в:\n  - название,\n  - описание,\n  - метки\
+        \ задачи\n<b>пропадут</b> при изменении связанной записи в Mantis. В то же\
+        \ время, изменения в других полях (дата начала и окончания, подзадачи, ...)\
+        \ будут сохранены. Этим можно пользоваться, чтобы делать различные заметки."
+    Thursday: четверг
+    Title: Заголовок
+    ? 'To help you to find specific tasks more easily, GTG allows you to search for
+        tasks based on their content.
+
+
+        Searching for tasks is really easy: just type the words you are looking for
+        in the Quick Add Entry, and select &quot;Search&quot; in the menu that will
+        appear automatically.
+
+
+        GTG stores your searches in the sidebar, under the &quot;Search&quot; section.
+        You can thus always go back to a previous search need it. Search results are
+        updated automatically, so you always get all the tasks matching your search
+        request.
+
+
+        GTG also saves all the search requests you have made until you explicitely
+        delete them (which you can do by right-clicking on them and selecting &quot;Delete&quot;).
+        That allows you to safely quit GTG without loosing your search requests. This
+        can be very useful when you use the search features to identify specific tasks
+        regularly!
+
+
+        GTG search feature is really powerful and accept many parameters that allows
+        you to search for very specific tasks. For instance, using the search query
+        &quot;@errands !today&quot;, you can search for tasks with the @errands tag
+        that must be done today. To learn more about those search query parameters,
+        you can read the documentation available in GTG''s help (press F1 or use the
+        Help menu to get access to it).'
+    :   many: null
+        one: ''
+    Today: Сегодня
+    Tomboy: Tomboy
+    Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
+        не найден. Пожалуйста, установите его или отключите модуль Tomboy/Gnote в
+        GTG
+    Tomorrow: *id011
+    Tuesday: вторник
+    Und_ismiss: _Восстановить
+    Undismiss: Восстановить
+    Undo: Отмена
+    Unknown error while loading the plugin.: Неизвестная ошибка при загрузке расширения.
+    Use cellphone: Использовать мобильный телефон
+    Use gps: Использовать GPS
+    Use network: Использовать сеть
+    Username: Пользователь
+    Very helpful message, isn't it? Please report a bug.: Не правда ли, очень полезное
+        сообщение? Пожалуйста, сообщите о баге.
+    Warning: Предупреждение
+    We're terribly sorry. Could you help us fix the problem by reporting the crash?: К
+        сожалению, произошла ошибка. Желаете ли вы помочь нам устранить проблему,
+        сообщив об ошибке?
+    Wednesday: среда
+    ? 'Welcome to Getting Things GNOME!, your new task manager! In Getting Things
+        GNOME! (GTG), everything is a task. From building a bridge over the Pacific
+        Ocean to changing a light bulb or organizing a party!
+
+
+        If you are new to GTG, please take the time to read this, as it will provide
+        you useful information about how to use GTG to organize your everyday life.
+
+
+        Creating and editing tasks:
+
+
+        Using GTG is easy: you organize what you have to do by creating new tasks.
+        To do this, simply press the &quot;New Task&quot; button, edit the task by
+        describing it, set some parameters, and that''s it! Once a task done, you
+        can close it by pressing the &quot;Mark As Done&quot; button.
+
+
+        In GTG, a task is automatically saved while you are editing it. No need to
+        press any &quot;Save&quot; button! Try it: add some text to this task, close
+        the window, and reopen it: your changes are still there!
+
+
+        About subtasks:
+
+
+        In life, you often get more things done by refining them in smaller, more
+        operational tasks. GTG helps to do just this by defining  &quot;subtasks&quot;.
+        In GTG, those subtasks are considered as prerequisites that must be completed
+        before being able to close their parent task.
+
+
+        Therefore, in GTG, a task might host one or several subtasks. Those appear
+        as links in the task description, just like the link below. To open and edit
+        a subtask, simply click on its link! Try it yourself: open the following subtask:
+
+        <subtask>1@1</subtask>
+
+
+        Closing a task:
+
+
+        In GTG, once you are done with a task, you can close it by pushing either
+        the &quot;Mark as Done&quot; or the &quot;Dismiss&quot; button. Use the first
+        one if the task is done, and the latter if you want to close it because it
+        is not relevant anymore. Want to try it? Try to close the subtask above for
+        instance!
+
+
+        When you close a task, you will notice that all its subtasks will be automatically
+        closed too! Indeed, GTG considers that if you have completed a given task,
+        then you don''t need to do its subtasks anymore (they were prerequisites,
+        after all).
+
+
+        Note that the tasks that you have marked as done or dismissed are listed in
+        the &quot;Closed Tasks Pane&quot; which is hidden by default, but you can
+        easily show it using the View menu.
+
+
+        Learn more about GTG:
+
+
+        If you are interested in knowing more about GTG''s other features, you will
+        find more information here:
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        You can also browse GTG documentation by pressing F1 or opening it using the
+        Help menu.
+
+
+        We sincerely hope you will enjoy using GTG, and thank you for trying it out!
+        Please send us bug reports and ideas for improvement using this web page:
+        https://bugs.launchpad.net/gtg/+filebug If you want to get tips for using
+        GTG or be informed about the newest features, also visit our blog at http://gtg.fritalk.com
+
+
+        The GTG team.'
+    :   many: null
+        one: ''
+    Work View: Рабочий план
+    Yesterday: *id012
+    You can create, open or filter your tasks here: Тут можно создавать, открывать
+        и фильтровать задачи
+    'Your tasks are saved in a text file (XML format). ': 'Ваши задачи сохранены в
+        текстовом файле формата XML. '
+    _About Plugin: _О модуле
+    _Clear Due Date: Сбросить дату завершения
+    _Clear Start Date: Сбросить дату начала
+    _Closed Tasks Pane: _Выполненные задачи
+    _Details: _Подробности
+    _Edit: _Правка
+    _Help: _Справка
+    _Ignore the error: _Игнорировать ошибку
+    _Now: Сейчас
+    _Plugins: Расширения
+    _Quick Add Entry: _Быстрый ввод
+    _Quit: _Выйти
+    _Report this problem...: _Сообщить об этой проблеме…
+    _Set Start Date: Задать дату начала
+    _Show Main Window: Показать в главном окне
+    _Someday: Когда-нибудь
+    _Soon: Скоро
+    _Tags Sidebar: Панель _меток
+    _Tasks: _Задачи
+    _Tomorrow: Завтра
+    _View: _Вид
+    _Work View: Рабочий план
+    after: после
+    before: до
+    defer: отложить
+    due: до
+    gtg is already running!: gtg уже запущена!
+    later: позже
+    next month: следующй месяц
+    next week: следующая неделя
+    next year: следующий год
+    no active tasks: активные задачи отсутствуют
+    nodate: бездаты
+    not: нет
+    notag: безметки
+    now: сейчас
+    or: или
+    page 1: страница 1
+    page 2: страница 2
+    page 3: страница 3
+    someday: любойдень
+    soon: скоро
+    start: старт
+    tag: метка
+    tags: метки
+    today: сегодня
+    tomorrow: завтра

@@ -24,7 +24,7 @@ simple, HIG compliant and well integrated with Gnome.
 """
 import os
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 
 class GnomeConfig(object):
@@ -32,21 +32,21 @@ class GnomeConfig(object):
     BROWSER_UI_FILE = os.path.join(current_rep, "taskbrowser.ui")
     MODIFYTAGS_UI_FILE = os.path.join(current_rep, "modifytags_dialog.ui")
 
-    MARK_DONE = _("Mark as Done")
-    MARK_DONE_TOOLTIP = _("Mark the selected task as done")
-    MARK_UNDONE = _("Mark as not Done")
-    MARK_UNDONE_TOOLTIP = _("Mark the selected task as not done")
-    MARK_DISMISS = _("Dismiss")
-    MARK_DISMISS_TOOLTIP = _("Mark the task as not to be done anymore")
-    MARK_UNDISMISS = _("Undismiss")
-    MARK_UNDISMISS_TOOLTIP = _("Mark the selected task as to be done")
-    DELETE_TOOLTIP = _("Permanently remove the selected task")
-    EDIT_TOOLTIP = _("Edit the selected task")
-    NEW_TASK_TOOLTIP = _("Create a new task")
-    NEW_SUBTASK_TOOLTIP = _("Create a new subtask")
-    WORKVIEW_TOGGLE_TOOLTIP = _("Display only the currently actionable tasks")
-    TAG_IN_WORKVIEW_TOGG = _("Hide this tag from the workview")
-    TAG_NOTIN_WORKVIEW_TOGG = _("Show this tag in the workview")
+    MARK_DONE = translate("Mark as Done")
+    MARK_DONE_TOOLTIP = translate("Mark the selected task as done")
+    MARK_UNDONE = translate("Mark as not Done")
+    MARK_UNDONE_TOOLTIP = translate("Mark the selected task as not done")
+    MARK_DISMISS = translate("Dismiss")
+    MARK_DISMISS_TOOLTIP = translate("Mark the task as not to be done anymore")
+    MARK_UNDISMISS = translate("Undismiss")
+    MARK_UNDISMISS_TOOLTIP = translate("Mark the selected task as to be done")
+    DELETE_TOOLTIP = translate("Permanently remove the selected task")
+    EDIT_TOOLTIP = translate("Edit the selected task")
+    NEW_TASK_TOOLTIP = translate("Create a new task")
+    NEW_SUBTASK_TOOLTIP = translate("Create a new subtask")
+    WORKVIEW_TOGGLE_TOOLTIP = translate("Display only the currently actionable tasks")
+    TAG_IN_WORKVIEW_TOGG = translate("Hide this tag from the workview")
+    TAG_NOTIN_WORKVIEW_TOGG = translate("Show this tag in the workview")
     QUICKADD_ENTRY_TOOLTIP = \
-        _("You can create, open or filter your tasks here")
-    QUICKADD_ICON_TOOLTIP = _("Clear")
+        translate("You can create, open or filter your tasks here")
+    QUICKADD_ICON_TOOLTIP = translate("Clear")

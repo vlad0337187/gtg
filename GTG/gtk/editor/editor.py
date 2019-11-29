@@ -32,7 +32,7 @@ from GTG.core.dirs import UI_DIR
 from GTG.core.plugins.api import PluginAPI
 from GTG.core.plugins.engine import PluginEngine
 from GTG.core.task import Task
-from GTG.core.translations import _, ngettext
+from GTG.core.translations import translate
 from GTG.gtk.editor import GnomeConfig
 from GTG.gtk.editor.calendar import GTGCalendar
 from GTG.gtk.editor.taskview import TaskView
@@ -414,28 +414,22 @@ class TaskEditor(object):
             elif delay == 0:
                 txt = "Completed on time"
             elif delay >= 1:
-                txt = ngettext("Completed %(days)d day late",
-                               "Completed %(days)d days late", delay) % \
-                    {'days': delay}
+                txt = translate("Completed %{days}d day late", delay)
             elif delay <= -1:
                 abs_delay = abs(delay)
-                txt = ngettext("Completed %(days)d day early",
-                               "Completed %(days)d days early", abs_delay) % \
-                    {'days': abs_delay}
+                txt = translate("Completed %{days}d day early", abs_delay)
         else:
             due_date = self.task.get_due_date()
             result = due_date.days_left()
             if due_date.is_fuzzy():
                 txt = ""
             elif result > 0:
-                txt = ngettext("Due tomorrow!", "%(days)d days left", result)\
-                    % {'days': result}
+                txt = translate("%{days}d days left", result)
             elif result == 0:
-                txt = _("Due today!")
+                txt = translate("Due today!")
             elif result < 0:
                 abs_result = abs(result)
-                txt = ngettext("Due yesterday!", "Was %(days)d days ago",
-                               abs_result) % {'days': abs_result}
+                txt = translate("Was %{days}d days ago",  abs_result)
 
         style_context = self.window.get_style_context()
         color = style_context.get_color(Gtk.StateFlags.INSENSITIVE).to_color()

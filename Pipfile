@@ -1,0 +1,27 @@
+[scripts]
+dev = 'bash -c "PYTHONPATH=/usr/lib/python3/dist-packages:$PYTHONPATH ./gtg.sh"'
+dev2 = 'bash -c "./gtg.sh"'
+
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+nose = "*"
+spec = "*"
+pyflakes = "*"
+pep8 = "*"
+mock = "*"
+liblarch = {git = "https://github.com/getting-things-gnome/liblarch.git",ref = "master"}
+pyxdg = "*"
+python-i18n = "*"
+pyyaml = "*"
+pydash = "*"
+# backported `dataclasses` from Python 3.7 to 3.6
+dataclasses = "*"
+
+[requires]
+python_version = "3"

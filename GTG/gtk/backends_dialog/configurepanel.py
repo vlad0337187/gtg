@@ -19,7 +19,7 @@
 
 from gi.repository import Gtk
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.backends_dialog.parameters_ui import ParametersUI
 from GTG.backends.backendsignals import BackendSignals
 
@@ -142,9 +142,9 @@ class ConfigurePanel(Gtk.Box):
         '''
         self.sync_button.set_sensitive(not self.backend.is_default())
         if self.backend.is_enabled():
-            label = _("Disable syncing")
+            label = translate("Disable syncing")
         else:
-            label = _("Enable syncing")
+            label = translate("Enable syncing")
         self.sync_button.set_label(label)
 
     def refresh_sync_status_label(self):
@@ -152,12 +152,12 @@ class ConfigurePanel(Gtk.Box):
         Refreshes the Gtk.Label that shows the current state of this backend
         '''
         if self.backend.is_default():
-            label = _("This is the default synchronization service")
+            label = translate("This is the default synchronization service")
         else:
             if self.backend.is_enabled():
-                label = _("Syncing is enabled.")
+                label = translate("Syncing is enabled.")
             else:
-                label = _('Syncing is <span color="red">disabled</span>.')
+                label = translate('Syncing is <span color="red">disabled</span>.')
         self.sync_status_label.set_markup(label)
 
     def refresh_sync_status(self, sender=False, data=False):

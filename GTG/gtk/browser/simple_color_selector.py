@@ -26,7 +26,7 @@ import math
 
 from gi.repository import GObject, Gtk, Gdk
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 DEFAULT_PALETTE = [
     "#EF2929", "#AD7FA8", "#729FCF", "#8AE234", "#E9B96E",
@@ -240,7 +240,7 @@ class SimpleColorSelector(Gtk.Box):
         self.add_button.connect("clicked", self.on_color_add)
         # Draw the clear selected color button
         self.clear_button = Gtk.Button()
-        self.clear_button.set_label(_("Clear selected color"))
+        self.clear_button.set_label(translate("Clear selected color"))
         buttons_hbox.pack_start(self.clear_button, True, False, 0)
         self.clear_button.connect("clicked", self.on_color_clear)
         self.clear_button.set_sensitive(False)
@@ -281,7 +281,7 @@ class SimpleColorSelector(Gtk.Box):
     def on_color_add(self, widget):
         """Callback: when adding a new color, show the color definition
         window, update the model, notifies the parent."""
-        color_dialog = Gtk.ColorSelectionDialog(_('Choose a color'))
+        color_dialog = Gtk.ColorSelectionDialog(translate('Choose a color'))
         # FIXME
         colorsel = color_dialog.get_color_selection()
         if self.selected_col is not None:

@@ -29,7 +29,7 @@ for a tag.
 
 from gi.repository import GObject, Gtk, Gdk, GdkPixbuf
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.browser.simple_color_selector import SimpleColorSelector
 from GTG.gtk.colors import color_add, color_remove
 from GTG.tools.logger import Log
@@ -236,7 +236,7 @@ class TagEditor(Gtk.Window):
         self.tp_grid.add(self.tn_entry_lbl_align)
         self.tn_entry_lbl = Gtk.Label()
         self.tn_entry_lbl.set_markup("<span weight='bold'>%s</span>"
-                                     % _("Name : "))
+                                     % translate("Name : "))
         self.tn_entry_lbl_align.add(self.tn_entry_lbl)
         self.tn_entry = Gtk.Entry()
         self.tn_entry.set_width_chars(20)
@@ -256,7 +256,7 @@ class TagEditor(Gtk.Window):
         self.tc_label = Gtk.Label()
         self.tc_label_align.add(self.tc_label)
         self.tc_label.set_markup(
-            "<span weight='bold'>%s</span>" % _("Select Tag Color:"))
+            "<span weight='bold'>%s</span>" % translate("Select Tag Color:"))
         self.tc_label.set_alignment(0, 0.5)
         # Tag color chooser
         self.tc_cc_align = Gtk.Alignment.new(0.5, 0.5, 0, 0)
@@ -303,7 +303,7 @@ class TagEditor(Gtk.Window):
         self.tn_entry.handler_block(self.tn_entry_clicked_hid)
         self.tag_icon_selector.handler_block(self.tis_selection_changed_hid)
         # Default icon
-        markup = "<span size='small'>%s</span>" % _("Click To\nSet Icon")
+        markup = "<span size='small'>%s</span>" % translate("Click To\nSet Icon")
         self.ti_bt_label.set_justify(Gtk.Justification.CENTER)
         self.ti_bt_label.set_markup(markup)
         self.ti_bt_label.show()

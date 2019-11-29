@@ -20,7 +20,7 @@
 from datetime import date, timedelta
 from unittest import TestCase
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 
 
@@ -72,10 +72,10 @@ class TestDates(TestCase):
 
     def test_parse_fuzzy_dates_str(self):
         """ Print fuzzy dates in localized version """
-        self.assertEqual(str(Date.parse("now")), _("now"))
-        self.assertEqual(str(Date.parse("soon")), _("soon"))
-        self.assertEqual(str(Date.parse("later")), _("someday"))
-        self.assertEqual(str(Date.parse("someday")), _("someday"))
+        self.assertEqual(str(Date.parse("now")), translate("now"))
+        self.assertEqual(str(Date.parse("soon")), translate("soon"))
+        self.assertEqual(str(Date.parse("later")), translate("someday"))
+        self.assertEqual(str(Date.parse("someday")), translate("someday"))
         self.assertEqual(str(Date.parse("")), "")
 
     def test_parse_week_days(self):
@@ -93,7 +93,7 @@ class TestDates(TestCase):
             self.assertEqual(Date.parse(day.upper()), expected)
 
             # Test localized version
-            day = _(day)
+            day = translate(day)
             self.assertEqual(Date.parse(day), expected)
             self.assertEqual(Date.parse(day.lower()), expected)
             self.assertEqual(Date.parse(day.upper()), expected)

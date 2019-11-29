@@ -31,7 +31,7 @@ from gi.repository import Gtk
 from GTG import info
 from GTG.backends import BackendFactory
 from GTG.backends.genericbackend import GenericBackend
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk import ViewConfig
 from GTG.gtk import help
 from GTG.gtk.backends_dialog.addpanel import AddPanel
@@ -67,7 +67,7 @@ class BackendsDialog(object):
         builder = Gtk.Builder()
         self._load_widgets_from_builder(builder)
         # Load and setup other widgets
-        self.dialog.set_title(_("Synchronization Services - %s" % info.NAME))
+        self.dialog.set_title(translate("Synchronization Services - %s" % info.NAME))
         self._create_widgets_for_add_panel()
         self._create_widgets_for_conf_panel()
         self._setup_signal_connections(builder)
@@ -278,7 +278,7 @@ class BackendsDialog(object):
             flags=Gtk.DialogFlags.DESTROY_WITH_PARENT,
             type=Gtk.MessageType.QUESTION,
             buttons=Gtk.ButtonsType.YES_NO,
-            message_format=_("Do you really want to remove the '%s' "
+            message_format=translate("Do you really want to remove the '%s' "
                              "synchronization service?") %
             backend.get_human_name())
         response = dialog.run()

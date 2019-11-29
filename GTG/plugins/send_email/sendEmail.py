@@ -25,7 +25,7 @@ import urllib.request
 import urllib.parse
 import urllib.error
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 
 class SendEmailPlugin(object):
@@ -64,14 +64,14 @@ class SendEmailPlugin(object):
         task = plugin_api.get_ui().get_task()
 
         # Body contains Status Tags, Subtasks and Content.
-        body = _("Status: %s") % (task.get_status()) + \
-            _("\nTags: %s") % (", ".join(task.get_tags_name())) + \
-            _("\nSubtasks:\n%s") % (
+        body = translate("Status: %s") % (task.get_status()) + \
+            translate("\nTags: %s") % (", ".join(task.get_tags_name())) + \
+            translate("\nSubtasks:\n%s") % (
                 "\n - ".join([i.get_title() for i in task.get_subtasks()])) + \
-            _("\nTask content:\n%s") % (task.get_excerpt())
+            translate("\nTask content:\n%s") % (task.get_excerpt())
 
         # Title contains the title and the start and due dates.
-        title = _("Task: %(task_title)s") % {'task_title': task.get_title()}
+        title = translate("Task: %(task_title)s") % {'task_title': task.get_title()}
 
         parameters = urllib.parse.urlencode({'subject': title, 'body': body})
         parameters = parameters.replace('+', '%20')

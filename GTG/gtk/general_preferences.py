@@ -26,7 +26,7 @@ import os
 from gi.repository import Gtk, Gdk
 
 from GTG.core.dirs import UI_DIR
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools import autostart
 from GTG.tools import shortcut
 
@@ -67,7 +67,7 @@ class GeneralPreferences(object):
         return 'general'
 
     def get_title(self):
-        return _('General Preferences')
+        return translate('General Preferences')
 
     def get_ui(self):
         '''
@@ -259,7 +259,7 @@ class ShortcutWidget(object):
 
     def _show_warning(self, input_str):
         """ Show warning when user enters inappropriate accelerator """
-        show = _("The shortcut \"%s\" cannot be used because "
+        show = translate("The shortcut \"%s\" cannot be used because "
                  "it will become impossible to type using this key.\n"
                  "Please try with a key such as "
                  "Control, Alt or Shift at the same time.") % input_str

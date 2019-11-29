@@ -39,7 +39,7 @@ from GTG.backends.rtm.rtm import createRTM, RTMError, RTMAPIError
 from GTG.backends.syncengine import SyncEngine, SyncMeme
 from GTG.core.tag import ALLTASKS_TAG
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 from GTG.tools.interruptible import interruptible
 from GTG.tools.logger import Log
@@ -49,11 +49,11 @@ class Backend(PeriodicImportBackend):
 
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_rtm",
-        GenericBackend.BACKEND_HUMAN_NAME: _("Remember The Milk"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("Remember The Milk"),
         GenericBackend.BACKEND_AUTHORS: ["Luca Invernizzi"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READWRITE,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("This service synchronizes your tasks with the web service"
+        translate("This service synchronizes your tasks with the web service"
           " RememberTheMilk:\n\t\thttp://rememberthemilk.com\n\n"
           "Note: This product uses the Remember The Milk API but is not"
           " endorsed or certified by Remember The Milk"),

@@ -22,7 +22,7 @@ import threading
 from gi.repository import Gtk
 
 from GTG.backends.backendsignals import BackendSignals
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.networkmanager import is_connection_up
 
 
@@ -32,15 +32,15 @@ class CustomInfoBar(Gtk.InfoBar):
     interaction coming from the backends
     '''
 
-    AUTHENTICATION_MESSAGE = _("The <b>%s</b> synchronization service cannot "
+    AUTHENTICATION_MESSAGE = translate("The <b>%s</b> synchronization service cannot "
                                "login with the  supplied authentication data "
                                "and has been disabled. To retry the login, "
                                "re-enable the service.")
 
-    NETWORK_MESSAGE = _("Due to a network problem, I cannot contact "
+    NETWORK_MESSAGE = translate("Due to a network problem, I cannot contact "
                         "the <b>%s</b> synchronization service.")
 
-    DBUS_MESSAGE = _("Cannot connect to DBus, I've disabled "
+    DBUS_MESSAGE = translate("Cannot connect to DBus, I've disabled "
                      "the <b>%s</b> synchronization service.")
 
     def __init__(self, req, browser, vmanager, backend_id):

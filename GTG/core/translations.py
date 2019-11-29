@@ -18,24 +18,22 @@
 # -----------------------------------------------------------------------------
 """ Initializes support for translations """
 
-import locale
-import gettext
+import i18n
 
-# Fallback to LANG C if unsupported locale
-try:
-    locale.setlocale(locale.LC_ALL, '')
-except:
-    locale.setlocale(locale.LC_ALL, 'C')
+from . import dirs
 
-GETTEXT_DOMAIN = 'gtg'
-LOCALE_PATH = gettext.bindtextdomain(GETTEXT_DOMAIN)
+import GTG.tools.locale
 
-gettext.bindtextdomain(GETTEXT_DOMAIN, LOCALE_PATH)
-locale.bindtextdomain(GETTEXT_DOMAIN, LOCALE_PATH)
-gettext.textdomain(GETTEXT_DOMAIN)
-locale.textdomain(GETTEXT_DOMAIN)
 
-translation = gettext.translation(GETTEXT_DOMAIN, LOCALE_PATH, fallback=True)
+def init():
+    locale = GTG.tools.locale.get_current_locale()
+    i18n.set('locale',   locale.language)
+    i18n.set('fallback', 'en')
+    i18n.config.settings['file_format']     = 'yaml'
+    i18n.config.settings['filename_format'] = '{locale}.{format}'
+    i18n.load_path.append(dirs.TRANSLATIONS_DIR)
 
-_ = translation.gettext
-ngettext = translation.ngettext
+
+def translate(phrase_single, count=1):
+    translated = i18n.t(phrase_single, count=count)
+    return translated

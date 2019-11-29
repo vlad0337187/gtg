@@ -1,0 +1,1130 @@
+' minutes': &id001
+    many: ' minutes'
+    one: ' minute'
+'%{days}d days ago': &id012
+    many: Il y a %{days}d jours
+    one: Hier
+'%{days}d days left': &id007
+    many: '%{days}d jours restants'
+    one: Pour demain !
+'%{tasks}d active tasks': &id003
+    many: '%{tasks}d tâches actives'
+    one: '%{tasks}d tâche active'
+Are you sure you want to delete these tasks?: &id004
+    many: Voulez-vous vraiment supprimer ces tâches ?
+    one: Voulez-vous vraiment supprimer cette tâche ?
+Authors: &id005
+    many: Auteurs
+    one: Auteur
+Completed %{days}d days early: &id002
+    many: Terminée %{days}d jours en avance
+    one: Terminée %{days}d jour en avance
+Completed %{days}d days late:
+    many: Terminée avec %{days}d jours de retard
+    one: Terminée avec %{days}d jour de retard
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+    many: 'La suppression d''une tâche est irréversible et supprimera les tâches suivantes
+        : '
+    one: 'La suppression d''une tâche est irréversible et supprimera la tâche suivante
+        : '
+In %{days}d days: &id011
+    many: Dans %{days}d jours
+    one: Demain
+Keep selected tasks: &id009
+    many: Garder les tâches sélectionnées
+    one: Garder la tâche sélectionnée
+Permanently remove tasks: &id010
+    many: Supprimer les tâches définitivement
+    one: Supprimer la tâche définitivement
+Was %{days}d days ago: &id008
+    many: Il y a %{days}d jours
+    one: Pour hier !
+fr:
+    ? '
+
+        And %d more tasks'
+    : '
+
+        Et %d autres tâches'
+    ? '
+
+        Subtasks:
+
+        %s'
+    : "\nSous-tâches : \n%s"
+    ? '
+
+        Tags: %s'
+    : '
+
+        Étiquettes : %s'
+    ? '
+
+        Task content:
+
+        %s'
+    : "\nContenu de la tâche : \n%s"
+    ? ' has crashed. Please report the bug on <a href="http://bugs.edge.launchpad.net/gtg">our
+        Launchpad page</a>. If you have Apport installed, it will be started for you.'
+    : ' a planté. Veuillez reporter le bogue sur <a href="http://bugs.edge.launchpad.net/gtg">notre
+        page Launchpad</a>. Si Apport est installé, celui-ci démarrera automatiquement.'
+    ' minute': *id001
+    ? '%s seems to be installed on your system, but it does not provide a DBus interface
+        which is required by the Tomboy/Gnote plugin in GTG.'
+    : '%s semble être installé sur votre système, mais ne fournit pas l''interface
+        DBus requise par le plugin Tomboy/Gnote dans GTG.'
+    '%{days}d': *id002
+    '%{task_title}s': 'Tâche : %{task_title}s'
+    '%{tasks}d': *id003
+    <b>Dependencies</b>: <b>Dépendances</b>
+    <b>Editor</b>: <b>Éditeur</b>
+    <b>Location Determination Method</b>: <b>Méthode de détermination de la position</b>
+    <b>Proximity Factor</b>: <b>Facteur de proximité</b>
+    <b>System</b>: <b>Système</b>
+    <b>Task Browser</b>: <b>Gestionnaire de tâches</b>
+    ? "<small>Distance in kilometers from \nthe current location.</small>"
+    : "<small>Distance en kilomètres \ndepuis la position actuelle.</small>"
+    ? 'A &quot;Subtask&quot; is something that you need to do first before being able
+        to accomplish your task. In GTG, the purpose of subtasks is to cut down a
+        task in smaller subtasks that are easier to achieve and to track down.
+
+
+        To insert a subtask in the task description (this window, for instance), begin
+        a line with &quot;-&quot;, then write the subtask title and press Enter.
+
+
+        Try inserting one subtask below. Type &quot;- This is my first subtask!&quot;,
+        for instance, and press Enter:
+
+
+
+
+        Alternatively, you can also use the &quot;Insert Subtask&quot; button.
+
+
+        Note that subtasks obey to some rules: first, a subtask''s due date can never
+        happen after its parent''s due date and, second, when you mark a parent task
+        as done, its subtasks will also be marked as done.
+
+
+        And if you are not happy with your current tasks/subtasks organization, you
+        can always change it by drag-and-dropping tasks on each other in the tasks
+        list.'
+    : 'A &quot;Sous-tâche&quot; est quelquechose que vous devez faire avant de pouvoir
+        réaliser votre tâche. Dans GTG, l''objectif des sous-tâches est de découper
+        une tâche en sous-tâches plus petites qui sont plus faciles à achever et à
+        suivre.
+
+
+        Pour insérer une sous-tâche dans la description de la tâche (cette fenêtre,
+        par exemple), débutez une ligne avec &quot;-&quot; puis écrivez le titre de
+        la sous-tâche et appuyez sur Entrée.
+
+
+        Essayez d''insérer une sous-tâche ci-dessous. Tapez &quot;- Ceci est ma première
+        sous-tâche !&quot;, par exemple, puis appuyez sur Entrée:
+
+
+
+
+        Alternativement, vous pouvez également utiliser le bouton &quot;Insérer une
+        Sous-tâche&quot;.
+
+
+        Notez que les sous-tâches obéissent à certaines règles: d''abord, la date
+        d''échéance d''une sous-tâche ne peut jamais être postérieure à la date d''échéance
+        de sa tâche parente et, ensuite, quand vous indiquez d''une tâche parente
+        est terminée, ses sous-tâches seront également signalées comme étant terminées.
+
+
+        Et si vous n''êtes pas satisfait de l''organisation actuelle de vos tâches
+        et sous-tâches, vous pouvez toujours la modifier en déplaçant les tâches et
+        en les déposant les unes sur les autres dans la liste des tâches.'
+    A professional-looking HTML page: Une page HTML d'apparence professionnelle
+    A simple Web page that can be easily printed.: Une page web simple, facilement
+        imprimable.
+    ? 'A template to create
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, which is a small foldable
+
+        booklet. Packages <b>pdflatex</b>, <b>pdftk</b> and <b>pdfjam</b>
+
+        are required.'
+    : "Un modèle pour créer un \n<a href=\"http://www.pocketmod.com\">PocketMod</a>,\
+        \ un petit dépliant.\nLes paquets <b>pdflatex</b>, <b>pdftk</b> et <b>pdfjam</b>\n\
+        sont requis."
+    A template to create a HTML page with some tasks and tags. Tags colors are also displayed.: Un
+        modèle pour créer une page HTML avec quelques tâches et étiquettes. Les couleurs
+        des étiquettes sont aussi affichées.
+    A template to create a compact text file listing only task titles.: Un modèle
+        pour créer un fichier texte compact, listant uniquement les titres des tâches.
+    A template to create a simple HTML page with some tasks that can be easily printed.: Un
+        modèle pour créer une page HTML simple, contenant quelques tâches et qui est
+        facilement imprimable.
+    A template to create a simple text file with some tasks.: Un modèle pour créer
+        un simple fichier texte contenant quelques tâches.
+    About GTG!: À propos de GTG
+    Add Task: Ajouter une tâche
+    Add Tomboy note: Ajouter une note Tomboy
+    Add _New Task: Ajouter une _nouvelle tâche
+    Add a subtask: Ajouter une sous-tâche
+    Add custom color: Ajouter une couleur personnalisée
+    Add/Remove Tags: Ajouter / supprimer des étiquettes
+    All tags: Toutes les étiquettes
+    All tasks: Toutes les tâches
+    An error has occurred: Une erreur est survenue
+    Apply to subtasks: Appliquer aux sous-tâches
+    Are you sure you want to delete this task?: *id004
+    Associate with existing tag: Associer avec une étiquette existante
+    Associate with new tag: Associer avec une nouvelle étiquette
+    Author: *id005
+    Bug: Bug
+    Cancel: Annuler
+    Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Connexion
+        à DBus impossible, le service de synchronisation <b>%s</b> a été désactivé.
+    Check for new tasks every: Vérifier les nouvelles tâches tous les
+    Choose a color: Choisissez une couleur
+    Choose where to save your list: Choisissez où sauvegarder votre liste
+    Clear: Effacer
+    ? 'Click To
+
+        Set Icon'
+    : 'Choisir
+
+        l''icône'
+    Closed date: Date de clôture
+    Closed on: Terminée le
+    Configure synchronization service: Configurer le service de synchronisation
+    Confirm: Confirmer
+    Confirm task deletion: Confirmer la suppression de la tâche
+    Continue: Continuer
+    Copyright © 2008-2013 Lionel Dricot, Bertrand Rousseau: Copyright © 2008-2013
+        Lionel Dricot, Bertrand Rousseau
+    Create a new subtask: Créer une nouvelle sous-tâche
+    Create a new task: Créer une nouvelle tâche
+    D_ismiss: _Abandonner
+    Delete: Supprimer
+    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    Disable syncing: Désactiver la synchronisation
+    Dismiss: Abandonner
+    Display only the currently actionable tasks: Afficher uniquement les tâches réalisables
+    Do it tomorrow: Le faire demain
+    Do you really want to remove the '%s' synchronization service?: Voulez-vous vraiment
+        supprimer le service de synchronisation '%s' ?
+    Due: Échéance
+    Due for: Prévue pour
+    Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: En
+        raison d'un problème réseau, le service de synchronisation <b>%s</b> est injoignable.
+    Due today!: Pour aujourd'hui !
+    Due tomorrow!: *id007
+    Due yesterday!: *id008
+    Edit: Modifier
+    Edit Tag...: Modifier l'étiquette...
+    Edit the selected task: Modifier la tache selectionnée
+    Enable colored backgrounds in the task list: Activer les fonds colorés dans la
+        liste des tâches
+    Enable syncing: Activer la synchronisation
+    Enter tag name here: Entrer le nom de l'étiquette ici
+    'Enter the name of the tag(s) you wish to add or remove:': 'Saisissez le ou les
+        noms d''étiquettes que vous souhaitez ajouter ou supprimer:'
+    Everything necessary to run this plugin is available.: Tout ce qui est nécessaire
+        au fonctionnement du greffon est disponible.
+    Evolution tasks: Tâches provenant d'Evolution
+    Export the tasks currently listed: Exporter les tâches actuellement listées
+    'Filename:': 'Nom du fichier :'
+    Foldable booklet (PDF): Dépliant de poche (PDF)
+    'Font :': 'Police :'
+    Friday: vendredi
+    'GTG could not generate the document: %s': 'GTG n''a pas pu générer ce document :
+        %s'
+    ? 'GTG has the ability to add plugins to extend its core functionality.
+
+
+        Some examples of the currently available plugins are the notification icon
+        which displays a handy shortcut to GTG in your notification space, or the
+        closed tasks remover which automatically deletes old tasks from your closed
+        tasks list.
+
+
+        You can find the Plugin Manager by selecting Edit in the Menu Bar, then clicking
+        Plugins.'
+    : 'GTG a la capacité d''ajouter des greffons pour étendre ses fonctionnalités
+        de base.
+
+
+        Certains exemples de greffons actuellement disponibles sont l''icone de notification
+        qui affiche un raccourci pratique vers GTG dans votre zone de notification
+        ou le destructeur de tâches clôturées qui supprime automatiquement les anciennes
+        tâches de votre liste des tâches clôturées.
+
+
+        Vous pouvez accéder au gestionnaire de greffons en choisissant Modifier dans
+        la barre de menus puis en cliquant sur Greffons.'
+    GTG is a personal tasks and TODO-list items organizer for the GNOME desktop environment.: GTG
+        est un gestionnaire et un organisateur de tâches personnelles "à faire" (TODO)
+        pour l'environnement de bureau GNOME.
+    GTG is a personal tasks and TODO-list items organizer for the GNOME.: GTG est
+        un organisateur personnel de tâches pour GNOME.
+    ? 'GTG is still beta software. We like it and use it everyday but you will probably
+        encounter some bugs will you do.
+
+
+        Please, help us improving GTG by reporting them on our Launchpad page:https://bugs.launchpad.net/gtg/+filebug
+
+
+        We need you to make this software better. Any contribution, any idea is welcome!
+
+
+        If you have some trouble with GTG, we might be able to help you or to solve
+        your problem really quickly.'
+    : 'GTG est encore en beta. Nous l''aimons et l''utilisons chaque jour mais vous
+        rencontrerez probablement des bugs.
+
+
+        S''il vous plaît, aidez-nous à améliorer GTG en les rapportant sur notre page
+        Launchpad : https://bugs.launchpad.net/gtg/+filebug
+
+
+        Nous avons besoin de vous pour rendre ce logiciel meilleur. Toute contribution,
+        toute idée est la bienvenue !
+
+
+        Si vous avez des soucis avec GTG, nous pouvons vous aider ou résoudre votre
+        problème rapidement.'
+    GTG website: Site web de GTG
+    Geolocalized-tasks Preferences: Préferences des tâches géolocalisées
+    Getting Started With GTG: Démarrer avec GTG
+    Getting Things GNOME!: Getting Things GNOME!
+    ? 'Getting Things GNOME! is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by the Free
+        Software Foundation; either version 3 of the License, or (at your option)
+        any later version.
+
+
+        Getting Things GNOME! is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+        more details.
+
+
+        You should have received a copy of the GNU General Public License along with
+        Getting Things GNOME!; if not, write to the Free Software Foundation, Inc.,
+        51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    : 'Getting Things GNOME! est un logiciel libre; Vous pouvez le redistribuer et/ou
+        le modifier dans les termes de la Licence publique générale GNU comme publiée
+        par la Free Software Foundation; que ce soit dans la version 3 ou une version
+        postérieure de votre choix.
+
+
+        Getting Things GNOME! est distribué dans l''espoir d''être utile, mais SANS
+        AUCUNE GARANTIE ; sans même la garantie implicite de  qualité marchande ni
+        même d''être approprié pour un quelconque usage. Veuillez vous référer à la
+        licence publique générale GNU pour plus de détails.
+
+
+        Vous devriez avoir reçu une copie de la GNU GPL avec Getting Things GNOME!
+        ; sinon, merci d''écrire à la Free Software Foundation, Inc., 51 Franklin
+        Street, Fifth floor, Boston, MA 02110-1301, USA.'
+    Gnote: Gnote
+    Help to translate GTG into your language: Aidez à traduire GTG dans votre langue
+    Hide this tag from the workview: Masquer cette étiquette dans la vue de travail
+    ? 'Hint: you can add several tags by separating them with
+
+        space. Place ''!'' before tags you want to remove.'
+    : 'Conseil: vous pouvez ajouter plusieurs étiquettes en les séparant
+
+        par des espaces. Ajoutez ''!'' devant les étiquettes que vous voulez supprimer.'
+    ? 'If you press the &quot;Work View&quot; button, only actionable tasks will be
+        displayed in your list.
+
+
+        What is an actionable task? It''s a task you can do directly, right now.
+
+
+        It''s a task that is already &quot;start-able&quot;, i.e. the start date is
+        already over.
+
+
+        It''s a task that doesn''t have open subtasks, i.e. you can do the task itself
+        directly.
+
+
+        It''s a task that has a due date different than &quot;Someday&quot;, since
+        this kind of date is reserved for things that needs more thoughts before being
+        actionable.
+
+
+        Thus, in short, the Work View shows you tasks that you can do right now. It''s
+        very useful when you want to get things done and to focus on the relevant
+        tasks!
+
+
+        If you use tags, you can right click on a tag in the sidebar and choose to
+        hide tasks assigned to this particular tag in the Work View. It is very useful
+        if you have a tag like &quot;@wait&quot; that you use for tasks blocked by
+        some external event (i.e. a phone call you wait to receive).
+
+
+        And finally, an important note regarding the Work View: since the Work View
+        is updated instantaneously, if you edit your task while using the Work View,
+        this task might disappear due to the change you just made (e.g. adding a subtask,
+        adding a tag hidden in the Work View, etc.). To avoid this, it''s better not
+        to edit your task while using the Work View. '
+    : 'Si vous appuyez sur le bouton &quot;Vue de travail&quot;, seules les tâches
+        réalisables seront affichées dans votre liste.
+
+
+        Qu''est-ce qu''une tâche réalisable ? C''est une tâche que vous pouvez faire
+        directement, tout de suite.
+
+
+        C''est une tâche qui est déjà &quot;démarrable&quot;, i.e. dont la date de
+        début est déjà dépassée.
+
+
+        C''est une tâche qui ne contient pas de sous-tâches en cours, i.e. vous pouvez
+        faire la tâche elle-même directement.
+
+
+        C''est une tâche qui possède une date d''échéance différente de &quot;Un jour&quot;
+        car ce genre de date est réservé pour les choses qui méritent réflexion avant
+        de devenir réalisables.
+
+
+        Donc, en résumé, la Vue de travail vous affiche les tâches que vous pouvez
+        faire tout de suite. C''est très utile quand vous voulez que les choses soient
+        faites et vous concentrer sur les tâches pertinentes !
+
+
+        Si vous utilisez des étiquettes, vous pouvez faire un clic droit sur une étiquette
+        dans la barre latérale et choisir de cacher les tâches correspondant à cette
+        étiquette dans la Vue de travail. C''est très utile si vous avez une étiquette
+        telle que &quot;en_attente&quot; que vous utilisez pour les tâches bloquées
+        par un événement extérieur (i.e. un appel téléphonique que vous attendez de
+        recevoir).
+
+
+        Et enfin, un point important à noter concernant la Vue de travail: puisque
+        la Vue de travail est mise à jour instantanément, si vous modifiez votre tâche
+        pendant que vous utilisez la Vue de travail, cette tâche peut disparaître
+        à cause des modifications que vous venez juste de faire (par exemple en ajoutant
+        une sous-tâche, en ajoutant une étiquette masquée dans la Vue de travail,
+        etc.). Pour éviter cecic, il vaut mieux ne pas modifier votre tâche pendant
+        que vous utilisez la Vue de travail. '
+    Ignore: Ignorer
+    ? Import                                                                  tasks
+        from                                                                  your
+        tweets
+    : Importer des tâches depuis vos tweets
+    Import tags: Importer des étiquettes
+    'Import tasks                                                         from @ replies ': 'Importer
+        des tâches depuis les réponses de @ '
+    Import tasks from direct messages: Importer des tâches de messages directs
+    ? 'In GTG, you use tags to sort your tasks. A tag is a simple word that begins
+        with &quot;@&quot;.
+
+
+        Try to type a word beginning with &quot;@&quot; here:
+
+
+        Once it becomes yellow, it is a tag! And this tag is now linked to the task!
+
+
+        Using the View menu, you can enable a sidebar which displays all the tags
+        you are using. This allows you to easily see all tasks associated to a given
+        tag.
+
+
+        If you right-click on a tag in the sidebar, you can also edit it. It allows
+        you to assign it a color or an icon for instance. This is handy if you want
+        to quickly identify the tasks associated to a given tag in the task list!
+
+
+        New tags are always added exclusively to the currently edited task, and never
+        to its subtasks. However, when you create a new subtask, it will inherit its
+        parent''s tags.
+
+
+        If you need a more advanced task organization, you can also create a hierarchy
+        of tags by drag-and-dropping a tag onto another. This is useful when you want
+        to regroup several tags together and see all related tasks easily. For instance,
+        if you have two tags @money and @to_pay, and you drag @to_pay on @money, every
+        task tagged with @to_pay will also appear when you select @money.'
+    : 'Dans GTG, vous utilisez des étiquettes pour trier vos tâches. Une étiquette
+        est simplement un mot qui commence par &quot;@&quot;.
+
+
+        Essayez de saisir un mot commençant par &quot;@&quot; ici:
+
+
+        Une fois qu''il devient surligné en jaune, c''est une étiquette ! Et cette
+        étiquette est désormais liée à la tâche !
+
+
+        En utilisant le menu Vue, vous pouvez faire apparaître une barre latérale
+        qui affiche toutes les étiquettes que vous utilisez. Ceci vous permet de voir
+        facilement toutes les tâches associées à une étiquette donnée.
+
+
+        Si vous faîtes un clic droit sur une étiquette dans la barre latérale, vous
+        pouvez également la modifier. Ceci vous permet de lui affecter une couleur
+        ou une icone par exemple. C''est pratique si vous voulez identifier rapidement
+        les tâches associées à une étiquette donnée dans la liste des tâches !
+
+
+        Les nouvelles étiquettes sont toujours ajoutées exclusivement à la tâche en
+        cours de modification et jamais à ses sous-tâches. Cependant, quand vous créez
+        une nouvelle sous-tâche, elle héritera des étiquettes de sa tâche parente.
+
+
+        Si vous avez besoin d''une organisation de vos tâches plus complexes, vous
+        pouvez également créer une hiérarchie d''étiquettes en tirant et en déposant
+        une étiquette sur une autre. C''est utile quand vous voulez regrouper plusieurs
+        étiquettes et voir facilement toutes les tâches en relation. Par exemple,
+        si vous avez deux étiquettes @argent et @a_payer et que vous tirez @a_payer
+        sur @argent, chaque tâche marquée avec @a_payer apparaîtra également si vous
+        choisissez @argent.'
+    Insert a subtask in this task: Insérer une sous-tâche dans cette tâche
+    Insert a tag in this task: Insérer une étiquette dans cette tâche
+    Insert subtask: Ajouter une sous-tâche
+    Insert tag: Ajouter une étiquette
+    Invalid state: État invalide
+    Iss.: Ano.
+    It looks like an error has occurred.: Il semble qu'une erreur soit survenue.
+    'Just these                                                                       tags:': 'Seulement
+        ces mots-clés &nbsp:'
+    Keep selected task: *id009
+    Launchpad: Launchpad
+    Learn How To Search For Tasks: Apprendre à chercher des tâches
+    Learn How To Use Plugins: Apprendre à utiliser les extensions
+    Learn How To Use Subtasks: Apprendre à utiliser les sous-tâches
+    Learn How To Use Synchronization Services: Apprendre à utiliser les services de
+        synchronisation
+    Learn How To Use Tags: Apprendre à utiliser les étiquettes
+    Learn How To Use The Quick Add Entry: Apprendre à utiliser l'ajout rapide d'entrée
+    Learn How To Use The Work View: Apprendre à utiliser la vue de travail
+    Lets you synchronize your GTG tasks with Evolution tasks: Permet de synchroniser
+        vos tâches GTG avec les tâches d'Evolution
+    'Link to bug: ': 'Lien vers le bug : '
+    'Link to issue: ': 'Lien vers l''anomalie : '
+    Local File: Fichier local
+    MantisBT: MantisBT
+    Mark Done: Marquer comme fait
+    Mark as Done: Marquer comme fait
+    Mark as Not Done: Marquer comme non terminée
+    Mark as _Done: Marquer comme _fait
+    Mark as not Done: Marquer comme non réalisée
+    Mark the selected task as done: Marquer la tâche sélectionnée comme faite
+    Mark the selected task as to be done: Marquer la tâche sélectionnée comme à faire
+    Mark the task as not to be done anymore: Marquer la tâche sélectionnée comme à
+        ne pas faire
+    Mark this task as done: Marquer cette tâche comme terminée
+    Mark this task as not to be done anymore: Marquer cette tâche comme n'étant plus
+        à accomplir
+    Mark this task as to be done: Marquer cette tâche comme à accomplir
+    Modify Tags: Modifier les étiquettes
+    Modify Tags...: Modifier les étiquettes...
+    Monday: lundi
+    My new task: Ma nouvelle tâche
+    'Name : ': 'Nom : '
+    New Subtask: Nouvelle sous-tâche
+    New Task: Nouvelle tâche
+    'New Task Shortcut :': 'Nouveau raccourci vers une tâche &nbsp:'
+    New _Subtask: Nouvelle _Sous-tâche
+    New _Task: Nouvelle _tâche
+    NewTag: NouvelleÉtiquette
+    Next _Month: _Mois Prochain
+    Next _Week: _Semaine Prochaine
+    Next _Year: A_nnée Prochaine
+    No task matches your criteria. Empty report can't be generated.: Aucune tâche
+        ne correspond à vos critères. Un rapport vide ne peut être généré.
+    Now: Maintenant
+    Ok: OK
+    Open GTG help: Ouvrir l'aide de GTG
+    Open Task: Ouvrir une tâche
+    'Password:': 'Mot de passe :'
+    Permanently remove task: *id010
+    Permanently remove the selected task: Supprimer la tâche sélectionnée de façon
+        permanente
+    Permanently remove this task: Supprimer définitivement cette tâche
+    'Please install or start the following components:': 'Veuillez installer ou démarrer
+        les composants suivants :'
+    'Please install the following python modules:': 'Merci d''installer les modules
+        Python suivants :'
+    'Please start the following applications:': 'Merci de démarrer les applications
+        suivantes :'
+    Plugins - %s: Greffons - %s
+    Preferences - %s: Préférences - %s
+    Redo: Refaire
+    Remember The Milk: Remember The Milk
+    Remove selected icon: Enlever les icones sélectionnées
+    Report a problem to GTG developers: Signaler un problème aux développeurs de GTG
+    'Reported by: ': 'Rapporté par : '
+    Reporting Bugs: Rapport d'anomalies
+    Saturday: samedi
+    Search: Rechercher
+    'Select Tag Color:': 'Sélectionnez la couleur de l''étiquette:'
+    'Select synchronization service:': 'Sélectionner un service de synchronisation
+        :'
+    Send via email: Envoyer par courriel
+    Service URL: URL du service
+    Set Due Date: Assigner une date d'échéance
+    Set the task's location: Déterminer l'emplacement de la tâche
+    'Show Tag in Work View :': Afficher l'étiquette dans la vue de travail
+    Show description preview in the task list.: Afficher l'aperçu de la description
+        dans la liste de tâches.
+    Show this tag in the workview: Afficher cette étiquette dans la vue de travail
+    Some modules and remote dbus objects are missing.: Il manque des modules et des
+        composants DBus
+    Some python modules are missing: Il manque certains modules Python
+    Some remote dbus objects are missing.: Il manque des composants DBus
+    Someday: Un jour
+    Soon: Bientôt
+    Start Getting Things GNOME! on every login: Lancer Getting Things GNOME! à chaque
+        démarrage
+    'Start a new activity in Hamster Time Tracker ': 'Démarrer une nouvelle activité
+        dans le gestionnaire de temps Hamster '
+    Start date: Date de début
+    Start in Hamster: Commencer dans Hamster
+    Start task in Hamster: Commencer une tâche dans Hamster
+    Starting on: Commence le
+    Status report: Rapport d'état
+    'Status: %s': 'État : %s'
+    Sunday: dimanche
+    Synchronization Services - %s: Services de synchronisation - %s
+    ? 'Synchronization Services allow GTG to synchronize (meaning to have access or
+        to import) tasks, notes or bugs from other sites or services like Launchpad,
+        Remember the Milk, Tomboy, etc.
+
+
+        This can incredibly useful if, for instance, you want to access your tasks
+        on several instances of GTG running on separate computers, or if you want
+        to edit your tasks using an online service. GTG can also import tasks from
+        specific sites like launchpad for instance, which allows you to manage the
+        bug reports you''re working on in GTG!
+
+
+        To use Synchronization Services, use the Edit menu, and select &quot;Synchronization
+        Services&quot;. You will then have the possibility to select among several
+        online or local services from/to where you can import or export your tasks.
+
+
+        If you want to know more about Synchronization Services, you can read more
+        about them by in the dedicated documentation in GTG''s help (use the Help
+        menu or press F1 to get access to it).'
+    : 'Les services de synchronisations permettent à GTG de synchroniser (c''est à
+        dire d''avoir accès ou d''importer) les tâches, les notes ou les bugs avec
+        d''autres sites ou services tels que Launchpad, Remember the Milk, Tomboy,
+        etc.
+
+
+        C''est incroyablement utile si, par exemple, vous voulez accéder à vos tâches
+        sur plusieurs instances de GTG s''exécutant sur différents ordinateurs, ou
+        si vous voulez modifier vos tâches en utilisant un service en ligne. GTG peut
+        également importer des tâches depuis des sites particuliers tels que launchpad
+        par exemple ce qui vous permet de gérer les rapports de bug sur lesquels vous
+        travaillez dans GTG !
+
+
+        Pour utiliser les services de synchronisation, utilisez le menu Modifier et
+        choisissez &quot;Services de synchronisation&quot;. Vous aurez alors la possibilité
+        de choisir parmi plusieurs services en ligne ou locaux vers/depuis lesquels
+        vous pouvez importer ou exporter vos tâches.
+
+
+        Si vous voulez en savoir plus sur les services de synchronisation, vous pouvez
+        lire plus de choses sur eux dans la documentation dédiée dans l''aide de GTG
+        (utilisez le menu aide ou appuyez sur F1 pour y accéder).'
+    Syncing is <span color="red">disabled</span>.: La synchronisation est <span color="red">désactivée</span>.
+    Syncing is enabled.: La synchronisation est activée.
+    T_oday: _Aujourd'hui
+    T_oolbar: Barre d'_outils
+    Tag your GTG tasks with the bug tags: Marquer vos tâches GTG avec le marqueur
+        bug
+    Tag your GTG tasks with the project targeted by the bug: Marquer vos tâches GTG
+        avec le projet concerné par le bug
+    TagName: Nom de l'étiquette
+    Tags: Étiquettes
+    Tags to sync: Étiquettes à synchroniser
+    Task: Tâche
+    Tasks: Tâches
+    'Tasks with                                                                 these tags:': 'Tâches
+        avec ces môts-clés &nbsp:'
+    Tasks with no tags: Tâches sans étiquettes
+    Text-only: Texte seul
+    That note does not exist!: Cette note n'existe pas !
+    That note does not exist. Do you want to create a new one?: Cette note n'existe
+        pas. Voulez-vous la créer ?
+    ? The <b>%s</b> synchronization service cannot login with the  supplied authentication
+        data and has been disabled. To retry the login, re-enable the service.
+    : Le service de synchronisation <b>%s</b> a été désactivé car il n'a pu ouvrir
+        de session avec les données d'authentification fournies. Afin de vous identifier,
+        réactivez le service.
+    ? 'The Quick Add Entry is the fastest way to create a new task. Use the check
+        box in the View menu to enable and disable the entry field.
+
+
+        To add a task simply type its title in the entry and press Enter. The task
+        will be created and selected in the task browser. If a tag is selected in
+        the Tags Sidebar, it will be applied to the task you created.
+
+
+        You can also create a task in the Quick Add Entry and at the same time specify
+        its tags, due and defer date. Follow these format rules:
+
+
+        tags:tag1,tag2,tag3
+
+
+        Using this you can apply as many tags as you wish using comma as separator.
+        Note that any word in the title that begins with &quot;@&quot; will also be
+        interpreted as a tag!
+
+
+        due:date
+
+        defer:date
+
+
+        Using this you can apply a due date or a defer date. Dates can be formated
+        as per your locale or yyyy-mm-dd (for example 2012-04-01) or yyyymmdd (20120401)
+        or mmdd (0401 - the year being implicitly the current one) or today, tomorrow
+        or a weekday name (due:monday means due next Monday). Dates which are added
+        in this way will not appear in the task title.
+
+
+        Examples:
+
+
+        buy stationary tags:purchases,office due:20120330 defer:tuesday
+
+
+        The above example tells GTG to create a new task with the title &quot;buy
+        stationary&quot;, under the tags &quot;purchases&quot; and &quot;office&quot;,
+        with the due date March 30, 2012 and the start date next Tuesday.
+
+
+        call mum tags:family,calls due:sunday defer:tomorrow
+
+
+        The above example tells GTG to create a new task with the title &quot;call
+        mum&quot;, under the tags &quot;family&quot; and &quot;calls&quot;, with the
+        due date next Sunday and the start date tomorrow.'
+    : "La zone d’ajout rapide est la façon la plus rapide pour créer une nouvelle\
+        \ tâche. Vous pouvez la montrer ou la cacher dans le menu de Vue.\n\nPour\
+        \ ajouter une tâche vous devez juste saisir son titre dans la zone et appuyer\
+        \ sur Entrée. La tâche sera créée et choisie dans le navigateur de tâche.\
+        \ Si une étiquette est choisie dans le panneau d'étiquettes, cette étiquette\
+        \ est appliquée à la tâche que vous créez.\n\nVous pouvez aussi créer une\
+        \ tâche avec les attributs \"tags\", \"dues\" et \"defer\" dans la zone d'ajout\
+        \ rapide. La syntaxe pour ces attributs est :\nTags:étiquette1, étiquette2,\
+        \ étiquette3\n- De cette façon, vous pouvez appliquer autant d'étiquettes\
+        \ que vous le souhaitez en utilisant la virgule comme séparateur.\n\ndue:date\n\
+        defer:date\n - De cette façon vous pouvez appliquer une date d'échéance ou\
+        \ une date de report. La date peut être de la forme yyyy-mm-dd (par exemple\
+        \ 2009-04-01) ou yyyymmdd (20090401) ou mmdd (0401, dans ce cas l'année est\
+        \ implicitement l’année actuelle) ou today (pour aujourd'hui) ou tomorrow\
+        \ (pour demain) ou le nom d’un jour de la semaine (due:monday signifie pour\
+        \ lundi prochain)\n\nLes attributs qui sont ajoutés de cette façon s'appliquent,\
+        \ mais n'apparaissent pas dans le titre.\n\nSi un mot commence par @, il est\
+        \ interprété comme une étiquette."
+    The plugin can not be loaded: Le greffon ne peut pas être chargé
+    ? 'The shortcut "%s" cannot be used because it will become impossible to type
+        using this key.
+
+        Please try with a key such as Control, Alt or Shift at the same time.'
+    : 'Le raccourci « %s » ne peut pas être utilisé parce qu''une saisie avec cette
+        touche peut devenir impossible.
+
+        Veuillez essayer avec une touche telle que Ctrl, Alt ou Maj simultanément.'
+    ? This Tomboy note                                        does not exist anymore.
+        Do you want to                                        create it?
+    : Cette note Tomboy n'existe plus. Souhaitez-vous la créer?
+    This is the default synchronization service: Ceci est le service de synchronisation
+        par défaut
+    ? This service can synchronize all or part of your Gnote notes in GTG. If you
+        decide it would be handy to have one of your notes in your TODO list, just
+        tag it with the tag you have chosen (you'll configure it later), and it will
+        appear in GTG.
+    : Ce service peut synchroniser tout ou partie de vos notes Gnote dans GTG. Si
+        vous décidez qu'il serait pratique d'avoir l'une de vos notes dans votre liste
+        de choses à faire, étiquettez-là simplement avec l'étiquette que vous avez
+        choisie (vous la configurerez plus tard) et elle apparaîtra dans GTG.
+    ? "This service synchronizes your tasks with the web service RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nNote: This product uses the Remember The\
+        \ Milk API but is not endorsed or certified by Remember The Milk"
+    : "Ce service synchronise vos tâches avec le service web RememberTheMilk:\n\t\t\
+        http://rememberthemilk.com\n\nNote: Ce produit utilise l'API de Remember The\
+        \ Milk mais n'est ni lié ni certifié par Remember The Milk"
+    ? This synchronization service can synchronize all or part of your Tomboy notes
+        in GTG. If you decide it would be handy to have one of your notes in your
+        TODO list, just tag it with the tag you have chosen (you'll configure it later),
+        and it will appear in GTG.
+    : Ce service de synchronisation peut synchroniser tout ou partie de vos notes
+        Tomboy dans GTG. Si vous décidez qu'il serait pratique d'avoir l'une de vos
+        notes dans votre liste de choses à faire, mettez-lui l'étiquette que vous
+        avez choisie (vous la configurerez plus tard) et elle apparaîtra dans GTG.
+    ? "This synchronization service lets you import the bugs assigned to you (or someone\
+        \ else) on Launchpad in GTG. As the bug state changes in Launchpad, the GTG\
+        \ task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated bug is modified. Apart from those, you are\
+        \ free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to bug"
+    : "Ce service de synchronisation vous permet d'importer les bugs qui vous sont\
+        \ affectés (ou à quelqu'un d'autre) de Launchpad dans GTG. Quand l'état d'un\
+        \ bug change dans Launchpad, la tâche GTG est mise à jour.\nMerci de noter\
+        \ que c'est un service de synchronisation en lecture seule, ce qui signifie\
+        \ que si vous ouvrez l'une des tâches importées et que vous modifiez soit:\n\
+        \  - le titre\n  - la description\n  - les étiquettes\nVos modifications <b>seront</b>\
+        \ écrasées quand le bug associé sera modifié. Mise à part ces éléments, vous\
+        \ avez toute liberté de renseigner les autres champs (dates de début/d'échéance,\
+        \ sous-tâches ...): vos modifications seront préservées. Ceci est très utile\
+        \ pour ajouter des annotations personnels au bug"
+    ? "This synchronization service lets you import the issues found on Mantis using\
+        \ a prestablished filter called 'gtg'. As the issue state changes in Mantis,\
+        \ the GTG task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated issue is modified. Apart from those, you\
+        \ are free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to issue"
+    : "Ce service de synchronisation vous permet d'importer les anomalies trouvées\
+        \ dans Mantis en utilisant un filtre pré-établi appelé 'gtg'. Quand l'état\
+        \ de l'anomalie change dans Mantis, la tâche GTG est mise à jour.\nMerci de\
+        \ noter qu'il s'agit d'un service de synchronisation en lecture seule, ce\
+        \ qui signifie que si vous ouvrez l'une des tâches importées et modifiez soit:\n\
+        \  - le titre\n  - la description\n  - les étiquettes\nvos modifications <b>seront</b>\
+        \ écrasées quand l'anomalie associée est modifiée. Mise à part ces champs,\
+        \ vous avez toute liberté de renseigner les autres champs (dates de début/d'échéance,\
+        \ sous-tâches ...): vos modifications seront préservées. Ceci est utile pour\
+        \ ajouter des annotations personnelles à l'anomalie"
+    Thursday: jeudi
+    Title: Titre
+    ? 'To help you to find specific tasks more easily, GTG allows you to search for
+        tasks based on their content.
+
+
+        Searching for tasks is really easy: just type the words you are looking for
+        in the Quick Add Entry, and select &quot;Search&quot; in the menu that will
+        appear automatically.
+
+
+        GTG stores your searches in the sidebar, under the &quot;Search&quot; section.
+        You can thus always go back to a previous search need it. Search results are
+        updated automatically, so you always get all the tasks matching your search
+        request.
+
+
+        GTG also saves all the search requests you have made until you explicitely
+        delete them (which you can do by right-clicking on them and selecting &quot;Delete&quot;).
+        That allows you to safely quit GTG without loosing your search requests. This
+        can be very useful when you use the search features to identify specific tasks
+        regularly!
+
+
+        GTG search feature is really powerful and accept many parameters that allows
+        you to search for very specific tasks. For instance, using the search query
+        &quot;@errands !today&quot;, you can search for tasks with the @errands tag
+        that must be done today. To learn more about those search query parameters,
+        you can read the documentation available in GTG''s help (press F1 or use the
+        Help menu to get access to it).'
+    : 'Pour vous aider à trouver des tâches spécifiques plus facilement, GTG vous
+        permet de chercher des tâches basées sur leur contenu.
+
+
+        La recherche de tâches est vraiment facile : tapez juste les mots que vous
+        cherchez dans la zone d''ajout rapide et choisissez "Recherche" dans le menu
+        qui apparaîtra automatiquement.
+
+
+        GTG stocke vos recherches dans l''encadré, sous la section "Recherche". Vous
+        pouvez ainsi toujours relancer une recherche précédente en cas de besoin.
+        Les résultats de recherche sont mis à jour automatiquement, donc vous obtenez
+        toujours toutes les tâches correspondant à votre recherche.
+
+
+        GTG enregistre aussi toute les recherches que vous faites jusqu''à ce que
+        vous les supprimiez explicitement (ce que vous pouvez faire en faisant un
+        clic droit sur elle puis en sélectionnant "Supprimer"). Cela vous permet de
+        quitter GTG  sans risque et sans perdre vos recherches. Ceci peut être très
+        utile quand vous utilisez la recherche pour identifier des tâches spécifiques
+        régulièrement!
+
+
+        La recherche de GTG est vraiment puissante et accepte beaucoup de paramètres
+        qui vous permettent de chercher des tâches très spécifiques. Par exemple,
+        en faisant "@commissions !today", vous pouvez chercher des tâches avec l''étiquette
+        @commissions qui doivent être faites aujourd''hui. Pour en apprendre plus
+        sur les paramètres de recherche, vous pouvez lire la documentation disponible
+        dans l''aide de GTG (appuyer sur F1 ou utiliser le menu d''aide pour y avoir
+        accès).'
+    Today: Aujourd'hui
+    Tomboy: Tomboy
+    Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
+        non trouvé. Vous devriez l'installer ou désactiver le greffon Tomboy/Gnote
+        dans GTG
+    Tomorrow: *id011
+    Tuesday: mardi
+    Und_ismiss: Annuler l'a_bandon
+    Undismiss: Restaurer
+    Undo: Annuler
+    Unknown error while loading the plugin.: Une erreur inconnue s'est produite lors
+        du chargement du greffon.
+    Use cellphone: Utiliser le téléphone portable
+    Use gps: Utiliser le gps
+    Use network: Utiliser le réseau
+    Username: Utilisateur
+    Very helpful message, isn't it? Please report a bug.: Le problème n'est toujours
+        pas résolu ? Merci de rapporter le bug.
+    Warning: Avertissement
+    We're terribly sorry. Could you help us fix the problem by reporting the crash?: Nous
+        sommes terriblement désolés. Pourriez-vous nous aider à corriger ce problème
+        en envoyant un rapport d'erreur ?
+    Wednesday: mercredi
+    ? 'Welcome to Getting Things GNOME!, your new task manager! In Getting Things
+        GNOME! (GTG), everything is a task. From building a bridge over the Pacific
+        Ocean to changing a light bulb or organizing a party!
+
+
+        If you are new to GTG, please take the time to read this, as it will provide
+        you useful information about how to use GTG to organize your everyday life.
+
+
+        Creating and editing tasks:
+
+
+        Using GTG is easy: you organize what you have to do by creating new tasks.
+        To do this, simply press the &quot;New Task&quot; button, edit the task by
+        describing it, set some parameters, and that''s it! Once a task done, you
+        can close it by pressing the &quot;Mark As Done&quot; button.
+
+
+        In GTG, a task is automatically saved while you are editing it. No need to
+        press any &quot;Save&quot; button! Try it: add some text to this task, close
+        the window, and reopen it: your changes are still there!
+
+
+        About subtasks:
+
+
+        In life, you often get more things done by refining them in smaller, more
+        operational tasks. GTG helps to do just this by defining  &quot;subtasks&quot;.
+        In GTG, those subtasks are considered as prerequisites that must be completed
+        before being able to close their parent task.
+
+
+        Therefore, in GTG, a task might host one or several subtasks. Those appear
+        as links in the task description, just like the link below. To open and edit
+        a subtask, simply click on its link! Try it yourself: open the following subtask:
+
+        <subtask>1@1</subtask>
+
+
+        Closing a task:
+
+
+        In GTG, once you are done with a task, you can close it by pushing either
+        the &quot;Mark as Done&quot; or the &quot;Dismiss&quot; button. Use the first
+        one if the task is done, and the latter if you want to close it because it
+        is not relevant anymore. Want to try it? Try to close the subtask above for
+        instance!
+
+
+        When you close a task, you will notice that all its subtasks will be automatically
+        closed too! Indeed, GTG considers that if you have completed a given task,
+        then you don''t need to do its subtasks anymore (they were prerequisites,
+        after all).
+
+
+        Note that the tasks that you have marked as done or dismissed are listed in
+        the &quot;Closed Tasks Pane&quot; which is hidden by default, but you can
+        easily show it using the View menu.
+
+
+        Learn more about GTG:
+
+
+        If you are interested in knowing more about GTG''s other features, you will
+        find more information here:
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        You can also browse GTG documentation by pressing F1 or opening it using the
+        Help menu.
+
+
+        We sincerely hope you will enjoy using GTG, and thank you for trying it out!
+        Please send us bug reports and ideas for improvement using this web page:
+        https://bugs.launchpad.net/gtg/+filebug If you want to get tips for using
+        GTG or be informed about the newest features, also visit our blog at http://gtg.fritalk.com
+
+
+        The GTG team.'
+    : 'Bienvenue dans Getting Things GNOME!, votre nouveau gestionnaire de tâches
+        ! Dans Getting Things GNOME! (GTG), tout est une tâche. Depuis la construction
+        d''un pont traversant l''Océan Pacifique jusqu''à changer une ampoule ou organiser
+        une fête !
+
+
+        Si vous débutez avec GTG, prenez s''il vous plaît le temps de lire ceci, car
+        cela vous permettra d''obtenir de précieuses informations sur la façon d''utiliser
+        GTG afin d’organiser votre vie de tous les jours.
+
+
+        Créer et modifier des tâches :
+
+
+        Utiliser GTG est facile : vous organiser ce que vous avez à faire en créant
+        des tâches. Pour ce faire, cliquez simplement sur le bouton &quot;Nouvelle
+        tâche&quot;, modifiez la tâche en la décrivant, réglez quelques paramètres,
+        et voilà ! Une fois la tâche achevée, vous pouvez la fermer en cliquant sur
+        le bouton &quot;Marquer comme terminée&quot;.
+
+
+        Dans GTG, une tâche est sauvegardée automatiquement pendant que vous la modifiez.
+        Nul besoin de cliquer sur un bouton &quot;Sauvergarder&quot;! Essayez vous-même
+        : ajoutez du texte à cette tâche, fermez la fenêtre, et rouvrez la : vos changement
+        sont toujours là !
+
+
+        À propos des sous-tâches :
+
+
+        Dans la vie, on accomplit souvent plus de choses en les divisant en tâches
+        plus petites et mieux définies. GTG vous y aide en vous permettant de définir
+        des &quot;sous-tâches&quot;. Dans GTG, ces sous-tâches sont considérées comme
+        des pré-requis qui doivent être achevés avant de pouvoir fermer leur tâche
+        parente.
+
+
+        C''est pourquoi, dans GTG, une tâche peut contenir une ou plusieurs sous-tâches.
+        Celles-ci apparaissent en tant que liens dans la description de la tâche,
+        tout comme le lien ci-dessous. Pour ouvrir et modifier une sous-tâche, cliquez
+        simplement sur son lien ! Essayez vous même : ouvrez la sous-tâche suivante
+        :
+
+        <subtask>1@1</subtask>
+
+
+        Fermer une tâche :
+
+
+        Dans GTG, une fois une tâche accomplie, vous pouvez la fermer en cliquant
+        soit sur le bouton &quot;Marquer comme fait&quot;, soit sur le bouton &quot;Abandonner&quot;.
+        Utilisez le premier si la tâche est terminée, et le second si vous voulez
+        la fermer parce qu''elle est devenue obsolète. Vous voulez essayer ? Essayez
+        par exemple de fermer la sous-tâche ci-dessus !
+
+        Lorsque vous fermerez une tâche, vous remarquerez que toutes ses sous-tâches
+        seront fermées aussi ! En effet, GTG considère que si vous avez fermé une
+        tâche particulière, alors vous n''avez plus besoin d''accomplir ses sous-tâches
+        associées. (elles étaient des pré-requis, après tout).
+
+
+        Notez que les tâches que vous avez marquée comme faites ou abandonnées sont
+        listées dans le &quot;Panneau des tâches clôturées&quot; qui est masqué par
+        défaut, mais vous pouvez aisément le ré-afficher via le menu Vue.
+
+
+        En savoir plus sur GTG:
+
+
+        Si vous souhaitez en savoir plus sur les autres fonctionnalités de GTG, vous
+        trouverez plus d''informations dans les liens suivants :
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        Vous pouvez aussi parcourir la documentation de GTG en appuyant sur F1 ou
+        l''ouvrir en sélectionnant le menu Aide.
+
+
+        Nous espérons sincèrement que vous aimerez utiliser GTG, et vous remercions
+        de l''essayer en ce moment-même ! Envoyez-nous s''il vous plaît vos rapports
+        de bogues et vos idées d''améliorations en utilisant cette page : https://bugs.launchpad.net/gtg/+filebug.
+        Si vous voulez des astuces sur l''utilisation de GTG ou être informé de ses
+        nouvelles fonctionnalités,  visitez aussi notre blog à l''adresse suivante
+        : http://gtg.fritalk.com
+
+
+        L''équipe GTG.'
+    Work View: Vue de travail
+    Yesterday: *id012
+    You can create, open or filter your tasks here: Vous pouvez créer, ouvrir et filtrer
+        vos tâches ici
+    'Your tasks are saved in a text file (XML format). ': 'Vos tâches sont sauvegardées
+        dans un fichier texte (format XML). '
+    _About Plugin: À _propos du greffon
+    _Clear Due Date: _Effacer la date d'échéance
+    _Clear Start Date: _Effacer la date de début
+    _Closed Tasks Pane: Panneau des tâches _clôturées
+    _Details: _Détails
+    _Edit: Mo_difier
+    _Help: Aid_e
+    _Ignore the error: _Ignorer l'erreur
+    _Now: Main_tenant
+    _Plugins: Greffons
+    _Quick Add Entry: Zone d'_ajout rapide
+    _Quit: _Quitter
+    _Report this problem...: Signale_r ce problème...
+    _Set Start Date: _Définir Date de Début
+    _Show Main Window: Montrer la fenêtre _Principale
+    _Someday: _Un jour
+    _Soon: _Bientôt
+    _Tags Sidebar: Panneau latéral d'étiquettes
+    _Tasks: _Tâches
+    _Tomorrow: _Demain
+    _View: _Vue
+    _Work View: Vue de _travail
+    after: après
+    before: avant
+    defer: reporter
+    due: échéance
+    gtg is already running!: GTG est déjà en cours d'exécution !
+    later: plus tard
+    next month: le mois prochain
+    next week: la semaine prochaine
+    next year: l'an prochain
+    no active tasks: aucune tâche active
+    nodate: aucune date
+    not: pas
+    notag: aucune étiquette
+    now: maintenant
+    or: ou
+    page 1: page 1
+    page 2: page 2
+    page 3: page 3
+    someday: un jour
+    soon: bientôt
+    start: début
+    tag: étiquette
+    tags: étiquettes
+    today: aujourd'hui
+    tomorrow: demain

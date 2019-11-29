@@ -47,9 +47,11 @@
 #=== IMPORT ===================================================================
 import os
 import sys
+sys.path.append('/usr/lib/python3/dist-packages')  # fix running with system dbus, gi, but inside of pipenv
 import logging
-import dbus
+
 import gi
+import dbus
 
 from optparse import OptionParser
 gi.require_version('Gdk', '3.0')
@@ -59,10 +61,12 @@ from GTG import info
 from GTG.backends import BackendFactory
 from GTG.core.datastore import DataStore
 from GTG.core.dirs import DATA_DIR
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk.dbuswrapper import BUSNAME, BUSINTERFACE
 from GTG.gtk.manager import Manager
 from GTG.tools.logger import Log
+
+from . import init
 
 #=== OBJECTS ==================================================================
 
@@ -90,7 +94,7 @@ def check_instance(directory, uri_list=[]):
         p = os.system("/bin/ps %s >/dev/null" % pid)
         p_name = os.popen("/bin/ps -f %s" % pid).read()
         if p == 0 and "gtg" in p_name:
-            print(_("gtg is already running!"))
+            print(translate("gtg is already running!"))
             try:
                 d = dbus.SessionBus().get_object(BUSNAME, BUSINTERFACE)
                 d.ShowTaskBrowser()
@@ -220,12 +224,3 @@ def core_main_quit(ds):
     ds.save(quit=True)
     remove_pidfile(DATA_DIR)
     sys.exit(0)
-
-
-#=== EXECUTION ================================================================
-
-if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        sys.exit(1)

@@ -34,7 +34,7 @@ from GTG.backends.periodicimportbackend import PeriodicImportBackend
 from GTG.backends.syncengine import SyncEngine, SyncMeme
 from GTG.core.tag import ALLTASKS_TAG
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 from GTG.tools.interruptible import interruptible
 from GTG.tools.logger import Log
@@ -66,11 +66,11 @@ class Backend(PeriodicImportBackend):
 
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_evolution",
-        GenericBackend.BACKEND_HUMAN_NAME: _("Evolution tasks"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("Evolution tasks"),
         GenericBackend.BACKEND_AUTHORS: ["Luca Invernizzi"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READWRITE,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("Lets you synchronize your GTG tasks with Evolution tasks"),
+        translate("Lets you synchronize your GTG tasks with Evolution tasks"),
     }
 
     _static_parameters = {

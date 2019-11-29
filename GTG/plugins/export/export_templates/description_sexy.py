@@ -14,8 +14,8 @@
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
-title = _("A professional-looking HTML page")
-description = _("A template to create a HTML page with some tasks and tags."
+title = translate("A professional-looking HTML page")
+description = translate("A template to create a HTML page with some tasks and tags."
                 " Tags colors are also displayed.")

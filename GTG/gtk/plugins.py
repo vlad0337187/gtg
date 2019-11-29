@@ -24,7 +24,7 @@ from gi.repository import Gtk, Pango
 from GTG import info
 from GTG.core.plugins import GnomeConfig
 from GTG.core.plugins.engine import PluginEngine
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.gtk import ViewConfig
 from GTG.gtk import help
 
@@ -139,7 +139,7 @@ class PluginsDialog(object):
         builder.add_from_file(ViewConfig.PLUGINS_UI_FILE)
 
         self.dialog = builder.get_object("PluginsDialog")
-        self.dialog.set_title(_("Plugins - %s" % info.NAME))
+        self.dialog.set_title(translate("Plugins - %s" % info.NAME))
         self.plugin_tree = builder.get_object("PluginTree")
         self.plugin_configure = builder.get_object("plugin_configure")
         self.plugin_about = builder.get_object("PluginAboutDialog")

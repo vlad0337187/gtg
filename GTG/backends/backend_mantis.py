@@ -25,7 +25,7 @@ from GTG.backends.genericbackend import GenericBackend
 from GTG.backends.periodicimportbackend import PeriodicImportBackend
 from GTG.backends.syncengine import SyncEngine, SyncMeme
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.logger import Log
 
 from suds.client import Client
@@ -41,11 +41,11 @@ Dependencies:
 class Backend(PeriodicImportBackend):
     _general_description = {
         GenericBackend.BACKEND_NAME: "backend_mantis",
-        GenericBackend.BACKEND_HUMAN_NAME: _("MantisBT"),
+        GenericBackend.BACKEND_HUMAN_NAME: translate("MantisBT"),
         GenericBackend.BACKEND_AUTHORS: ["Luca Invernizzi", "Alayn Gortazar"],
         GenericBackend.BACKEND_TYPE: GenericBackend.TYPE_READONLY,
         GenericBackend.BACKEND_DESCRIPTION:
-        _("This synchronization service lets you import the issues found"
+        translate("This synchronization service lets you import the issues found"
           " on Mantis using a prestablished filter called 'gtg'."
           " As the issue state changes in Mantis, the GTG task is "
           " updated.\n"
@@ -235,7 +235,7 @@ class Backend(PeriodicImportBackend):
             task.set_status(Task.STA_ACTIVE)
         if task.get_title() != issue_dic['title']:
             task.set_title("{} {}: {}".format(
-                _("Iss."), issue_dic["number"], issue_dic['title']))
+                translate("Iss."), issue_dic["number"], issue_dic['title']))
         text = self._build_issue_text(issue_dic)
         if task.get_excerpt() != text:
             task.set_text(text)
@@ -254,8 +254,8 @@ class Backend(PeriodicImportBackend):
         '''
         Creates the text that describes a issue
         '''
-        text = _("Reported by: ") + issue_dic["reporter"] + '\n'
-        text += _("Link to issue: ") + \
+        text = translate("Reported by: ") + issue_dic["reporter"] + '\n'
+        text += translate("Link to issue: ") + \
             self._parameters['service-url'] + '/view.php?id=%s' % \
             (issue_dic["number"]) + '\n'
         text += '\n' + issue_dic["text"]

@@ -23,7 +23,7 @@ from gi.repository import Gtk
 
 from GTG.gtk.backends_dialog.backendscombo import BackendsCombo
 from GTG.backends import BackendFactory
-from GTG.core.translations import _, ngettext
+from GTG.core.translations import translate
 
 
 class AddPanel(Gtk.Box):
@@ -68,7 +68,7 @@ class AddPanel(Gtk.Box):
 
         @param box: the Gtk.Box to fill
         '''
-        label = Gtk.Label(label=_("Select synchronization service:"))
+        label = Gtk.Label(label=translate("Select synchronization service:"))
         label.set_alignment(0, 0.5)
         self.combo_types = BackendsCombo(self.dialog)
         # FIXME
@@ -180,7 +180,7 @@ class AddPanel(Gtk.Box):
         self.label_name.set_markup(markup)
         authors = backend.Backend.get_authors()
         author_txt = '<b>%s</b>:\n   - %s' % \
-            (ngettext("Author", "Authors", len(authors)),
+            (translate("Author", len(authors)),
              reduce(lambda a, b: a + "\n" + "   - " + b, authors))
         self.label_author.set_markup(author_txt)
         pixbuf = self.dialog.get_pixbuf_from_icon_name(backend_name, 128)

@@ -1,0 +1,900 @@
+' minutes': &id001
+    many: ' minúta'
+    one: ' minút'
+'%{days}d days ago': &id012
+    many: Včera
+    one: Pred %{days}d dňami
+'%{days}d days left': &id007
+    many: Ostávajú %{days}d dni
+    one: Termín zajtra
+'%{tasks}d active tasks': &id003
+    many: '%{tasks}d aktívnych úloh'
+    one: '%{tasks}d aktívne úlohy'
+Are you sure you want to delete these tasks?: &id004
+    many: Naozaj chcete odstrániť túto úlohu?
+    one: Naozaj chcete odstrániť tieto úlohy?
+Authors: &id005
+    many: Autor
+    one: Autori
+Completed %{days}d days early: &id002
+    many: Dokončené o %{days}d dní skôr
+    one: Dokončené o %{days}d dni skôr
+Completed %{days}d days late:
+    many: Dokončené o %{days}d dní neskôr
+    one: Dokončené o %{days}d dni neskôr
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+    many: 'Odstránenie úlohy nemôže byť vrátené, bude zmazaná táto úloha: '
+    one: 'Odstránenie úlohy nemôže byť vrátené, bude zmazaná táto úlohy: '
+In %{days}d days: &id011
+    many: Za %{days}d dni
+    one: Zajtra
+Keep selected tasks: &id009
+    many: Ponechať zvolenú úlohy
+    one: Ponechať zvolené úlohy
+Permanently remove tasks: &id010
+    many: Natrvalo odstrániť úlohu
+    one: Natrvalo odstrániť úlohy
+Was %{days}d days ago: &id008
+    many: Pred %{days}d dňami
+    one: Pred %{days}d dňami
+sk:
+    ? '
+
+        And %d more tasks'
+    : '
+
+        A %d ďalších úloh'
+    ? '
+
+        Subtasks:
+
+        %s'
+    : '
+
+        Podúlohy:
+
+        %s'
+    ? '
+
+        Tags: %s'
+    : '
+
+        Značky: %s'
+    ? '
+
+        Task content:
+
+        %s'
+    : '
+
+        Obsah úlohy:
+
+        %s'
+    ? ' has crashed. Please report the bug on <a href="http://bugs.edge.launchpad.net/gtg">our
+        Launchpad page</a>. If you have Apport installed, it will be started for you.'
+    : ' spadol. Prosím, nahláste chybu na <a href="http://bugs.edge.launchpad.net/gtg">našej
+        stránke Launchpad</a>. Ak máte nainštalovaný Apport, bude spustený.'
+    ' minute': *id001
+    ? '%s seems to be installed on your system, but it does not provide a DBus interface
+        which is required by the Tomboy/Gnote plugin in GTG.'
+    : vyzerá to, že %s máte v systéme nainštlaované, ale neposkytuje rozhranie DBus,
+        ktoré je nutné pre zásuvný modul Tomboy/Gnote v GTG.
+    '%{days}d': *id002
+    '%{task_title}s': 'Úloha: %{task_title}s'
+    '%{tasks}d': *id003
+    <b>Dependencies</b>: <b>Závislosti</b>
+    <b>Editor</b>: <b>Editor</b>
+    <b>Location Determination Method</b>: <b>Metóda určenia polohy</b>
+    <b>Proximity Factor</b>: <b>Factor blízkosti</b>
+    <b>System</b>: <b>Systém</b>
+    <b>Task Browser</b>: <b>Prezerač úloh</b>
+    ? "<small>Distance in kilometers from \nthe current location.</small>"
+    : "<small>Vzdialenosť v kilometroch od \naktuálnej polohy.</small>"
+    ? 'A &quot;Subtask&quot; is something that you need to do first before being able
+        to accomplish your task. In GTG, the purpose of subtasks is to cut down a
+        task in smaller subtasks that are easier to achieve and to track down.
+
+
+        To insert a subtask in the task description (this window, for instance), begin
+        a line with &quot;-&quot;, then write the subtask title and press Enter.
+
+
+        Try inserting one subtask below. Type &quot;- This is my first subtask!&quot;,
+        for instance, and press Enter:
+
+
+
+
+        Alternatively, you can also use the &quot;Insert Subtask&quot; button.
+
+
+        Note that subtasks obey to some rules: first, a subtask''s due date can never
+        happen after its parent''s due date and, second, when you mark a parent task
+        as done, its subtasks will also be marked as done.
+
+
+        And if you are not happy with your current tasks/subtasks organization, you
+        can always change it by drag-and-dropping tasks on each other in the tasks
+        list.'
+    : 'Podúloha je to, čo je potrebné urobiť pred splnením samotnej úlohy. Zmyslom
+        podúlohy v GTG je rozdeliť úlohu na menšie časti, ktoré je jednoduchšie postupne
+        splniť.
+
+
+        Podúlohu vložíte do popisu úlohy (napríklad do tohoto okna) tak, že riadok
+        začnete &quot;-&quot;, potom napíšete názov podúlohy a stlačíte Enter.
+
+
+        Skúste tu vložiť jednu podúlohu. Napíšte napríklad &quot;- Toto je moja prvá
+        podúloha!&quot; a stlačte Enter:
+
+
+
+
+
+        Môžete tiež využiť tlačidlo &quot;Vložiť podúlohu&quot;.
+
+
+        Všimnite si, že podúlohy sa riadia niekoľkými pravidlami: po prvé, termín
+        splnenia podúlohy nemôže byť neskorší, než termín splnenia jej nadriadenej
+        úlohy a po druhé, keď označíte nadriadenú úlohu ako dokončenú, jej podúlohy
+        budú tiež označené ako dokončené.
+
+
+        Ak sa vám nepáči aktuálne usporiadanie úloh a podúloh, môžete ho kedykoľvek
+        zmeniť pretiahnutím jednej úlohy na druhú v zozname úloh.'
+    A professional-looking HTML page: Stránky HTML s profesionálnym vzhľadom
+    A simple Web page that can be easily printed.: Jednoduchá webová stránka, ktorú
+        možno ľahko vytlačiť.
+    ? 'A template to create
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, which is a small foldable
+
+        booklet. Packages <b>pdflatex</b>, <b>pdftk</b> and <b>pdfjam</b>
+
+        are required.'
+    : 'Šablóna na vytvorenie
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, jednoduchá skladacia
+
+        brožúrka. Potrebné sú balíky <b>pdflatex</b>, <b>pdftk</b> a <b>pdfjam</b>.'
+    A template to create a HTML page with some tasks and tags. Tags colors are also displayed.: Šablóna
+        na vytvorenie jednoduchej stránky HTML s niekoľkými úlohami a značkami. Zobrazené
+        sú aj farby značiek.
+    A template to create a compact text file listing only task titles.: Šablóna na
+        vytvorenie stručného textového súboru, vypisuje len názvy úloh.
+    A template to create a simple HTML page with some tasks that can be easily printed.: Šablóna
+        na vytvorenie jednoduchej stránky HTML s niekoľkými úlohami, ktorá môže byť
+        jednoducho vytlačená.
+    A template to create a simple text file with some tasks.: Šablóna na vytvorenie
+        jednoduchého textového súboru s niekoľkými úlohami.
+    About GTG!: O GTG!
+    Add Task: Pridať úlohu
+    Add Tomboy note: Pridať poznámku Tomboy
+    Add _New Task: _Nová úloha
+    Add a subtask: Pridať podúlohu
+    Add custom color: Pridať vlastnú farbu
+    Add/Remove Tags: Pridať/Odstrániť značku
+    All tags: Všetky značky
+    All tasks: Všetky úlohy
+    An error has occurred: Nastala chyba
+    Apply to subtasks: Použiť na podúlohy
+    Are you sure you want to delete this task?: *id004
+    Associate with existing tag: Pričleniť k existujúcej značke
+    Associate with new tag: Pričleniť s novou značkou
+    Author: *id005
+    Bug: Chyba
+    Cancel: Zrušiť
+    Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Nemôžem
+        sa pripojiť k DBus, vypol som synchronizačnú službu <b>%s</b>.
+    Check for new tasks every: Kontrolovať nové úlohy každých
+    Choose a color: Vyberte farbu
+    Choose where to save your list: Vyberte si kam chcete uložiť svoj zoznam
+    Clear: Vymazať
+    ? 'Click To
+
+        Set Icon'
+    : 'Kliknite na
+
+        ikonu'
+    Closed date: Dátum dokončenia
+    Closed on: Dokončené
+    Configure synchronization service: Nastaviť synchronizačnú službu
+    Confirm: Potvrdiť
+    Confirm task deletion: Potvrdiť zmazanie úlohy
+    Continue: Pokračovať
+    Copyright © 2008-2013 Lionel Dricot, Bertrand Rousseau: Copyright © 2008-2013
+        Lionel Dricot, Bertrand Rousseau
+    Create a new subtask: vytvoriť novú podúlohu
+    Create a new task: Vytvoriť novú úlohu
+    D_ismiss: _Odvolať
+    Delete: Odstrániť
+    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    Disable syncing: Vypnúť synchronizáciu
+    Dismiss: Odvolať
+    Display only the currently actionable tasks: Zobraziť len aktuálne dostupné úlohy
+    Do it tomorrow: Urobiť zajtra
+    Do you really want to remove the '%s' synchronization service?: Naozaj chcete
+        odstrániť synchronizačnú službu „%s”?
+    Due: Termín
+    Due for: Termín
+    Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: Kvôli
+        problému so sieťou nemôžem kontaktovať synchronizačnú službu <b>%s</b>.
+    Due today!: Termín dnes!
+    Due tomorrow!: *id007
+    Due yesterday!: *id008
+    Edit: Upraviť
+    Edit Tag...: Upraviť značku…
+    Edit the selected task: Upraviť zvolenú úlohu
+    Enable colored backgrounds in the task list: Zapnúť farebné pozadia v zozname
+        úloh
+    Enable syncing: Zapnúť synchronizáciu
+    Enter tag name here: Tu zadajte názov značky
+    'Enter the name of the tag(s) you wish to add or remove:': 'Zadajte názov značky(iek),
+        ktorú chcete pridať alebo odstrániť:'
+    Everything necessary to run this plugin is available.: Všetko potrebné na spustenie
+        tohoto zásuvného modulu je dostupné.
+    Evolution tasks: Úlohy Evolution
+    Export the tasks currently listed: Exportovať zobrazené úlohy
+    'Filename:': 'Meno súboru:'
+    Foldable booklet (PDF): Brožúra (PDF)
+    'Font :': 'Písmo:'
+    Friday: piatok
+    'GTG could not generate the document: %s': 'GTG nemôže vygenerovať dokument: %s'
+    ? 'GTG has the ability to add plugins to extend its core functionality.
+
+
+        Some examples of the currently available plugins are the notification icon
+        which displays a handy shortcut to GTG in your notification space, or the
+        closed tasks remover which automatically deletes old tasks from your closed
+        tasks list.
+
+
+        You can find the Plugin Manager by selecting Edit in the Menu Bar, then clicking
+        Plugins.'
+    : 'GTG poskytuje možnosť pridať zásuvný modul, ktorým možno rozšíriť základnú
+        funkčnosť.
+
+
+        Ako príklady dostupných zásuvných modulov sú ikony oznamovacej oblasti, ktorá
+        zobrazuje šikovnú skratku ku GTG v oznamovacej oblasty, alebo odstraňovanie
+        dokončených úloh, ktorý automaticky odstraňuje staré úlohy z vášho zoznamu
+        dokončených úloh.
+
+
+        Správcu zásuvných modulov nájdete výberom Upraviť v paneli menu, a potom kliknutím
+        na Zásuvné moduly.'
+    GTG is a personal tasks and TODO-list items organizer for the GNOME desktop environment.: GTG
+        je osobný organizátor úloh a zoznamov TODO pre pracovné prostredie GNOME.
+    GTG is a personal tasks and TODO-list items organizer for the GNOME.: GTG je organizátor
+        osobných úloh a položiek zoznamu TODO pre GNOME.
+    ? 'GTG is still beta software. We like it and use it everyday but you will probably
+        encounter some bugs will you do.
+
+
+        Please, help us improving GTG by reporting them on our Launchpad page:https://bugs.launchpad.net/gtg/+filebug
+
+
+        We need you to make this software better. Any contribution, any idea is welcome!
+
+
+        If you have some trouble with GTG, we might be able to help you or to solve
+        your problem really quickly.'
+    :   many: null
+        one: ''
+    GTG website: GTG webová stránka
+    Geolocalized-tasks Preferences: nastavenia Geo-lokalizovaných úloh
+    Getting Started With GTG: začnite pracovať s GTG
+    Getting Things GNOME!: Getting Things GNOME!
+    ? 'Getting Things GNOME! is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by the Free
+        Software Foundation; either version 3 of the License, or (at your option)
+        any later version.
+
+
+        Getting Things GNOME! is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+        more details.
+
+
+        You should have received a copy of the GNU General Public License along with
+        Getting Things GNOME!; if not, write to the Free Software Foundation, Inc.,
+        51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    : 'Getting Things GNOME! je slobodný softvér, ktorý môžete redistribuovať a/alebo
+        upravovať podľa podmienok GNU General Public License, tak ako ju zverejňuje
+        Free Software Foundation; a to buď verzie 3 Licencie alebo (podľa vlastného
+        výberu) akejkovek novšej verzie.
+
+
+        Getting Things GNOME! je distribuovaný v nádeji, že bude užitočný, ale BEZ
+        AKEJKOĽVEK ZÁRUKY; dokonca aj ebz implikovanej záruky OBCHODOVATEĽNOSTI alebo
+        VHODNOSTI NA URČITÝ ÚČEL.  Ďalšie podrobnosti nájdete v GNU General Public
+        License.
+
+
+        Kópiu GNU General Public License by ste mali dostať spolu s Getting Things
+        GNOME!; ak nie, vyžiadajte si ju od Free Software Foundation, Inc., 51 Franklin
+        Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    Gnote: Gnote
+    Help to translate GTG into your language: Pomôžte preložiť GTG do svojho jazyka
+    Hide this tag from the workview: Skryť túto značku z pracovného pohľadu
+    ? 'Hint: you can add several tags by separating them with
+
+        space. Place ''!'' before tags you want to remove.'
+    : 'Tip: môžete pridať viacero značiek, oddelených medzerou.
+
+        Pred značku, ktorú chcete odstrániť pridajte „!”.'
+    ? 'If you press the &quot;Work View&quot; button, only actionable tasks will be
+        displayed in your list.
+
+
+        What is an actionable task? It''s a task you can do directly, right now.
+
+
+        It''s a task that is already &quot;start-able&quot;, i.e. the start date is
+        already over.
+
+
+        It''s a task that doesn''t have open subtasks, i.e. you can do the task itself
+        directly.
+
+
+        It''s a task that has a due date different than &quot;Someday&quot;, since
+        this kind of date is reserved for things that needs more thoughts before being
+        actionable.
+
+
+        Thus, in short, the Work View shows you tasks that you can do right now. It''s
+        very useful when you want to get things done and to focus on the relevant
+        tasks!
+
+
+        If you use tags, you can right click on a tag in the sidebar and choose to
+        hide tasks assigned to this particular tag in the Work View. It is very useful
+        if you have a tag like &quot;@wait&quot; that you use for tasks blocked by
+        some external event (i.e. a phone call you wait to receive).
+
+
+        And finally, an important note regarding the Work View: since the Work View
+        is updated instantaneously, if you edit your task while using the Work View,
+        this task might disappear due to the change you just made (e.g. adding a subtask,
+        adding a tag hidden in the Work View, etc.). To avoid this, it''s better not
+        to edit your task while using the Work View. '
+    :   many: null
+        one: ''
+    Ignore: Ignorovať
+    ? Import                                                                  tasks
+        from                                                                  your
+        tweets
+    : Importovať úlohy zo svojich tweetov
+    Import tags: Importovať značky
+    'Import tasks                                                         from @ replies ': 'Importovať
+        úlohy z @ odpovedí '
+    Import tasks from direct messages: Importovať úlohy z priamych správ
+    ? 'In GTG, you use tags to sort your tasks. A tag is a simple word that begins
+        with &quot;@&quot;.
+
+
+        Try to type a word beginning with &quot;@&quot; here:
+
+
+        Once it becomes yellow, it is a tag! And this tag is now linked to the task!
+
+
+        Using the View menu, you can enable a sidebar which displays all the tags
+        you are using. This allows you to easily see all tasks associated to a given
+        tag.
+
+
+        If you right-click on a tag in the sidebar, you can also edit it. It allows
+        you to assign it a color or an icon for instance. This is handy if you want
+        to quickly identify the tasks associated to a given tag in the task list!
+
+
+        New tags are always added exclusively to the currently edited task, and never
+        to its subtasks. However, when you create a new subtask, it will inherit its
+        parent''s tags.
+
+
+        If you need a more advanced task organization, you can also create a hierarchy
+        of tags by drag-and-dropping a tag onto another. This is useful when you want
+        to regroup several tags together and see all related tasks easily. For instance,
+        if you have two tags @money and @to_pay, and you drag @to_pay on @money, every
+        task tagged with @to_pay will also appear when you select @money.'
+    : 'Značky sa v GTG používajú na triedenie úloh. Značka je jednoduché slovo, ktoré
+        začína &quot;@&quot;.
+
+
+        Skúste tu napísať slovo s &quot;@&quot; na začiatku:
+
+
+        Akonáhle slovo zožltne, je to značka! A táto značka je teraz spojená s úlohou!
+
+
+        V ponuke Zobraziť môžete zapnúť postranný panel, v ktorom je zoznam všetkých
+        použitých značiek a umožňuje vám zobraziť si všetky úlohy, spojené s príslušnou
+        značkou.
+
+
+        Keď kliknete pravým tlačidlom myši na značku v postrannom paneli, môžete značku
+        upraviť. Značke môžete napr. priradiť farbu alebo ikonu. Je to praktické na
+        rýchle nájdenie úloh, spojených s príslušnou značkou v zozname úloh!
+
+
+        Nové značky sú priraďované len k práve upravovanej úlohe a nikdy nie k jej
+        existujúcim podúlohám. Avšak, keď vytvoríte podúlohu, zdedí značky nadradenej
+        úlohy.
+
+
+        Ak potrebuje pokročilejšiu organizáciu úloh, môžete si vytvoriť hierarchiu
+        značiek pretiahnutím značky do inej. To je vhodné napr. keď chcete zoskupiť
+        viacero značiek dohromady a jednoducho vidieť všetky súvisiace značky. Napríklad,
+        ak máte dve značky @peniaze a @zaplatiť a pretiahnete značku @zaplatiť do
+        @peniaze, každá úloha označená značkou @zaplatiť sa objaví aj pri výbere @peniaze.'
+    Insert a subtask in this task: Pridať k tejto úlohe podúlohu
+    Insert a tag in this task: Pridať tejto úlohe značku
+    Insert subtask: Vložiť podúlohu
+    Insert tag: Vložiť značku
+    Invalid state: Neplatný stav
+    Iss.: Iss.
+    It looks like an error has occurred.: Vyzerá to, že nastala chyba.
+    'Just these                                                                       tags:': 'Len
+        tieto značky:'
+    Keep selected task: *id009
+    Launchpad: Launchpad
+    Learn How To Search For Tasks: Naučte sa Hľadať úlohy
+    Learn How To Use Plugins: Naučte sa používať zásuvné moduly
+    Learn How To Use Subtasks: Naučte sa používať Podúlohy
+    Learn How To Use Synchronization Services: Naučte sa používať Synchronizačné služby
+    Learn How To Use Tags: naoučte sa používať značky
+    Learn How To Use The Quick Add Entry: Naučte sa ako Rýchlo pridať položku
+    Learn How To Use The Work View: Naučte sa používať Pracovný pohľad
+    Lets you synchronize your GTG tasks with Evolution tasks: Dovoľuje synchronizovať
+        vaše úlohy GTG s úlohami Evolution
+    'Link to bug: ': 'Odkaz na chybu: '
+    'Link to issue: ': 'Odkaz na problém: '
+    Local File: Lokálny súbor
+    MantisBT: MantisBT
+    Mark Done: Označiť ako _dokončené
+    Mark as Done: Označiť ako dokončené
+    Mark as Not Done: Označiť ako _Nedokončené
+    Mark as _Done: Označiť ako _Dokončené
+    Mark as not Done: Označiť ako _Nedokončené
+    Mark the selected task as done: Označiť zvolenú úlohu ako dokončenú
+    Mark the selected task as to be done: Označiť zvolenú úlohu ako nedokončenú
+    Mark the task as not to be done anymore: Označiť zvolenú úlohu ako nebude dokončené
+    Mark this task as done: Označiť túto úlohu ako dokončenú
+    Mark this task as not to be done anymore: Označiť túto úlohu ako nebude dokončené
+    Mark this task as to be done: Označiť túto úlohu ako nedokončenú
+    Modify Tags: Upraviť značky
+    Modify Tags...: Upraviť značky…
+    Monday: pondelok
+    My new task: Moja nová úloha
+    'Name : ': 'Názov: '
+    New Subtask: Nová podúloha
+    New Task: Nová úloha
+    'New Task Shortcut :': 'Skratka pre Nová úloha:'
+    New _Subtask: Nová _podúloha
+    New _Task: _Nová úloha
+    NewTag: NováZnačka
+    Next _Month: Budúci _mesiac
+    Next _Week: Budúci _týždeň
+    Next _Year: Budúci _rok
+    No task matches your criteria. Empty report can't be generated.: zadaným kritériám
+        nevyhovuje žiadna úloha. Prázdna zostava nemôže byť vygenerovaná.
+    Now: Teraz
+    Ok: OK
+    Open GTG help: Otvoriť pomocníka GTG
+    Open Task: Otvoriť úlohu
+    'Password:': 'Heslo:'
+    Permanently remove task: *id010
+    Permanently remove the selected task: Natrvalo odstrániť zvolenú úlohu
+    Permanently remove this task: Natrvalo odstrániť túto úlohu
+    'Please install or start the following components:': 'Prosím, nainštalujte a spusťte
+        tieto komponenty:'
+    'Please install the following python modules:': 'Prosím, nainštalujte nasledujúce
+        moduly Python:'
+    'Please start the following applications:': 'Prosím spustite tieto aplikácie:'
+    Plugins - %s: Zásuvné moduly – %s
+    Preferences - %s: Nastavenia – %s
+    Redo: Opakovať
+    Remember The Milk: Remember The Milk
+    Remove selected icon: Odstrániť označenú ikonu
+    Report a problem to GTG developers: nahlásiť problém vývojárom GTG
+    'Reported by: ': 'Nahlásil: '
+    Reporting Bugs: Hlásenie chýb
+    Saturday: sobota
+    Search: Hľadať
+    'Select Tag Color:': 'Vyberte farbu značky:'
+    'Select synchronization service:': 'vyberte synchronizačnú službu:'
+    Send via email: Poslať emailom
+    Service URL: URL služby
+    Set Due Date: Nastaviť dátum ukončenia
+    Set the task's location: nastaviť polohu úlohy
+    'Show Tag in Work View :': 'Zobraziť značku v pracovnom pohľade :'
+    Show description preview in the task list.: Zobraziť náhľad popisu v zozname úloh.
+    Show this tag in the workview: Zobraziť túto značku v pracovnom pohľade
+    Some modules and remote dbus objects are missing.: Niektoré moduly a vzdialené
+        objekty dbus chýbajú.
+    Some python modules are missing: Niektoré moduly Pythonu chýbajú
+    Some remote dbus objects are missing.: Niektoré vzdialené objekty dbus chýbajú.
+    Someday: Niekedy
+    Soon: Čoskoro
+    Start Getting Things GNOME! on every login: Spustiť Getting Things GNOME! pri
+        každom prihlásení
+    'Start a new activity in Hamster Time Tracker ': 'začať novú aktivitu v Hamster
+        Time Tracker '
+    Start date: Dátum začiatku
+    Start in Hamster: Začať v Hamster
+    Start task in Hamster: začať úlohu v Hamster
+    Starting on: Začína
+    Status report: Stavové hlásenie
+    'Status: %s': 'Stav: %s'
+    Sunday: nedeľa
+    Synchronization Services - %s: Synchronizačné služby – %s
+    ? 'Synchronization Services allow GTG to synchronize (meaning to have access or
+        to import) tasks, notes or bugs from other sites or services like Launchpad,
+        Remember the Milk, Tomboy, etc.
+
+
+        This can incredibly useful if, for instance, you want to access your tasks
+        on several instances of GTG running on separate computers, or if you want
+        to edit your tasks using an online service. GTG can also import tasks from
+        specific sites like launchpad for instance, which allows you to manage the
+        bug reports you''re working on in GTG!
+
+
+        To use Synchronization Services, use the Edit menu, and select &quot;Synchronization
+        Services&quot;. You will then have the possibility to select among several
+        online or local services from/to where you can import or export your tasks.
+
+
+        If you want to know more about Synchronization Services, you can read more
+        about them by in the dedicated documentation in GTG''s help (use the Help
+        menu or press F1 to get access to it).'
+    :   many: null
+        one: ''
+    Syncing is <span color="red">disabled</span>.: Synchronizácia je <span color="red">vypnutá</span>.
+    Syncing is enabled.: Synchronizácia je zapnutá.
+    T_oday: D_nes
+    T_oolbar: Panel _nástrojov
+    Tag your GTG tasks with the bug tags: Označiť úlohy GTG značkami chyby
+    Tag your GTG tasks with the project targeted by the bug: Označiť úlohy GTG projektom,
+        ktorému chyba patrí
+    TagName: MenoZnačky
+    Tags: Značky
+    Tags to sync: Značky na synchronizáciu
+    Task: Úloha
+    Tasks: Úlohy
+    'Tasks with                                                                 these tags:': 'Úlohy
+        s týmito značkami:'
+    Tasks with no tags: Úlohy bez značiek
+    Text-only: Len text
+    That note does not exist!: Taká poznámka neexistuje!
+    That note does not exist. Do you want to create a new one?: Taká poznámka neexistuje.
+        Chcete vytvoriť novú?
+    ? The <b>%s</b> synchronization service cannot login with the  supplied authentication
+        data and has been disabled. To retry the login, re-enable the service.
+    : Synchronizačná služba <b>%s</b> sa nemôže prihlásiť pomocou zadaných prihlasovacích
+        údajov a bola zakázaná. Na opakovanie prihlásenia, opätovne povoľte službu.
+    ? 'The Quick Add Entry is the fastest way to create a new task. Use the check
+        box in the View menu to enable and disable the entry field.
+
+
+        To add a task simply type its title in the entry and press Enter. The task
+        will be created and selected in the task browser. If a tag is selected in
+        the Tags Sidebar, it will be applied to the task you created.
+
+
+        You can also create a task in the Quick Add Entry and at the same time specify
+        its tags, due and defer date. Follow these format rules:
+
+
+        tags:tag1,tag2,tag3
+
+
+        Using this you can apply as many tags as you wish using comma as separator.
+        Note that any word in the title that begins with &quot;@&quot; will also be
+        interpreted as a tag!
+
+
+        due:date
+
+        defer:date
+
+
+        Using this you can apply a due date or a defer date. Dates can be formated
+        as per your locale or yyyy-mm-dd (for example 2012-04-01) or yyyymmdd (20120401)
+        or mmdd (0401 - the year being implicitly the current one) or today, tomorrow
+        or a weekday name (due:monday means due next Monday). Dates which are added
+        in this way will not appear in the task title.
+
+
+        Examples:
+
+
+        buy stationary tags:purchases,office due:20120330 defer:tuesday
+
+
+        The above example tells GTG to create a new task with the title &quot;buy
+        stationary&quot;, under the tags &quot;purchases&quot; and &quot;office&quot;,
+        with the due date March 30, 2012 and the start date next Tuesday.
+
+
+        call mum tags:family,calls due:sunday defer:tomorrow
+
+
+        The above example tells GTG to create a new task with the title &quot;call
+        mum&quot;, under the tags &quot;family&quot; and &quot;calls&quot;, with the
+        due date next Sunday and the start date tomorrow.'
+    :   many: null
+        one: ''
+    The plugin can not be loaded: Zásuvný modul nebolo možné načítať
+    ? 'The shortcut "%s" cannot be used because it will become impossible to type
+        using this key.
+
+        Please try with a key such as Control, Alt or Shift at the same time.'
+    : 'Skratku „%s” nemožno použiť, pretože by nebolo možné písať týmto klávesom.
+
+        Prosím, skúste spolu (naraz) s modifikátormi ako Control, Alt alebo Shift.'
+    ? This Tomboy note                                        does not exist anymore.
+        Do you want to                                        create it?
+    : Táto poznámka Tomboy už neexistuje. Chcete ju vytvoriť?
+    This is the default synchronization service: Toto je predvolená synchronizačná
+        služba
+    ? This service can synchronize all or part of your Gnote notes in GTG. If you
+        decide it would be handy to have one of your notes in your TODO list, just
+        tag it with the tag you have chosen (you'll configure it later), and it will
+        appear in GTG.
+    : Táto služba môže synchronizovať všetky alebo len časť poznámok Gnote v GTG.
+        Keď sa rozhodnete, že je vhodné mať nejakú poznámku vo svojom zozname TODO,
+        prosto ju označte značkou, ktorú ste si zvolil (budete ju nastavovať neskôr)
+        a poznámka sa objaví v GTG.
+    ? "This service synchronizes your tasks with the web service RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nNote: This product uses the Remember The\
+        \ Milk API but is not endorsed or certified by Remember The Milk"
+    : "Táto služba synchronizuje vaše úlohy s webovou službou RememberTheMilk:\n\t\
+        \thttp://rememberthemilk.com\n\nPoznámka: Tento produkt používa API Remember\
+        \ The Milk, ale nie je schválený ani certifikovaný od Remember The Milk"
+    ? This synchronization service can synchronize all or part of your Tomboy notes
+        in GTG. If you decide it would be handy to have one of your notes in your
+        TODO list, just tag it with the tag you have chosen (you'll configure it later),
+        and it will appear in GTG.
+    : Táto synchronizačná služba synchronizuje všetky alebo časť poznámok Tomboy v
+        GTG. keď sa rozhodnete, že je vhodné mať nejakú poznámku vo svojom zozname
+        TODO, prosto ju označte značkou, ktorú ste si zvolil (budete ju nastavovať
+        neskôr) a poznámka sa objaví v GTG.
+    ? "This synchronization service lets you import the bugs assigned to you (or someone\
+        \ else) on Launchpad in GTG. As the bug state changes in Launchpad, the GTG\
+        \ task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated bug is modified. Apart from those, you are\
+        \ free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to bug"
+    : "Táto synchronizačná služba importovať chyby v Launchpade priradené vám (alebo\
+        \ niekomu inému) do GTG. Keď sa stav chyby zmení v Launchpade, bude úloha\
+        \ GTG aktualizovaná.\nProsím, nezabudnite, že je to synchronizačná služba\
+        \ len na čítanie, čo znamená, že ak otvoríte niektorú z importovaných úloh\
+        \ a zmeníte jedno z polí:\n  - názov\n  - popis\n  - značky\nVaše zmeny <b>budú</b>\
+        \ zrušené, keď bude priradená chyba zmenená. Bez ohľadu na to, môžete meniť\
+        \ akékoľvek iné polia (dátumy začatia/dokončenia, podúlohy...): tieto zmeny\
+        \ budú zachované. Takto si môžete k chybám pridať osobné poznámky"
+    ? "This synchronization service lets you import the issues found on Mantis using\
+        \ a prestablished filter called 'gtg'. As the issue state changes in Mantis,\
+        \ the GTG task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated issue is modified. Apart from those, you\
+        \ are free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to issue"
+    : "Tato služba umožňuje importovať problémy z Mantisu pomocou vopred vytvoreného\
+        \ filtra s názvom „gtg”. Keď sa v Mantis zmení stav problému, zaktualizuje\
+        \ sa aj zodpovedajúca úloha v GTG.\nDajte prosím pozor na to, že sa jedná\
+        \ o synchronizáciu lne na čítanie. To znamená, že keď otvoríte importovanú\
+        \ úlohu a zmeníte:\n  - názov\n  - popis\n  - značky,\ntak sa zmeny <b>vrátia\
+        \ späť</b> po zmene príslušného v Mantis. Bez ohľadu na to môžete meniť akékoľvek\
+        \ iné údaje (dátum začiatku a konca, podúlohy...) a tieto zmeny zostanú uložené.\
+        \ To môžete využiť na pridávanie vlastných poznámok k problémom."
+    Thursday: štvrtok
+    Title: Názov
+    ? 'To help you to find specific tasks more easily, GTG allows you to search for
+        tasks based on their content.
+
+
+        Searching for tasks is really easy: just type the words you are looking for
+        in the Quick Add Entry, and select &quot;Search&quot; in the menu that will
+        appear automatically.
+
+
+        GTG stores your searches in the sidebar, under the &quot;Search&quot; section.
+        You can thus always go back to a previous search need it. Search results are
+        updated automatically, so you always get all the tasks matching your search
+        request.
+
+
+        GTG also saves all the search requests you have made until you explicitely
+        delete them (which you can do by right-clicking on them and selecting &quot;Delete&quot;).
+        That allows you to safely quit GTG without loosing your search requests. This
+        can be very useful when you use the search features to identify specific tasks
+        regularly!
+
+
+        GTG search feature is really powerful and accept many parameters that allows
+        you to search for very specific tasks. For instance, using the search query
+        &quot;@errands !today&quot;, you can search for tasks with the @errands tag
+        that must be done today. To learn more about those search query parameters,
+        you can read the documentation available in GTG''s help (press F1 or use the
+        Help menu to get access to it).'
+    :   many: null
+        one: ''
+    Today: Dnes
+    Tomboy: Tomboy
+    Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
+        nebol nájdený. Prosím nainštalujte ho, alebo zakážte zásuvný modul Tomboy/Gnote
+        v GTG
+    Tomorrow: *id011
+    Tuesday: utorok
+    Und_ismiss: _Obnoviť odvolané
+    Undismiss: Ne_odvolať
+    Undo: Vrátiť
+    Unknown error while loading the plugin.: Neznámy chyba pri načítaní modulu.
+    Use cellphone: Použiť telefón
+    Use gps: Použiť GPS
+    Use network: Použiť sieť
+    Username: Používateľské meno
+    Very helpful message, isn't it? Please report a bug.: Veľmi užitočná správa, však?
+        Prosím, nahláste chybu.
+    Warning: Varovanie
+    We're terribly sorry. Could you help us fix the problem by reporting the crash?: Veľmi
+        sa ospravedlňujeme. Mohli by ste nám pomôcť opraviť tento problém nahlásením
+        pádu?
+    Wednesday: streda
+    ? 'Welcome to Getting Things GNOME!, your new task manager! In Getting Things
+        GNOME! (GTG), everything is a task. From building a bridge over the Pacific
+        Ocean to changing a light bulb or organizing a party!
+
+
+        If you are new to GTG, please take the time to read this, as it will provide
+        you useful information about how to use GTG to organize your everyday life.
+
+
+        Creating and editing tasks:
+
+
+        Using GTG is easy: you organize what you have to do by creating new tasks.
+        To do this, simply press the &quot;New Task&quot; button, edit the task by
+        describing it, set some parameters, and that''s it! Once a task done, you
+        can close it by pressing the &quot;Mark As Done&quot; button.
+
+
+        In GTG, a task is automatically saved while you are editing it. No need to
+        press any &quot;Save&quot; button! Try it: add some text to this task, close
+        the window, and reopen it: your changes are still there!
+
+
+        About subtasks:
+
+
+        In life, you often get more things done by refining them in smaller, more
+        operational tasks. GTG helps to do just this by defining  &quot;subtasks&quot;.
+        In GTG, those subtasks are considered as prerequisites that must be completed
+        before being able to close their parent task.
+
+
+        Therefore, in GTG, a task might host one or several subtasks. Those appear
+        as links in the task description, just like the link below. To open and edit
+        a subtask, simply click on its link! Try it yourself: open the following subtask:
+
+        <subtask>1@1</subtask>
+
+
+        Closing a task:
+
+
+        In GTG, once you are done with a task, you can close it by pushing either
+        the &quot;Mark as Done&quot; or the &quot;Dismiss&quot; button. Use the first
+        one if the task is done, and the latter if you want to close it because it
+        is not relevant anymore. Want to try it? Try to close the subtask above for
+        instance!
+
+
+        When you close a task, you will notice that all its subtasks will be automatically
+        closed too! Indeed, GTG considers that if you have completed a given task,
+        then you don''t need to do its subtasks anymore (they were prerequisites,
+        after all).
+
+
+        Note that the tasks that you have marked as done or dismissed are listed in
+        the &quot;Closed Tasks Pane&quot; which is hidden by default, but you can
+        easily show it using the View menu.
+
+
+        Learn more about GTG:
+
+
+        If you are interested in knowing more about GTG''s other features, you will
+        find more information here:
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        You can also browse GTG documentation by pressing F1 or opening it using the
+        Help menu.
+
+
+        We sincerely hope you will enjoy using GTG, and thank you for trying it out!
+        Please send us bug reports and ideas for improvement using this web page:
+        https://bugs.launchpad.net/gtg/+filebug If you want to get tips for using
+        GTG or be informed about the newest features, also visit our blog at http://gtg.fritalk.com
+
+
+        The GTG team.'
+    :   many: null
+        one: ''
+    Work View: Pracovný pohľad
+    Yesterday: *id012
+    You can create, open or filter your tasks here: Tu môžete vytvoriť, otvoriť alebo
+        filtrovať svoje úlohy
+    'Your tasks are saved in a text file (XML format). ': 'Vaše úlohy sú uložené v
+        textovom súbore (vo formáte XML). '
+    _About Plugin: _O zásuvnom module
+    _Clear Due Date: _Vymazať dátum ukončenia
+    _Clear Start Date: _Vymazať dátum začiatku
+    _Closed Tasks Pane: Panel _hotových úloh
+    _Details: Po_drobnosti
+    _Edit: _Upraviť
+    _Help: _Pomocník
+    _Ignore the error: _Ignorovať chybu
+    _Now: _Teraz
+    _Plugins: _Zásuvné moduly
+    _Quick Add Entry: _Rýchle pridanie položky
+    _Quit: _Koniec
+    _Report this problem...: Nahlásiť tento p_roblém...
+    _Set Start Date: _Nastaviť dátum začiatku
+    _Show Main Window: _Zobraziť hlavné okno
+    _Someday: _Niekedy
+    _Soon: _Skoro
+    _Tags Sidebar: Panel _značiek
+    _Tasks: Úl_ohy
+    _Tomorrow: _Zajtra
+    _View: _Zobraziť
+    _Work View: _Pracovný pohľad
+    after: po
+    before: pred
+    defer: odložiť
+    due: termín
+    gtg is already running!: gtg už je spustený!
+    later: neskôr
+    next month: budúci mesiac
+    next week: budúci týždeň
+    next year: budúci rok
+    no active tasks: žiadne aktívne úlohy
+    nodate: bez dátumu
+    not: nie
+    notag: bez značky
+    now: teraz
+    or: alebo
+    page 1: strana 1
+    page 2: strana 2
+    page 3: strana 3
+    someday: niekedy
+    soon: čoskoro
+    start: začať
+    tag: značka
+    tags: značky
+    today: dnes
+    tomorrow: zajtra

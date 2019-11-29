@@ -26,7 +26,7 @@ import webbrowser
 from gi.repository import GObject, Gtk, GdkPixbuf
 from xdg.BaseDirectory import xdg_config_home
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.plugins.export.task_str import get_task_wrappers
 from GTG.plugins.export.templates import Template, get_templates_paths
 
@@ -133,7 +133,7 @@ class ExportPlugin(object):
                                    self.on_export_finished)
         except Exception as err:
             self.show_error_dialog(
-                _("GTG could not generate the document: %s") % err)
+                translate("GTG could not generate the document: %s") % err)
             raise
 
     def on_export_finished(self):

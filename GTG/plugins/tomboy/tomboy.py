@@ -19,7 +19,7 @@ import os
 
 from gi.repository import Gtk, Gdk, GdkPixbuf
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.plugins.tomboy.combobox_enhanced import smartifyComboboxEntry
 
 
@@ -62,7 +62,7 @@ class TomboyPlugin(object):
             # showed only once
             DIALOG_DESTROY_WITH_PARENT = Gtk.DialogFlags.DESTROY_WITH_PARENT
             if not self.activated:
-                message = _("Tomboy/Gnote not found. Please install it or "
+                message = translate("Tomboy/Gnote not found. Please install it or "
                             "disable the Tomboy/Gnote plugin in GTG")
                 dialog = Gtk.MessageDialog(
                     parent=self.plugin_api.get_ui().get_window(),
@@ -179,7 +179,7 @@ class TomboyPlugin(object):
         except dbus.DBusException:
             DIALOG_DESTROY_WITH_PARENT = Gtk.DialogFlags.DESTROY_WITH_PARENT
             if not hasattr(self, "disable_flag"):
-                message = _(
+                message = translate(
                     "%s seems to be installed on your system, but it does "
                     "not provide a DBus interface which is required by the "
                     "Tomboy/Gnote plugin in GTG.") % self.software.title()
@@ -240,7 +240,7 @@ class TomboyPlugin(object):
         if not self._node_exist(tomboy, supposed_title):
             self.label_caption.set_text(_("That note does not exist!"))
             DIALOG_DESTROY_WITH_PARENT = Gtk.DialogFlags.DESTROY_WITH_PARENT
-            message = _(
+            message = translate(
                 "That note does not exist. Do you want to create a new one?")
             dialog = Gtk.MessageDialog(
                 parent=self.dialog,

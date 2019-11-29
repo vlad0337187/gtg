@@ -19,7 +19,7 @@
 
 from gi.repository import Gtk
 
-from GTG.core.translations import _, ngettext
+from GTG.core.translations import translate
 
 
 class PeriodUI(Gtk.Box):
@@ -46,7 +46,7 @@ class PeriodUI(Gtk.Box):
 
         @param width: the width of the Gtk.Label object
         '''
-        period_label = Gtk.Label(label=_("Check for new tasks every"))
+        period_label = Gtk.Label(label=translate("Check for new tasks every"))
         period_label.set_alignment(xalign=0, yalign=0.5)
         period_label.set_line_wrap(True)
         period_label.set_size_request(width=width, height=-1)
@@ -92,5 +92,5 @@ class PeriodUI(Gtk.Box):
 
     def update_minutes_label(self):
         adjustment = int(self.adjustment.get_value())
-        self.minutes_label.set_markup(ngettext(" minute", " minutes",
+        self.minutes_label.set_markup(translate(" minute",
                                                adjustment))

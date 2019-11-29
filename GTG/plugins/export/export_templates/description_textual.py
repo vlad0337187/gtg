@@ -16,7 +16,7 @@
 
 """ Text only template """
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
-title = _("Text-only")
-description = _("A template to create a simple text file with some tasks.")
+title = translate("Text-only")
+description = translate("A template to create a simple text file with some tasks.")

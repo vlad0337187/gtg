@@ -27,7 +27,7 @@ import uuid
 import xml.dom.minidom
 import xml.sax.saxutils as saxutils
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.dates import Date
 from GTG.tools.logger import Log
 from GTG.tools.tags import extract_tags_from_text
@@ -52,7 +52,7 @@ class Task(TreeNode):
         self.set_uuid(uuid.uuid4())
         self.remote_ids = {}
         self.content = ""
-        self.title = _("My new task")
+        self.title = translate("My new task")
         # available status are: Active - Done - Dismiss - Note
         self.status = self.STA_ACTIVE
         self.closed_date = Date.no_date()
@@ -154,20 +154,20 @@ class Task(TreeNode):
             matches = re.findall(regexp, text, re.UNICODE)
             for spaces, attribute, args in matches:
                 valid_attribute = True
-                if attribute.lower() in ["tags", _("tags"), "tag", _("tag")]:
+                if attribute.lower() in ["tags", translate("tags"), "tag", translate("tag")]:
                     for tag in args.split(","):
                         if not tag.strip() == "@" and not tag.strip() == "":
                             if not tag.startswith("@"):
                                 tag = "@" + tag
                             tags.append(tag)
-                elif attribute.lower() in ["defer", _("defer"), "start",
-                                           _("start")]:
+                elif attribute.lower() in ["defer", translate("defer"), "start",
+                                           translate("start")]:
                     try:
                         defer_date = Date.parse(args)
                     except ValueError:
                         valid_attribute = False
                 elif attribute.lower() == "due" or \
-                        attribute.lower() == _("due"):
+                        attribute.lower() == translate("due"):
                     try:
                         due_date = Date.parse(args)
                     except:

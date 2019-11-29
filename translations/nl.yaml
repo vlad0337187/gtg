@@ -1,0 +1,859 @@
+' minutes': &id001
+    many: ' minuten'
+    one: ' minuut'
+'%{days}d days ago': &id012
+    many: '%{days}d dagen geleden'
+    one: Gisteren
+'%{days}d days left': &id007
+    many: '%{days}d dagen over'
+    one: Te doen voor morgen!
+'%{tasks}d active tasks': &id003
+    many: '%{tasks}d actieve taken'
+    one: '%{tasks}d actieve taak'
+Are you sure you want to delete these tasks?: &id004
+    many: Weet u zeker dat u deze taken wilt verwijderen?
+    one: Weet u zeker dat u deze taak wilt verwijderen?
+Authors: &id005
+    many: Auteurs
+    one: Auteur
+Completed %{days}d days early: &id002
+    many: Voltooid %{days}d dagen te vroeg
+    one: Voltooid %{days}d dag te vroeg
+Completed %{days}d days late:
+    many: Voltooid %{days}d dagen te laat
+    one: Voltooid %{days}d dag te laat
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id006
+    many: 'Het verwijderen van een taak kan niet ongedaan worden gemaakt en zal de
+        volgende taken verwijderen: '
+    one: 'Het verwijderen van een taak kan niet ongedaan worden gemaakt en zal de
+        volgende taak verwijderen: '
+In %{days}d days: &id011
+    many: over %{days}d dagen
+    one: Morgen
+Keep selected tasks: &id009
+    many: Behoud geselecteerde taken
+    one: Behoud geselecteerde taak
+Permanently remove tasks: &id010
+    many: Verwijder taken permanent
+    one: Verwijder taak permanent
+Was %{days}d days ago: &id008
+    many: was %{days}d dagen geleden
+    one: Te doen voor gisteren!
+nl:
+    ? '
+
+        And %d more tasks'
+    : '
+
+        En %d extra taken'
+    ? '
+
+        Subtasks:
+
+        %s'
+    : '
+
+        Subtaken
+
+        %s'
+    ? '
+
+        Tags: %s'
+    : '
+
+        Labels: %s'
+    ? '
+
+        Task content:
+
+        %s'
+    : '
+
+        Taakinhoud
+
+        %s'
+    ? ' has crashed. Please report the bug on <a href="http://bugs.edge.launchpad.net/gtg">our
+        Launchpad page</a>. If you have Apport installed, it will be started for you.'
+    : ' is gecrashed. Rapporteer de fout op <a href="http://bugs.edge.launchpad.net/gtg">onze
+        Launchpad pagina</a>.  Als Apport is geïnstalleerd zal het voor u gestart
+        worden.'
+    ' minute': *id001
+    ? '%s seems to be installed on your system, but it does not provide a DBus interface
+        which is required by the Tomboy/Gnote plugin in GTG.'
+    : '%s lijkt geïnstalleerd op uw systeem, maar voorziet niet in een DBus interface,
+        wat vereist is voor de Tomboy/Gnote plugin van GTG.'
+    '%{days}d': *id002
+    '%{task_title}s': 'Taak: %{task_title}s'
+    '%{tasks}d': *id003
+    <b>Dependencies</b>: <b>Afhankelijkheden</b>
+    <b>Editor</b>: <b>Editor</b>
+    <b>Location Determination Method</b>: <b>Methode voor locatiebepaling</b>
+    <b>Proximity Factor</b>: <b>Nabijheidsfactor</b>
+    <b>System</b>: <b>Systeem</b>
+    <b>Task Browser</b>: <b>Taak Browser</b>
+    ? "<small>Distance in kilometers from \nthe current location.</small>"
+    : "<small>Afstand in kilometers vanaf \nde huidige locatie.</small>"
+    ? 'A &quot;Subtask&quot; is something that you need to do first before being able
+        to accomplish your task. In GTG, the purpose of subtasks is to cut down a
+        task in smaller subtasks that are easier to achieve and to track down.
+
+
+        To insert a subtask in the task description (this window, for instance), begin
+        a line with &quot;-&quot;, then write the subtask title and press Enter.
+
+
+        Try inserting one subtask below. Type &quot;- This is my first subtask!&quot;,
+        for instance, and press Enter:
+
+
+
+
+        Alternatively, you can also use the &quot;Insert Subtask&quot; button.
+
+
+        Note that subtasks obey to some rules: first, a subtask''s due date can never
+        happen after its parent''s due date and, second, when you mark a parent task
+        as done, its subtasks will also be marked as done.
+
+
+        And if you are not happy with your current tasks/subtasks organization, you
+        can always change it by drag-and-dropping tasks on each other in the tasks
+        list.'
+    :   many: null
+        one: ''
+    A professional-looking HTML page: Een professioneel uitziende HTML-pagina
+    A simple Web page that can be easily printed.: Een eenvoudige webpagina die makkelijk
+        afgedrukt kan worden.
+    ? 'A template to create
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, which is a small foldable
+
+        booklet. Packages <b>pdflatex</b>, <b>pdftk</b> and <b>pdfjam</b>
+
+        are required.'
+    : 'Een sjabloon om een <a href="http://www.pocketmod.com">PocketMod</a>
+
+        te maken: een klein, vouwbaar folderformaat. De software <b>pdflatex</b>,
+
+        <b>pdftk</b> en <b>pdfjam</b> is vereist.'
+    A template to create a HTML page with some tasks and tags. Tags colors are also displayed.: Een
+        sjabloon om een HTML-pagina te maken met enkele taken en labels. Labelkleuren
+        worden ook weergegeven.
+    A template to create a compact text file listing only task titles.: Een sjabloon
+        om een compact tekstbestand te maken dat slechts de titels van taken opsomt.
+    A template to create a simple HTML page with some tasks that can be easily printed.: Een
+        sjabloon om een eenvoudige HTML-pagina te maken met taken, die makkelijk kan
+        worden afgedrukt.
+    A template to create a simple text file with some tasks.: Een sjabloon om een
+        eenvoudig tekstbestand met enkele taken te maken.
+    About GTG!: Over GTG!
+    Add Task:
+        many: null
+        one: ''
+    Add Tomboy note: Tomboy-notitie toevoegen
+    Add _New Task: Voeg _Nieuwe Task Toe
+    Add a subtask: Subtaak toevoegen
+    Add custom color: Voeg andere kleur toe
+    Add/Remove Tags: Nieuwe/verwijderen labels
+    All tags: Alle labels
+    All tasks: Alle taken
+    An error has occurred: Er is een fout opgetreden
+    Apply to subtasks: Pas toe op subtaken
+    Are you sure you want to delete this task?: *id004
+    Associate with existing tag: Associëren met bestaand label
+    Associate with new tag: Associëren met nieuw label
+    Author: *id005
+    Bug: Bug
+    Cancel: Annuleren
+    Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.: Kan
+        geen verbinding maken met DBus; de <b>%s</b> synchronisatiedienst is gestopt.
+    Check for new tasks every: Controleer op nieuwe taken elke
+    Choose a color: Kies een kleur
+    Choose where to save your list: Kies waar u uw lijst wilt opslaan
+    Clear: Wis
+    ? 'Click To
+
+        Set Icon'
+    :   many: null
+        one: ''
+    Closed date: Datum afgesloten
+    Closed on: Gesloten op
+    Configure synchronization service: Configureer synchronisatiedienst
+    Confirm: Bevestigen
+    Confirm task deletion: Bevestig verwijderen van taak
+    Continue: Doorgaan
+    Copyright © 2008-2013 Lionel Dricot, Bertrand Rousseau: Copyright © 2008-2013
+        Lionel Dricot, Bertrand Rousseau
+    Create a new subtask: Nieuwe subtaak aanmaken
+    Create a new task: Nieuwe taak aanmaken
+    D_ismiss: Ver_werpen
+    Delete: Verwijder
+    'Deleting a task cannot be undone, and will delete the following task: ': *id006
+    Disable syncing: Synchronisatie uitschakelen
+    Dismiss: Verwerpen
+    Display only the currently actionable tasks: Geef alleen direct uitvoerbare taken
+        weer
+    Do it tomorrow: Doe het morgen
+    Do you really want to remove the '%s' synchronization service?: Wilt u werkelijk
+        de '%s' synchronisatiedienst verwijderen?
+    Due: Te doen
+    Due for: Te doen voor
+    Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: Als
+        gevolg van een netwerkprobleem kan ik geen contact maken met de <b>%s</b>
+        synchronisatiedienst.
+    Due today!: Te doen voor vandaag!
+    Due tomorrow!: *id007
+    Due yesterday!: *id008
+    Edit: Bewerken
+    Edit Tag...: Bewerk label...
+    Edit the selected task: Bewerk de geselecteerde taak
+    Enable colored backgrounds in the task list: Gebruik gekleurde achtergronden in
+        taaklijst
+    Enable syncing: Synchronisatie inschakelen
+    Enter tag name here: Geef hier de labelnaam
+    'Enter the name of the tag(s) you wish to add or remove:': 'Geef de naam van het
+        label of labels die u wenst toe te voegen of te verwijderen:'
+    Everything necessary to run this plugin is available.: Alle afhankelijkheden voor
+        deze plugin zijn beschikbaar.
+    Evolution tasks: Evolution-taken
+    Export the tasks currently listed: Exporteer de huidige taken
+    'Filename:': 'Bestandsnaam:'
+    Foldable booklet (PDF): Folderformaat (PDF)
+    'Font :': 'Lettertype:'
+    Friday: Vrijdag
+    'GTG could not generate the document: %s': 'GTG kon het document niet maken: %s'
+    ? 'GTG has the ability to add plugins to extend its core functionality.
+
+
+        Some examples of the currently available plugins are the notification icon
+        which displays a handy shortcut to GTG in your notification space, or the
+        closed tasks remover which automatically deletes old tasks from your closed
+        tasks list.
+
+
+        You can find the Plugin Manager by selecting Edit in the Menu Bar, then clicking
+        Plugins.'
+    :   many: null
+        one: ''
+    GTG is a personal tasks and TODO-list items organizer for the GNOME desktop environment.: GTG
+        is een persoonlijke taak- en TODO-lijst manager voor de GNOME desktop-omgeving.
+    GTG is a personal tasks and TODO-list items organizer for the GNOME.: GTG is een
+        persoonlijke taak- en TODO-lijst manager voor GNOME.
+    ? 'GTG is still beta software. We like it and use it everyday but you will probably
+        encounter some bugs will you do.
+
+
+        Please, help us improving GTG by reporting them on our Launchpad page:https://bugs.launchpad.net/gtg/+filebug
+
+
+        We need you to make this software better. Any contribution, any idea is welcome!
+
+
+        If you have some trouble with GTG, we might be able to help you or to solve
+        your problem really quickly.'
+    :   many: null
+        one: ''
+    GTG website: GTG-website
+    Geolocalized-tasks Preferences: Voorkeuren voor Geolocalized-taken
+    Getting Started With GTG: Aan de gang met GTG
+    Getting Things GNOME!: Getting Things GNOME!
+    ? 'Getting Things GNOME! is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by the Free
+        Software Foundation; either version 3 of the License, or (at your option)
+        any later version.
+
+
+        Getting Things GNOME! is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+        more details.
+
+
+        You should have received a copy of the GNU General Public License along with
+        Getting Things GNOME!; if not, write to the Free Software Foundation, Inc.,
+        51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    : 'Getting Things GNOME! is vrije software; u kunt het verspreiden en/of aanpassen
+        onder de termen van de GNU General Public License zoals gepubliceerd door
+        de Free Software Foundation; ofwel versie 3 van de licentie, of (aan u de
+        keuze) enige latere versie.
+
+
+        Getting Things GNOME! wordt verspreid in de hoop dat het bruikbaar zal zijn,
+        maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garantie van VERKOOPBAARHEID
+        of GESCHIKTHEID VOOR EEN SPECIFIEK DOELEINDE. Zie de GNU General Public License
+        voor meer informatie.
+
+
+        U dient een kopie ontvangen te hebben van de GNU General Public License tezamen
+        met Getting Things GNOME!; indien niet, schrijf aan de Free Software Foundation
+        Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, Verenigde Staten'
+    Gnote: Gnote
+    Help to translate GTG into your language: Help om GTG te vertalen in uw taal
+    Hide this tag from the workview: Dit label verbergen in de werkweergave
+    ? 'Hint: you can add several tags by separating them with
+
+        space. Place ''!'' before tags you want to remove.'
+    : 'Hint: u kunt meerdere labels toevoegen door deze te scheiden met een spatie.
+        Plaats ''!'' voor labels die u wilt verwijderen.'
+    ? 'If you press the &quot;Work View&quot; button, only actionable tasks will be
+        displayed in your list.
+
+
+        What is an actionable task? It''s a task you can do directly, right now.
+
+
+        It''s a task that is already &quot;start-able&quot;, i.e. the start date is
+        already over.
+
+
+        It''s a task that doesn''t have open subtasks, i.e. you can do the task itself
+        directly.
+
+
+        It''s a task that has a due date different than &quot;Someday&quot;, since
+        this kind of date is reserved for things that needs more thoughts before being
+        actionable.
+
+
+        Thus, in short, the Work View shows you tasks that you can do right now. It''s
+        very useful when you want to get things done and to focus on the relevant
+        tasks!
+
+
+        If you use tags, you can right click on a tag in the sidebar and choose to
+        hide tasks assigned to this particular tag in the Work View. It is very useful
+        if you have a tag like &quot;@wait&quot; that you use for tasks blocked by
+        some external event (i.e. a phone call you wait to receive).
+
+
+        And finally, an important note regarding the Work View: since the Work View
+        is updated instantaneously, if you edit your task while using the Work View,
+        this task might disappear due to the change you just made (e.g. adding a subtask,
+        adding a tag hidden in the Work View, etc.). To avoid this, it''s better not
+        to edit your task while using the Work View. '
+    :   many: null
+        one: ''
+    Ignore: Negeren
+    ? Import                                                                  tasks
+        from                                                                  your
+        tweets
+    : Importeer taken van uw tweets
+    Import tags: Labels importeren
+    'Import tasks                                                         from @ replies ': 'Importeer
+        taken van @ antwoorden '
+    Import tasks from direct messages: Taken importeren van directe berichten
+    ? 'In GTG, you use tags to sort your tasks. A tag is a simple word that begins
+        with &quot;@&quot;.
+
+
+        Try to type a word beginning with &quot;@&quot; here:
+
+
+        Once it becomes yellow, it is a tag! And this tag is now linked to the task!
+
+
+        Using the View menu, you can enable a sidebar which displays all the tags
+        you are using. This allows you to easily see all tasks associated to a given
+        tag.
+
+
+        If you right-click on a tag in the sidebar, you can also edit it. It allows
+        you to assign it a color or an icon for instance. This is handy if you want
+        to quickly identify the tasks associated to a given tag in the task list!
+
+
+        New tags are always added exclusively to the currently edited task, and never
+        to its subtasks. However, when you create a new subtask, it will inherit its
+        parent''s tags.
+
+
+        If you need a more advanced task organization, you can also create a hierarchy
+        of tags by drag-and-dropping a tag onto another. This is useful when you want
+        to regroup several tags together and see all related tasks easily. For instance,
+        if you have two tags @money and @to_pay, and you drag @to_pay on @money, every
+        task tagged with @to_pay will also appear when you select @money.'
+    :   many: null
+        one: ''
+    Insert a subtask in this task: Plaats een subtaak in deze taak
+    Insert a tag in this task: Plaats een label in deze taak
+    Insert subtask: Subtaak toevoegen
+    Insert tag: Label toevoegen
+    Invalid state: Ongeldige status
+    Iss.:
+        many: null
+        one: ''
+    It looks like an error has occurred.: Het lijkt er op dat er iets fout is gegaan.
+    'Just these                                                                       tags:': 'Alleen
+        deze labels:'
+    Keep selected task: *id009
+    Launchpad: Launchpad
+    Learn How To Search For Tasks: Leer hoe te zoeken naar taken
+    Learn How To Use Plugins: Leer om plugins te gebruiken
+    Learn How To Use Subtasks: Leer om deeltaken te gebruiken
+    Learn How To Use Synchronization Services: Leer om synchronisatiediensten te gebruiken
+    Learn How To Use Tags: Leer om labels te gebruiken
+    Learn How To Use The Quick Add Entry:
+        many: null
+        one: ''
+    Learn How To Use The Work View: Leer om de werkmodus te gebruiken
+    Lets you synchronize your GTG tasks with Evolution tasks: Synchroniseer uw GTG-taken
+        met uw Evolution-taken
+    'Link to bug: ': 'Koppeling naar de bug: '
+    'Link to issue: ': 'Verwijzing naar issue: '
+    Local File: Lokaal bestand
+    MantisBT: MantisBT
+    Mark Done: Markeren als voltooid
+    Mark as Done: Markeren als uitgevoerd
+    Mark as Not Done: Markeren als niet uitgevoerd
+    Mark as _Done: Markeer als ge_daan
+    Mark as not Done: Markeer als onvoltooid
+    Mark the selected task as done: Markeer de geselecteerde taak als uitgevoerd
+    Mark the selected task as to be done: Markeer de geselecteerde taak als te doen
+    Mark the task as not to be done anymore: Markeer de taak als niet meer te doen
+    Mark this task as done: Markeer deze taak als voltooid
+    Mark this task as not to be done anymore: Markeer deze taak als niet meer te doen
+    Mark this task as to be done: Markeer deze taak als te doen
+    Modify Tags: Wijzig labels
+    Modify Tags...: Wijzig labels...
+    Monday: Maandag
+    My new task: Mijn nieuwe taak
+    'Name : ': 'Naam: '
+    New Subtask: Nieuwe subtaak
+    New Task: Nieuwe taak
+    'New Task Shortcut :': 'Nieuwe taak sneltoets:'
+    New _Subtask: Nieuwe _subtaak
+    New _Task: Nieuwe _taak
+    NewTag: NieuwLabel
+    Next _Month: Volgende _maand
+    Next _Week: Volgende _Week
+    Next _Year: Volgend _jaar
+    No task matches your criteria. Empty report can't be generated.: Geen enkele taak
+        komt overeen met uw zoekopdracht. Lege rapporten kunnen niet worden gemaakt.
+    Now: Nu
+    Ok: Ok
+    Open GTG help: Open GTG-hulp
+    Open Task: Open taak
+    'Password:': 'Wachtwoord:'
+    Permanently remove task: *id010
+    Permanently remove the selected task: De geselecteerde taak permanent verwijderen
+    Permanently remove this task: Deze taak permanent verwijderen
+    'Please install or start the following components:': 'Gelieve de volgende componenten
+        te installeren of te starten:'
+    'Please install the following python modules:': 'Gelieve de volgende Python-modules
+        te installeren:'
+    'Please start the following applications:': 'Gelieve de volgende toepassingen
+        te starten:'
+    Plugins - %s: Plugins - %s
+    Preferences - %s: Voorkeuren - %s
+    Redo: Opnieuw
+    Remember The Milk: Remember The Milk
+    Remove selected icon: Verwijder geselecteerde ikoon
+    Report a problem to GTG developers: Rapporteer een probleem aan de GTG-ontwikkelaars
+    'Reported by: ': 'Gerapporteerd door: '
+    Reporting Bugs: Bugs melden
+    Saturday: Zaterdag
+    Search: Zoek
+    'Select Tag Color:': 'Kies labelkleur:'
+    'Select synchronization service:': 'Kies synchronisatiedienst:'
+    Send via email: Via e-mail versturen
+    Service URL: Service-URL
+    Set Due Date: Geef opleverdatum
+    Set the task's location: De locatie van de taak instellen
+    'Show Tag in Work View :': Toon label in Werkmodus
+    Show description preview in the task list.: Voorbeeld van de beschrijving tonen
+        in de takenlijst
+    Show this tag in the workview: Dit label tonen in de werkweergave
+    Some modules and remote dbus objects are missing.: Sommige modules en dbus-objecten
+        op afstand ontbreken.
+    Some python modules are missing: Enkele Python-modules ontbreken
+    Some remote dbus objects are missing.: Sommige dbus-objecten op afstand ontbreken.
+    Someday: Ooit
+    Soon: Straks
+    Start Getting Things GNOME! on every login: Start Getting Things GNOME! op elke
+        login
+    'Start a new activity in Hamster Time Tracker ': 'Start een nieuwe activiteit
+        in Hamster Time Tracker '
+    Start date: Begindatum
+    Start in Hamster: Start in Hamster
+    Start task in Hamster: Start taak in Hamster
+    Starting on: Vanaf
+    Status report: Statusrapport
+    'Status: %s': 'Status: %s'
+    Sunday: Zondag
+    Synchronization Services - %s: Synchronisatiediensten - %s
+    ? 'Synchronization Services allow GTG to synchronize (meaning to have access or
+        to import) tasks, notes or bugs from other sites or services like Launchpad,
+        Remember the Milk, Tomboy, etc.
+
+
+        This can incredibly useful if, for instance, you want to access your tasks
+        on several instances of GTG running on separate computers, or if you want
+        to edit your tasks using an online service. GTG can also import tasks from
+        specific sites like launchpad for instance, which allows you to manage the
+        bug reports you''re working on in GTG!
+
+
+        To use Synchronization Services, use the Edit menu, and select &quot;Synchronization
+        Services&quot;. You will then have the possibility to select among several
+        online or local services from/to where you can import or export your tasks.
+
+
+        If you want to know more about Synchronization Services, you can read more
+        about them by in the dedicated documentation in GTG''s help (use the Help
+        menu or press F1 to get access to it).'
+    :   many: null
+        one: ''
+    Syncing is <span color="red">disabled</span>.: Synchronisatie is <span color="red">gestopt</span>.
+    Syncing is enabled.: Synchronisatie is gestart
+    T_oday: Van_daag
+    T_oolbar: _Werkbalk
+    Tag your GTG tasks with the bug tags: Label uw GTG-taken met de bug-labels
+    Tag your GTG tasks with the project targeted by the bug: Label uw GTG-taken met
+        het project dat door de bug aangetast wordt
+    TagName: TaakNaam
+    Tags: Labels
+    Tags to sync: Labels die gesynchroniseerd worden
+    Task: Taak
+    Tasks: Taken
+    'Tasks with                                                                 these tags:': 'Taken
+        met deze labels:'
+    Tasks with no tags: Taken zonder labels
+    Text-only: Alleen tekst
+    That note does not exist!: Deze notitie bestaat niet!
+    That note does not exist. Do you want to create a new one?: Deze notitie bestaat
+        niet. Wilt u een nieuwe aanmaken?
+    ? The <b>%s</b> synchronization service cannot login with the  supplied authentication
+        data and has been disabled. To retry the login, re-enable the service.
+    : De <b>%s</b> synchronisatiedienst kan niet inloggen met de opgegeven authenticatiegegevens
+        en is daarom gestopt. Om opnieuw te proberen in te loggen, herstart deze dienst.
+    ? 'The Quick Add Entry is the fastest way to create a new task. Use the check
+        box in the View menu to enable and disable the entry field.
+
+
+        To add a task simply type its title in the entry and press Enter. The task
+        will be created and selected in the task browser. If a tag is selected in
+        the Tags Sidebar, it will be applied to the task you created.
+
+
+        You can also create a task in the Quick Add Entry and at the same time specify
+        its tags, due and defer date. Follow these format rules:
+
+
+        tags:tag1,tag2,tag3
+
+
+        Using this you can apply as many tags as you wish using comma as separator.
+        Note that any word in the title that begins with &quot;@&quot; will also be
+        interpreted as a tag!
+
+
+        due:date
+
+        defer:date
+
+
+        Using this you can apply a due date or a defer date. Dates can be formated
+        as per your locale or yyyy-mm-dd (for example 2012-04-01) or yyyymmdd (20120401)
+        or mmdd (0401 - the year being implicitly the current one) or today, tomorrow
+        or a weekday name (due:monday means due next Monday). Dates which are added
+        in this way will not appear in the task title.
+
+
+        Examples:
+
+
+        buy stationary tags:purchases,office due:20120330 defer:tuesday
+
+
+        The above example tells GTG to create a new task with the title &quot;buy
+        stationary&quot;, under the tags &quot;purchases&quot; and &quot;office&quot;,
+        with the due date March 30, 2012 and the start date next Tuesday.
+
+
+        call mum tags:family,calls due:sunday defer:tomorrow
+
+
+        The above example tells GTG to create a new task with the title &quot;call
+        mum&quot;, under the tags &quot;family&quot; and &quot;calls&quot;, with the
+        due date next Sunday and the start date tomorrow.'
+    :   many: null
+        one: ''
+    The plugin can not be loaded: Kan de plug-in niet laden
+    ? 'The shortcut "%s" cannot be used because it will become impossible to type
+        using this key.
+
+        Please try with a key such as Control, Alt or Shift at the same time.'
+    : 'De sneltoets ‘%s’ kan niet gebruikt worden, omdat het dan onmogelijk wordt
+        deze toets te gebruiken om te typen.
+
+        Probeer het eens met een toets als Control, Alt of Shift tegelijkertijd.'
+    ? This Tomboy note                                        does not exist anymore.
+        Do you want to                                        create it?
+    : Deze Tomboy notitie bestaat niet langer. Wilt u deze aanmaken?
+    This is the default synchronization service: Dit is de standaard synchronisatie
+    ? This service can synchronize all or part of your Gnote notes in GTG. If you
+        decide it would be handy to have one of your notes in your TODO list, just
+        tag it with the tag you have chosen (you'll configure it later), and it will
+        appear in GTG.
+    : Deze synchronisatiedienst kan synchroniseren met alle of sommige van uw Gnote
+        notities in GTG. Als u denkt dat het handig is om één van uw notities in uw
+        TODO-lijst te hebben, label het eenvoudig met het door u gekozen label (die
+        u later in zult stellen) en het verschijnt in GTG.
+    ? "This service synchronizes your tasks with the web service RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nNote: This product uses the Remember The\
+        \ Milk API but is not endorsed or certified by Remember The Milk"
+    : "Deze dienst synchroniseert uw taken met de webservice RememberTheMilkL\n\t\t\
+        http://rememberthemilk.com\n\nOpmerking: Dit product gebruikt de Remember\
+        \ The Milk API, maar is niet aanbevolen of gecertificeerd door Remember The\
+        \ Milk"
+    ? This synchronization service can synchronize all or part of your Tomboy notes
+        in GTG. If you decide it would be handy to have one of your notes in your
+        TODO list, just tag it with the tag you have chosen (you'll configure it later),
+        and it will appear in GTG.
+    : Deze synchronisatiedienst kan synchroniseren met alle of sommige van uw Tomboy
+        notities in GTG. Als u denkt dat het handig is om één van uw notities in uw
+        TODO-lijst te hebben, label het eenvoudig met het door u gekozen label (die
+        u later in zult stellen) en het verschijnt in GTG.
+    ? "This synchronization service lets you import the bugs assigned to you (or someone\
+        \ else) on Launchpad in GTG. As the bug state changes in Launchpad, the GTG\
+        \ task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated bug is modified. Apart from those, you are\
+        \ free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to bug"
+    : "Deze synchronisatiedienst laat u bugs importeren in GTG die aan u (of aan iemand\
+        \ anders) zijn toegewezen op Launchpad. Wanneer de bugstatus wijzigt in Launchpad,\
+        \ zal de GTG-taak worden bijgewerkt.\nMerk op dat dit een readonly-synchronisatiedienst\
+        \ is, wat inhoudt dat wanneer u een taak opent en één van de volgde zaken\
+        \ wijzigt:\n  - titel\n  - beschrijving\n  - labels\nDat uw wijzigingen <b>ongedaan</b>\
+        \ zullen worden gemaakt zodra de bug gewijzigd wordt. Afgezien daarvan kunt\
+        \ u alle overige velden (startdatum/opleverdatum, deeltaken, ...) wijzigen:\
+        \ deze wijzigingen zullen bewaard blijven. Dit is handig om persoonlijke annotaties\
+        \ te maken bij bugs."
+    ? "This synchronization service lets you import the issues found on Mantis using\
+        \ a prestablished filter called 'gtg'. As the issue state changes in Mantis,\
+        \ the GTG task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated issue is modified. Apart from those, you\
+        \ are free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to issue"
+    : 'Deze synchronisatiedienst laat u issues importeren uit Mantis door gebruikmaking
+        van een voorgedefinieerd filter ''gtg''. Wanneer de issue-status wijzigt in
+        Mantis, wordt de GTG-taak bijgewerkt.
+
+        Merk op dat dit een readonly-synchronisatiedienst is, wat inhoudt dat wanneer
+        u een taak opent en één van de volgde zaken wijzigt:
+
+        - titel
+
+        - beschrijving
+
+        - labels
+
+        Dat uw wijzigingen <b>ongedaan</b> zullen worden gemaakt zodra de bug gewijzigd
+        wordt. Afgezien daarvan kunt u alle overige velden (startdatum/opleverdatum,
+        deeltaken, ...) wijzigen: deze wijzigingen zullen bewaard blijven. Dit is
+        handig om persoonlijke annotaties te maken bij bugs.'
+    Thursday: Donderdag
+    Title: Titel
+    ? 'To help you to find specific tasks more easily, GTG allows you to search for
+        tasks based on their content.
+
+
+        Searching for tasks is really easy: just type the words you are looking for
+        in the Quick Add Entry, and select &quot;Search&quot; in the menu that will
+        appear automatically.
+
+
+        GTG stores your searches in the sidebar, under the &quot;Search&quot; section.
+        You can thus always go back to a previous search need it. Search results are
+        updated automatically, so you always get all the tasks matching your search
+        request.
+
+
+        GTG also saves all the search requests you have made until you explicitely
+        delete them (which you can do by right-clicking on them and selecting &quot;Delete&quot;).
+        That allows you to safely quit GTG without loosing your search requests. This
+        can be very useful when you use the search features to identify specific tasks
+        regularly!
+
+
+        GTG search feature is really powerful and accept many parameters that allows
+        you to search for very specific tasks. For instance, using the search query
+        &quot;@errands !today&quot;, you can search for tasks with the @errands tag
+        that must be done today. To learn more about those search query parameters,
+        you can read the documentation available in GTG''s help (press F1 or use the
+        Help menu to get access to it).'
+    :   many: null
+        one: ''
+    Today: Vandaag
+    Tomboy: Tomboy
+    Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: Tomboy/Gnote
+        niet gevonden. Installeer het of zet de Tomboy/Gnote plugin in GTG uit
+    Tomorrow: *id011
+    Tuesday: Dinsdag
+    Und_ismiss: _Terugplaatsen
+    Undismiss: Terugplaatsen
+    Undo: Ongedaan maken
+    Unknown error while loading the plugin.: Onbekende fout opgetreden tijdens het
+        laden van de plug-in.
+    Use cellphone: Gebruik mobiel
+    Use gps: Gebruik GPS
+    Use network: Gebruik netwerk
+    Username: Gebruikersnaam
+    Very helpful message, isn't it? Please report a bug.: Erg behulpzaam bericht,
+        vindt u niet? Stuur alstublieft een foutrapport op.
+    Warning: Waarschuwing
+    We're terribly sorry. Could you help us fix the problem by reporting the crash?: Het
+        spijt ons enorm. Wilt u ons helpen het probleem op te lossen door de crash
+        te rapporteren?
+    Wednesday: Woensdag
+    ? 'Welcome to Getting Things GNOME!, your new task manager! In Getting Things
+        GNOME! (GTG), everything is a task. From building a bridge over the Pacific
+        Ocean to changing a light bulb or organizing a party!
+
+
+        If you are new to GTG, please take the time to read this, as it will provide
+        you useful information about how to use GTG to organize your everyday life.
+
+
+        Creating and editing tasks:
+
+
+        Using GTG is easy: you organize what you have to do by creating new tasks.
+        To do this, simply press the &quot;New Task&quot; button, edit the task by
+        describing it, set some parameters, and that''s it! Once a task done, you
+        can close it by pressing the &quot;Mark As Done&quot; button.
+
+
+        In GTG, a task is automatically saved while you are editing it. No need to
+        press any &quot;Save&quot; button! Try it: add some text to this task, close
+        the window, and reopen it: your changes are still there!
+
+
+        About subtasks:
+
+
+        In life, you often get more things done by refining them in smaller, more
+        operational tasks. GTG helps to do just this by defining  &quot;subtasks&quot;.
+        In GTG, those subtasks are considered as prerequisites that must be completed
+        before being able to close their parent task.
+
+
+        Therefore, in GTG, a task might host one or several subtasks. Those appear
+        as links in the task description, just like the link below. To open and edit
+        a subtask, simply click on its link! Try it yourself: open the following subtask:
+
+        <subtask>1@1</subtask>
+
+
+        Closing a task:
+
+
+        In GTG, once you are done with a task, you can close it by pushing either
+        the &quot;Mark as Done&quot; or the &quot;Dismiss&quot; button. Use the first
+        one if the task is done, and the latter if you want to close it because it
+        is not relevant anymore. Want to try it? Try to close the subtask above for
+        instance!
+
+
+        When you close a task, you will notice that all its subtasks will be automatically
+        closed too! Indeed, GTG considers that if you have completed a given task,
+        then you don''t need to do its subtasks anymore (they were prerequisites,
+        after all).
+
+
+        Note that the tasks that you have marked as done or dismissed are listed in
+        the &quot;Closed Tasks Pane&quot; which is hidden by default, but you can
+        easily show it using the View menu.
+
+
+        Learn more about GTG:
+
+
+        If you are interested in knowing more about GTG''s other features, you will
+        find more information here:
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        You can also browse GTG documentation by pressing F1 or opening it using the
+        Help menu.
+
+
+        We sincerely hope you will enjoy using GTG, and thank you for trying it out!
+        Please send us bug reports and ideas for improvement using this web page:
+        https://bugs.launchpad.net/gtg/+filebug If you want to get tips for using
+        GTG or be informed about the newest features, also visit our blog at http://gtg.fritalk.com
+
+
+        The GTG team.'
+    :   many: null
+        one: ''
+    Work View: Werkweergave
+    Yesterday: *id012
+    You can create, open or filter your tasks here: U kunt hier taken maken, openen
+        of filteren
+    'Your tasks are saved in a text file (XML format). ': 'Uw taken worden opgeslagen
+        in een tekstbestand (XML-formaat). '
+    _About Plugin: Info over _plugin
+    _Clear Due Date: _Wis opleverdatum
+    _Clear Start Date: _Wis startdatum
+    _Closed Tasks Pane: Paneel met _gesloten taken
+    _Details: _Details
+    _Edit: Be_werken
+    _Help: _Hulp
+    _Ignore the error: Nergeer de foutmeld_ing
+    _Now: _Nu
+    _Plugins: _Plugins
+    _Quick Add Entry: _Snel taak toevoegen
+    _Quit: _Afsluiten
+    _Report this problem...: Dit probleem _rapporteren...
+    _Set Start Date: Geef _Startdatum
+    _Show Main Window: _Toon hoofdvenster
+    _Someday: _Onbekend
+    _Soon: _Binnenkort
+    _Tags Sidebar: _Labels zijpaneel
+    _Tasks: _Taken
+    _Tomorrow: Mor_gen
+    _View: _Beeld
+    _Work View: _Werkweergave
+    after: na
+    before: voor
+    defer: uitstellen
+    due: vervalt
+    gtg is already running!: gtg is al actief!
+    later: later
+    next month: volgende maand
+    next week: volgende week
+    next year: volgend jaar
+    no active tasks: geen actieve taken
+    nodate: geendatum
+    not: niet
+    notag: geenlabel
+    now: nu
+    or: of
+    page 1: pagina 1
+    page 2: pagina 2
+    page 3: pagina 3
+    someday: ooit
+    soon: binnenkort
+    start: start
+    tag: label
+    tags: labels
+    today: vandaag
+    tomorrow: morgen

@@ -28,7 +28,7 @@ import calendar
 import datetime
 import locale
 
-from GTG.core.translations import _, ngettext
+from GTG.core.translations import translate
 
 __all__ = 'Date',
 
@@ -42,21 +42,21 @@ ENGLISH_STRINGS = {
 }
 
 STRINGS = {
-    NOW: _('now'),
-    SOON: _('soon'),
-    SOMEDAY: _('someday'),
+    NOW: translate('now'),
+    SOON: translate('soon'),
+    SOMEDAY: translate('someday'),
     NODATE: '',
 }
 
 LOOKUP = {
     'now': NOW,
-    _('now').lower(): NOW,
+    translate('now').lower(): NOW,
     'soon': SOON,
-    _('soon').lower(): SOON,
+    translate('soon').lower(): SOON,
     'later': SOMEDAY,
-    _('later').lower(): SOMEDAY,
+    translate('later').lower(): SOMEDAY,
     'someday': SOMEDAY,
-    _('someday').lower(): SOMEDAY,
+    translate('someday').lower(): SOMEDAY,
     '': NODATE,
 }
 # functions giving absolute dates for fuzzy dates + no date
@@ -370,26 +370,26 @@ class Date(object):
         # accepted date formats
         formats = {
             'today': 0,
-            _('today').lower(): 0,
+            translate('today').lower(): 0,
             'tomorrow': 1,
-            _('tomorrow').lower(): 1,
+            translate('tomorrow').lower(): 1,
             'next week': 7,
-            _('next week').lower(): 7,
+            translate('next week').lower(): 7,
             'next month': calendar.mdays[today.month],
-            _('next month').lower(): calendar.mdays[today.month],
+            translate('next month').lower(): calendar.mdays[today.month],
             'next year': 365 + int(calendar.isleap(today.year)),
-            _('next year').lower(): 365 + int(calendar.isleap(today.year)),
+            translate('next year').lower(): 365 + int(calendar.isleap(today.year)),
         }
 
         # add week day names in the current locale
         for i, (english, local) in enumerate([
-            ("Monday", _("Monday")),
-            ("Tuesday", _("Tuesday")),
-            ("Wednesday", _("Wednesday")),
-            ("Thursday", _("Thursday")),
-            ("Friday", _("Friday")),
-            ("Saturday", _("Saturday")),
-            ("Sunday", _("Sunday")),
+            ("Monday", translate("Monday")),
+            ("Tuesday", translate("Tuesday")),
+            ("Wednesday", translate("Wednesday")),
+            ("Thursday", translate("Thursday")),
+            ("Friday", translate("Friday")),
+            ("Saturday", translate("Saturday")),
+            ("Sunday", translate("Sunday")),
         ]):
             offset = i - today.weekday() + 7 * int(i <= today.weekday())
             formats[english.lower()] = offset
@@ -448,14 +448,12 @@ class Date(object):
 
         days_left = self.days_left()
         if days_left == 0:
-            return _('Today')
+            return translate('Today')
         elif days_left < 0:
             abs_days = abs(days_left)
-            return ngettext('Yesterday', '%(days)d days ago', abs_days) % \
-                {'days': abs_days}
+            return translate('Yesterday', abs_days)
         elif days_left > 0 and days_left <= 15:
-            return ngettext('Tomorrow', 'In %(days)d days', days_left) % \
-                {'days': days_left}
+            return translate('In %{days}d days', days_left)
         else:
             locale_format = locale.nl_langinfo(locale.D_FMT)
             if calendar.isleap(datetime.date.today().year):

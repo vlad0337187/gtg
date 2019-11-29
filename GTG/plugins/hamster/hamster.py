@@ -27,7 +27,7 @@ import time
 from gi.repository import Gtk, GdkPixbuf
 
 from GTG.core.task import Task
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.logger import Log
 
 
@@ -39,13 +39,13 @@ class HamsterPlugin(object):
         "description": "contents",
         "tags": "existing",
     }
-    TOOLTIP_TEXT_START_ACTIVITY = _("Start a new activity in Hamster Time" +
+    TOOLTIP_TEXT_START_ACTIVITY = translate("Start a new activity in Hamster Time" +
                                     " Tracker based on the selected task")
-    TOOLTIP_TEXT_STOP_ACTIVITY = _("Stop tracking the current activity in" +
+    TOOLTIP_TEXT_STOP_ACTIVITY = translate("Stop tracking the current activity in" +
                                    " Hamster Time Tracker corresponding" +
                                    " to the selected task")
-    START_ACTIVITY_LABEL = _("Start task in Hamster")
-    STOP_ACTIVITY_LABEL = _("Stop Hamster Activity")
+    START_ACTIVITY_LABEL = translate("Start task in Hamster")
+    STOP_ACTIVITY_LABEL = translate("Stop Hamster Activity")
     BUFFER_TIME = 60  # secs
     PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
     IMG_START_PATH = "icons/hicolor/32x32/hamster-activity-start.png"

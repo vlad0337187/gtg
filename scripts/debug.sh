@@ -51,5 +51,5 @@ then
 fi
 
 if [ $norun -eq 0 ]; then
-    PYTHONPATH=`pwd` ./GTG/gtg $args -t "$title"
+    PYTHONPATH=`pwd` LANG=ru_RU.UTF-8 python3 -m GTG $args -t "$title"
 fi

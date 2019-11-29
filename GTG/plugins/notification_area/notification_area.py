@@ -28,7 +28,7 @@ except:
     pass
 
 from GTG.core.dirs import ICONS_DIR
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.borg import Borg
 from GTG.tools.dates import Date
 
@@ -280,12 +280,12 @@ class NotificationArea(object):
 
         # add "new task"
         # FIXME test this label... is it needed? play with it a little
-        menuItem = Gtk.MenuItem(label=_('Add New Task'))
+        menuItem = Gtk.MenuItem(label=translate('Add New Task'))
         menuItem.connect('activate', self.__open_task)
         menu.append(menuItem)
 
         # Show Main Window
-        show_browser = Gtk.MenuItem(label=_('Show Main Window'))
+        show_browser = Gtk.MenuItem(label=translate('Show Main Window'))
         show_browser.connect('activate', self.__show_browser)
         menu.append(show_browser)
 
@@ -298,7 +298,7 @@ class NotificationArea(object):
         menu.append(Gtk.SeparatorMenuItem())
 
         # quit item
-        menuItem = Gtk.MenuItem(label=_('Quit'))
+        menuItem = Gtk.MenuItem(label=translate('Quit'))
         menuItem.connect('activate', self.__view_manager.close_browser)
         menu.append(menuItem)
 

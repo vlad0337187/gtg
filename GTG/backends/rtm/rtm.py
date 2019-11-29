@@ -5,7 +5,7 @@ import urllib.parse
 import urllib.error
 from hashlib import md5
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 from GTG.tools.logger import Log
 
 _use_jsonlib = False
@@ -61,7 +61,7 @@ class AuthStateMachine(object):
 
     def dataReceived(self, state, datum):
         if state not in self.states:
-            error_string = _("Invalid state") + " <%s>"
+            error_string = translate("Invalid state") + " <%s>"
 
             raise RTMError(error_string % state)
         self.data[state] = datum

@@ -1,0 +1,905 @@
+' minutes': ' 分钟'
+'%{days}d days ago': '%{days}d 天前'
+'%{days}d days left': &id003
+    many: null
+    one: ''
+'%{tasks}d active tasks': '%{tasks}d 个进行中的任务'
+Are you sure you want to delete these tasks?: &id001
+    many: null
+    one: ''
+Authors: 创作者
+Completed %{days}d days early: 提前 %{days}d 天完成
+Completed %{days}d days late: 延迟 %{days}d 天完成
+'Deleting a task cannot be undone, and will delete the following tasks: ': &id002
+    many: null
+    one: ''
+In %{days}d days: '%{days}d 天后'
+Keep selected tasks: &id005
+    many: null
+    one: ''
+Permanently remove tasks: &id006
+    many: null
+    one: ''
+Was %{days}d days ago: &id004
+    many: null
+    one: ''
+zh:
+    ? '
+
+        And %d more tasks'
+    :   many: null
+        one: ''
+    ? '
+
+        Subtasks:
+
+        %s'
+    : '
+
+        子任务：
+
+        %s'
+    ? '
+
+        Tags: %s'
+    : '
+
+        标签：%s'
+    ? '
+
+        Task content:
+
+        %s'
+    : '
+
+        任务描述：
+
+        %s'
+    ? ' has crashed. Please report the bug on <a href="http://bugs.edge.launchpad.net/gtg">our
+        Launchpad page</a>. If you have Apport installed, it will be started for you.'
+    :   many: null
+        one: ''
+    ' minute': ' 分钟'
+    ? '%s seems to be installed on your system, but it does not provide a DBus interface
+        which is required by the Tomboy/Gnote plugin in GTG.'
+    : '%s 似乎已存在于您的系统中，但是并没有提供Tomboy/Gnote插件所需的DBus接口。'
+    '%{days}d': 提前 %{days}d 天完成
+    '%{task_title}s': 任务：%{task_title}s
+    '%{tasks}d': '%{tasks}d 个进行中的任务'
+    <b>Dependencies</b>: <b>依赖关系</b>
+    <b>Editor</b>: <b>编辑器</b>
+    <b>Location Determination Method</b>: <b>位置判定方法</b>
+    <b>Proximity Factor</b>: 相邻因素
+    <b>System</b>:
+        many: null
+        one: ''
+    <b>Task Browser</b>: <b>任务浏览器</b>
+    ? "<small>Distance in kilometers from \nthe current location.</small>"
+    : '<small>从当前位置到目的地
+
+        的距离，以千米计。</small>'
+    ? 'A &quot;Subtask&quot; is something that you need to do first before being able
+        to accomplish your task. In GTG, the purpose of subtasks is to cut down a
+        task in smaller subtasks that are easier to achieve and to track down.
+
+
+        To insert a subtask in the task description (this window, for instance), begin
+        a line with &quot;-&quot;, then write the subtask title and press Enter.
+
+
+        Try inserting one subtask below. Type &quot;- This is my first subtask!&quot;,
+        for instance, and press Enter:
+
+
+
+
+        Alternatively, you can also use the &quot;Insert Subtask&quot; button.
+
+
+        Note that subtasks obey to some rules: first, a subtask''s due date can never
+        happen after its parent''s due date and, second, when you mark a parent task
+        as done, its subtasks will also be marked as done.
+
+
+        And if you are not happy with your current tasks/subtasks organization, you
+        can always change it by drag-and-dropping tasks on each other in the tasks
+        list.'
+    :   many: null
+        one: ''
+    A professional-looking HTML page: 一个专业的HTML页面
+    A simple Web page that can be easily printed.: 一个便于打印的简单网页
+    ? 'A template to create
+
+        <a href="http://www.pocketmod.com">PocketMod</a>, which is a small foldable
+
+        booklet. Packages <b>pdflatex</b>, <b>pdftk</b> and <b>pdfjam</b>
+
+        are required.'
+    :   many: null
+        one: ''
+    A template to create a HTML page with some tasks and tags. Tags colors are also displayed.:
+        many: null
+        one: ''
+    A template to create a compact text file listing only task titles.: 一个只显示任务标题的复杂文本文件模板
+    A template to create a simple HTML page with some tasks that can be easily printed.: 一个创建便于打印的包含数个任务的简单HTML页面模板
+    A template to create a simple text file with some tasks.: 一个创建包含数个任务的简易文本文件模板
+    About GTG!: 关于 GTG!
+    Add Task:
+        many: null
+        one: ''
+    Add Tomboy note: 添加 Tomboy 便签
+    Add _New Task: 添加新任务(_N)
+    Add a subtask: 增加一个子任务
+    Add custom color: 添加自定义颜色
+    Add/Remove Tags: 增加/删除标签
+    All tags: 全部标签
+    All tasks: 全部任务
+    An error has occurred:
+        many: null
+        one: ''
+    Apply to subtasks: 应用到子任务
+    Are you sure you want to delete this task?: *id001
+    Associate with existing tag: 关联到已存在的标签
+    Associate with new tag: 关联到新标签
+    Author: 创作者
+    Bug: Bug
+    Cancel: 取消
+    Cannot connect to DBus, I've disabled the <b>%s</b> synchronization service.:
+        many: null
+        one: ''
+    Check for new tasks every: 检查新任务每
+    Choose a color:
+        many: null
+        one: ''
+    Choose where to save your list: 选择保存列表的位置
+    Clear:
+        many: null
+        one: ''
+    ? 'Click To
+
+        Set Icon'
+    :   many: null
+        one: ''
+    Closed date:
+        many: null
+        one: ''
+    Closed on: 结束于
+    Configure synchronization service:
+        many: null
+        one: ''
+    Confirm:
+        many: null
+        one: ''
+    Confirm task deletion: 确定删除任务
+    Continue:
+        many: null
+        one: ''
+    Copyright © 2008-2013 Lionel Dricot, Bertrand Rousseau:
+        many: null
+        one: ''
+    Create a new subtask: 创建一个新的子任务
+    Create a new task: 创建一个新任务
+    D_ismiss: 解除
+    Delete: 删除
+    'Deleting a task cannot be undone, and will delete the following task: ': *id002
+    Disable syncing: 关闭同步
+    Dismiss: 解除
+    Display only the currently actionable tasks: 只显示当前可付诸行动的任务
+    Do it tomorrow:
+        many: null
+        one: ''
+    Do you really want to remove the '%s' synchronization service?: 你确定想删除'%s'同步服务么？
+    Due: 到期
+    Due for: 到期
+    Due to a network problem, I cannot contact the <b>%s</b> synchronization service.: 由于网络问题，无法连接<b>%s</b>同步服务
+    Due today!:
+        many: null
+        one: ''
+    Due tomorrow!: *id003
+    Due yesterday!: *id004
+    Edit: 编辑
+    Edit Tag...:
+        many: null
+        one: ''
+    Edit the selected task: 编辑选择的任务
+    Enable colored backgrounds in the task list: 在任务列表中启用背景颜色
+    Enable syncing: 开启同步
+    Enter tag name here:
+        many: null
+        one: ''
+    'Enter the name of the tag(s) you wish to add or remove:': 输入你希望添加或删除的标签名称
+    Everything necessary to run this plugin is available.: 已具备运行此插件的所有条件。
+    Evolution tasks: Evolution 任务
+    Export the tasks currently listed: 导出当前列出的任务
+    'Filename:': '文件名:'
+    Foldable booklet (PDF): 可折叠的小册子(PDF)
+    'Font :': 字体：
+    Friday: 周五
+    'GTG could not generate the document: %s': GTG 不能生成此文档： %s
+    ? 'GTG has the ability to add plugins to extend its core functionality.
+
+
+        Some examples of the currently available plugins are the notification icon
+        which displays a handy shortcut to GTG in your notification space, or the
+        closed tasks remover which automatically deletes old tasks from your closed
+        tasks list.
+
+
+        You can find the Plugin Manager by selecting Edit in the Menu Bar, then clicking
+        Plugins.'
+    :   many: null
+        one: ''
+    GTG is a personal tasks and TODO-list items organizer for the GNOME desktop environment.: GTG是为Gnome桌面环境设计的个人任务计划管理工具。
+    GTG is a personal tasks and TODO-list items organizer for the GNOME.: GTG是为Gnome桌面环境设计的个人任务计划管理工具。
+    ? 'GTG is still beta software. We like it and use it everyday but you will probably
+        encounter some bugs will you do.
+
+
+        Please, help us improving GTG by reporting them on our Launchpad page:https://bugs.launchpad.net/gtg/+filebug
+
+
+        We need you to make this software better. Any contribution, any idea is welcome!
+
+
+        If you have some trouble with GTG, we might be able to help you or to solve
+        your problem really quickly.'
+    : 'GTG还处在beta阶段。我们很喜欢这款工具，几乎每天都用；若您也一样，或许也会在使用中发现一些错误和不足。
+
+
+        恳请您让我们了解到这些不足，从而帮助改善GTG。您可以在这里向我们提交您的发现： https://bugs.launchpad.net/gtg/+filebug
+
+
+        您的支持将让GTG变得更好，为此我们虚怀若谷。
+
+
+        若您在使用GTG时遇到困难，我们也将努力以最快的速度为您解决问题。'
+    GTG website: GTG 网站
+    Geolocalized-tasks Preferences: 位置相关任务偏好
+    Getting Started With GTG:
+        many: null
+        one: ''
+    Getting Things GNOME!:
+        many: null
+        one: ''
+    ? 'Getting Things GNOME! is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by the Free
+        Software Foundation; either version 3 of the License, or (at your option)
+        any later version.
+
+
+        Getting Things GNOME! is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+        or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+        more details.
+
+
+        You should have received a copy of the GNU General Public License along with
+        Getting Things GNOME!; if not, write to the Free Software Foundation, Inc.,
+        51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.'
+    :   many: null
+        one: ''
+    Gnote:
+        many: null
+        one: ''
+    Help to translate GTG into your language:
+        many: null
+        one: ''
+    Hide this tag from the workview:
+        many: null
+        one: ''
+    ? 'Hint: you can add several tags by separating them with
+
+        space. Place ''!'' before tags you want to remove.'
+    :   many: null
+        one: ''
+    ? 'If you press the &quot;Work View&quot; button, only actionable tasks will be
+        displayed in your list.
+
+
+        What is an actionable task? It''s a task you can do directly, right now.
+
+
+        It''s a task that is already &quot;start-able&quot;, i.e. the start date is
+        already over.
+
+
+        It''s a task that doesn''t have open subtasks, i.e. you can do the task itself
+        directly.
+
+
+        It''s a task that has a due date different than &quot;Someday&quot;, since
+        this kind of date is reserved for things that needs more thoughts before being
+        actionable.
+
+
+        Thus, in short, the Work View shows you tasks that you can do right now. It''s
+        very useful when you want to get things done and to focus on the relevant
+        tasks!
+
+
+        If you use tags, you can right click on a tag in the sidebar and choose to
+        hide tasks assigned to this particular tag in the Work View. It is very useful
+        if you have a tag like &quot;@wait&quot; that you use for tasks blocked by
+        some external event (i.e. a phone call you wait to receive).
+
+
+        And finally, an important note regarding the Work View: since the Work View
+        is updated instantaneously, if you edit your task while using the Work View,
+        this task might disappear due to the change you just made (e.g. adding a subtask,
+        adding a tag hidden in the Work View, etc.). To avoid this, it''s better not
+        to edit your task while using the Work View. '
+    :   many: null
+        one: ''
+    Ignore:
+        many: null
+        one: ''
+    ? Import                                                                  tasks
+        from                                                                  your
+        tweets
+    : 从的你tweets中导入任务
+    Import tags: 导入标签
+    'Import tasks                                                         from @ replies ':
+        many: null
+        one: ''
+    Import tasks from direct messages: 从私信中导入任务
+    ? 'In GTG, you use tags to sort your tasks. A tag is a simple word that begins
+        with &quot;@&quot;.
+
+
+        Try to type a word beginning with &quot;@&quot; here:
+
+
+        Once it becomes yellow, it is a tag! And this tag is now linked to the task!
+
+
+        Using the View menu, you can enable a sidebar which displays all the tags
+        you are using. This allows you to easily see all tasks associated to a given
+        tag.
+
+
+        If you right-click on a tag in the sidebar, you can also edit it. It allows
+        you to assign it a color or an icon for instance. This is handy if you want
+        to quickly identify the tasks associated to a given tag in the task list!
+
+
+        New tags are always added exclusively to the currently edited task, and never
+        to its subtasks. However, when you create a new subtask, it will inherit its
+        parent''s tags.
+
+
+        If you need a more advanced task organization, you can also create a hierarchy
+        of tags by drag-and-dropping a tag onto another. This is useful when you want
+        to regroup several tags together and see all related tasks easily. For instance,
+        if you have two tags @money and @to_pay, and you drag @to_pay on @money, every
+        task tagged with @to_pay will also appear when you select @money.'
+    :   many: null
+        one: ''
+    Insert a subtask in this task: 在此任务中插入分任务
+    Insert a tag in this task: 在此任务中插入标记
+    Insert subtask: 插入子任务
+    Insert tag: 插入标签
+    Invalid state: 无效的状态
+    Iss.:
+        many: null
+        one: ''
+    It looks like an error has occurred.:
+        many: null
+        one: ''
+    'Just these                                                                       tags:':
+        many: null
+        one: ''
+    Keep selected task: *id005
+    Launchpad: Launchpad
+    Learn How To Search For Tasks:
+        many: null
+        one: ''
+    Learn How To Use Plugins:
+        many: null
+        one: ''
+    Learn How To Use Subtasks:
+        many: null
+        one: ''
+    Learn How To Use Synchronization Services:
+        many: null
+        one: ''
+    Learn How To Use Tags:
+        many: null
+        one: ''
+    Learn How To Use The Quick Add Entry:
+        many: null
+        one: ''
+    Learn How To Use The Work View:
+        many: null
+        one: ''
+    Lets you synchronize your GTG tasks with Evolution tasks: 让你实现GTG任务和Evolution任务之间的同步
+    'Link to bug: ':
+        many: null
+        one: ''
+    'Link to issue: ':
+        many: null
+        one: ''
+    Local File: 本地文件
+    MantisBT: MantisBT
+    Mark Done: 标记完成
+    Mark as Done: 标记为完成
+    Mark as Not Done: 标记为未完成
+    Mark as _Done: 标记为完成(_D)
+    Mark as not Done: 标记为未完成
+    Mark the selected task as done: 把选择的任务标记为完成
+    Mark the selected task as to be done: 把选择的任务标记为待办
+    Mark the task as not to be done anymore: 标记该任务为过期
+    Mark this task as done: 将此任务标记为完成
+    Mark this task as not to be done anymore: 将此任务标记为过期
+    Mark this task as to be done: 将此任务标记为待办
+    Modify Tags: 修改标签
+    Modify Tags...:
+        many: null
+        one: ''
+    Monday: 周一
+    My new task: 我的新任务
+    'Name : ':
+        many: null
+        one: ''
+    New Subtask: 新子任务
+    New Task: 新任务
+    'New Task Shortcut :': 新建任务快捷键
+    New _Subtask: 新建子任务(_S)
+    New _Task: 新建任务(_T)
+    NewTag:
+        many: null
+        one: ''
+    Next _Month:
+        many: null
+        one: ''
+    Next _Week:
+        many: null
+        one: ''
+    Next _Year:
+        many: null
+        one: ''
+    No task matches your criteria. Empty report can't be generated.: 没有符合条件的任务条目。不能生成空白报告。
+    Now: 现在
+    Ok:
+        many: null
+        one: ''
+    Open GTG help:
+        many: null
+        one: ''
+    Open Task:
+        many: null
+        one: ''
+    'Password:': '密码:'
+    Permanently remove task: *id006
+    Permanently remove the selected task: 永久移除选择的任务.
+    Permanently remove this task: 永久移除此任务
+    'Please install or start the following components:': 请安装或启动下列组件：
+    'Please install the following python modules:': 请安装下列 python 模块：
+    'Please start the following applications:': 请启动以下程序：
+    Plugins - %s:
+        many: null
+        one: ''
+    Preferences - %s:
+        many: null
+        one: ''
+    Redo: 重做
+    Remember The Milk: Remember The Milk
+    Remove selected icon: 移除所选图标
+    Report a problem to GTG developers:
+        many: null
+        one: ''
+    'Reported by: ':
+        many: null
+        one: ''
+    Reporting Bugs:
+        many: null
+        one: ''
+    Saturday: 周六
+    Search: 查询
+    'Select Tag Color:': 选择标签颜色
+    'Select synchronization service:': 选择同步服务：
+    Send via email: 通过邮件发送
+    Service URL: 服务 URL
+    Set Due Date:
+        many: null
+        one: ''
+    Set the task's location: 设置任务位置
+    'Show Tag in Work View :': 在工作流中显示标签
+    Show description preview in the task list.:
+        many: null
+        one: ''
+    Show this tag in the workview: 在工作流中显示此标签
+    Some modules and remote dbus objects are missing.: 缺少某些模块和远程 dbus 对象。
+    Some python modules are missing: 缺少某些 python 模块
+    Some remote dbus objects are missing.: 缺少某些远程 dbus 对象。
+    Someday:
+        many: null
+        one: ''
+    Soon: 马上
+    Start Getting Things GNOME! on every login: 每次登录自动运行 Getting Things GNOME!
+    'Start a new activity in Hamster Time Tracker ': '在Hamster时间管理器中开启新活动 '
+    Start date: 开始日期
+    Start in Hamster: 在 Hamster 中开始
+    Start task in Hamster: 开始 Hamster 中的任务
+    Starting on: 开始
+    Status report: 状态报告
+    'Status: %s': '状态: %s'
+    Sunday: 周日
+    Synchronization Services - %s: 同步服务 - %s
+    ? 'Synchronization Services allow GTG to synchronize (meaning to have access or
+        to import) tasks, notes or bugs from other sites or services like Launchpad,
+        Remember the Milk, Tomboy, etc.
+
+
+        This can incredibly useful if, for instance, you want to access your tasks
+        on several instances of GTG running on separate computers, or if you want
+        to edit your tasks using an online service. GTG can also import tasks from
+        specific sites like launchpad for instance, which allows you to manage the
+        bug reports you''re working on in GTG!
+
+
+        To use Synchronization Services, use the Edit menu, and select &quot;Synchronization
+        Services&quot;. You will then have the possibility to select among several
+        online or local services from/to where you can import or export your tasks.
+
+
+        If you want to know more about Synchronization Services, you can read more
+        about them by in the dedicated documentation in GTG''s help (use the Help
+        menu or press F1 to get access to it).'
+    :   many: null
+        one: ''
+    Syncing is <span color="red">disabled</span>.: 同步<span color="red">关闭</span>.
+    Syncing is enabled.: 同步开启
+    T_oday:
+        many: null
+        one: ''
+    T_oolbar: 工具栏(_O)
+    Tag your GTG tasks with the bug tags:
+        many: null
+        one: ''
+    Tag your GTG tasks with the project targeted by the bug:
+        many: null
+        one: ''
+    TagName: 标签名称
+    Tags: 标签
+    Tags to sync: 同步的标签
+    Task: 任务
+    Tasks:
+        many: null
+        one: ''
+    'Tasks with                                                                 these tags:': 具有这些标签的任务
+    Tasks with no tags: 没有标签的任务
+    Text-only: 文本方式
+    That note does not exist!: 便签不存在！
+    That note does not exist. Do you want to create a new one?: 便签不存在。您想建一个新的吗？
+    ? The <b>%s</b> synchronization service cannot login with the  supplied authentication
+        data and has been disabled. To retry the login, re-enable the service.
+    : <b>%s</b>同步服务无法根据您所提供的授权信息进行登录，服务已停用。重启服务以重试登录。
+    ? 'The Quick Add Entry is the fastest way to create a new task. Use the check
+        box in the View menu to enable and disable the entry field.
+
+
+        To add a task simply type its title in the entry and press Enter. The task
+        will be created and selected in the task browser. If a tag is selected in
+        the Tags Sidebar, it will be applied to the task you created.
+
+
+        You can also create a task in the Quick Add Entry and at the same time specify
+        its tags, due and defer date. Follow these format rules:
+
+
+        tags:tag1,tag2,tag3
+
+
+        Using this you can apply as many tags as you wish using comma as separator.
+        Note that any word in the title that begins with &quot;@&quot; will also be
+        interpreted as a tag!
+
+
+        due:date
+
+        defer:date
+
+
+        Using this you can apply a due date or a defer date. Dates can be formated
+        as per your locale or yyyy-mm-dd (for example 2012-04-01) or yyyymmdd (20120401)
+        or mmdd (0401 - the year being implicitly the current one) or today, tomorrow
+        or a weekday name (due:monday means due next Monday). Dates which are added
+        in this way will not appear in the task title.
+
+
+        Examples:
+
+
+        buy stationary tags:purchases,office due:20120330 defer:tuesday
+
+
+        The above example tells GTG to create a new task with the title &quot;buy
+        stationary&quot;, under the tags &quot;purchases&quot; and &quot;office&quot;,
+        with the due date March 30, 2012 and the start date next Tuesday.
+
+
+        call mum tags:family,calls due:sunday defer:tomorrow
+
+
+        The above example tells GTG to create a new task with the title &quot;call
+        mum&quot;, under the tags &quot;family&quot; and &quot;calls&quot;, with the
+        due date next Sunday and the start date tomorrow.'
+    :   many: null
+        one: ''
+    The plugin can not be loaded: 无法载入此插件
+    ? 'The shortcut "%s" cannot be used because it will become impossible to type
+        using this key.
+
+        Please try with a key such as Control, Alt or Shift at the same time.'
+    :   many: null
+        one: ''
+    ? This Tomboy note                                        does not exist anymore.
+        Do you want to                                        create it?
+    : 该条Tomboy笔记已不存在。要创建这个条目吗？
+    This is the default synchronization service: 这是默认同步服务
+    ? This service can synchronize all or part of your Gnote notes in GTG. If you
+        decide it would be handy to have one of your notes in your TODO list, just
+        tag it with the tag you have chosen (you'll configure it later), and it will
+        appear in GTG.
+    :   many: null
+        one: ''
+    ? "This service synchronizes your tasks with the web service RememberTheMilk:\n\
+        \t\thttp://rememberthemilk.com\n\nNote: This product uses the Remember The\
+        \ Milk API but is not endorsed or certified by Remember The Milk"
+    :   many: null
+        one: ''
+    ? This synchronization service can synchronize all or part of your Tomboy notes
+        in GTG. If you decide it would be handy to have one of your notes in your
+        TODO list, just tag it with the tag you have chosen (you'll configure it later),
+        and it will appear in GTG.
+    :   many: null
+        one: ''
+    ? "This synchronization service lets you import the bugs assigned to you (or someone\
+        \ else) on Launchpad in GTG. As the bug state changes in Launchpad, the GTG\
+        \ task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated bug is modified. Apart from those, you are\
+        \ free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to bug"
+    :   many: null
+        one: ''
+    ? "This synchronization service lets you import the issues found on Mantis using\
+        \ a prestablished filter called 'gtg'. As the issue state changes in Mantis,\
+        \ the GTG task is  updated.\nPlease note that this is a read only synchronization\
+        \ service, which means that if you open one of the imported tasks and  change\
+        \ one of the:\n  - title\n  - description\n  - tags\nYour changes <b>will</b>\
+        \ be reverted when the associated issue is modified. Apart from those, you\
+        \ are free to set  any other field (start/due dates, subtasks...): your  changes\
+        \ will be preserved. This is useful to add  personal annotations to issue"
+    :   many: null
+        one: ''
+    Thursday: 周四
+    Title: 标题
+    ? 'To help you to find specific tasks more easily, GTG allows you to search for
+        tasks based on their content.
+
+
+        Searching for tasks is really easy: just type the words you are looking for
+        in the Quick Add Entry, and select &quot;Search&quot; in the menu that will
+        appear automatically.
+
+
+        GTG stores your searches in the sidebar, under the &quot;Search&quot; section.
+        You can thus always go back to a previous search need it. Search results are
+        updated automatically, so you always get all the tasks matching your search
+        request.
+
+
+        GTG also saves all the search requests you have made until you explicitely
+        delete them (which you can do by right-clicking on them and selecting &quot;Delete&quot;).
+        That allows you to safely quit GTG without loosing your search requests. This
+        can be very useful when you use the search features to identify specific tasks
+        regularly!
+
+
+        GTG search feature is really powerful and accept many parameters that allows
+        you to search for very specific tasks. For instance, using the search query
+        &quot;@errands !today&quot;, you can search for tasks with the @errands tag
+        that must be done today. To learn more about those search query parameters,
+        you can read the documentation available in GTG''s help (press F1 or use the
+        Help menu to get access to it).'
+    :   many: null
+        one: ''
+    Today: 今天
+    Tomboy: Tomboy
+    Tomboy/Gnote not found. Please install it or disable the Tomboy/Gnote plugin in GTG: 未找到
+        Tomboy 或 Gnote。请安装这些软件，或在 GTG 中禁用 Tomboy/Gnote 插件。
+    Tomorrow: '%{days}d 天后'
+    Tuesday: 周二
+    Und_ismiss: 取消解除(_i)
+    Undismiss: 撤销解除
+    Undo: 撤销
+    Unknown error while loading the plugin.: 载入插件时出现未知错误。
+    Use cellphone: 使用手机
+    Use gps: 使用 GPS
+    Use network: 使用网络
+    Username: 用户名
+    Very helpful message, isn't it? Please report a bug.: 是不是很有用的信息？ 请提交 bug 报告。
+    Warning:
+        many: null
+        one: ''
+    We're terribly sorry. Could you help us fix the problem by reporting the crash?:
+        many: null
+        one: ''
+    Wednesday: 周三
+    ? 'Welcome to Getting Things GNOME!, your new task manager! In Getting Things
+        GNOME! (GTG), everything is a task. From building a bridge over the Pacific
+        Ocean to changing a light bulb or organizing a party!
+
+
+        If you are new to GTG, please take the time to read this, as it will provide
+        you useful information about how to use GTG to organize your everyday life.
+
+
+        Creating and editing tasks:
+
+
+        Using GTG is easy: you organize what you have to do by creating new tasks.
+        To do this, simply press the &quot;New Task&quot; button, edit the task by
+        describing it, set some parameters, and that''s it! Once a task done, you
+        can close it by pressing the &quot;Mark As Done&quot; button.
+
+
+        In GTG, a task is automatically saved while you are editing it. No need to
+        press any &quot;Save&quot; button! Try it: add some text to this task, close
+        the window, and reopen it: your changes are still there!
+
+
+        About subtasks:
+
+
+        In life, you often get more things done by refining them in smaller, more
+        operational tasks. GTG helps to do just this by defining  &quot;subtasks&quot;.
+        In GTG, those subtasks are considered as prerequisites that must be completed
+        before being able to close their parent task.
+
+
+        Therefore, in GTG, a task might host one or several subtasks. Those appear
+        as links in the task description, just like the link below. To open and edit
+        a subtask, simply click on its link! Try it yourself: open the following subtask:
+
+        <subtask>1@1</subtask>
+
+
+        Closing a task:
+
+
+        In GTG, once you are done with a task, you can close it by pushing either
+        the &quot;Mark as Done&quot; or the &quot;Dismiss&quot; button. Use the first
+        one if the task is done, and the latter if you want to close it because it
+        is not relevant anymore. Want to try it? Try to close the subtask above for
+        instance!
+
+
+        When you close a task, you will notice that all its subtasks will be automatically
+        closed too! Indeed, GTG considers that if you have completed a given task,
+        then you don''t need to do its subtasks anymore (they were prerequisites,
+        after all).
+
+
+        Note that the tasks that you have marked as done or dismissed are listed in
+        the &quot;Closed Tasks Pane&quot; which is hidden by default, but you can
+        easily show it using the View menu.
+
+
+        Learn more about GTG:
+
+
+        If you are interested in knowing more about GTG''s other features, you will
+        find more information here:
+
+        <subtask>2@1</subtask>
+
+        <subtask>3@1</subtask>
+
+        <subtask>4@1</subtask>
+
+        <subtask>5@1</subtask>
+
+        <subtask>6@1</subtask>
+
+        <subtask>7@1</subtask>
+
+        <subtask>8@1</subtask>
+
+
+        You can also browse GTG documentation by pressing F1 or opening it using the
+        Help menu.
+
+
+        We sincerely hope you will enjoy using GTG, and thank you for trying it out!
+        Please send us bug reports and ideas for improvement using this web page:
+        https://bugs.launchpad.net/gtg/+filebug If you want to get tips for using
+        GTG or be informed about the newest features, also visit our blog at http://gtg.fritalk.com
+
+
+        The GTG team.'
+    :   many: null
+        one: ''
+    Work View: 工作视图
+    Yesterday: '%{days}d 天前'
+    You can create, open or filter your tasks here: 你可以在这里创建、打开或者筛选你的任务
+    'Your tasks are saved in a text file (XML format). ': '你的任务会保存在一个文本文件中(XML格式)。 '
+    _About Plugin: 关于插件(_A)
+    _Clear Due Date:
+        many: null
+        one: ''
+    _Clear Start Date:
+        many: null
+        one: ''
+    _Closed Tasks Pane: 关闭任务窗格(_C)
+    _Details:
+        many: null
+        one: ''
+    _Edit: 编辑(_E)
+    _Help: 帮助(_H)
+    _Ignore the error:
+        many: null
+        one: ''
+    _Now:
+        many: null
+        one: ''
+    _Plugins: 插件(_P)
+    _Quick Add Entry: 快速添加条目(_Q)
+    _Quit:
+        many: null
+        one: ''
+    _Report this problem...:
+        many: null
+        one: ''
+    _Set Start Date:
+        many: null
+        one: ''
+    _Show Main Window:
+        many: null
+        one: ''
+    _Someday:
+        many: null
+        one: ''
+    _Soon:
+        many: null
+        one: ''
+    _Tags Sidebar: 标签栏(_T)
+    _Tasks: 任务(_T)
+    _Tomorrow:
+        many: null
+        one: ''
+    _View: 视图(_T)
+    _Work View: 工作视图(_W)
+    after: 之后
+    before: 之前
+    defer: 推迟
+    due: 到期
+    gtg is already running!: gtg 已经在运行！
+    later: 稍后
+    next month: 下月
+    next week: 下周
+    next year: 明年
+    no active tasks: 没有活动任务
+    nodate: 无日期
+    not: 不是
+    notag: 无标签
+    now: 现在
+    or: 或者
+    page 1:
+        many: null
+        one: ''
+    page 2:
+        many: null
+        one: ''
+    page 3:
+        many: null
+        one: ''
+    someday: 某天
+    soon: 马上
+    start: 开始
+    tag: 标签
+    tags: 标签
+    today: 今天
+    tomorrow: 明天

@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk
 
-from GTG.core.translations import _, ngettext
+from GTG.core.translations import translate
 from GTG.gtk import ViewConfig
 
 
@@ -89,22 +89,16 @@ class DeletionUI(object):
             cdlabel3 = self.builder.get_object("cd_cancel_label")
             cdlabel4 = self.builder.get_object("cd_delete_label")
             singular = len(tasklist)
-            label_text = ngettext("Deleting a task cannot be undone, "
+            label_text = translate("Deleting a task cannot be undone, "
                                   "and will delete the following task: ",
-                                  "Deleting a task cannot be undone, "
-                                  "and will delete the following tasks: ",
                                   singular)
-            cdlabel2.set_label(ngettext("Are you sure you want to delete this"
+            cdlabel2.set_label(translate("Are you sure you want to delete this"
                                         " task?",
-                                        "Are you sure you want to delete "
-                                        "these tasks?",
                                         singular))
 
-            cdlabel3.set_label(ngettext("Keep selected task",
-                                        "Keep selected tasks",
+            cdlabel3.set_label(translate("Keep selected task",
                                         singular))
-            cdlabel4.set_label(ngettext("Permanently remove task",
-                                        "Permanently remove tasks",
+            cdlabel4.set_label(translate("Permanently remove task",
                                         singular))
             label_text = label_text[0:label_text.find(":") + 1]
 
@@ -114,7 +108,7 @@ class DeletionUI(object):
             missing_titles_count = len(tasklist) - self.MAXIMUM_TIDS_TO_SHOW
             if missing_titles_count >= 2:
                 tasks = tasklist[: self.MAXIMUM_TIDS_TO_SHOW]
-                titles_suffix = _("\nAnd %d more tasks" % missing_titles_count)
+                titles_suffix = translate("\nAnd %d more tasks" % missing_titles_count)
             else:
                 tasks = tasklist
                 titles_suffix = ""

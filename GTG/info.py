@@ -21,7 +21,7 @@
 
 Contains the information displayed in GTG's Credits."""
 
-from GTG.core.translations import _
+from GTG.core.translations import translate
 
 NAME = "Getting Things GNOME!"
 URL = "http://gtgnome.net"
@@ -32,7 +32,7 @@ EMAIL = "gtg-contributors@lists.launchpad.net"
 VERSION = '0.3.1'
 
 SHORT_DESCRIPTION = \
-    _('GTG is a personal tasks and TODO-list items organizer for the GNOME.')
+    translate('GTG is a personal tasks and TODO-list items organizer for the GNOME.')
 
 # CREDITS
 AUTHORS = ["Main developers:",
