@@ -1,0 +1,210 @@
+{
+  "app-id": "org.gnome.GTG",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "master",
+  "sdk": "org.gnome.Sdk",
+  "command": "gtg",
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/share/pkgconfig",
+    "/share/aclocal",
+    "/man",
+    "/share/man",
+    "/share/gtk-doc",
+    "/share/vala",
+    "*.la",
+    "*.a",
+    "*.pyc",
+    "*.pyo"
+  ],
+  "build-options": {
+    "cflags": "-O2 -g",
+    "cxxflags": "-O2 -g",
+    "env": {
+      "V": "1"
+    }
+  },
+  "finish-args": [
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--filesystem=host",
+    "--system-talk-name=org.freedesktop.NetworkManager",
+    "--talk-name=ca.desrt.dconf",
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+    "--share=network",
+    "--filesystem=xdg-run/dconf",
+    "--filesystem=~/.config/dconf:ro",
+    "--talk-name=ca.desrt.dconf",
+    "--talk-name=org.gtk.vfs.*",
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+    "--talk-name=org.freedesktop.secrets",
+    "--filesystem=xdg-run/keyring"
+  ],
+  "modules": [
+    {
+      "name": "python-dbus",
+      "no-autogen": true,
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 setup.py build",
+        "python3 setup.py install --prefix /app"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "tag": "dbus-python-1.2.8",
+          "url": "https://gitlab.freedesktop.org/dbus/dbus-python"
+        }
+      ]
+    },
+    {
+      "name": "liblarch",
+      "no-autogen": true,
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 setup.py build",
+        "python3 setup.py install --prefix /app"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/getting-things-gnome/liblarch"
+        }
+      ]
+    },
+    {
+      "name": "pyxdg",
+      "no-autogen": true,
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 setup.py build",
+        "python3 setup.py install --prefix /app"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.freedesktop.org/xdg/pyxdg"
+        }
+      ]
+    },
+    {
+            "name" : "udev",
+            "config-opts" : [
+                "--disable-hwdb",
+                "--disable-logging",
+                "--disable-gudev",
+                "--disable-introspection",
+                "--disable-keymap",
+                "--disable-mtd_probe"
+            ],
+            "cleanup" : [
+                "/include",
+                "/etc",
+                "/libexec",
+                "/sbin",
+                "/lib/pkgconfig",
+                "/man",
+                "/share/aclocal",
+                "/share/doc",
+                "/share/gtk-doc",
+                "/share/man",
+                "/share/pkgconfig",
+                "*.la",
+                "*.a"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "git://github.com/gentoo/eudev.git"
+                }
+            ]
+        },
+        {
+            "name" : "polkit",
+            "buildsystem" : "autotools",
+            "config-opts" : [
+                "--disable-man-pages",
+                "--disable-introspection",
+                "--disable-libelogind",
+                "--enable-libsystemd-login=no",
+                "--with-systemdsystemunitdir=no"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "git://anongit.freedesktop.org/polkit"
+                }
+            ]
+        },
+
+                {
+            "name" : "libndp",
+            "buildsystem" : "autotools",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : " http://libndp.org/files/libndp-1.6.tar.gz",
+                    "sha256" : "0c7dfa84e013bd5e569ef2c6292a6f72cfaf14f4ff77a77425e52edc33ffac0e"
+                }
+            ]
+        },
+
+    {
+      "name" : "NetworkManager",
+      "buildsystem" : "meson",
+      "config-opts" : [
+        "-Dlibaudit=no",
+        "-Ddbus_conf_dir=/app/etc/dbus-1/system.d",
+        "-Ddbus_ifaces_dir=/app/share/dbus-1/interfaces",
+        "-Ddbus_sys_dir=/app/share/dbus-1/system.d",
+        "-Ddnsmasq=/usr/bin/true",
+        "-Ddocs=false",
+        "-Dintrospection=false",
+        "-Diptables=/usr/bin/true",
+        "-Djson_validation=false",
+        "-Dlibnm_glib=false",
+        "-Dlibpsl=false",
+        "-Dmodem_manager=false",
+        "-Dnmtui=false",
+        "-Dovs=false",
+        "-Dppp=false",
+        "-Dqt=false",
+        "-Dselinux=false",
+        "-Dsession_tracking=no",
+        "-Dsystemdsystemunitdir='no'",
+        "-Dsystemd_journal=false",
+        "-Dtests=no",
+        "-Dvapi=false"
+      ],
+      "sources" : [
+        {
+          "type" : "git",
+          "tag" : "1.12.0",
+          "commit" : "8964dbe8bc9cbe7300a48bffe86faee6b149fbf2",
+          "url" : "https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git"
+        }
+      ]
+    },
+    {
+      "name": "gtg",
+      "no-autogen": true,
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 setup.py build",
+        "python3 setup.py install --prefix /app"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/getting-things-gnome/gtg"
+        },
+        {
+           "type": "patch",
+           "path": "introspection.patch"
+        }
+      ]
+    }
+  ]
+}

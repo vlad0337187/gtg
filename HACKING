@@ -2,6 +2,15 @@
 GTG Hacking Guide
 =================
 
+Run with Flatpak
+----------------
+
+Currently have problems running with Flatpak.
+Issue: https://github.com/albfan/gtg/issues/1
+
+
+
+
 Testing
 -------
 
@@ -19,6 +28,8 @@ the debug GTG will store data in ``./tmp/default/``.
 Unit tests live in ``tests/``.
 
 
+
+
 Coding style
 ------------
 
@@ -33,12 +44,13 @@ To check the complete cleanliness of your code, run::
 
 
 
+
 Commenting-out Code
 -------------------
-Try to avoid leaving commented out code in the codebase. 
-IT IS NOT A GOOD PRACTICE! 
+Try to avoid leaving commented out code in the codebase.
+IT IS NOT A GOOD PRACTICE!
 Or at least, if some code must be left commented out, also include a comment
-or TODO or FIXME explaining why it was disabled.  
+or TODO or FIXME explaining why it was disabled.
 
 Some common reasons why one might create commented code are:
 
@@ -68,7 +80,7 @@ So instead of this:
 consider doing it like this:
 
   #FIXME:  If x is None, it causes animate() to crash.  But x should
-  #never be None, so this *should* always work.  I can't reproduce the 
+  #never be None, so this *should* always work.  I can't reproduce the
   #crash so can't tell what makes x None.  Leaving it disabled for now
   #until someone can reproduce it and investigate.  (LP: #12345)
   #
@@ -86,6 +98,8 @@ consider doing it like this:
 Historically, there has been code left commented out in the codebase for
 various reasons.  As you run across such code, please help us tidy the
 codebase by either commenting why it's disabled, or remove it.
+
+
 
 
 API Style
@@ -113,6 +127,8 @@ that does not respect that philosophy but should. (this work should take
 place in gtg-refactor branch).
 
 
+
+
 Copyright
 ---------
 
@@ -138,11 +154,15 @@ All modules should begin with the following header::
 # -----------------------------------------------------------------------------
 
 
+
+
 Submitting Patches
 ------------------
 
 For information about contributing code to GTG, see
 <http://gtg.readthedocs.org/en/latest/contributing.html>.
+
+
 
 
 Landing Branches
