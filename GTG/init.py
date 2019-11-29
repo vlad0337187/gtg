@@ -1,3 +1,4 @@
+import importlib
 import locale
 import logging
 import os
@@ -5,14 +6,17 @@ import _bootlocale
 
 import pydash
 
-from . import core
+import GTG.core.dirs
+import GTG.core.translations
+
 from . import tools
 
 
 def main():
     setup_locale()
     ensure_utf8_is_default_encoding_for_open_function()
-    core.translations.init()
+    GTG.core.dirs        .init()
+    GTG.core.translations.init()
 
 
 def setup_locale():

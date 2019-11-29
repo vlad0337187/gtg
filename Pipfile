@@ -1,6 +1,10 @@
 [scripts]
-dev = 'bash -c "PYTHONPATH=/usr/lib/python3/dist-packages:$PYTHONPATH ./gtg.sh"'
-dev2 = 'bash -c "./gtg.sh"'
+app = 'python -m GTG'
+cli = 'python -m GTG --cli'
+dev = 'python -m GTG --debug'
+dev_cli = 'python -m GTG --debug --cli'
+dev2 = 'bash -c "PYTHONPATH=/usr/lib/python3/dist-packages:$PYTHONPATH ./gtg.sh"'
+dev3 = 'bash -c "./gtg.sh"'
 
 [[source]]
 name = "pypi"

@@ -12,7 +12,7 @@ import threading
 
 from GTG.backends.backendsignals import BackendSignals
 from GTG.core.tag import ALLTASKS_TAG
-from GTG.core.dirs import SYNC_DATA_DIR
+import GTG.core.dirs
 from GTG.tools.interruptible import _cancellation_point
 from GTG.tools.keyring import Keyring
 from GTG.tools.logger import Log
@@ -513,7 +513,7 @@ class GenericBackend(object):
         "backend_name/object_name"
         @param data: the object
         '''
-        path = os.path.join(SYNC_DATA_DIR, path)
+        path = os.path.join(GTG.core.dirs.SYNC_DATA_DIR, path)
         # mkdir -p
         try:
             os.makedirs(os.path.dirname(path))
@@ -551,7 +551,7 @@ class GenericBackend(object):
         corrupt
         @returns object: the needed object, or default_value
         '''
-        path = os.path.join(SYNC_DATA_DIR, path)
+        path = os.path.join(GTG.core.dirs.SYNC_DATA_DIR, path)
         if not os.path.exists(path):
             return default_value
 

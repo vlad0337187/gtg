@@ -192,18 +192,18 @@ def show_error_window(error_string, add_apport_button=False):
     scrolled.add_with_viewport(textview)
 
     # hide the textview in an Expander widget
-    expander = Gtk.expander_new_with_mnemonic(_("_Details"))
+    expander = Gtk.expander_new_with_mnemonic(translate("_Details"))
     expander.add(scrolled)
     expander.connect('activate', on_expanded)
     dialog.get_content_area().pack_start(expander, True, True, 0)
 
     # add buttons
     if add_apport_button:
-        dialog.add_button(_("_Report this problem..."), 3)
+        dialog.add_button(translate("_Report this problem..."), 3)
     # If we're have multiple threads, or if we're in a GTK callback,
     # execution can continue normally in other threads, so add button
     if Gtk.main_level() > 0 or threading.activeCount() > 1:
-        dialog.add_button(_("_Ignore the error"), 1)
+        dialog.add_button(translate("_Ignore the error"), 1)
     dialog.add_button(("_Close the program"), 2)
     dialog.set_default_response(2)
 
@@ -306,7 +306,7 @@ def signal_catcher(callback):
     yield
 
 initialize(app_name="Getting Things GNOME!",
-           message=_(
+           message=translate(
                'GTG %s has crashed. Please report the bug on '
                '<a href="http://bugs.edge.launchpad.net/gtg">'
                'our Launchpad page</a>. '

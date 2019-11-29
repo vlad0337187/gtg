@@ -6,8 +6,9 @@ import configparser
 import os
 import re
 
-from GTG.core.dirs import CONFIG_DIR
+import GTG.core.dirs
 from GTG.tools.logger import Log
+
 
 DEFAULTS = {
     # TODO: Remove toolbar and quick_add options from configuration
@@ -173,10 +174,10 @@ class CoreConfig(object):
     """ Class holding configuration to all systems and tasks """
 
     def __init__(self):
-        self._conf_path = os.path.join(CONFIG_DIR, 'gtg.conf')
+        self._conf_path = os.path.join(GTG.core.dirs.CONFIG_DIR, 'gtg.conf')
         self._conf = open_config_file(self._conf_path)
 
-        self._task_conf_path = os.path.join(CONFIG_DIR, 'tasks.conf')
+        self._task_conf_path = os.path.join(GTG.core.dirs.CONFIG_DIR, 'tasks.conf')
         self._task_conf = open_config_file(self._task_conf_path)
 
     def save_gtg_config(self):

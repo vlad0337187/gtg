@@ -11,7 +11,7 @@ from GTG.backends.backendsignals import BackendSignals
 from GTG.backends.genericbackend import GenericBackend
 from GTG.core.config import CoreConfig
 from GTG.core import requester
-from GTG.core.dirs import PROJECTS_XMLFILE, TAGS_XMLFILE
+import GTG.core.dirs
 from GTG.core.search import parse_search_query, search_filter, InvalidQuery
 from GTG.core.tag import Tag, SEARCH_TAG
 from GTG.core.task import Task
@@ -185,7 +185,7 @@ class DataStore(object):
         """
         Loads the tag tree from a xml file
         """
-        doc, xmlstore = cleanxml.openxmlfile(TAGS_XMLFILE, TAG_XMLROOT)
+        doc, xmlstore = cleanxml.openxmlfile(GTG.core.dirs.TAGS_XMLFILE, TAG_XMLROOT)
         for t in xmlstore.childNodes:
             tagname = t.getAttribute("name")
             parent = t.getAttribute("parent")
@@ -240,7 +240,7 @@ class DataStore(object):
             xmlroot.appendChild(t_xml)
             already_saved.append(tagname)
 
-        cleanxml.savexml(TAGS_XMLFILE, doc, backup=True)
+        cleanxml.savexml(GTG.core.dirs.TAGS_XMLFILE, doc, backup=True)
 
     # Tasks functions #########################################################
     def get_all_tasks(self):
@@ -560,7 +560,7 @@ class DataStore(object):
                 t_xml.setAttribute(str(key), value)
             # Saving all the projects at close
             xmlconfig.appendChild(t_xml)
-        cleanxml.savexml(PROJECTS_XMLFILE, doc, backup=True)
+        cleanxml.savexml(GTG.core.dirs.PROJECTS_XMLFILE, doc, backup=True)
         # Saving the tagstore
         self.save_tagtree()
 
