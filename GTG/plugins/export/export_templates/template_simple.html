@@ -1,35 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <!--
- -*- coding: utf-8 -*-
- -----------------------------------------------------------------------------
- Getting Things GNOME! - a personal organizer for the GNOME desktop
- Copyright (c) 2008-2013 - Lionel Dricot & Bertrand Rousseau
-
- This program is free software: you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation, either version 3 of the License, or (at your option) any later
- version.
-
- This program is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
- details.
-
- You should have received a copy of the GNU General Public License along with
- this program.  If not, see <http://www.gnu.org/licenses/>.
- -----------------------------------------------------------------------------
--->
-
-
-<!--
 So you want to write your own template for Getting things GNOME?
-Cool. Now, these templates are interpreted with a python library 
+Cool. Now, these templates are interpreted with a python library
 called Cheetah. If you know a little about python or some other
 scripting languare, just dive in, it's really straightforward.
-A little note: #slurp is used to avoid the trailing newline addition, 
+A little note: #slurp is used to avoid the trailing newline addition,
 like echo -n if you are into CLIs.
-Otherwise, a nice and easy tutorial about it can be found 
+Otherwise, a nice and easy tutorial about it can be found
 here:
 http://www.devshed.com/c/a/Python/Templating-with-Cheetah/
 
@@ -59,7 +37,7 @@ task.has_days_left
 
 ## Remember to put a $ before any varible (e.g.: $tasks), I won't do
 ## it here so that it shows up in the source of the generated html
-## (the ## are the comment escaping in Cheetah, so these line won't 
+## (the ## are the comment escaping in Cheetah, so these line won't
 ## show up)
 
 If you write down a nice template, please send it back to the GTG project:
@@ -95,9 +73,9 @@ For a more advanced usage of templates, scroll down to the end of this document
             <li>
 
                 #if $task.has_title
-                <b>$task.title</b> 
+                <b>$task.title</b>
                     #if $task.has_tags
-                    (#slurp 
+                    (#slurp
                         #for $tag in $task.tags:
                             $get_colored_tag_markup($plugin_api.get_requester(), $tag, True) #slurp
                         #end for
@@ -114,7 +92,7 @@ For a more advanced usage of templates, scroll down to the end of this document
                 $remove_html_tags($task.text)
                 #end if
 
-                
+
                 #if $task.has_subtasks
                 <ul>
                     #for $subtask in $task.subtasks:
@@ -152,9 +130,9 @@ Have a look in GTG/core/plugins/api.py to discover how to use it,
 or look at http://live.gnome.org/gtg/pluginHowTo  (you are only interested
 in the "Plugin API" part of that page, so scroll down).
 
-An example of usage of that is given in the following lines, that list 
+An example of usage of that is given in the following lines, that list
 all GTG's tags.
-To see this code working, delete the "##" at the beginning of each line 
+To see this code working, delete the "##" at the beginning of each line
 and take it out of the html comment
 
 
@@ -167,4 +145,3 @@ and take it out of the html comment
 
     </body>
 </html>
-

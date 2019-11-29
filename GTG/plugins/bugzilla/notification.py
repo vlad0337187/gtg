@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 '''
 Notification is used to show messages to GTG users.
 '''
