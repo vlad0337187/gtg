@@ -246,7 +246,8 @@
                       <object class="GtkStack" id="stack">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="transition_type">crossfade</property>
+                        <property name="transition_duration">2000</property>
+                        <property name="transition_type">slide-left-right</property>
                         <child>
                           <object class="GtkScrolledWindow" id="main_pane">
                             <property name="visible">True</property>
