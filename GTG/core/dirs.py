@@ -33,11 +33,10 @@ def init():
     if op.exists(USER_PLUGINS_DIR):
         PLUGIN_DIRS.append(USER_PLUGINS_DIR)
 
-    local_variables = locals()
+    local_variables  = locals()
+    module_variables = globals()
 
     def attach_local_variables_to_module():
-        module_variables = globals()
-
         for name, value in local_variables.items():
             module_variables[name] = value
 
