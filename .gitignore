@@ -11,6 +11,7 @@ tmp
 **/**.gladep.bak
 # temporary .ui files of glade
 **.ui~
+**.ui#
 MANIFEST
 **.patch
 gtg.prof

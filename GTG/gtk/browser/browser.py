@@ -120,7 +120,6 @@ class TaskBrowser(GObject.GObject):
         defines aliases for UI elements found in the glide file
         """
         self.window             = self.builder.get_object("MainWindow")
-        self.main_menu          = self.builder.get_object("main_menu")
         self.taskpopup          = self.builder.get_object("task_context_menu")
         self.defertopopup       = self.builder.get_object("defer_to_context_menu")
         self.ctaskpopup         = self.builder.get_object("closed_task_context_menu")
@@ -261,7 +260,6 @@ class TaskBrowser(GObject.GObject):
             "on_search_activate"          : self.on_search_toggled,
             "on_save_search"              : self.on_save_search,
             "on_search"                   : self.on_search,
-            "on_main_menu_button_pressed" : lambda widget: self.main_menu.popup(None, None, None, None, 0, 0)
         }
         self.builder.connect_signals(SIGNAL_CONNECTIONS_DIC)
 
