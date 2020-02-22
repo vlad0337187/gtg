@@ -63,23 +63,28 @@ class TaskView(Gtk.TextView):
         else:
             raise AttributeError('unknown property %s' % prop.name)
 
-    def __init__(self, requester, clipboard):
+    def __init__(self, datastore, clipboard):
         super().__init__()
-        self.buff = self.get_buffer()
-        self.req = requester
+        self.buff      = self.get_buffer()
+        self.datastore = datastore
+
         # Buffer init
-        self.link = {'background': 'white', 'foreground': '#007bff',
-                     'underline': Pango.Underline.SINGLE,
+        self.link = {'background'   : 'white',
+                     'foreground'   : '#007bff',
+                     'underline'    : Pango.Underline.SINGLE,
                      'strikethrough': False}
-        self.failedlink = {'background': 'white', 'foreground': '#ff5454',
-                           'underline': Pango.Underline.NONE,
+        self.failedlink = {'background'   : 'white',
+                           'foreground'   : '#ff5454',
+                           'underline'    : Pango.Underline.NONE,
                            'strikethrough': False}
-        self.done = {'background': 'white', 'foreground': 'gray',
+        self.done = {'background'   : 'white',
+                     'foreground'   : 'gray',
                      'strikethrough': True}
-        self.active = {'background': 'light gray', 'foreground': '#ff1e00',
-                       'underline': Pango.Underline.SINGLE}
-        self.hover = {'background': 'light gray'}
-        self.tag = {'background': "#FFea00", 'foreground': 'black'}
+        self.active = {'background': 'light gray',
+                       'foreground': '#ff1e00',
+                       'underline' : Pango.Underline.SINGLE}
+        self.hover  = {'background': 'light gray'}
+        self.tag    = {'background': "#FFea00", 'foreground': 'black'}
         self.indent = {'scale': 1.4, 'editable': False, 'left-margin': 10,
                        "accumulative-margin": True}
 
@@ -211,7 +216,7 @@ class TaskView(Gtk.TextView):
 
     # This was historically a callback but it returns the title
     def get_subtasktitle(self, tid):
-        task = self.req.get_task(tid)
+        task = self.datastore.get_task(tid)
         if task:
             return task.get_title()
         else:
@@ -309,7 +314,7 @@ class TaskView(Gtk.TextView):
             linktype = 'link'
         # By default, the type is a subtask
         else:
-            task = self.req.get_task(anchor)
+            task = self.datastore.get_task(anchor)
             if task and task.get_status() == "Active":
                 linktype = 'link'
             else:
@@ -363,7 +368,7 @@ class TaskView(Gtk.TextView):
             buff.move_mark(e, i_e)
             tex = buff.get_text(i_s, i_e, True)
         if len(tex) > 0:
-            self.req.get_task(subtask).set_title(tex)
+            self.datastore.get_task(subtask).set_title(tex)
             texttag = self.create_anchor_tag(buff, subtask, text=tex,
                                              typ="subtask")
             texttag.is_subtask = True
@@ -871,7 +876,7 @@ class TaskView(Gtk.TextView):
     def write_subtask(self, buff, line_nbr, anchor, level=1):
         # disable the insert signal to avoid recursion
         # firstly, we check that the subtask exists !
-        if not self.req.has_task(anchor):
+        if not self.datastore.has_task(anchor):
             return False
         reconnect_insert = False
         reconnect_modified = False

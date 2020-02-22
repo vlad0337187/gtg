@@ -9,16 +9,16 @@ This window is divided in two:
 
 from gi.repository import Gtk
 
-from GTG import info
-from GTG.backends import BackendFactory
+from GTG                         import info
+from GTG.backends                import BackendFactory
 from GTG.backends.genericbackend import GenericBackend
-from GTG.core.translations import translate
-from GTG.gtk import ViewConfig
-from GTG.gtk import help
-from GTG.gtk.backends_dialog.addpanel import AddPanel
-from GTG.gtk.backends_dialog.backendstree import BackendsTree
+from GTG.core.translations       import translate
+from GTG.gtk                     import ViewConfig
+from GTG.gtk                     import help
+from GTG.gtk.backends_dialog.addpanel       import AddPanel
+from GTG.gtk.backends_dialog.backendstree   import BackendsTree
 from GTG.gtk.backends_dialog.configurepanel import ConfigurePanel
-from GTG.tools.logger import Log
+from GTG.tools.logger                       import Log
 
 
 class BackendsDialog(object):
@@ -30,12 +30,11 @@ class BackendsDialog(object):
         - the backend adding view
     '''
 
-    def __init__(self, req):
+    def __init__(self, datastore):
         '''
         Initializes the gtk objects and signals.
-        @param req: a Requester object
         '''
-        self.req = req
+        self.datastore = datastore
         # Declare subsequently loaded widget
         self.dialog = None
         self.treeview_window = None
@@ -73,20 +72,12 @@ class BackendsDialog(object):
         @param data: same as widget, disregard the content
         '''
         self.dialog.hide()
-        self.req.save_datastore()
+        self.datastore.save()
         return True
 
 ########################################
 # HELPER FUNCTIONS #####################
 ########################################
-    def get_requester(self):
-        '''
-        Helper function: returns the requester.
-        It's used by the "views" displayed by this class (backend editing and
-        adding views) to access the requester
-        '''
-        return self.req
-
     def get_pixbuf_from_icon_name(self, name, height):
         '''
         Helper function: returns a pixbuf of an icon given its name in the
@@ -207,7 +198,7 @@ class BackendsDialog(object):
         if backend_id:
             self._show_panel("configuration")
             self.config_panel.set_backend(backend_id)
-            backend = self.req.get_backend(backend_id)
+            backend = self.datastore.get_backend(backend_id)
             self.remove_button.set_sensitive(not backend.is_default())
 
     def on_add_button(self, widget=None, data=None):
@@ -232,7 +223,7 @@ class BackendsDialog(object):
         backend_dic = BackendFactory().get_new_backend_dict(backend_name)
         if backend_dic:
             backend_dic[GenericBackend.KEY_ENABLED] = False
-            self.req.register_backend(backend_dic)
+            self.datastore.register_backend(backend_dic)
         # Restore UI
         self._show_panel("configuration")
 
@@ -253,7 +244,7 @@ class BackendsDialog(object):
         if backend_id is None:
             # no backend selected
             return
-        backend = self.req.get_backend(backend_id)
+        backend = self.datastore.get_backend(backend_id)
         dialog = Gtk.MessageDialog(
             parent=self.dialog,
             flags=Gtk.DialogFlags.DESTROY_WITH_PARENT,
@@ -266,5 +257,5 @@ class BackendsDialog(object):
         dialog.destroy()
         if response == Gtk.ResponseType.YES:
             # delete the backend and remove it from the lateral treeview
-            self.req.remove_backend(backend_id)
+            self.datastore.remove_backend(backend_id)
             self.backends_tv.remove_backend(backend_id)

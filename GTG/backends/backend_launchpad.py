@@ -142,7 +142,7 @@ class Backend(PeriodicImportBackend):
             # set
             with self.datastore.get_backend_mutex():
                 tid = self.sync_engine.get_local_id(bug_link)
-                self.datastore.request_task_deletion(tid)
+                self.datastore.delete_task(tid)
                 try:
                     self.sync_engine.break_relationship(remote_id=bug_link)
                 except KeyError:

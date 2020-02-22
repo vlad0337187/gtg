@@ -138,8 +138,8 @@ class ExportPlugin(object):
 
     def get_selected_tasks(self):
         """ Filter tasks based on user option """
-        timespan = None
-        req = self.plugin_api.get_requester()
+        timespan  = None
+        datastore = self.plugin_api.datastore
 
         if self.export_all_active.get_active():
             treename = 'active'
@@ -149,7 +149,7 @@ class ExportPlugin(object):
             treename = 'closed'
             timespan = -7
 
-        tree = req.get_tasks_tree(name=treename)
+        tree = datastore.filter_tasks_tree(name=treename)
         if treename not in tree.list_applied_filters():
             tree.apply_filter(treename)
 

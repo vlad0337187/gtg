@@ -10,17 +10,17 @@ import os
 
 from gi.repository import Gdk, Gtk, Pango
 
-from GTG.core.dirs import UI_DIR
-from GTG.core.plugins.api import PluginAPI
+from GTG.core.dirs           import UI_DIR
+from GTG.core.plugins.api    import PluginAPI
 from GTG.core.plugins.engine import PluginEngine
-from GTG.core.task import Task
-from GTG.core.translations import translate
-from GTG.gtk.editor import GnomeConfig
+from GTG.core.task           import Task
+from GTG.core.translations   import translate
+from GTG.gtk.editor          import GnomeConfig
 from GTG.gtk.editor.calendar import GTGCalendar
 from GTG.gtk.editor.taskview import TaskView
-from GTG.gtk.help import add_help_shortcut
-from GTG.gtk.tag_completion import tag_filter
-from GTG.tools.dates import Date
+from GTG.gtk.help            import add_help_shortcut
+from GTG.gtk.tag_completion  import tag_filter
+from GTG.tools.dates  import Date
 from GTG.tools.logger import Log
 '''
 TODO (jakubbrindza): re-factor tag_filter into a separate module
@@ -31,32 +31,27 @@ class TaskEditor(object):
 
     EDITOR_UI_FILE = os.path.join(UI_DIR, "taskeditor.ui")
 
-    def __init__(self,
-                 requester,
-                 vmanager,
-                 task,
-                 thisisnew=False,
-                 clipboard=None):
+    def __init__(self, datastore,  vmanager, task, thisisnew=False, clipboard=None):
         '''
-        req is the requester
         vmanager is the view manager
         thisisnew is True when a new task is created and opened
         '''
-        self.req = requester
-        self.vmanager = vmanager
-        self.browser_config = self.req.get_config('browser')
-        self.config = self.req.get_task_config(task.get_id())
-        self.time = None
+        self.datastore = datastore
+        self.vmanager  = vmanager
+        self.browser_config = self.datastore.config.get_subconfig('browser')
+        self.config         = self.datastore.config.get_task_config(task.get_id())
+        self.time      = None
         self.clipboard = clipboard
-        self.builder = Gtk.Builder()
+        self.builder   = Gtk.Builder()
         self.builder.add_from_file(self.EDITOR_UI_FILE)
-        self.donebutton = self.builder.get_object("mark_as_done")
-        self.undonebutton = self.builder.get_object("mark_as_undone")
-        self.dismissbutton = self.builder.get_object("dismiss")
+
+        self.donebutton      = self.builder.get_object("mark_as_done")
+        self.undonebutton    = self.builder.get_object("mark_as_undone")
+        self.dismissbutton   = self.builder.get_object("dismiss")
         self.undismissbutton = self.builder.get_object("undismiss")
-        self.add_subtask = self.builder.get_object("add_subtask")
-        self.tag_store = self.builder.get_object("tag_store")
-        self.parent_button = self.builder.get_object("parent")
+        self.add_subtask     = self.builder.get_object("add_subtask")
+        self.tag_store       = self.builder.get_object("tag_store")
+        self.parent_button   = self.builder.get_object("parent")
 
         # Create our dictionary and connect it
         dic = {
@@ -99,7 +94,7 @@ class TaskEditor(object):
         textview = self.builder.get_object("textview")
         scrolled = self.builder.get_object("scrolledtask")
         scrolled.remove(textview)
-        self.textview = TaskView(self.req, self.clipboard)
+        self.textview = TaskView(self.datastore, self.clipboard)
         self.textview.show()
         self.textview.set_subtask_callback(self.new_subtask)
         self.textview.open_task_callback(self.vmanager.open_task)
@@ -165,14 +160,14 @@ class TaskEditor(object):
         # self.calendar.connect("date-changed", self.on_date_changed)
 
         # plugins
-        self.pengine = PluginEngine()
-        self.plugin_api = PluginAPI(self.req, self.vmanager, self)
+        self.pengine    = PluginEngine()
+        self.plugin_api = PluginAPI(self.datastore, self.vmanager, self)
         self.pengine.register_api(self.plugin_api)
-        self.pengine.onTaskLoad(self.plugin_api)
+        self.pengine.onTaskLoad  (self.plugin_api)
 
         # Putting the refresh callback at the end make the start a lot faster
         self.textview.refresh_callback(self.refresh_editor)
-        self.refresh_editor()
+        self         .refresh_editor()
         self.textview.grab_focus()
 
         self.init_dimensions()
@@ -250,12 +245,11 @@ class TaskEditor(object):
     def open_tags_popover(self, widget):
         self.tag_store.clear()
 
-        tags = self.req.get_tag_tree().get_all_nodes()
-
+        tags      = self.datastore.get_tagstore().get_viewtree(name='activetags').get_all_nodes()
         used_tags = self.task.get_tags()
 
         for tagname in tags:
-            tag = self.req.get_tag(tagname)
+            tag = self.datastore.get_tag(tagname)
             if tag_filter(tag):
                 is_used = tag in used_tags
                 self.tag_store.append([is_used, tagname])
@@ -536,7 +530,7 @@ class TaskEditor(object):
 
     # Create a new task
     def new_task(self, *args):
-        task = self.req.new_task(newtask=True)
+        task    = self.datastore.new_task()
         task_id = task.get_id()
         self.vmanager.open_task(task_id)
 
@@ -562,7 +556,7 @@ class TaskEditor(object):
     def show_multiple_parent_popover(self, parent_ids):
         parent_box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
         for parent in parent_ids:
-            parent_name = self.req.get_task(parent).get_title()
+            parent_name = self.datastore.get_task(parent).get_title()
             button = Gtk.ToolButton.new(None, parent_name)
             button.connect("clicked", self.on_parent_item_clicked, parent)
             parent_box.add(button)
@@ -633,7 +627,7 @@ class TaskEditor(object):
         self.pengine.remove_api(self.plugin_api)
         tid = self.task.get_id()
         if self.task.is_new():
-            self.req.delete_task(tid)
+            self.datastore.get_tasks_tree().del_node(tid)
         else:
             self.save()
             for i in self.task.get_subtasks():

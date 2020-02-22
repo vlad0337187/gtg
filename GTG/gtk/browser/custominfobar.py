@@ -24,21 +24,21 @@ class CustomInfoBar(Gtk.InfoBar):
     DBUS_MESSAGE = translate("Cannot connect to DBus, I've disabled "
                      "the <b>%s</b> synchronization service.")
 
-    def __init__(self, req, browser, vmanager, backend_id):
+    def __init__(self, datastore, browser, vmanager, backend_id):
         '''
         Constructor, Prepares the infobar.
 
-        @param req: a Requester object
+        @param datastore: a Datastore object
         @param browser: a TaskBrowser object
         @param vmanager: a ViewManager object
         @param backend_id: the id of the backend linked to the infobar
         '''
         super().__init__()
-        self.req = req
-        self.browser = browser
-        self.vmanager = vmanager
+        self.datastore  = datastore
+        self.browser    = browser
+        self.vmanager   = vmanager
         self.backend_id = backend_id
-        self.backend = self.req.get_backend(backend_id)
+        self.backend    = self.datastore.get_backend(backend_id)
 
     def get_backend_id(self):
         '''

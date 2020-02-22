@@ -7,70 +7,65 @@ from gi.repository import GObject, Gtk, Gdk
 
 from GTG import info
 from GTG.backends.backendsignals import BackendSignals
-from GTG.core.dirs import ICONS_DIR
+from GTG.core.dirs   import ICONS_DIR
 from GTG.core.search import parse_search_query, InvalidQuery
-from GTG.core.tag import SEARCH_TAG
-from GTG.core.task import Task
+from GTG.core.tag    import SEARCH_TAG
+from GTG.core.task   import Task
 from GTG.gtk.browser import GnomeConfig
-from GTG.gtk.browser.custominfobar import CustomInfoBar
+from GTG.gtk.browser.custominfobar     import CustomInfoBar
 from GTG.gtk.browser.modifytags_dialog import ModifyTagsDialog
-from GTG.gtk.browser.tag_context_menu import TagContextMenu
-from GTG.gtk.browser.treeview_factory import TreeviewFactory
+from GTG.gtk.browser.tag_context_menu  import TagContextMenu
+from GTG.gtk.browser.treeview_factory  import TreeviewFactory
 from GTG.gtk.editor.calendar import GTGCalendar
-from GTG.gtk.tag_completion import TagCompletion
-from GTG.tools.dates import Date
+from GTG.gtk.tag_completion  import TagCompletion
+from GTG.tools.dates  import Date
 from GTG.tools.logger import Log
-from GTG.gtk.help import add_help_shortcut
+from GTG.gtk.help     import add_help_shortcut
 
 class TaskBrowser(GObject.GObject):
     """ The UI for browsing open and closed tasks,
     and listing tags in a tree """
 
     __string_signal__ = (GObject.SignalFlags.RUN_FIRST, None, (str, ))
-    __none_signal__ = (GObject.SignalFlags.RUN_FIRST, None, tuple())
-    __gsignals__ = {'task-added-via-quick-add': __string_signal__,
-                    'visibility-toggled': __none_signal__,
-                    }
+    __none_signal__   = (GObject.SignalFlags.RUN_FIRST, None, tuple())
+    __gsignals__      = {'task-added-via-quick-add': __string_signal__,
+                         'visibility-toggled'      : __none_signal__,
+                        }
 
-    def __init__(self, requester, vmanager):
+    def __init__(self, datastore, vmanager):
         super().__init__()
         # Object prime variables
-        self.req = requester
-        self.vmanager = vmanager
-        self.config = self.req.get_config('browser')
-        self.tag_active = False
+        self.datastore    = datastore
+        self.vmanager     = vmanager
+        self.config       = self.datastore.config.get_subconfig('browser')
+        self.tag_active   = False
         self.applied_tags = []
 
         # Treeviews handlers
         self.vtree_panes = {}
-        self.tv_factory = TreeviewFactory(self.req, self.config)
+        self.tv_factory  = TreeviewFactory(self.datastore, self.config)
 
         # Active Tasks
-        self.activetree = self.req.get_tasks_tree(name='active', refresh=False)
+        self.activetree            = self.datastore.filter_tasks_tree(name='active', refresh=False)
         self.activetree.apply_filter('active', refresh=False)
-        self.vtree_panes['active'] = \
-            self.tv_factory.active_tasks_treeview(self.activetree)
+        self.vtree_panes['active'] = self.tv_factory.active_tasks_treeview(self.activetree)
 
         # Workview Tasks
-        self.workview_tree = \
-            self.req.get_tasks_tree(name='workview', refresh=False)
+        self.workview_tree           = self.datastore.filter_tasks_tree(name='workview', refresh=False)
         self.workview_tree.apply_filter('workview', refresh=False)
-        self.vtree_panes['workview'] = \
-            self.tv_factory.active_tasks_treeview(self.workview_tree)
+        self.vtree_panes['workview'] = self.tv_factory.active_tasks_treeview(self.workview_tree)
 
         # Closed Tasks
-        self.closedtree = \
-            self.req.get_tasks_tree(name='closed', refresh=False)
+        self.closedtree            = self.datastore.filter_tasks_tree(name='closed', refresh=False)
         self.closedtree.apply_filter('closed', refresh=False)
-        self.vtree_panes['closed'] = \
-            self.tv_factory.closed_tasks_treeview(self.closedtree)
+        self.vtree_panes['closed'] = self.tv_factory.closed_tasks_treeview(self.closedtree)
 
         # YOU CAN DEFINE YOUR INTERNAL MECHANICS VARIABLES BELOW
         # Setup GTG icon theme
         self._init_icon_theme()
 
         # Tags
-        self.tagtree = None
+        self.tagtree     = None
         self.tagtreeview = None
 
         # Load window tree
@@ -141,20 +136,20 @@ class TaskBrowser(GObject.GObject):
         self.accessory_notebook = self.builder.get_object("accessory_notebook")
         self.vbox_toolbars      = self.builder.get_object("vbox_toolbars")
 
-        self.tagpopup = TagContextMenu(self.req, self.vmanager)
+        self.tagpopup = TagContextMenu(self.datastore, self.vmanager)
 
     def _init_ui_widget(self):
         """ Sets the main pane with three trees for active tasks,
         actionable tasks (workview), closed tasks and creates
         ModifyTagsDialog & Calendar """
         # Tasks treeviews
-        self.main_pane.add(self.vtree_panes['active'])
+        self.main_pane    .add(self.vtree_panes['active'])
         self.workview_pane.add(self.vtree_panes['workview'])
-        self.closed_pane.add(self.vtree_panes['closed'])
+        self.closed_pane  .add(self.vtree_panes['closed'])
 
-        tag_completion = TagCompletion(self.req.get_tag_tree())
-        self.modifytags_dialog = ModifyTagsDialog(tag_completion, self.req)
-        self.calendar = GTGCalendar()
+        tag_completion         = TagCompletion(self.datastore.filter_tag_tree())
+        self.modifytags_dialog = ModifyTagsDialog(tag_completion, self.datastore)
+        self.calendar          = GTGCalendar()
         self.calendar.set_transient_for(self.window)
         self.calendar.connect("date-changed", self.on_date_changed)
 
@@ -163,19 +158,14 @@ class TaskBrowser(GObject.GObject):
         initializes the tagtree (left area with tags and searches)
         """
         # The tags treeview
-        self.tagtree = self.req.get_tag_tree()
+        self.tagtree     = self.datastore.filter_tag_tree()
         self.tagtreeview = self.tv_factory.tags_treeview(self.tagtree)
         # Tags treeview
-        self.tagtreeview.get_selection().connect('changed',
-                                                 self.on_select_tag)
-        self.tagtreeview.connect('button-press-event',
-                                 self.on_tag_treeview_button_press_event)
-        self.tagtreeview.connect('key-press-event',
-                                 self.on_tag_treeview_key_press_event)
-        self.tagtreeview.connect('node-expanded',
-                                 self.on_tag_expanded)
-        self.tagtreeview.connect('node-collapsed',
-                                 self.on_tag_collapsed)
+        self.tagtreeview.get_selection().connect('changed', self.on_select_tag)
+        self.tagtreeview.connect('button-press-event', self.on_tag_treeview_button_press_event)
+        self.tagtreeview.connect('key-press-event',    self.on_tag_treeview_key_press_event)
+        self.tagtreeview.connect('node-expanded',      self.on_tag_expanded)
+        self.tagtreeview.connect('node-collapsed',     self.on_tag_collapsed)
         self.sidebar_container.add(self.tagtreeview)
 
         for path_t in self.config.get("expanded_tags"):
@@ -357,7 +347,8 @@ class TaskBrowser(GObject.GObject):
         query = self.search_entry.get_text()
 
         # Try if this is a new search tag and save it correctly
-        tag_id = self.req.new_search_tag(query)
+        tag_name = self.datastore.get_free_tag_name(query)
+        tag_id   = self.datastore.new_search_tag(tag_name, query)
 
         # Apply new search right now
         if self.tagtreeview is not None:
@@ -366,7 +357,7 @@ class TaskBrowser(GObject.GObject):
             self.apply_filter_on_panes(tag_id)
 
     def select_search_tag(self, tag_id):
-        tag = self.req.get_tag(tag_id)
+        tag = self.datastore.get_tag(tag_id)
         """Select new search in tagsidebar and apply it"""
 
         # Make sure search tag parent is expanded
@@ -475,26 +466,24 @@ class TaskBrowser(GObject.GObject):
 
         self.restore_collapsed_tasks()
 
-        def open_task(req, t):
+        def open_task(datastore, t):
             """ Open the task if loaded. Otherwise ask for next iteration """
-            if req.has_task(t):
+            if datastores.has_task(t):
                 self.vmanager.open_task(t)
                 return False
             else:
                 return True
 
         for t in self.config.get("opened_tasks"):
-            GObject.idle_add(open_task, self.req, t)
+            GObject.idle_add(open_task, self.datastore, t)
 
     def refresh_all_views(self, timer):
-        active_tree = self.req.get_tasks_tree(name='active', refresh=False)
-        active_tree.refresh_all()
-
-        workview_tree = self.req.get_tasks_tree(name='workview', refresh=False)
+        active_tree   = self.datastore.filter_tasks_tree(name='active',   refresh=False)
+        workview_tree = self.datastore.filter_tasks_tree(name='workview', refresh=False)
+        closed_tree   = self.datastore.filter_tasks_tree(name='closed',   refresh=False)
+        active_tree  .refresh_all()
         workview_tree.refresh_all()
-
-        closed_tree = self.req.get_tasks_tree(name='closed', refresh=False)
-        closed_tree.refresh_all()
+        closed_tree  .refresh_all()
 
 
 # SIGNAL CALLBACKS ############################################################
@@ -664,7 +653,7 @@ class TaskBrowser(GObject.GObject):
                 self.vtree_panes['active'].get_model().connect(
                     "row-inserted", select_next_added_task_in_browser,
                     self)
-            task = self.req.new_task(newtask=True)
+            task = self.datastore.new_task()
             self.__last_quick_added_tid = task.get_id()
             self.__last_quick_added_tid_event.set()
             task.set_complex_title(text, tags=tags)
@@ -717,7 +706,7 @@ class TaskBrowser(GObject.GObject):
                 # FIXME thos two branches could be simplified
                 # (there is no difference betweenn search and normal tag
                 if selected_search is not None:
-                    my_tag = self.req.get_tag(selected_search)
+                    my_tag = self.datastore.get_tag(selected_search)
                     self.tagpopup.set_tag(my_tag)
                     self.tagpopup.popup(None, None, None, None, event.button,
                                         time)
@@ -725,7 +714,7 @@ class TaskBrowser(GObject.GObject):
                     # Then we are looking at single, normal tag rather than
                     # the special 'All tags' or 'Tasks without tags'. We only
                     # want to popup the menu for normal tags.
-                    my_tag = self.req.get_tag(selected_tags[0])
+                    my_tag = self.datastore.get_tag(selected_tags[0])
                     self.tagpopup.set_tag(my_tag)
                     self.tagpopup.popup(None, None, None, None, event.button,
                                         time)
@@ -750,7 +739,7 @@ class TaskBrowser(GObject.GObject):
                 # Then we are looking at single, normal tag rather than
                 # the special 'All tags' or 'Tasks without tags'. We only
                 # want to popup the menu for normal tags.
-                selected_tag = self.req.get_tag(selected_tags[0])
+                selected_tag = self.datastore.get_tag(selected_tags[0])
                 self.tagpopup.set_tag(selected_tag)
                 self.tagpopup.popup(None, None, None, None, 0, event.time)
             else:
@@ -820,16 +809,18 @@ class TaskBrowser(GObject.GObject):
 
     def on_add_task(self, widget):
         tags = [tag for tag in self.get_selected_tags() if tag.startswith('@')]
-        task = self.req.new_task(tags=tags, newtask=True)
-        uid = task.get_id()
+        task = self.datastore.new_task()
+        uid  = task.get_id()
+        self.datastore.add_tags_to_task(task, tags)
         self.vmanager.open_task(uid, thisisnew=True)
 
     def on_add_subtask(self, widget):
         uid = self.get_selected_task()
         if uid:
-            zetask = self.req.get_task(uid)
+            zetask = self.datastore.get_task(uid)
             tags = [t.get_name() for t in zetask.get_tags()]
-            task = self.req.new_task(tags=tags, newtask=True)
+            task = self.datastore.new_task()
+            self.datastore.add_tags_to_task(task, tags)
             # task.add_parent(uid)
             zetask.add_child(task.get_id())
             self.vmanager.open_task(task.get_id(), thisisnew=True)
@@ -858,7 +849,7 @@ class TaskBrowser(GObject.GObject):
         self.vmanager.ask_delete_tasks(tids_todelete)
 
     def update_start_date(self, widget, new_start_date):
-        tasks = [self.req.get_task(uid)
+        tasks = [self.datastore.get_task(uid)
                  for uid in self.get_selected_tasks()
                  if uid is not None]
 
@@ -887,7 +878,7 @@ class TaskBrowser(GObject.GObject):
         self.update_start_date(widget, None)
 
     def update_due_date(self, widget, new_due_date):
-        tasks = [self.req.get_task(uid)
+        tasks = [self.datastore.get_task(uid)
                  for uid in self.get_selected_tasks()
                  if uid is not None]
 
@@ -925,7 +916,7 @@ class TaskBrowser(GObject.GObject):
         """ Display Calendar to set start date of selected tasks """
         self.calendar.set_title("Set Start Date")
         # Get task from task name
-        task = self.req.get_task(self.get_selected_tasks()[0])
+        task = self.datastore.get_task(self.get_selected_tasks()[0])
         date = task.get_start_date()
         self.calendar.set_date(date, GTGCalendar.DATE_KIND_START)
         # Shows the calendar just above the mouse on widget's line of symmetry
@@ -938,7 +929,7 @@ class TaskBrowser(GObject.GObject):
         """ Display Calendar to set due date of selected tasks """
         self.calendar.set_title("Set Due Date")
         # Get task from task name
-        task = self.req.get_task(self.get_selected_tasks()[0])
+        task = self.datastore.get_task(self.get_selected_tasks()[0])
         if not task.get_due_date():
             date = task.get_start_date()
         else:
@@ -952,7 +943,7 @@ class TaskBrowser(GObject.GObject):
 
     def on_date_changed(self, calendar):
         # Get tasks' list from task names' list
-        tasks = [self.req.get_task(task) for task in self.get_selected_tasks()]
+        tasks = [self.datastore.get_task(task) for task in self.get_selected_tasks()]
         date, date_kind = calendar.get_selected_date()
         if date_kind == GTGCalendar.DATE_KIND_DUE:
             for task in tasks:
@@ -976,7 +967,7 @@ class TaskBrowser(GObject.GObject):
                 if i not in all_subtasks:
                     trace_subtasks(i)
 
-        trace_subtasks(self.req.get_task(task_id))
+        trace_subtasks(self.datastore.get_task(task_id))
 
         for task in all_subtasks:
             self.vmanager.close_task(task.get_id())
@@ -986,7 +977,7 @@ class TaskBrowser(GObject.GObject):
                      if uid is not None]
         if len(tasks_uid) == 0:
             return
-        tasks = [self.req.get_task(uid) for uid in tasks_uid]
+        tasks = [self.datastore.get_task(uid) for uid in tasks_uid]
         tasks_status = [task.get_status() for task in tasks]
         for uid, task, status in zip(tasks_uid, tasks, tasks_status):
             if status == Task.STA_DONE:
@@ -995,7 +986,7 @@ class TaskBrowser(GObject.GObject):
                 # Parents of that task must be updated - not to be shown
                 # in workview, update children count, etc.
                 for parent_id in task.get_parents():
-                    parent = self.req.get_task(parent_id)
+                    parent = self.datastore.get_task(parent_id)
                     parent.modified()
             else:
                 task.set_status(Task.STA_DONE)
@@ -1006,7 +997,7 @@ class TaskBrowser(GObject.GObject):
                      if uid is not None]
         if len(tasks_uid) == 0:
             return
-        tasks = [self.req.get_task(uid) for uid in tasks_uid]
+        tasks = [self.datastore.get_task(uid) for uid in tasks_uid]
         tasks_status = [task.get_status() for task in tasks]
         for uid, task, status in zip(tasks_uid, tasks, tasks_status):
             if status == Task.STA_DISMISSED:
@@ -1021,14 +1012,14 @@ class TaskBrowser(GObject.GObject):
         # Reset quickadd_entry if another filter is applied
         self.quickadd_entry.set_text("")
         for pane in self.vtree_panes:
-            vtree = self.req.get_tasks_tree(name=pane, refresh=False)
+            vtree = self.datastore.filter_tasks_tree(name=pane, refresh=False)
             vtree.apply_filter(filter_name, refresh=refresh,
                                parameters=parameters)
 
     def unapply_filter_on_panes(self, filter_name, refresh=True):
         """ Apply filters for every pane: active tasks, closed tasks """
         for pane in self.vtree_panes:
-            vtree = self.req.get_tasks_tree(name=pane, refresh=False)
+            vtree = self.datastore.filter_tasks_tree(name=pane, refresh=False)
             vtree.unapply_filter(filter_name, refresh=refresh)
 
     def on_select_tag(self, widget=None, row=None, col=None):
@@ -1049,7 +1040,7 @@ class TaskBrowser(GObject.GObject):
                 self.apply_filter_on_panes(tagname)
                 # In case of search tag, set query in quickadd for
                 # refining search query
-                tag = self.req.get_tag(tagname)
+                tag = self.datastore.get_tag(tagname)
                 if tag.is_search_tag():
                     self.quickadd_entry.set_text(tag.get_attribute("query"))
 
@@ -1268,7 +1259,7 @@ class TaskBrowser(GObject.GObject):
         @param backend_id: the id of the backend which Gtk.Infobar should be
                             removed.
         '''
-        backend = self.req.get_backend(backend_id)
+        backend = self.datastore.get_backend(backend_id)
         if not backend or (backend and backend.is_enabled()):
             # remove old infobar related to backend_id, if any
             if self.vbox_toolbars:
@@ -1287,7 +1278,7 @@ class TaskBrowser(GObject.GObject):
             return
         self.vbox_toolbars.foreach(self.__remove_backend_infobar, backend_id)
         # add a new one
-        infobar = CustomInfoBar(self.req, self, self.vmanager, backend_id)
+        infobar = CustomInfoBar(self.datastore, self, self.vmanager, backend_id)
         self.vbox_toolbars.pack_start(infobar, True, True, 0)
         return infobar
 

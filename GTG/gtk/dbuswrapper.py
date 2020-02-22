@@ -56,29 +56,27 @@ class DBusTaskWrapper(dbus.service.Object):
     D-Bus service object that exposes GTG's task store to third-party apps
     """
 
-    def __init__(self, req, view_manager):
+    def __init__(self, datastore, view_manager):
         # Attach the object to D-Bus
         self.bus = dbus.SessionBus()
         bus_name = dbus.service.BusName(BUSNAME, bus=self.bus)
         super().__init__(bus_name, BUSINTERFACE)
-        self.req = req
+
+        self.datastore    = datastore
         self.view_manager = view_manager
 
         # Start listening for signals from GTG core
-        task_tree = self.req.get_main_view()
-        task_tree.register_cllbck('node-added', lambda tid, _:
-                                  self.TaskAdded(tid))
-        task_tree.register_cllbck('node-modified', lambda tid, _:
-                                  self.TaskModified(tid))
-        task_tree.register_cllbck('node-deleted', lambda tid, _:
-                                  self.TaskDeleted(tid))
+        task_tree = self.datastore.get_tasks_tree().get_main_view()
+        task_tree.register_cllbck('node-added',    lambda tid, _: self.TaskAdded   (tid))
+        task_tree.register_cllbck('node-modified', lambda tid, _: self.TaskModified(tid))
+        task_tree.register_cllbck('node-deleted',  lambda tid, _: self.TaskDeleted (tid))
 
     @dbus.service.method(BUSNAME)
     def GetTask(self, tid):
         """
         Retrieve a specific task by ID and return the data
         """
-        toret = task_to_dict(self.req.get_task(tid))
+        toret = task_to_dict(self.datastore.get_task(tid))
         return toret
 
     @dbus.service.method(BUSNAME)
@@ -103,7 +101,7 @@ class DBusTaskWrapper(dbus.service.Object):
          filters_bank documentation for a list of stock filters.
         @return: List of ids
         """
-        tree = self.req.get_tasks_tree().get_basetree()
+        tree = self.datastore.filter_tasks_tree().get_basetree()
         view = tree.get_viewtree()
         for filter in filters:
             if filter[0] == '!':
@@ -131,7 +129,7 @@ class DBusTaskWrapper(dbus.service.Object):
         """
         Searches the task list
         """
-        tree = self.req.get_tasks_tree().get_basetree()
+        tree = self.datastore.filter_tasks_tree().get_basetree()
         view = tree.get_viewtree()
         try:
             search = parse_search_query(query)
@@ -149,14 +147,14 @@ class DBusTaskWrapper(dbus.service.Object):
         Returns true if the task id is present in the task backend.
         Task could be either open or closed, but not deleted.
         """
-        return self.req.has_task(tid)
+        return self.datastore.has_task(tid)
 
     @dbus.service.method(BUSNAME)
     def DeleteTask(self, tid):
         """
         Delete the given task id from the repository.
         """
-        self.req.delete_task(tid)
+        self.datastore.delete_task(tid)
 
     @dbus.service.method(BUSNAME, in_signature="sssssassas")
     def NewTask(self, status, title, duedate, startdate, donedate, tags,
@@ -174,7 +172,8 @@ class DBusTaskWrapper(dbus.service.Object):
         @param subtasks:   A list of task ids of tasks to add as children
         @return: A dictionary with the data of the newly created task
         """
-        nt = self.req.new_task(tags=tags)
+        nt = self.datastore.new_task()
+        self.datastore.add_tags_to_task(nt, tags)
         for sub in subtasks:
             nt.add_child(sub)
         nt.set_status(status, donedate=Date.parse(donedate))
@@ -194,7 +193,7 @@ class DBusTaskWrapper(dbus.service.Object):
         get_task(tid), modify entries as desired, and send it back
         via this function.
         """
-        task = self.req.get_task(tid)
+        task = self.datastore.get_task(tid)
         task.set_status(task_data["status"],
                         donedate=Date.parse(task_data["donedate"]))
         task.set_title(task_data["title"])
@@ -226,7 +225,7 @@ class DBusTaskWrapper(dbus.service.Object):
 
         This routine returns as soon as the GUI has launched.
         """
-        new_task = self.req.new_task(newtask=True)
+        new_task = self.datastore.new_task()
         if title != "":
             new_task.set_title(title)
         if description != "":

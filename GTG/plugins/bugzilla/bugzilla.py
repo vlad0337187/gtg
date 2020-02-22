@@ -88,7 +88,7 @@ class BugzillaPlugin(object):
         # decoupling with a thread. All interaction with task and tags objects
         # (anything in a Tree) must be done with gobject.idle_add (invernizzi)
 
-        task = self.plugin_api.get_requester().get_task(task_id)
+        task = self.plugin_api.datastore.get_task(task_id)
         bugTask = GetBugInformationTask(task)
         bugTask.setDaemon(True)
         bugTask.start()

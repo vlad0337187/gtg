@@ -169,7 +169,7 @@ class Backend(PeriodicImportBackend):
             # Removing the old ones
             if not self.please_quit:
                 tid = self.sync_engine.get_local_id(rtm_task_id)
-                self.datastore.request_task_deletion(tid)
+                self.datastore.delete_task(tid)
                 try:
                     self.sync_engine.break_relationship(remote_id=rtm_task_id)
                     self.save_state()
@@ -280,7 +280,7 @@ class Backend(PeriodicImportBackend):
                     return
 
         elif action == SyncEngine.REMOVE:
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
             try:
                 self.sync_engine.break_relationship(local_id=tid)
             except KeyError:
@@ -313,7 +313,7 @@ class Backend(PeriodicImportBackend):
         if meme.get_origin() == "GTG":
             rtm_task.delete()
         else:
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
 
     def _process_rtm_task(self, rtm_task_id):
         '''

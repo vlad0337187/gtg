@@ -136,7 +136,7 @@ class Backend(PeriodicImportBackend):
             # Removing the old ones
             self.cancellation_point()
             tid = self.sync_engine.get_local_id(evo_task_id)
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
             try:
                 self.sync_engine.break_relationship(remote_id=evo_task_id)
             except KeyError:
@@ -212,7 +212,7 @@ class Backend(PeriodicImportBackend):
                     return
 
         elif action == SyncEngine.REMOVE:
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
             try:
                 self.sync_engine.break_relationship(local_id=tid)
             except KeyError:
@@ -348,7 +348,7 @@ class Backend(PeriodicImportBackend):
             evo_task = self._evo_get_task(evo_task.get_uid())
             self._delete_evolution_task(evo_task)
         else:
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
 
     def _evo_task_is_syncable(self, evo_task):
         '''

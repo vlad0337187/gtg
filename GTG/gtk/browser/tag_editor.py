@@ -165,19 +165,19 @@ GObject.signal_new("selection-changed", TagIconSelector,
 class TagEditor(Gtk.Window):
     """Window allowing to edit a tag's properties."""
 
-    def __init__(self, req, vmanager, tag=None):
+    def __init__(self, datastore, vmanager, tag=None):
         super().__init__()
 
-        self.req = req
-        self.vmanager = vmanager
-        self.tag = tag
-        self.config = self.req.get_config('tag_editor')
-        self.custom_colors = None
-        self.tn_entry_watch_id = None
-        self.tn_cb_clicked_hid = None
-        self.tn_entry_clicked_hid = None
+        self.datastore = datastore
+        self.vmanager  = vmanager
+        self.tag       = tag
+        self.config    = self.datastore.config.get_subconfig('tag_editor')
+        self.custom_colors             = None
+        self.tn_entry_watch_id         = None
+        self.tn_cb_clicked_hid         = None
+        self.tn_entry_clicked_hid      = None
         self.tis_selection_changed_hid = None
-        self.tag_icon_selector = None
+        self.tag_icon_selector         = None
         # Build up the window
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_title('Edit tag')
@@ -382,7 +382,7 @@ class TagEditor(Gtk.Window):
                     new_name = cur_value
                 else:
                     new_name = "@" + cur_value
-                self.req.rename_tag(self.tag.get_name(), new_name)
+                self.datastore.rename_tag(self.tag.get_name(), new_name)
             return False
 
     def on_tis_selection_changed(self, widget):

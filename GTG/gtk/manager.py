@@ -7,29 +7,29 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import GObject, Gtk
 import configparser
 
-from GTG.gtk.delete_dialog import DeletionUI
+from GTG.gtk.delete_dialog   import DeletionUI
 from GTG.gtk.browser.browser import TaskBrowser
-from GTG.gtk.editor.editor import TaskEditor
-from GTG.gtk.preferences import Preferences
-from GTG.gtk.plugins import PluginsDialog
-from GTG.gtk.dbuswrapper import DBusTaskWrapper
-from GTG.tools import clipboard
+from GTG.gtk.editor.editor   import TaskEditor
+from GTG.gtk.preferences     import Preferences
+from GTG.gtk.plugins         import PluginsDialog
+from GTG.gtk.dbuswrapper     import DBusTaskWrapper
+from GTG.tools               import clipboard
 from GTG.core.plugins.engine import PluginEngine
-from GTG.core.plugins.api import PluginAPI
-from GTG.tools.logger import Log
+from GTG.core.plugins.api    import PluginAPI
+from GTG.tools.logger        import Log
 from GTG.gtk.backends_dialog import BackendsDialog
 from GTG.backends.backendsignals import BackendSignals
-from GTG.gtk.browser.tag_editor import TagEditor
-from GTG.core.timer import Timer
+from GTG.gtk.browser.tag_editor  import TagEditor
+from GTG.core.timer              import Timer
 
 
 class Manager(object):
 
     # init ##################################################################
-    def __init__(self, req):
-        self.req = req
-        self.browser_config = self.req.get_config("browser")
-        self.plugins_config = self.req.get_config("plugins")
+    def __init__(self, datastore):
+        self.datastore = datastore
+        self.browser_config = self.datastore.config.get_subconfig("browser")
+        self.plugins_config = self.datastore.config.get_subconfig("plugins")
 
         # Editors
         # This is the list of tasks that are already opened in an editor
@@ -45,14 +45,14 @@ class Manager(object):
         self.daemon_mode = False
 
         # Shared clipboard
-        self.clipboard = clipboard.TaskClipboard(self.req)
+        self.clipboard = clipboard.TaskClipboard(self.datastore)
 
         # Initialize Timer
-        self.config = self.req.get_config('browser')
-        self.timer = Timer(self.config)
+        self.config = self.datastore.config.get_subconfig('browser')
+        self.timer  = Timer(self.config)
 
         # Browser (still hidden)
-        self.browser = TaskBrowser(self.req, self)
+        self.browser = TaskBrowser(self.datastore, self)
 
         self.__init_plugin_engine()
 
@@ -64,21 +64,20 @@ class Manager(object):
 
         # Preferences and Backends windows
         # Initialize  dialogs
-        self.preferences = Preferences(self.req, self)
-        self.plugins = PluginsDialog(self.req)
+        self.preferences = Preferences  (self.datastore, self)
+        self.plugins     = PluginsDialog(self.datastore)
         self.edit_backends_dialog = None
 
         # Tag Editor
         self.tag_editor_dialog = None
 
         # DBus
-        DBusTaskWrapper(self.req, self)
+        DBusTaskWrapper(self.datastore, self)
         Log.debug("Manager initialization finished")
 
     def __init_plugin_engine(self):
-        self.pengine = PluginEngine()
-        # initializes the plugin api class
-        self.plugin_api = PluginAPI(self.req, self)
+        self.pengine    = PluginEngine()
+        self.plugin_api = PluginAPI(self.datastore, self)
         self.pengine.register_api(self.plugin_api)
         # checks the conf for user settings
         try:
@@ -93,12 +92,12 @@ class Manager(object):
     # Browser ##############################################################
     def open_browser(self):
         if not self.browser:
-            self.browser = TaskBrowser(self.req, self)
+            self.browser = TaskBrowser(self.datastore, self)
+
         # notify user if backup was used
-        backend_dic = self.req.get_all_backends()
+        backend_dic = self.datastore.get_all_backends()
         for backend in backend_dic:
-            if backend.get_name() == "backend_localfile" and \
-                    backend.used_backup():
+            if backend.get_name() == "backend_localfile" and  backend.used_backup():
                 backend.notify_user_about_backup()
         Log.debug("Browser is open")
 
@@ -151,14 +150,14 @@ class Manager(object):
         If a Task editor is already opened for a given task, we present it.
         Else, we create a new one.
         """
-        t = self.req.get_task(uid)
+        t = self.datastore.get_task(uid)
         tv = None
         if uid in self.opened_task:
             tv = self.opened_task[uid]
             tv.present()
         elif t:
             tv = TaskEditor(
-                requester=self.req,
+                datastore=self.datastore,
                 vmanager=self,
                 task=t,
                 thisisnew=thisisnew,
@@ -203,7 +202,7 @@ class Manager(object):
 # Others dialog ###########################################################
     def open_edit_backends(self, sender=None, backend_id=None):
         if not self.edit_backends_dialog:
-            self.edit_backends_dialog = BackendsDialog(self.req)
+            self.edit_backends_dialog = BackendsDialog(self.datastore)
         self.edit_backends_dialog.activate()
         if backend_id is not None:
             self.edit_backends_dialog.show_config_for_backend(backend_id)
@@ -219,7 +218,7 @@ class Manager(object):
 
     def ask_delete_tasks(self, tids):
         if not self.delete_dialog:
-            self.delete_dialog = DeletionUI(self.req)
+            self.delete_dialog = DeletionUI(self.datastore)
         finallist = self.delete_dialog.delete_tasks(tids)
         for t in finallist:
             if t.get_id() in self.opened_task:
@@ -227,7 +226,7 @@ class Manager(object):
 
     def open_tag_editor(self, tag):
         if not self.tag_editor_dialog:
-            self.tag_editor_dialog = TagEditor(self.req, self, tag)
+            self.tag_editor_dialog = TagEditor(self.datastore, self, tag)
         else:
             self.tag_editor_dialog.set_tag(tag)
         self.tag_editor_dialog.show()

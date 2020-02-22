@@ -5,6 +5,7 @@ dev = 'python -m GTG --debug'
 dev_cli = 'python -m GTG --debug --cli'
 dev2 = 'bash -c "PYTHONPATH=/usr/lib/python3/dist-packages:$PYTHONPATH ./gtg.sh"'
 dev3 = 'bash -c "./gtg.sh"'
+check = 'pylint ./GTG/gtg.py'
 
 [[source]]
 name = "pypi"
@@ -26,6 +27,7 @@ pyyaml = "*"
 pydash = "*"
 # backported `dataclasses` from Python 3.7 to 3.6
 dataclasses = "*"
+pylint = "*"
 
 [requires]
 python_version = "3"

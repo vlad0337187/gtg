@@ -16,11 +16,11 @@ from GTG.gtk.colors import generate_tag_color, color_add, color_remove
 class TagContextMenu(Gtk.Menu):
     """Context menu fo the tag i the sidebar"""
 
-    def __init__(self, req, vmanager, tag=None):
+    def __init__(self, datastore, vmanager, tag=None):
         super().__init__()
-        self.req = req
-        self.vmanager = vmanager
-        self.tag = tag
+        self.datastore = datastore
+        self.vmanager  = vmanager
+        self.tag       = tag
         # Build up the menu
         self.set_tag(tag)
         self.__build_menu()
@@ -30,16 +30,16 @@ class TagContextMenu(Gtk.Menu):
         # Reset the widget
         for i in self:
             self.remove(i)
-            i.destroy()
+            i   .destroy()
         if self.tag is not None:
             # Color chooser FIXME: SHOULD BECOME A COLOR PICKER
-            self.mi_cc = Gtk.MenuItem()
-            self.mi_cc.set_label(translate("Edit Tag..."))
+            self.mi_cc   = Gtk.MenuItem()
             self.mi_ctag = Gtk.MenuItem()
+            self.mi_cc  .set_label(translate("Edit Tag..."))
             self.mi_ctag.set_label(translate("Generate Color"))
             self.append(self.mi_cc)
             self.append(self.mi_ctag)
-            self.mi_cc.connect('activate', self.on_mi_cc_activate)
+            self.mi_cc  .connect('activate', self.on_mi_cc_activate)
             self.mi_ctag.connect('activate', self.on_mi_ctag_activate)
             if self.tag.is_search_tag():
                 self.mi_del = Gtk.MenuItem()
@@ -70,4 +70,4 @@ class TagContextMenu(Gtk.Menu):
 
     def on_mi_del_activate(self, widget):
         """ delete a selected search """
-        self.req.remove_tag(self.tag.get_name())
+        self.datastore.remove_tag(self.tag.get_name())

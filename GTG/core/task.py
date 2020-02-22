@@ -20,11 +20,11 @@ class Task(TreeNode):
     You should never create a Task directly. Use the datastore.new_task()
     function."""
 
-    STA_ACTIVE = "Active"
+    STA_ACTIVE    = "Active"
     STA_DISMISSED = "Dismiss"
-    STA_DONE = "Done"
+    STA_DONE      = "Done"
 
-    def __init__(self, task_id, requester, newtask=False):
+    def __init__(self, task_id, datastore, newtask=False):
         super().__init__(task_id)
         # the id of this task in the project should be set
         # tid is a string ! (we have to choose a type and stick to it)
@@ -32,23 +32,21 @@ class Task(TreeNode):
         self.tid = str(task_id)
         self.set_uuid(uuid.uuid4())
         self.remote_ids = {}
-        self.content = ""
-        self.title = translate("My new task")
+        self.content    = ""
+        self.title      = translate("My new task")
         # available status are: Active - Done - Dismiss - Note
-        self.status = self.STA_ACTIVE
-        self.closed_date = Date.no_date()
-        self.due_date = Date.no_date()
-        self.start_date = Date.no_date()
+        self.status         = self.STA_ACTIVE
+        self.closed_date    = Date.no_date()
+        self.due_date       = Date.no_date()
+        self.start_date     = Date.no_date()
         self.can_be_deleted = newtask
         # tags
-        self.tags = []
-        self.req = requester
-        self.__main_treeview = requester.get_main_view()
+        self.tags            = []
+        self.datastore       = datastore
+        self.__main_treeview = datastore.get_tasks_tree().get_main_view()
+        #self.__main_treeview = datastore.filter_tasks_tree()
         # If we don't have a newtask, we will have to load it.
-        self.loaded = newtask
-        # Should not be necessary with the new backends
-#        if self.loaded:
-#            self.req._task_loaded(self.tid)
+        self.loaded     = newtask
         self.attributes = {}
         self._modified_update()
 
@@ -191,7 +189,7 @@ class Task(TreeNode):
                     old_status in [self.STA_DONE, self.STA_DISMISSED]:
                 if self.has_parent():
                     for p_tid in self.get_parents():
-                        par = self.req.get_task(p_tid)
+                        par = self.datastore.get_task(p_tid)
                         if par.is_loaded() and par.get_status() in\
                                 [self.STA_DONE, self.STA_DISMISSED]:
                             # we can either break the parent/child relationship
@@ -231,7 +229,7 @@ class Task(TreeNode):
         """Recursively sync the task and all task children. Defined"""
         self.sync()
         for sub_id in self.children:
-            sub = self.req.get_task(sub_id)
+            sub = self.datastore.get_task(sub_id)
             sub.recursive_sync()
 
     # ABOUT DUE DATES
@@ -280,7 +278,7 @@ class Task(TreeNode):
                which is not fuzzy"""
             parent_list = []
             for par_id in task.parents:
-                par = self.req.get_task(par_id)
+                par = self.datastore.get_task(par_id)
                 if par.get_due_date().is_fuzzy():
                     parent_list += __get_defined_parent_list(par)
                 else:
@@ -292,7 +290,7 @@ class Task(TreeNode):
                due date which is not fuzzy"""
             child_list = []
             for child_id in task.children:
-                child = self.req.get_task(child_id)
+                child = self.datastore.get_task(child_id)
                 if child.get_due_date().is_fuzzy():
                     child_list += __get_defined_child_list(child)
                 else:
@@ -356,7 +354,7 @@ class Task(TreeNode):
         strongest_const_date = self.due_date
         if strongest_const_date.is_fuzzy():
             for par_id in self.parents:
-                par = self.req.get_task(par_id)
+                par = self.datastore.get_task(par_id)
                 par_duedate = par.get_due_date()
                 # if parent date is undefined or fuzzy, look further up
                 if par_duedate.is_fuzzy():
@@ -500,7 +498,7 @@ class Task(TreeNode):
         """Add a newly created subtask to this task. Return the task added as
         a subtask
         """
-        subt = self.req.new_task(newtask=True)
+        subt = self.datastore.new_task()
         # we use the inherited childrens
         self.add_child(subt.get_id())
         return subt
@@ -515,7 +513,7 @@ class Task(TreeNode):
         # the core of the method is in the TreeNode object
         TreeNode.add_child(self, tid)
         # now we set inherited attributes only if it's a new task
-        child = self.req.get_task(tid)
+        child = self.datastore.get_task(tid)
         if self.is_loaded() and child and child.can_be_deleted:
             child.set_start_date(self.get_start_date())
             child.set_due_date(self.get_due_date())
@@ -529,10 +527,10 @@ class Task(TreeNode):
 
         @param tid: the ID of the task to remove
         """
-        c = self.req.get_task(tid)
+        c = self.datastore.get_task(tid)
         c.remove_parent(self.get_id())
         if c.can_be_deleted:
-            self.req.delete_task(tid)
+            self.datastore.delete_task(tid)
             self.sync()
             return True
         else:
@@ -550,7 +548,7 @@ class Task(TreeNode):
         print("DEPRECATED FUNCTION: get_self_and_all_subtasks")
         tasks.append(self)
         for tid in self.get_children():
-            i = self.req.get_task(tid)
+            i = self.datastore.get_task(tid)
             if i:
                 if not active_only or i.status == self.STA_ACTIVE:
                     i.get_self_and_all_subtasks(active_only, tasks)
@@ -563,13 +561,13 @@ class Task(TreeNode):
 
         @param tid: the ID of the task to return.
         """
-        return self.req.get_task(tid)
+        return self.datastore.get_task(tid)
 
     def set_parent(self, parent_id):
         """Update the task's parent. Refresh due date constraints."""
         TreeNode.set_parent(self, parent_id)
         if parent_id is not None:
-            par = self.req.get_task(parent_id)
+            par = self.datastore.get_task(parent_id)
             par_duedate = par.get_due_date_constraint()
             if not par_duedate.is_fuzzy() and \
                 not self.due_date.is_fuzzy() and \
@@ -619,21 +617,21 @@ class Task(TreeNode):
     def get_tags(self):
         l = []
         for tname in self.tags:
-            tag = self.req.get_tag(tname)
+            tag = self.datastore.get_tag(tname)
             if not tag:
-                tag = self.req.new_tag(tname)
+                tag = self.datastore.new_tag(tname)
             l.append(tag)
         return l
 
     def rename_tag(self, old, new):
-        eold = saxutils.escape(saxutils.unescape(old))
-        enew = saxutils.escape(saxutils.unescape(new))
+        eold         = saxutils.escape(saxutils.unescape(old))
+        enew         = saxutils.escape(saxutils.unescape(new))
         self.content = self.content.replace(eold, enew)
-        oldt = self.req.get_tag(old)
+        oldt         = self.datastore.get_tag(old)
         self.remove_tag(old)
         oldt.modified()
         self.tag_added(new)
-        self.req.get_tag(new).modified()
+        self.datastore.get_tag(new).modified()
         self.sync()
 
     def tag_added(self, tagname):
@@ -648,9 +646,9 @@ class Task(TreeNode):
                     if child.can_be_deleted:
                         child.add_tag(tagname)
 
-                tag = self.req.get_tag(tagname)
+                tag = self.datastore.get_tag(tagname)
                 if not tag:
-                    tag = self.req.new_tag(tagname)
+                    tag = self.datastore.new_tag(tagname)
                 tag.modified()
             return True
 
@@ -692,7 +690,7 @@ class Task(TreeNode):
                     child.remove_tag(tagname)
         self.content = self._strip_tag(self.content, tagname)
         if modified:
-            tag = self.req.get_tag(tagname)
+            tag = self.datastore.get_tag(tagname)
             # The ViewCount of the tag still doesn't know that
             # the task was removed. We need to update manually
             tag.update_task(self.get_id())
@@ -735,7 +733,7 @@ class Task(TreeNode):
             if tagname in self.tags:
                 toreturn = True
             else:
-                tag = self.req.get_tag(tagname)
+                tag = self.datastore.get_tag(tagname)
                 for tagc_name in tag.get_children():
                     if not toreturn:
                         toreturn = children_tag(tagc_name)

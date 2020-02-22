@@ -195,7 +195,7 @@ class HamsterPlugin(object):
     def on_task_modified(self, task_id, path):
         """ Stop task if it is tracked and it is Done/Dismissed """
         Log.debug('Hamster: task modified %s', task_id)
-        task = self.plugin_api.get_requester().get_task(task_id)
+        task = self.plugin_api.datastore.get_task(task_id)
         if not task:
             return
         if task.get_status() in (Task.STA_DISMISSED, Task.STA_DONE):
@@ -237,7 +237,7 @@ class HamsterPlugin(object):
 
     def subscribe_task_updates(self, signal_callbacks):
         """ Subscribe to updates about tasks """
-        self.tree = self.plugin_api.get_requester().get_tasks_tree()
+        self.tree = self.plugin_api.datastore.filter_tasks_tree()
         self.liblarch_callbacks = []
         for event, callback in signal_callbacks:
             callback_id = self.tree.register_cllbck(event, callback)
@@ -324,7 +324,7 @@ class HamsterPlugin(object):
 
     def browser_cb(self, widget, plugin_api):
         task_id = plugin_api.get_browser().get_selected_task()
-        task = plugin_api.get_requester().get_task(task_id)
+        task    = plugin_api.datastore.get_task(task_id)
         self.decide_start_or_stop_activity(task, widget)
 
     def task_cb(self, widget, plugin_api):
@@ -341,10 +341,10 @@ class HamsterPlugin(object):
 
     def selection_changed(self, selection):
         if selection.count_selected_rows() == 1:
-            self.button.set_sensitive(True)
+            self.button   .set_sensitive(True)
             self.menu_item.set_sensitive(True)
             task_id = self.plugin_api.get_browser().get_selected_task()
-            task = self.plugin_api.get_requester().get_task(task_id)
+            task    = self.plugin_api.datastore.get_task(task_id)
             self.decide_button_mode(self.button, task)
         else:
             self.change_button_to_start_activity(self.button)

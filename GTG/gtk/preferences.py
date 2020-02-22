@@ -13,10 +13,10 @@ class Preferences(object):
 
     PREFERENCES_UI_FILE = os.path.join(UI_DIR, "preferences.ui")
 
-    def __init__(self, req, vmanager):
-        self.req = req
-        self.config = self.req.get_config('browser')
-        builder = Gtk.Builder()
+    def __init__(self, datastore, vmanager):
+        self.datastore = datastore
+        self.config    = self.datastore.config.get_subconfig('browser')
+        builder        = Gtk.Builder()
         builder.add_from_file(self.PREFERENCES_UI_FILE)
 
         self.window = builder.get_object("Preferences")
@@ -24,10 +24,10 @@ class Preferences(object):
         builder.connect_signals(self)
 
         self.headerbar = builder.get_object("right_header_bar")
-        self.stack = builder.get_object("stack")
+        self.stack     = builder.get_object("stack")
 
         self.pages = {}
-        self.add_page(GeneralPreferences(req, vmanager))
+        self.add_page(GeneralPreferences(datastore, vmanager))
 
         self.on_sidebar_change(self.stack)
 

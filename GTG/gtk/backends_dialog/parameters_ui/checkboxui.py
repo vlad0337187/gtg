@@ -7,20 +7,19 @@ class CheckBoxUI(Gtk.Box):
     meaning
     '''
 
-    def __init__(self, req, backend, width, text, parameter):
+    def __init__(self, datastore, backend, width, text, parameter):
         '''
         Creates the checkbox and the related label.
 
-        @param req: a Requester
         @param backend: a backend object
         @param width: the width of the gtk.Label object
         @param parameter: the backend parameter this checkbox should display
                            and modify
         '''
         super().__init__()
-        self.backend = backend
-        self.req = req
-        self.text = text
+        self.backend   = backend
+        self.datastore = datastore
+        self.text      = text
         self.parameter = parameter
         self._populate_gtk(width)
 

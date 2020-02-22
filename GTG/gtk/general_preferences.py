@@ -6,7 +6,7 @@ import os
 
 from gi.repository import Gtk, Gdk
 
-from GTG.core.dirs import UI_DIR
+from GTG.core.dirs         import UI_DIR
 from GTG.core.translations import translate
 from GTG.tools import autostart
 from GTG.tools import shortcut
@@ -15,26 +15,25 @@ from GTG.tools import shortcut
 class GeneralPreferences(object):
 
     GENERAL_PREFERENCES_UI = os.path.join(UI_DIR, "general_preferences.ui")
-    INVALID_COLOR = Gdk.Color(50000, 0, 0)
+    INVALID_COLOR          = Gdk.Color(50000, 0, 0)
 
-    def __init__(self, req, vmanager):
-        self.req = req
-        self.config = self.req.get_config('browser')
-        builder = Gtk.Builder()
+    def __init__(self, datastore, vmanager):
+        self.datastore = datastore
+        self.config    = self.datastore.config.get_subconfig('browser')
+        builder        = Gtk.Builder()
         builder.add_from_file(self.GENERAL_PREFERENCES_UI)
 
-        self.ui_widget = builder.get_object("general_pref_window")
+        self.ui_widget        = builder.get_object("general_pref_window")
         self.autostart_button = builder.get_object("autostart_button")
-        self.preview_button = builder.get_object("preview_button")
-        self.bg_color_button = builder.get_object("bg_color_button")
-        self.shortcut_button = builder.get_object("shortcut_button")
-        self.font_button = builder.get_object("font_button")
+        self.preview_button   = builder.get_object("preview_button")
+        self.bg_color_button  = builder.get_object("bg_color_button")
+        self.shortcut_button  = builder.get_object("shortcut_button")
+        self.font_button      = builder.get_object("font_button")
         self.shortcut_popover = builder.get_object("shortcut_popover")
-        self.set_shortcut = builder.get_object("set_shortcut")
+        self.set_shortcut     = builder.get_object("set_shortcut")
 
-        self.shortcut = ShortcutWidget(builder)
-
-        self.timer = vmanager.timer
+        self.shortcut     = ShortcutWidget(builder)
+        self.timer        = vmanager.timer
         self.refresh_time = builder.get_object("time_entry")
 
         builder.connect_signals(self)
@@ -89,7 +88,7 @@ class GeneralPreferences(object):
 
     def _refresh_task_browser(self):
         """ Refresh tasks in task browser """
-        task_tree = self.req.get_tasks_tree(refresh=False).get_basetree()
+        task_tree = self.datastore.filter_tasks_tree(refresh=False).get_basetree()
         task_tree.refresh_all()
 
     def on_valid_time_check(self, widget):

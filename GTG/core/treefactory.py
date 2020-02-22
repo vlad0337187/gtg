@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from GTG.core.search import search_filter
-from GTG.core import tag
-from GTG.core.task import Task
+from GTG.core.search       import search_filter
+from GTG.core              import tag
+from GTG.core.task         import Task
 from GTG.core.translations import translate
-from GTG.tools.dates import Date
-from liblarch import Tree
+from GTG.tools.dates       import Date
+from liblarch              import Tree
 
 
 class TreeFactory(object):
@@ -22,16 +22,16 @@ class TreeFactory(object):
         '''
         tasktree = Tree()
         f_dic = {
-            'workview': [self.workview],
-            'active': [self.active],
-            'closed': [self.closed, {'flat': True}],
-            'notag': [self.notag],
-            'workable': [self.is_workable],
-            'started': [self.is_started],
-            'workdue': [self.workdue],
-            'workstarted': [self.workstarted],
-            'worktostart': [self.worktostart],
-            'worklate': [self.worklate],
+            'workview'       : [self.workview],
+            'active'         : [self.active],
+            'closed'         : [self.closed, {'flat': True}],
+            'notag'          : [self.notag],
+            'workable'       : [self.is_workable],
+            'started'        : [self.is_started],
+            'workdue'        : [self.workdue],
+            'workstarted'    : [self.workstarted],
+            'worktostart'    : [self.worktostart],
+            'worklate'       : [self.worklate],
             'no_disabled_tag': [self.no_disabled_tag],
         }
 
@@ -42,17 +42,18 @@ class TreeFactory(object):
             else:
                 param = None
             tasktree.add_filter(f, filt[0], param)
+
         self.tasktree = tasktree
         return tasktree
 
-    def get_tags_tree(self, req):
+    def get_tags_tree(self, datastore):
         '''This create a liblarch tree suitable for tags,
         including the all_tags_tag and notag_tag.
         '''
         tagtree = Tree()
 
         # Build the "all tasks tag"
-        alltag = tag.Tag(tag.ALLTASKS_TAG, req=req)
+        alltag = tag.Tag(tag.ALLTASKS_TAG, datastore=datastore)
         alltag.set_attribute("special", "all")
         alltag.set_attribute("label", "<span weight='bold'>%s</span>"
                              % translate("All tasks"))
@@ -63,7 +64,7 @@ class TreeFactory(object):
         self.tasktree.add_filter(tag.ALLTASKS_TAG,
                                  self.alltag, parameters=p)
         # Build the "without tag tag"
-        notag_tag = tag.Tag(tag.NOTAG_TAG, req=req)
+        notag_tag = tag.Tag(tag.NOTAG_TAG, datastore=datastore)
         notag_tag.set_attribute("special", "notag")
         notag_tag.set_attribute("label", "<span weight='bold'>%s</span>"
                                 % translate("Tasks with no tags"))
@@ -75,7 +76,7 @@ class TreeFactory(object):
                                  self.notag, parameters=p)
 
         # Build the search tag
-        search_tag = tag.Tag(tag.SEARCH_TAG, req=req)
+        search_tag = tag.Tag(tag.SEARCH_TAG, datastore=datastore)
         search_tag.set_attribute("special", "search")
         search_tag.set_attribute("label",
                                  "<span weight='bold'>%s</span>" % translate("Search"))
@@ -87,7 +88,7 @@ class TreeFactory(object):
                                  search_filter, parameters=p)
 
         # Build the separator
-        sep_tag = tag.Tag(tag.SEP_TAG, req=req)
+        sep_tag = tag.Tag(tag.SEP_TAG, datastore=datastore)
         sep_tag.set_attribute("special", "sep")
         sep_tag.set_attribute("order", 3)
         tagtree.add_node(sep_tag)

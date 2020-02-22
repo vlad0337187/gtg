@@ -15,10 +15,10 @@ from liblarch_gtk import TreeView
 
 class TreeviewFactory(object):
 
-    def __init__(self, requester, config):
-        self.req = requester
-        self.mainview = self.req.get_tasks_tree()
-        self.config = config
+    def __init__(self, datastore, config):
+        self.datastore = datastore
+        self.mainview  = self.datastore.filter_tasks_tree()
+        self.config    = config
 
         # Initial unactive color
         # This is a crude hack. As we don't have a reference to the
@@ -41,7 +41,7 @@ class TreeviewFactory(object):
         real_count = 0
         if task.has_child():
             for tid in task.get_children():
-                sub_task = self.req.get_task(tid)
+                sub_task = self.datastore.get_task(tid)
                 if sub_task and sub_task.get_status() == Task.STA_ACTIVE:
                     real_count = real_count + 1
         return display_count < real_count
@@ -56,9 +56,9 @@ class TreeviewFactory(object):
     def task_tags_column(self, node):
         tags = node.get_tags()
 
-        search_parent = self.req.get_tag(SEARCH_TAG)
+        search_parent = self.datastore.get_tag(SEARCH_TAG)
         for search_tag in search_parent.get_children():
-            tag = self.req.get_tag(search_tag)
+            tag = self.datastore.get_tag(search_tag)
             match = search_filter(
                 node,
                 parse_search_query(tag.get_attribute('query')),
@@ -231,7 +231,7 @@ class TreeviewFactory(object):
             return (t1_order > t2_order) - (t1_order < t2_order)
 
     def ontag_task_dnd(self, source, target):
-        task = self.req.get_task(source)
+        task = self.datastore.get_task(source)
         if target.startswith('@'):
             task.add_tag(target)
         elif target == 'gtg-tags-none':

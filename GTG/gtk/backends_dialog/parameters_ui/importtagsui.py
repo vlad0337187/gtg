@@ -11,11 +11,10 @@ class ImportTagsUI(Gtk.Box):
     to let the user change the attached tags (or imported)
     '''
 
-    def __init__(self, req, backend, width, title, anybox_text, somebox_text,
+    def __init__(self, datastore, backend, width, title, anybox_text, somebox_text,
                  parameter_name):
         '''Populates the widgets and refresh the tags to display
 
-        @param req: a requester
         @param backend: the backend to configure
         @param width: the length of the radio buttons
         @param title: the text for the label describing what this collection
@@ -27,7 +26,7 @@ class ImportTagsUI(Gtk.Box):
         '''
         super().__init__(orientation=Gtk.Orientation.VERTICAL)
         self.backend = backend
-        self.req = req
+        self.datastore = datastore
         self.title = title
         self.anybox_text = anybox_text
         self.somebox_text = somebox_text
@@ -72,7 +71,7 @@ class ImportTagsUI(Gtk.Box):
         @param data: not used, only here for signal compatibility
         '''
         # every change in the config disables the backend
-        self.req.set_backend_enabled(self.backend.get_id(), False)
+        self.datastore.set_backend_enabled(self.backend.get_id(), False)
         self._refresh_textbox_state()
 
     def commit_changes(self):

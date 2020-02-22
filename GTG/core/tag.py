@@ -12,9 +12,9 @@ from functools import reduce
 
 # Tags with special meaning
 ALLTASKS_TAG = "gtg-tags-all"
-NOTAG_TAG = "gtg-tags-none"
-SEP_TAG = "gtg-tags-sep"
-SEARCH_TAG = "search"
+NOTAG_TAG    = "gtg-tags-none"
+SEP_TAG      = "gtg-tags-sep"
+SEARCH_TAG   = "search"
 
 
 class Tag(TreeNode):
@@ -28,7 +28,7 @@ class Tag(TreeNode):
     for tags is C{name}, which always matches L{Tag.get_name()}.
     """
 
-    def __init__(self, name, req, attributes={}):
+    def __init__(self, name, datastore, attributes={}):
         """Construct a tag.
 
         @param name: The name of the tag. Should be a string, generally
@@ -37,10 +37,11 @@ class Tag(TreeNode):
             calling _save callback
         """
         super().__init__(name)
-        self._name = saxutils.unescape(str(name))
-        self.req = req
-        self._save = None
+        self.datastore   = datastore
+        self._name       = saxutils.unescape(str(name))
+        self._save       = None
         self._attributes = {'name': self._name}
+
         for key, value in attributes.items():
             self.set_attribute(key, value)
 
@@ -48,7 +49,7 @@ class Tag(TreeNode):
 
     def __get_viewcount(self):
         if not self.viewcount and self.get_name() != "gtg-tags-sep":
-            basetree = self.req.get_basetree()
+            basetree = self.datastore._tasks
             self.viewcount = basetree.get_viewcount(self.get_name(), False)
 
             sp_id = self.get_attribute("special")
@@ -79,12 +80,12 @@ class Tag(TreeNode):
 
     # overiding some functions to not allow dnd of special tags
     def add_parent(self, parent_id):
-        p = self.req.get_tag(parent_id)
+        p = self.datastore.get_tag(parent_id)
         if p and not self.is_special() and not p.is_special():
             TreeNode.add_parent(self, parent_id)
 
     def add_child(self, child_id):
-        special_child = self.req.get_tag(child_id).is_special()
+        special_child = self.datastore.get_tag(child_id).is_special()
         if not self.is_special() and not special_child:
             TreeNode.add_child(self, child_id)
 
@@ -192,7 +193,7 @@ class Tag(TreeNode):
     def get_related_tasks(self, tasktree=None):
         """Returns all related tasks node ids"""
         if not tasktree:
-            tasktree = self.req.get_tasks_tree()
+            tasktree = self.datastore.filter_tasks_tree()
         sp_id = self.get_attribute("special")
         if sp_id == "all":
             toreturn = tasktree.get_nodes(withfilters=['active'])
@@ -208,7 +209,7 @@ class Tag(TreeNode):
     def notify_related_tasks(self):
         """Notify changes to all related tasks"""
         for task_id in self.get_related_tasks():
-            my_task = self.req.get_task(task_id)
+            my_task = self.datastore.get_task(task_id)
             my_task.modified()
 
     # is it useful to keep the tag in the tagstore.

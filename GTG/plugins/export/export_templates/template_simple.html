@@ -77,7 +77,7 @@ For a more advanced usage of templates, scroll down to the end of this document
                     #if $task.has_tags
                     (#slurp
                         #for $tag in $task.tags:
-                            $get_colored_tag_markup($plugin_api.get_requester(), $tag, True) #slurp
+                            $get_colored_tag_markup($plugin_api.get_datastore(), $tag, True) #slurp
                         #end for
                         )#slurp
                     #end if
@@ -136,7 +136,7 @@ To see this code working, delete the "##" at the beginning of each line
 and take it out of the html comment
 
 
-##  #for $tag in $plugin_api.get_requester().get_tag_tree().get_all_nodes()
+##  #for $tag in $plugin_api.get_datastore().get_viewtree(name='activetags').get_all_nodes()
 ##      $tag.get_name()
 ##  #end for
 

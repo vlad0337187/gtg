@@ -1,8 +1,8 @@
 from gi.repository import Gtk
 
-from GTG.core.translations import translate
+from GTG.core.translations                 import translate
 from GTG.gtk.backends_dialog.parameters_ui import ParametersUI
-from GTG.backends.backendsignals import BackendSignals
+from GTG.backends.backendsignals           import BackendSignals
 
 
 class ConfigurePanel(Gtk.Box):
@@ -18,11 +18,11 @@ class ConfigurePanel(Gtk.Box):
         loaded
         '''
         super().__init__(orientation=Gtk.Orientation.VERTICAL)
-        self.dialog = backends_dialog
+        self.dialog                  = backends_dialog
         self.should_spinner_be_shown = False
-        self.task_deleted_handle = None
-        self.task_added_handle = None
-        self.req = backends_dialog.get_requester()
+        self.task_deleted_handle     = None
+        self.task_added_handle       = None
+        self.datastore               = backends_dialog.datastore
         self._create_widgets()
         self._connect_signals()
 
@@ -49,7 +49,7 @@ class ConfigurePanel(Gtk.Box):
         self.pack_start(middle, False, True, 0)
         align = Gtk.Alignment.new(0, 0, 1, 0)
         align.set_padding(10, 0, 0, 0)
-        self.parameters_ui = ParametersUI(self.req)
+        self.parameters_ui = ParametersUI(self.datastore)
         align.add(self.parameters_ui)
         self.pack_start(align, False, True, 0)
 
@@ -98,7 +98,7 @@ class ConfigurePanel(Gtk.Box):
 
         @param backend_id: the id of the backend to configure
         '''
-        self.backend = self.dialog.get_requester().get_backend(backend_id)
+        self.backend = self.datastore.get_backend(backend_id)
         self.refresh_title()
         self.refresh_sync_status()
         self.parameters_ui.refresh(self.backend)
@@ -158,8 +158,7 @@ class ConfigurePanel(Gtk.Box):
         @param sender: not used, here only for signal callback compatibility
         '''
         self.parameters_ui.commit_changes()
-        self.req.set_backend_enabled(self.backend.get_id(),
-                                     not self.backend.is_enabled())
+        self.datastore.set_backend_enabled(self.backend.get_id(), not self.backend.is_enabled())
 
     def on_sync_started(self, sender, backend_id):
         '''

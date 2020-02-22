@@ -8,11 +8,11 @@ class NotTodayPlugin(object):
 
     def __init__(self):
         self.plugin_api = None
-        self.tb_button = None
+        self.tb_button  = None
 
     def activate(self, plugin_api):
         self.plugin_api = plugin_api
-        self.req = self.plugin_api.get_requester()
+        self.datastore  = self.plugin_api.datastore
         self._init_gtk()
         self.plugin_api.set_active_selection_changed_callback(
             self.selection_changed)
@@ -24,7 +24,7 @@ class NotTodayPlugin(object):
     def mark_not_today(self, button):
         start_date = Date.parse("tomorrow")
         for tid in self.plugin_api.get_selected():
-            task = self.req.get_task(tid)
+            task = self.datastore.get_task(tid)
             task.set_start_date(start_date)
 
     def selection_changed(self, selection):

@@ -142,9 +142,9 @@ class _Attention(object):
     than time span (in days) defined by danger_zone.
     """
 
-    def __init__(self, danger_zone, indicator, tree, req):
+    def __init__(self, danger_zone, indicator, tree, datastore):
         self.__tree = tree
-        self.__req = req
+        self.__datastore = datastore
         self._indicator = indicator
         self.danger_zone = danger_zone
 
@@ -152,7 +152,7 @@ class _Attention(object):
         """ Setup a list of tasks in danger zone, use task id """
         self.tasks_danger = []
         for tid in self.__tree.get_all_nodes():
-            task = self.__req.get_task(tid)
+            task = self.__datastore.get_task(tid)
             if _due_within(task, self.danger_zone):
                 self.tasks_danger.append(tid)
 
@@ -164,7 +164,7 @@ class _Attention(object):
         self._indicator.set_attention(len(self.tasks_danger) > 0)
 
     def update_on_task_modified(self, tid):
-        task = self.__req.get_task(tid)
+        task = self.__datastore.get_task(tid)
         if tid in self.tasks_danger:
             if not _due_within(task, self.danger_zone):
                 self.tasks_danger.remove(tid)
@@ -200,9 +200,9 @@ class NotificationArea(object):
 
     def activate(self, plugin_api):
         """ Set up the plugin, set callbacks, etc """
-        self.__plugin_api = plugin_api
+        self.__plugin_api   = plugin_api
         self.__view_manager = plugin_api.get_view_manager()
-        self.__requester = plugin_api.get_requester()
+        self.__datastore    = plugin_api.datastore
         # Tasks_in_menu will hold the menu_items in the menu, to quickly access
         # them given the task id. Contains tuple of this format:
         # (title, key, Gtk.MenuItem)
@@ -302,7 +302,7 @@ class NotificationArea(object):
                 self.preferences['danger_zone'],
                 self._indicator,
                 self.__tree_att,
-                self.__requester)
+                self.__datastore)
         else:
             self.__attention = None
 
@@ -312,7 +312,7 @@ class NotificationArea(object):
         If task_id is None, it creates a new task and opens it
         """
         if task_id is None:
-            task_id = self.__requester.new_task().get_id()
+            task_id = self.__datastore.new_task().get_id()
             new_task = True
         else:
             new_task = False
@@ -321,7 +321,7 @@ class NotificationArea(object):
 
     def __connect_to_tree(self, signal_cllbck):
         """ Return a new view tree """
-        tree = self.__requester.get_tasks_tree()
+        tree = self.__datastore.get_tasks_tree()
         # Request a new view so we do not influence anybody
         tree = tree.get_basetree().get_viewtree(refresh=False)
 
@@ -338,7 +338,7 @@ class NotificationArea(object):
 
     def __on_task_added(self, tid, path):
         self.__task_separator.show()
-        task = self.__requester.get_task(tid)
+        task = self.__datastore.get_task(tid)
         if task is None:
             return
 

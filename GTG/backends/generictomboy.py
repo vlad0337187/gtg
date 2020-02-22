@@ -126,7 +126,7 @@ class GenericTomboy(GenericBackend):
             except KeyError:
                 return
             if self.datastore.has_task(tid):
-                self.datastore.request_task_deletion(tid)
+                self.datastore.delete_task(tid)
                 self.break_relationship(remote_id=note)
 
     @interruptible
@@ -165,7 +165,7 @@ class GenericTomboy(GenericBackend):
                 with self.DbusWatchdog(self):
                     tomboy.DeleteNote(note)
         else:
-            self.datastore.request_task_deletion(tid)
+            self.datastore.delete_task(tid)
 
 ###############################################################################
 # Process tasks ###############################################################
@@ -284,7 +284,7 @@ class GenericTomboy(GenericBackend):
                         self.save_state()
 
                 elif action == SyncEngine.REMOVE:
-                    self.datastore.request_task_deletion(tid)
+                    self.datastore.delete_task(tid)
                     try:
                         self.sync_engine.break_relationship(local_id=tid)
                         self.save_state()

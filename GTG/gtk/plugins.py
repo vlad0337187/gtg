@@ -10,10 +10,10 @@ from GTG.gtk import ViewConfig
 from GTG.gtk import help
 
 # columns in PluginsDialog.plugin_store
-PLUGINS_COL_ID = 0
-PLUGINS_COL_ENABLED = 1
-PLUGINS_COL_NAME = 2
-PLUGINS_COL_SHORT_DESC = 3
+PLUGINS_COL_ID          = 0
+PLUGINS_COL_ENABLED     = 1
+PLUGINS_COL_NAME        = 2
+PLUGINS_COL_SHORT_DESC  = 3
 PLUGINS_COL_ACTIVATABLE = 4
 
 
@@ -113,19 +113,19 @@ def plugin_markup(column, cell, store, iterator, self):
 class PluginsDialog(object):
     """ Dialog for Plugins configuration """
 
-    def __init__(self, requester):
-        self.req = requester
-        self.config = self.req.get_config("plugins")
-        builder = Gtk.Builder()
+    def __init__(self, datastore):
+        self.datastore = datastore
+        self.config    = self.datastore.config.get_subconfig("plugins")
+        builder        = Gtk.Builder()
         builder.add_from_file(ViewConfig.PLUGINS_UI_FILE)
 
-        self.dialog = builder.get_object("PluginsDialog")
-        self.dialog.set_title(translate("Plugins - %s" % info.NAME))
-        self.plugin_tree = builder.get_object("PluginTree")
+        self.dialog           = builder.get_object("PluginsDialog")
+        self.plugin_tree      = builder.get_object("PluginTree")
         self.plugin_configure = builder.get_object("plugin_configure")
-        self.plugin_about = builder.get_object("PluginAboutDialog")
-        self.plugin_depends = builder.get_object('PluginDepends')
+        self.plugin_about     = builder.get_object("PluginAboutDialog")
+        self.plugin_depends   = builder.get_object('PluginDepends')
 
+        self.dialog.set_title(translate("Plugins - %s" % info.NAME))
         help.add_help_shortcut(self.dialog, "plugins")
 
         self.pengine = PluginEngine()

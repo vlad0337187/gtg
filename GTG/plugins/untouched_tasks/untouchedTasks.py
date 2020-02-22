@@ -96,9 +96,9 @@ class UntouchedTasksPlugin(object):
         self.__log("Starting process for adding " + tag_name)
         today = datetime.datetime.now()
         max_days = self.preferences["max_days"]
-        requester = self.plugin_api.get_requester()
-        closed_tree = requester.get_tasks_tree(name='inactive')
-        closed_tasks = [requester.get_task(tid) for tid in
+        datastore = self.plugin_api.datastore
+        closed_tree = datastore.filter_tasks_tree(name='inactive')
+        closed_tasks = [datastore.get_task(tid) for tid in
                         closed_tree.get_all_nodes()]
 
         # Add untouched tag to all tasks where new_date < time now

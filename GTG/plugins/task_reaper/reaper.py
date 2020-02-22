@@ -90,18 +90,18 @@ class ReaperPlugin(object):
 
     def delete_old_closed_tasks(self, widget=None):
         self.__log("Starting deletion of old tasks")
-        today = Date.today()
-        max_days = self.preferences["max_days"]
-        requester = self.plugin_api.get_requester()
-        closed_tree = requester.get_tasks_tree(name='inactive')
-        closed_tasks = [requester.get_task(tid) for tid in
+        today        = Date.today()
+        max_days     = self.preferences["max_days"]
+        datastore    = self.plugin_api.datastore
+        closed_tree  = datastore.filter_tasks_tree(name='inactive')
+        closed_tasks = [datastore.get_task(tid) for tid in
                         closed_tree.get_all_nodes()]
         to_remove = [t for t in closed_tasks
                      if (today - t.get_closed_date()).days > max_days]
 
         for task in to_remove:
-            if requester.has_task(task.get_id()):
-                requester.delete_task(task.get_id())
+            if datastore.has_task(task.get_id()):
+                datastore.delete_task(task.get_id())
 
         # If automatic purging is on, schedule another run
         if self.is_automatic:

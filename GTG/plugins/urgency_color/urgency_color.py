@@ -18,12 +18,12 @@ class UrgencyColorPlugin(object):
 
     def __init__(self):
         self._plugin_api = None
-        self.req = None
+        self.datastore = None
 
     def activate(self, plugin_api):
         """ Plugin is activated """
         self._plugin_api = plugin_api
-        self.req = self._plugin_api.get_requester()
+        self.datastore   = self._plugin_api.datastore
         self.prefs_load()
         self.prefs_init()
         # Set color function
@@ -142,7 +142,7 @@ class UrgencyColorPlugin(object):
             """
             child_list = []
             for child_id in node.children:
-                child = node.req.get_task(child_id)
+                child = node.datastore.get_task(child_id)
                 child_list += __get_active_child_list(child)
                 if child.get_status() in [child.STA_ACTIVE]:
                     child_list.append(child_id)
@@ -152,7 +152,7 @@ class UrgencyColorPlugin(object):
 
         daysleft = None
         for child_id in child_list:
-            child = self.req.get_task(child_id)
+            child = self.datastore.get_task(child_id)
             if child.get_due_date() == Date.no_date():
                 continue
 

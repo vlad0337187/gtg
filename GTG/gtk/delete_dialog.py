@@ -8,29 +8,31 @@ class DeletionUI(object):
 
     MAXIMUM_TIDS_TO_SHOW = 5
 
-    def __init__(self, req):
-        self.req = req
-        self.tids_todelete = []
-        # Tags which must be updated
-        self.update_tags = []
+    def __init__(self, datastore):
+        self.datastore     = datastore
+        self.tids_todelete = []  # Tags which must be updated
+        self.update_tags   = []
         # Load window tree
         self.builder = Gtk.Builder()
         self.builder.add_from_file(ViewConfig.DELETE_UI_FILE)
-        signals = {"on_delete_confirm": self.on_delete_confirm,
-                   "on_delete_cancel": lambda x: x.hide, }
+
+        signals = {
+            "on_delete_confirm": self.on_delete_confirm,
+            "on_delete_cancel" : lambda x: x.hide,
+        }
         self.builder.connect_signals(signals)
 
     def on_delete_confirm(self, widget):
         """if we pass a tid as a parameter, we delete directly
         otherwise, we will look which tid is selected"""
         for tid in self.tids_todelete:
-            if self.req.has_task(tid):
-                self.req.delete_task(tid, recursive=True)
+            if self.datastore.has_task(tid):
+                self.datastore.delete_task(tid, recursive=True)
         self.tids_todelete = []
 
         # Update tags
         for tagname in self.update_tags:
-            tag = self.req.get_tag(tagname)
+            tag = self.datastore.get_tag(tagname)
             tag.modified()
         self.update_tags = []
 
@@ -58,7 +60,7 @@ class DeletionUI(object):
                             if i not in task_list:
                                 recursive_list_tasks(task_list, i)
 
-                task = self.req.get_task(tid)
+                task = self.datastore.get_task(tid)
                 recursive_list_tasks(tasklist, task)
 
             # We fill the text and the buttons' labels according to the number

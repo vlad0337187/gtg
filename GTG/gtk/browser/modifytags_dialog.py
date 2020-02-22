@@ -3,8 +3,8 @@
 from gi.repository import Gtk
 
 from GTG.core.translations import translate
-from GTG.gtk.browser import GnomeConfig
-from GTG.tools.tags import parse_tag_list
+from GTG.gtk.browser       import GnomeConfig
+from GTG.tools.tags        import parse_tag_list
 
 
 class ModifyTagsDialog(object):
@@ -12,15 +12,15 @@ class ModifyTagsDialog(object):
     Dialog for batch adding/removal of tags
     """
 
-    def __init__(self, tag_completion, req):
-        self.req = req
-        self.tasks = []
+    def __init__(self, tag_completion, datastore):
+        self.datastore = datastore
+        self.tasks     = []
 
         self._init_dialog()
         self.tag_entry.set_completion(tag_completion)
 
         # Rember values from last time
-        self.last_tag_entry = translate("NewTag")
+        self.last_tag_entry         = translate("NewTag")
         self.last_apply_to_subtasks = False
 
     def _init_dialog(self):
@@ -28,10 +28,8 @@ class ModifyTagsDialog(object):
         builder = Gtk.Builder()
         builder.add_from_file(GnomeConfig.MODIFYTAGS_UI_FILE)
         builder.connect_signals({
-            "on_modifytags_confirm":
-            self.on_confirm,
-            "on_modifytags_cancel":
-            lambda dialog: dialog.hide,
+            "on_modifytags_confirm": self.on_confirm,
+            "on_modifytags_cancel" : lambda dialog: dialog.hide,
         })
 
         self.tag_entry = builder.get_object("tag_entry")
@@ -61,7 +59,7 @@ class ModifyTagsDialog(object):
         # If the checkbox is checked, find all subtasks
         if self.apply_to_subtasks.get_active():
             for task_id in self.tasks:
-                task = self.req.get_task(task_id)
+                task = self.datastore.get_task(task_id)
                 # FIXME: Python not reinitialize the default value of its
                 # parameter therefore it must be done manually. This function
                 # should be refractored # as far it is marked as depricated
@@ -71,7 +69,7 @@ class ModifyTagsDialog(object):
                         self.tasks.append(subtask_id)
 
         for task_id in self.tasks:
-            task = self.req.get_task(task_id)
+            task = self.datastore.get_task(task_id)
             for tag, is_positive in tags:
                 if is_positive:
                     task.add_tag(tag)

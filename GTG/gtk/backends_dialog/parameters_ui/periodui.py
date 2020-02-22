@@ -7,18 +7,17 @@ class PeriodUI(Gtk.Box):
     '''A widget to change the frequency of a backend synchronization
     '''
 
-    def __init__(self, req, backend, width):
+    def __init__(self, datastore, backend, width):
         '''
         Creates the Gtk.Adjustment and the related label. Loads the current
         period.
 
-        @param req: a Requester
         @param backend: a backend object
         @param width: the width of the Gtk.Label object
         '''
         super().__init__()
-        self.backend = backend
-        self.req = req
+        self.backend   = backend
+        self.datastore = datastore
         self._populate_gtk(width)
         self._connect_signals()
 
@@ -69,7 +68,7 @@ class PeriodUI(Gtk.Box):
         '''
         self.update_minutes_label()
         if self.backend.is_enabled() and not self.backend.is_default():
-            self.req.set_backend_enabled(self.backend.get_id(), False)
+            self.datastore.set_backend_enabled(self.backend.get_id(), False)
 
     def update_minutes_label(self):
         adjustment = int(self.adjustment.get_value())

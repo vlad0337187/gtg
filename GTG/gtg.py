@@ -38,14 +38,14 @@ from optparse import OptionParser
 gi.require_version('Gdk', '3.0')
 from gi.repository.Gdk import Screen
 
-from GTG import info
-from GTG.backends import BackendFactory
-from GTG.core.datastore import DataStore
-from GTG.core.dirs import DATA_DIR
+from GTG                   import info
+from GTG.backends          import BackendFactory
+from GTG.core.datastore    import DataStore
+from GTG.core.dirs         import DATA_DIR
 from GTG.core.translations import translate
-from GTG.gtk.dbuswrapper import BUSNAME, BUSINTERFACE
-from GTG.gtk.manager import Manager
-from GTG.tools.logger import Log
+from GTG.gtk.dbuswrapper   import BUSNAME, BUSINTERFACE
+from GTG.gtk.manager       import Manager
+from GTG.tools.logger      import Log
 
 from . import init
 
@@ -155,9 +155,9 @@ def main():
     if options.title is not None:
         info.NAME = options.title
 
-    ds, req = core_main_init(options, args)
+    datastore = core_main_init(options, args)
     # Launch task browser
-    manager = Manager(req)
+    manager = Manager(datastore)
     # main loop
     # To be more user friendly and get the logs of crashes, we show an apport
     # hooked window upon crashes
@@ -167,7 +167,7 @@ def main():
             manager.main(once_thru=options.boot_test, uri_list=args)
     else:
         manager.main(once_thru=options.boot_test, uri_list=args)
-    core_main_quit(ds)
+    core_main_quit(datastore)
 
 
 def core_main_init(options=None, args=None):
@@ -180,28 +180,30 @@ def core_main_init(options=None, args=None):
         Log.debug("Debug output enabled.")
     else:
         Log.setLevel(logging.INFO)
+
     Log.set_debugging_mode(options.debug)
     check_instance(DATA_DIR, args)
-    backends_list = BackendFactory().get_saved_backends_list()
-    # Load data store
-    ds = DataStore()
+
+    datastore = DataStore()
+
     # Register backends
+    backends_list = BackendFactory().get_saved_backends_list()
+
     for backend_dic in backends_list:
-        ds.register_backend(backend_dic)
+        datastore.register_backend(backend_dic)
+
     # save the backends directly to be sure projects.xml is written
-    ds.save(quit=False)
+    datastore.save(quit=False)
 
-    # Launch task browser
-    req = ds.get_requester()
-    return ds, req
+    return datastore
 
 
-def core_main_quit(ds):
+def core_main_quit(datastore):
     '''
     Last bits of code executed in GTG, after the UI has been shut off.
     Currently, it's just saving everything.
     '''
     # Ending the application: we save configuration
-    ds.save(quit=True)
+    datastore.save(quit=True)
     remove_pidfile(DATA_DIR)
     sys.exit(0)

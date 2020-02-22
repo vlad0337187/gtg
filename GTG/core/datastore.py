@@ -9,15 +9,14 @@ import uuid
 
 from GTG.backends.backendsignals import BackendSignals
 from GTG.backends.genericbackend import GenericBackend
-from GTG.core.config import CoreConfig
-from GTG.core import requester
+from GTG.core.config  import CoreConfig
 import GTG.core.dirs
-from GTG.core.search import parse_search_query, search_filter, InvalidQuery
-from GTG.core.tag import Tag, SEARCH_TAG
-from GTG.core.task import Task
+from GTG.core.search  import parse_search_query, search_filter, InvalidQuery
+from GTG.core.tag     import Tag, SEARCH_TAG
+from GTG.core.task    import Task
 from GTG.core.treefactory import TreeFactory
-from GTG.tools import cleanxml
-from GTG.tools.borg import Borg
+from GTG.tools        import cleanxml
+from GTG.tools.borg   import Borg
 from GTG.tools.logger import Log
 
 TAG_XMLROOT = "tagstore"
@@ -38,11 +37,12 @@ class DataStore(object):
         """
         # dictionary {backend_name_string: Backend instance}
         self.backends = {}
-        self.treefactory = TreeFactory()
-        self._tasks = self.treefactory.get_tasks_tree()
-        self.requester = requester.Requester(self, global_conf)
+        self.config   = global_conf
+
+        self.treefactory    = TreeFactory()
+        self._tasks         = self.treefactory.get_tasks_tree()
         self.tagfile_loaded = False
-        self._tagstore = self.treefactory.get_tags_tree(self.requester)
+        self._tagstore      = self.treefactory.get_tags_tree(self)
         self.load_tag_tree()
         self._backend_signals = BackendSignals()
 
@@ -56,7 +56,7 @@ class DataStore(object):
         self._backend_signals.connect('default-backend-loaded',
                                       self._activate_non_default_backends)
         self.filtered_datastore = FilteredDataStore(self)
-        self._backend_mutex = threading.Lock()
+        self._backend_mutex     = threading.Lock()
 
     # Accessor to embedded objects in DataStore ##############################
     def get_tagstore(self):
@@ -67,15 +67,6 @@ class DataStore(object):
         """
         return self._tagstore
 
-    def get_requester(self):
-        """
-        Return the Requester associate with this DataStore
-
-        @returns GTG.core.requester.Requester: the requester associated with
-                                               this datastore
-        """
-        return self.requester
-
     def get_tasks_tree(self):
         """
         Return the Tree with all the tasks contained in this Datastore
@@ -83,6 +74,10 @@ class DataStore(object):
         @returns GTG.core.tree.Tree: a task tree (the main one)
         """
         return self._tasks
+
+    def filter_tasks_tree(self, name='active', refresh=True):
+        """ By default return task tree of the main window."""
+        return self._tasks.get_viewtree(name=name, refresh=refresh)
 
     # Tags functions ##########################################################
     def _add_new_tag(self, name, tag, filter_func, parameters, parent_id=None):
@@ -101,9 +96,34 @@ class DataStore(object):
         @returns GTG.core.tag.Tag: the new tag
         """
         parameters = {'tag': name}
-        tag = Tag(name, req=self.requester, attributes=attributes)
+        tag        = Tag(name, datastore=self, attributes=attributes)
         self._add_new_tag(name, tag, self.treefactory.tag_filter, parameters)
         return tag
+
+    def get_free_tag_name(query):
+        """
+        Add number to the end if tag already exists.
+        Return unique tag name for given query.
+        """
+        tag_name                      = query
+        reserved_keyword_for_liblarch = '!'
+
+        if tag_name.startswith(reserved_keyword_for_liblarch):
+            tag_name = '_' + tag_name
+
+        number = 1
+
+        while True:
+            tag               = self.get_tag(tag_name)
+            name_already_used = tag
+
+            if not name_already_used:
+                break
+
+            number  += 1
+            tag_name = label + ' ' + str(number)
+
+        return tag_name
 
     def new_search_tag(self, name, query, attributes={}):
         """
@@ -111,19 +131,23 @@ class DataStore(object):
 
         @returns GTG.core.tag.Tag: the new search tag/None for a invalid query
         """
-        try:
-            parameters = parse_search_query(query)
-        except InvalidQuery as e:
-            Log.warning("Problem with parsing query '%s' (skipping): %s" %
-                        (query, e.message))
+        def check_query_valid(query):
+            try:
+                parameters = parse_search_query(query)
+                return True
+            except InvalidQuery as e:
+                Log.warning("Problem with parsing query '%s' (skipping): %s" % (query, e.message))
+                return False
+
+        if not check_query_valid(query):
             return None
 
         # Create own copy of attributes and add special attributes label, query
-        init_attr = dict(attributes)
+        init_attr          = dict(attributes)
         init_attr["label"] = name
         init_attr["query"] = query
 
-        tag = Tag(name, req=self.requester, attributes=init_attr)
+        tag = Tag(name, datastore=self, attributes=init_attr)
         self._add_new_tag(name, tag, search_filter, parameters,
                           parent_id=SEARCH_TAG)
         self.save_tagtree()
@@ -180,6 +204,12 @@ class DataStore(object):
             return self._tagstore.get_node(tagname)
         else:
             return None
+
+    def get_all_tags(self):
+        return self.get_tagstore().get_main_view().get_all_nodes()
+
+    def filter_tag_tree(self, name='activetags'):
+        return self.get_tagstore().get_viewtree(name)
 
     def load_tag_tree(self):
         """
@@ -286,7 +316,7 @@ class DataStore(object):
         @param newtask: True if the task has never been seen before
         @return Task: a Task instance
         """
-        return Task(tid, self.requester, newtask)
+        return Task(tid, self, newtask)
 
     def new_task(self):
         """
@@ -300,6 +330,11 @@ class DataStore(object):
         task = self.task_factory(str(uuid.uuid4()), True)
         self._tasks.add_node(task)
         return task
+
+    def add_tags_to_task(self, task, tags: []):
+        for tag in tags:
+            assert(not isinstance(tag, Tag))
+            task.tag_added(tag)
 
     def push_task(self, task):
         """
@@ -323,6 +358,18 @@ class DataStore(object):
             # Thread protection
             adding(task)
             return True
+
+    def delete_task(self, tid, recursive=True):
+        """Delete the task 'tid' and, by default, delete recursively
+        all the childrens.
+
+        Note: this modifies the datastore.
+
+        @param tid: The id of the task to be deleted.
+        """
+        # send the signal before actually deleting the task !
+        Log.debug("deleting task %s" % tid)
+        return self._tasks.del_node(tid, recursive=recursive)
 
     ##########################################################################
     # Backends functions
@@ -375,9 +422,7 @@ class DataStore(object):
                 return None
             # creating the TaskSource which will wrap the backend,
             # filtering the tasks that should hit the backend.
-            source = TaskSource(requester=self.requester,
-                                backend=backend,
-                                datastore=self.filtered_datastore)
+            source = TaskSource(backend=backend, datastore=self.filtered_datastore)
             self.backends[backend.get_id()] = source
             # we notify that a new backend is present
             self._backend_signals.backend_added(backend.get_id())
@@ -564,14 +609,6 @@ class DataStore(object):
         # Saving the tagstore
         self.save_tagtree()
 
-    def request_task_deletion(self, tid):
-        """
-        This is a proxy function to request a task deletion from a backend
-
-        @param tid: the tid of the task to remove
-        """
-        self.requester.delete_task(tid)
-
     def get_backend_mutex(self):
         """
         Returns the mutex object used by backends to avoid modifying a task
@@ -588,30 +625,28 @@ class TaskSource(object):
     Is in charge of connecting and disconnecting to signals
     """
 
-    def __init__(self, requester, backend, datastore):
+    def __init__(self, backend, datastore):
         """
         Instantiates a TaskSource object.
 
-        @param requester: a Requester
         @param backend:  the backend being wrapped
         @param datastore: a FilteredDatastore
         """
         self.backend = backend
-        self.req = requester
         self.backend.register_datastore(datastore)
-        self.tasktree = datastore.get_tasks_tree().get_main_view()
-        self.to_set = deque()
-        self.to_remove = deque()
+        self.tasktree    = datastore.get_tasks_tree().get_main_view()
+        self.to_set      = deque()
+        self.to_remove   = deque()
         self.please_quit = False
         self.task_filter = self.get_task_filter_for_backend()
         if Log.is_debugging_mode():
             self.timer_timestep = 5
         else:
             self.timer_timestep = 1
-        self.add_task_handle = None
-        self.set_task_handle = None
+        self.add_task_handle    = None
+        self.set_task_handle    = None
         self.remove_task_handle = None
-        self.to_set_timer = None
+        self.to_set_timer       = None
 
     def start_get_tasks(self):
         """ Loads all task from the backend and connects its signals
@@ -629,7 +664,7 @@ class TaskSource(object):
                  True/False whether the task should be stored or not
         """
 
-        def backend_filter(req, task, parameters):
+        def backend_filter(datastore, task, parameters):
             """
             Filter that checks if two tags sets intersect. It is used to check
             if a task should be stored inside a backend
@@ -640,14 +675,15 @@ class TaskSource(object):
                 tags_to_match_set = parameters['tags']
             except KeyError:
                 return []
-            all_tasks_tag = req.get_alltag_tag().get_name()
+            # TODO: requester missing such method, datastore too
+            all_tasks_tag = datastore.get_alltag_tag().get_name()
             if all_tasks_tag in tags_to_match_set:
                 return True
             task_tags = set(task.get_tags_name())
             return task_tags.intersection(tags_to_match_set)
 
         attached_tags = self.backend.get_attached_tags()
-        return lambda task: backend_filter(self.requester, task,
+        return lambda task: backend_filter(self.datastore, task,
                                            {"tags": set(attached_tags)})
 
     def should_task_id_be_stored(self, task_id):
@@ -699,8 +735,8 @@ class TaskSource(object):
             # NOTE: no need to lock, we're reading
             if tid not in self.to_remove and \
                     self.should_task_id_be_stored(tid) and \
-                    self.req.has_task(tid):
-                task = self.req.get_task(tid)
+                    self.datastore.has_task(tid):
+                task = self.datastore.get_task(tid)
                 self.backend.queue_set_task(task)
         while not self.please_quit or bypass_please_quit:
             try:
@@ -835,9 +871,9 @@ class FilteredDataStore(Borg):
                     'get_tasks_tree',
                     'get_backend_mutex',
                     'flush_all_tasks',
-                    'request_task_deletion']:
+                    'delete_task',
+                    'get_all_tags',
+                    ]:
             return getattr(self.datastore, attr)
-        elif attr in ['get_all_tags']:
-            return self.datastore.requester.get_all_tags
         else:
             raise AttributeError("No attribute %s" % attr)

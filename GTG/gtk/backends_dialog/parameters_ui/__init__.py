@@ -29,13 +29,11 @@ class ParametersUI(Gtk.Box):
 
     COMMON_WIDTH = 170
 
-    def __init__(self, requester):
+    def __init__(self, datastore):
         '''Constructs the list of the possible widgets.
-
-        @param requester: a GTG.core.requester.Requester object
         '''
         super().__init__(orientation=Gtk.Orientation.VERTICAL)
-        self.req = requester
+        self.datastore = datastore
         self.set_spacing(10)
 
         # builds a list of widget generators. More precisely, it's a
@@ -99,7 +97,7 @@ class ParametersUI(Gtk.Box):
         @return function: return a widget generator, not a widget. the widget
                            can be obtained by calling widget_generator(backend)
         '''
-        return lambda backend: param_type(req=self.req,
+        return lambda backend: param_type(datastore=self.datastore,
                                           backend=backend,
                                           width=self.COMMON_WIDTH,
                                           **special_arguments)
