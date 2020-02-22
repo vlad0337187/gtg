@@ -2,29 +2,26 @@ import datetime
 
 from gi.repository import GObject, Gdk, Gtk
 
-from GTG.gtk.editor import GnomeConfig
 from GTG.tools.dates import Date
+
+from . import config
 
 
 class GTGCalendar(GObject.GObject):
     """ Wrapper around Gtk.Calendar object """
 
-    # CONSTANTS
-    DATE_KIND_DUE = "due"
-    DATE_KIND_START = "start"
+    DATE_KIND_DUE    = "due"
+    DATE_KIND_START  = "start"
     DATE_KIND_CLOSED = "closed"
 
     # Gobject signal description
-    __signal_type__ = (GObject.SignalFlags.RUN_FIRST,
-                       None,
-                       [])
-
-    __gsignals__ = {'date-changed': __signal_type__, }
+    __signal_type__ = (GObject.SignalFlags.RUN_FIRST, None, [])
+    __gsignals__    = {'date-changed': __signal_type__, }
 
     def __init__(self):
         super().__init__()
         self.__builder = Gtk.Builder()
-        self.__builder.add_from_file(GnomeConfig.CALENDAR_UI_FILE)
+        self.__builder.add_from_file(config.CALENDAR_UI_FILE)
         self.__date_kind = None
         self.__date = Date.no_date()
         self.__init_gtk__()

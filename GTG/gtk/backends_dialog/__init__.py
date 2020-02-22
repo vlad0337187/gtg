@@ -13,12 +13,13 @@ from GTG                         import info
 from GTG.backends                import BackendFactory
 from GTG.backends.genericbackend import GenericBackend
 from GTG.core.translations       import translate
-from GTG.gtk                     import ViewConfig
 from GTG.gtk                     import help
 from GTG.gtk.backends_dialog.addpanel       import AddPanel
 from GTG.gtk.backends_dialog.backendstree   import BackendsTree
 from GTG.gtk.backends_dialog.configurepanel import ConfigurePanel
 from GTG.tools.logger                       import Log
+
+from . import config
 
 
 class BackendsDialog(object):
@@ -137,7 +138,7 @@ class BackendsDialog(object):
 
         @param builder: a Gtk.Builder
         '''
-        builder.add_from_file(ViewConfig.BACKENDS_UI_FILE)
+        builder.add_from_file(config.BACKENDS_UI_FILE)
         widgets = {
             'dialog': 'backends_dialog',
             'treeview_window': 'treeview_window',

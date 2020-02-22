@@ -10,26 +10,24 @@ import os
 
 from gi.repository import Gdk, Gtk, Pango
 
-from GTG.core.dirs           import UI_DIR
 from GTG.core.plugins.api    import PluginAPI
 from GTG.core.plugins.engine import PluginEngine
 from GTG.core.task           import Task
 from GTG.core.translations   import translate
-from GTG.gtk.editor          import GnomeConfig
 from GTG.gtk.editor.calendar import GTGCalendar
 from GTG.gtk.editor.taskview import TaskView
 from GTG.gtk.help            import add_help_shortcut
 from GTG.gtk.tag_completion  import tag_filter
 from GTG.tools.dates  import Date
 from GTG.tools.logger import Log
+
+from . import config
 '''
 TODO (jakubbrindza): re-factor tag_filter into a separate module
 '''
 
 
 class TaskEditor(object):
-
-    EDITOR_UI_FILE = os.path.join(UI_DIR, "taskeditor.ui")
 
     def __init__(self, datastore,  vmanager, task, thisisnew=False, clipboard=None):
         '''
@@ -43,7 +41,7 @@ class TaskEditor(object):
         self.time      = None
         self.clipboard = clipboard
         self.builder   = Gtk.Builder()
-        self.builder.add_from_file(self.EDITOR_UI_FILE)
+        self.builder.add_from_file(config.EDITOR_UI_FILE)
 
         self.donebutton      = self.builder.get_object("mark_as_done")
         self.undonebutton    = self.builder.get_object("mark_as_undone")
@@ -587,12 +585,12 @@ class TaskEditor(object):
     def light_save(self):
         # if self.time is none, we never called any save
         if self.time:
-            diff = time.time() - self.time
-            tosave = diff > GnomeConfig.SAVETIME
+            diff   = time.time() - self.time
+            tosave = diff > config.AUTO_SAVE_TASK_SECONDS
         else:
             # we don't want to save a task while opening it
             tosave = self.textview.get_editable()
-            diff = None
+            diff   = None
         if tosave:
             self.save()
 

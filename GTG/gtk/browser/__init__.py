@@ -10,9 +10,9 @@ from GTG.core.translations import translate
 
 
 class GnomeConfig(object):
-    current_rep = os.path.dirname(os.path.abspath(__file__))
-    BROWSER_UI_FILE = os.path.join(current_rep, "taskbrowser.ui")
-    MODIFYTAGS_UI_FILE = os.path.join(current_rep, "modifytags_dialog.ui")
+    _current_dir       = os.path.dirname(os.path.abspath(__file__))
+    BROWSER_UI_FILE    = os.path.join(_current_dir, "ui/taskbrowser.ui")
+    MODIFYTAGS_UI_FILE = os.path.join(_current_dir, "ui/modifytags_dialog.ui")
 
     MARK_DONE = translate("Mark as Done")
     MARK_DONE_TOOLTIP = translate("Mark the selected task as done")
