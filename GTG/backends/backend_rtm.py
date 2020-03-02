@@ -18,7 +18,7 @@ from GTG.backends.genericbackend import GenericBackend
 from GTG.backends.periodicimportbackend import PeriodicImportBackend
 from GTG.backends.rtm.rtm import createRTM, RTMError, RTMAPIError
 from GTG.backends.syncengine import SyncEngine, SyncMeme
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 from GTG.core.task import Task
 from GTG.core.translations import translate
 from GTG.tools.dates import Date
@@ -466,7 +466,7 @@ class Backend(PeriodicImportBackend):
         @returns bool: True if the task should be synced
         '''
         attached_tags = self.get_attached_tags()
-        if ALLTASKS_TAG in attached_tags:
+        if TAG_ALLTASKS in attached_tags:
             return True
         for tag in rtm_task.get_tags():
             if "@" + tag in attached_tags:

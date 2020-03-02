@@ -2,7 +2,7 @@ from functools import reduce
 
 from gi.repository import Gtk
 
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 
 
 class ImportTagsUI(Gtk.Box):
@@ -77,7 +77,7 @@ class ImportTagsUI(Gtk.Box):
     def commit_changes(self):
         '''Saves the changes to the backend parameter'''
         if self.all_tags_radio.get_active():
-            tags = [ALLTASKS_TAG]
+            tags = [TAG_ALLTASKS]
         else:
             tags = self.tags_entry.get_text().split(",")
             # stripping spaces
@@ -97,7 +97,7 @@ class ImportTagsUI(Gtk.Box):
         the correct radio button
         '''
         tags_list = self.backend.get_parameters()[self.parameter_name]
-        has_all_tasks = ALLTASKS_TAG in tags_list
+        has_all_tasks = TAG_ALLTASKS in tags_list
         self.all_tags_radio.set_active(has_all_tasks)
         self.some_tags_radio.set_active(not has_all_tasks)
         self._refresh_textbox_state()

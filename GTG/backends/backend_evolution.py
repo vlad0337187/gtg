@@ -13,7 +13,7 @@ import evolution
 from GTG.backends.genericbackend import GenericBackend
 from GTG.backends.periodicimportbackend import PeriodicImportBackend
 from GTG.backends.syncengine import SyncEngine, SyncMeme
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 from GTG.core.task import Task
 from GTG.core.translations import translate
 from GTG.tools.dates import Date
@@ -358,7 +358,7 @@ class Backend(PeriodicImportBackend):
         @returns Boolean
         '''
         attached_tags = set(self.get_attached_tags())
-        if ALLTASKS_TAG in attached_tags:
+        if TAG_ALLTASKS in attached_tags:
             return True
         return evo_task.is_disjoint(attached_tags)
 

@@ -15,7 +15,7 @@ from GTG.tools.borg import Borg
 from GTG.backends.genericbackend import GenericBackend
 from GTG.backends.backendsignals import BackendSignals
 from GTG.backends.syncengine import SyncEngine, SyncMeme
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 from GTG.tools.logger import Log
 from GTG.tools.watchdog import Watchdog
 from GTG.tools.interruptible import interruptible
@@ -337,7 +337,7 @@ class GenericTomboy(GenericBackend):
         @returns Boolean
         '''
         attached_tags = self.get_attached_tags()
-        if ALLTASKS_TAG in attached_tags:
+        if TAG_ALLTASKS in attached_tags:
             return True
         with self.TomboyConnection(self, *self.BUS_ADDRESS) as tomboy:
             with self.DbusWatchdog(self):

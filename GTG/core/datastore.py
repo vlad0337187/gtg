@@ -12,7 +12,7 @@ from GTG.backends.genericbackend import GenericBackend
 from GTG.core.config  import CoreConfig
 import GTG.core.dirs
 from GTG.core.search  import parse_search_query, search_filter, InvalidQuery
-from GTG.core.tag     import Tag, SEARCH_TAG
+from GTG.core.tag     import Tag, TAG_SEARCH
 from GTG.core.task    import Task
 from GTG.core.treefactory import TreeFactory
 from GTG.tools        import cleanxml
@@ -149,7 +149,7 @@ class DataStore(object):
 
         tag = Tag(name, datastore=self, attributes=init_attr)
         self._add_new_tag(name, tag, search_filter, parameters,
-                          parent_id=SEARCH_TAG)
+                          parent_id=TAG_SEARCH)
         self.save_tagtree()
         return tag
 
@@ -228,7 +228,7 @@ class DataStore(object):
                     at_val = t.getAttribute(at_name)
                     tag_attr[at_name] = at_val
 
-            if parent == SEARCH_TAG:
+            if parent == TAG_SEARCH:
                 query = t.getAttribute("query")
                 tag = self.new_search_tag(tagname, query, tag_attr)
             else:
@@ -676,6 +676,7 @@ class TaskSource(object):
             except KeyError:
                 return []
             # TODO: requester missing such method, datastore too
+            # probably it's present in `GTG/core/treefactory.py`
             all_tasks_tag = datastore.get_alltag_tag().get_name()
             if all_tasks_tag in tags_to_match_set:
                 return True

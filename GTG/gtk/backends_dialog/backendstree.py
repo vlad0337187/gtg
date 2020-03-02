@@ -1,7 +1,7 @@
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf
 
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 from GTG.gtk.colors import get_colored_tags_markup
 from GTG.backends.backendsignals import BackendSignals
 
@@ -120,7 +120,7 @@ class BackendsTree(Gtk.TreeView):
         @param tag_names: the list of the tags (strings)
         @return str: the pango markup string
         '''
-        if ALLTASKS_TAG in tag_names:
+        if TAG_ALLTASKS in tag_names:
             tags_txt = ""
         else:
             tags_txt = get_colored_tags_markup(self.datastore, tag_names)

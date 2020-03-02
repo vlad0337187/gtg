@@ -9,7 +9,7 @@ from GTG import info
 from GTG.backends.backendsignals import BackendSignals
 from GTG.core.dirs   import ICONS_DIR
 from GTG.core.search import parse_search_query, InvalidQuery
-from GTG.core.tag    import SEARCH_TAG
+from GTG.core.tag    import TAG_SEARCH
 from GTG.core.task   import Task
 from GTG.gtk.browser import GnomeConfig
 from GTG.gtk.browser.custominfobar     import CustomInfoBar
@@ -22,9 +22,11 @@ from GTG.tools.dates  import Date
 from GTG.tools.logger import Log
 from GTG.gtk.help     import add_help_shortcut
 
+
 class TaskBrowser(GObject.GObject):
-    """ The UI for browsing open and closed tasks,
-    and listing tags in a tree """
+    """
+    The UI for browsing open and closed tasks, and listing tags in a tree.
+    """
 
     __string_signal__ = (GObject.SignalFlags.RUN_FIRST, None, (str, ))
     __none_signal__   = (GObject.SignalFlags.RUN_FIRST, None, tuple())
@@ -47,7 +49,6 @@ class TaskBrowser(GObject.GObject):
 
         # Active Tasks
         self.activetree            = self.datastore.filter_tasks_tree(name='active', refresh=False)
-        self.activetree.apply_filter('active', refresh=False)
         self.vtree_panes['active'] = self.tv_factory.active_tasks_treeview(self.activetree)
 
         # Workview Tasks
@@ -153,19 +154,17 @@ class TaskBrowser(GObject.GObject):
         self.calendar.set_transient_for(self.window)
         self.calendar.connect("date-changed", self.on_date_changed)
 
-    def init_tags_sidebar(self):
-        """
-        initializes the tagtree (left area with tags and searches)
-        """
+    def init_filters_sidebar(self):
+        """ initializes left area with tags and searches. """
         # The tags treeview
         self.tagtree     = self.datastore.filter_tag_tree()
         self.tagtreeview = self.tv_factory.tags_treeview(self.tagtree)
         # Tags treeview
         self.tagtreeview.get_selection().connect('changed', self.on_select_tag)
-        self.tagtreeview.connect('button-press-event', self.on_tag_treeview_button_press_event)
-        self.tagtreeview.connect('key-press-event',    self.on_tag_treeview_key_press_event)
-        self.tagtreeview.connect('node-expanded',      self.on_tag_expanded)
-        self.tagtreeview.connect('node-collapsed',     self.on_tag_collapsed)
+        self.tagtreeview.connect('button-press-event',      self.on_tag_treeview_button_press_event)
+        self.tagtreeview.connect('key-press-event',         self.on_tag_treeview_key_press_event)
+        self.tagtreeview.connect('node-expanded',           self.on_tag_expanded)
+        self.tagtreeview.connect('node-collapsed',          self.on_tag_collapsed)
         self.sidebar_container.add(self.tagtreeview)
 
         for path_t in self.config.get("expanded_tags"):
@@ -341,7 +340,7 @@ class TaskBrowser(GObject.GObject):
             Log.warning("Invalid query '%s' : '%s'", query, e)
             return
 
-        self.apply_filter_on_panes(SEARCH_TAG, parameters=parsed_query)
+        self.apply_filter_on_panes(TAG_SEARCH, parameters=parsed_query)
 
     def on_save_search(self, widget):
         query = self.search_entry.get_text()
@@ -418,8 +417,9 @@ class TaskBrowser(GObject.GObject):
         #     self.builder.get_object("hpaned1").set_position(250)
         #     return
 
-        width = self.config.get('width')
+        width  = self.config.get('width')
         height = self.config.get('height')
+
         if width and height:
             self.window.resize(width, height)
 
@@ -440,7 +440,7 @@ class TaskBrowser(GObject.GObject):
         else:
             self.builder.get_object("tags").set_active(True)
             if not self.tagtreeview:
-                self.init_tags_sidebar()
+                self.init_filters_sidebar()
             self.sidebar.show()
 
         sidebar_width = self.config.get("sidebar_width")
@@ -458,7 +458,7 @@ class TaskBrowser(GObject.GObject):
         model = self.vtree_panes['active'].get_model()
         model.connect('sort-column-changed', self.on_sort_column_changed)
         sort_column = self.config.get('tasklist_sort_column')
-        sort_order = self.config.get('tasklist_sort_order')
+        sort_order  = self.config.get('tasklist_sort_order')
 
         if sort_column and sort_order:
             sort_column, sort_order = int(sort_column), int(sort_order)
@@ -540,7 +540,7 @@ class TaskBrowser(GObject.GObject):
         else:
             tags.set_active(True)
             if not self.tagtreeview:
-                self.init_tags_sidebar()
+                self.init_filters_sidebar()
             self.sidebar.show()
             self.config.set("tag_pane", True)
 
@@ -677,12 +677,12 @@ class TaskBrowser(GObject.GObject):
         """
         deals with mouse click event on the tag tree
         """
-        Log.debug("Received button event #%d at %d, %d" % (
-            event.button, event.x, event.y))
-        if event.button == 3:
-            x = int(event.x)
-            y = int(event.y)
-            time = event.time
+        Log.debug(f"Received button event #{event.button} at {event.x}, {event.y}")
+        is_right_mouse_button = event.button == 3
+        if is_right_mouse_button:
+            x       = int(event.x)
+            y       = int(event.y)
+            time    = event.time
             pthinfo = treeview.get_path_at_pos(x, y)
             if pthinfo is not None:
                 path, col, cellx, celly = pthinfo
@@ -700,7 +700,7 @@ class TaskBrowser(GObject.GObject):
                 self.target_cursor = path, col
                 treeview.set_cursor(path, col, 0)
                 # the nospecial=True disable right clicking for special tags
-                selected_tags = self.get_selected_tags(nospecial=True)
+                selected_tags   = self.get_selected_tags(nospecial=True)
                 selected_search = self.get_selected_search()
                 # popup menu for searches
                 # FIXME thos two branches could be simplified
@@ -749,6 +749,7 @@ class TaskBrowser(GObject.GObject):
     def on_task_treeview_button_press_event(self, treeview, event):
         """ Pop up context menu on right mouse click in the main
         task tree view """
+        print('no')
         Log.debug("Received button event #%d at %d,%d" % (
             event.button, event.x, event.y))
         if event.button == 3:
@@ -1023,28 +1024,29 @@ class TaskBrowser(GObject.GObject):
             vtree.unapply_filter(filter_name, refresh=refresh)
 
     def on_select_tag(self, widget=None, row=None, col=None):
-        """
-        callback for when selecting an element of the tagtree (left sidebar)
-        """
+        """ Callback for when selecting an element of the tagtree (left sidebar).
+        Get selected tag and apply filters to tasks displayed in browser (taskstree). """
         # FIXME add support for multiple selection of tags in future
 
-        # When you click on a tag, you want to unselect the tasks
-        new_taglist = self.get_selected_tags()
+        def unapply_no_longer_selected_tags():
+            for tagname in self.applied_tags:
+                if tagname not in newly_selected_tags:
+                    self.unapply_filter_on_panes(tagname, refresh=False)
 
-        for tagname in self.applied_tags:
-            if tagname not in new_taglist:
-                self.unapply_filter_on_panes(tagname, refresh=False)
+        def apply_newly_selected_tags():
+            for tagname in newly_selected_tags:
+                if tagname not in self.applied_tags:
+                    self.apply_filter_on_panes(tagname)
+                    # In case of search tag, set query in quickadd for
+                    # refining search query
+                    tag = self.datastore.get_tag(tagname)
+                    if tag.is_search_tag():
+                        self.quickadd_entry.set_text(tag.get_attribute("query"))
 
-        for tagname in new_taglist:
-            if tagname not in self.applied_tags:
-                self.apply_filter_on_panes(tagname)
-                # In case of search tag, set query in quickadd for
-                # refining search query
-                tag = self.datastore.get_tag(tagname)
-                if tag.is_search_tag():
-                    self.quickadd_entry.set_text(tag.get_attribute("query"))
-
-        self.applied_tags = new_taglist
+        newly_selected_tags = self.get_selected_tags()
+        unapply_no_longer_selected_tags()
+        apply_newly_selected_tags()
+        self.applied_tags = newly_selected_tags
 
     def on_close(self, widget=None):
         """Closing the window."""
@@ -1298,6 +1300,6 @@ class TaskBrowser(GObject.GObject):
         it must be done manually """
         if self.tagtreeview is not None:
             model = self.tagtreeview.get_model()
-            search_iter = model.my_get_iter((SEARCH_TAG, ))
+            search_iter = model.my_get_iter((TAG_SEARCH, ))
             search_path = model.get_path(search_iter)
             self.tagtreeview.expand_row(search_path, False)

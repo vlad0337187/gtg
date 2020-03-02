@@ -11,7 +11,7 @@ import pickle
 import threading
 
 from GTG.backends.backendsignals import BackendSignals
-from GTG.core.tag import ALLTASKS_TAG
+from GTG.core.tag import TAG_ALLTASKS
 import GTG.core.dirs
 from GTG.tools.interruptible import _cancellation_point
 from GTG.tools.keyring import Keyring
@@ -221,7 +221,7 @@ class GenericBackend(object):
     _static_parameters_obligatory_for_rw = {
         KEY_ATTACHED_TAGS: {
             PARAM_TYPE: TYPE_LIST_OF_STRINGS,
-            PARAM_DEFAULT_VALUE: [ALLTASKS_TAG],
+            PARAM_DEFAULT_VALUE: [TAG_ALLTASKS],
         }}
 
     # Handy dictionary used in type conversion (from string to type)
@@ -262,7 +262,7 @@ class GenericBackend(object):
                 (self.KEY_ATTACHED_TAGS not in parameters and
                  self._general_description[self.BACKEND_TYPE] ==
                     self.TYPE_READWRITE):
-            parameters[self.KEY_ATTACHED_TAGS] = [ALLTASKS_TAG]
+            parameters[self.KEY_ATTACHED_TAGS] = [TAG_ALLTASKS]
         self._parameters = parameters
         self._signal_manager = BackendSignals()
         self._is_initialized = False
@@ -289,7 +289,7 @@ class GenericBackend(object):
             # default backends should get all the tasks
             # NOTE: this shouldn't be needed, but it doesn't cost anything and
             #      it could avoid potential tasks losses.
-            return [ALLTASKS_TAG]
+            return [TAG_ALLTASKS]
         try:
             return self._parameters[self.KEY_ATTACHED_TAGS]
         except:
@@ -591,7 +591,7 @@ class GenericBackend(object):
         @returns bool: True if the task should be synced
         '''
         attached_tags = self.get_attached_tags()
-        if ALLTASKS_TAG in attached_tags:
+        if TAG_ALLTASKS in attached_tags:
             return True
         for tag in task.get_tags_name():
             if tag in attached_tags:

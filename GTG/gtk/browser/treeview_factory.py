@@ -3,17 +3,20 @@ import xml.sax.saxutils as saxutils
 
 from gi.repository import GObject, Gtk, Pango
 
-from GTG.core.search import parse_search_query, search_filter
-from GTG.core.tag import SEARCH_TAG
-from GTG.core.task import Task
+from GTG.core.search       import parse_search_query, search_filter
+from GTG.core.tag          import TAG_SEARCH
+from GTG.core.task         import Task
 from GTG.core.translations import translate
-from GTG.gtk import colors
+from GTG.gtk               import colors
 from GTG.gtk.browser.CellRendererTags import CellRendererTags
 from GTG.tools.dates import Date
-from liblarch_gtk import TreeView
+from liblarch_gtk    import TreeView
 
 
 class TreeviewFactory(object):
+    """
+    Object to build filtered and non-filtered `TreeView`s of tags and tasks.
+    """
 
     def __init__(self, datastore, config):
         self.datastore = datastore
@@ -56,7 +59,7 @@ class TreeviewFactory(object):
     def task_tags_column(self, node):
         tags = node.get_tags()
 
-        search_parent = self.datastore.get_tag(SEARCH_TAG)
+        search_parent = self.datastore.get_tag(TAG_SEARCH)
         for search_tag in search_parent.get_children():
             tag = self.datastore.get_tag(search_tag)
             match = search_filter(
@@ -247,52 +250,52 @@ class TreeviewFactory(object):
 
         # Tag id
         col_name = 'tag_id'
-        col = {}
-        col['renderer'] = ['markup', Gtk.CellRendererText()]
-        col['value'] = [str, lambda node: node.get_id()]
-        col['visible'] = False
-        col['order'] = 0
+        col      = {}
+        col['renderer']     = ['markup', Gtk.CellRendererText()]
+        col['value']        = [str, lambda node: node.get_id()]
+        col['visible']      = False
+        col['order']        = 0
         col['sorting_func'] = self.tag_sorting
-        desc[col_name] = col
+        desc[col_name]      = col
 
         # Tags color
-        col_name = 'color'
-        col = {}
+        col_name    = 'color'
+        col         = {}
         render_tags = CellRendererTags()
         render_tags.set_property('ypad', 3)
-        col['title'] = translate("Tags")
-        col['renderer'] = ['tag', render_tags]
-        col['value'] = [GObject.TYPE_PYOBJECT, lambda node: node]
+        col['title']      = translate("Tags")
+        col['renderer']   = ['tag', render_tags]
+        col['value']      = [GObject.TYPE_PYOBJECT, lambda node: node]
         col['expandable'] = False
-        col['resizable'] = False
-        col['order'] = 1
-        desc[col_name] = col
+        col['resizable']  = False
+        col['order']      = 1
+        desc[col_name]    = col
 
         # Tag names
-        col_name = 'tagname'
-        col = {}
+        col_name    = 'tagname'
+        col         = {}
         render_text = Gtk.CellRendererText()
         render_text.set_property('ypad', 3)
-        col['renderer'] = ['markup', render_text]
-        col['value'] = [str, self.tag_name]
+        col['renderer']   = ['markup', render_text]
+        col['value']      = [str, self.tag_name]
         col['expandable'] = True
         col['new_column'] = False
-        col['order'] = 2
-        desc[col_name] = col
+        col['order']      = 2
+        desc[col_name]    = col
 
         # Tag count
-        col_name = 'tagcount'
-        col = {}
+        col_name    = 'tagcount'
+        col         = {}
         render_text = Gtk.CellRendererText()
         render_text.set_property('xpad', 3)
         render_text.set_property('ypad', 3)
         render_text.set_property('xalign', 1)
-        col['renderer'] = ['markup', render_text]
-        col['value'] = [str, self.get_tag_count]
+        col['renderer']   = ['markup', render_text]
+        col['value']      = [str, self.get_tag_count]
         col['expandable'] = False
         col['new_column'] = False
-        col['order'] = 3
-        desc[col_name] = col
+        col['order']      = 3
+        desc[col_name]    = col
 
         return self.build_tag_treeview(tree, desc)
 
@@ -301,26 +304,26 @@ class TreeviewFactory(object):
         desc = self.common_desc_for_tasks(tree, "Tasks")
 
         # "startdate" column
-        col_name = 'startdate'
-        col = {}
-        col['title'] = translate("Start date")
-        col['expandable'] = False
-        col['resizable'] = False
-        col['value'] = [str, self.task_sdate_column]
-        col['order'] = 3
+        col_name            = 'startdate'
+        col                 = {}
+        col['title']        = translate("Start date")
+        col['expandable']   = False
+        col['resizable']    = False
+        col['value']        = [str, self.task_sdate_column]
+        col['order']        = 3
         col['sorting_func'] = self.start_date_sorting
-        desc[col_name] = col
+        desc[col_name]      = col
 
         # 'duedate' column
-        col_name = 'duedate'
-        col = {}
-        col['title'] = translate("Due")
-        col['expandable'] = False
-        col['resizable'] = False
-        col['value'] = [str, self.task_duedate_column]
-        col['order'] = 4
+        col_name            = 'duedate'
+        col                 = {}
+        col['title']        = translate("Due")
+        col['expandable']   = False
+        col['resizable']    = False
+        col['value']        = [str, self.task_duedate_column]
+        col['order']        = 4
         col['sorting_func'] = self.due_date_sorting
-        desc[col_name] = col
+        desc[col_name]      = col
 
         # Returning the treeview
         treeview = self.build_task_treeview(tree, desc)
@@ -332,15 +335,15 @@ class TreeviewFactory(object):
         desc = self.common_desc_for_tasks(tree, "Closed Tasks")
 
         # "startdate" column
-        col_name = 'closeddate'
-        col = {}
-        col['title'] = translate("Closed date")
-        col['expandable'] = False
-        col['resizable'] = False
-        col['value'] = [str, self.task_cdate_column]
-        col['order'] = 3
+        col_name            = 'closeddate'
+        col                 = {}
+        col['title']        = translate("Closed date")
+        col['expandable']   = False
+        col['resizable']    = False
+        col['value']        = [str, self.task_cdate_column]
+        col['order']        = 3
         col['sorting_func'] = self.closed_date_sorting
-        desc[col_name] = col
+        desc[col_name]      = col
 
         # Returning the treeview
         treeview = self.build_task_treeview(tree, desc)
@@ -353,58 +356,58 @@ class TreeviewFactory(object):
         desc = {}
 
         # invisible 'task_id' column
-        col_name = 'task_id'
-        col = {}
+        col_name        = 'task_id'
+        col             = {}
         col['renderer'] = ['markup', Gtk.CellRendererText()]
-        col['value'] = [str, lambda node: node.get_id()]
-        col['visible'] = False
-        col['order'] = 0
-        desc[col_name] = col
+        col['value']    = [str, lambda node: node.get_id()]
+        col['visible']  = False
+        col['order']    = 0
+        desc[col_name]  = col
 
         # invisible 'bg_color' column
-        col_name = 'bg_color'
-        col = {}
-        col['value'] = [str, lambda node: None]
+        col_name       = 'bg_color'
+        col            = {}
+        col['value']   = [str, lambda node: None]
         col['visible'] = False
         desc[col_name] = col
 
         # invisible 'title' column
-        col_name = 'title'
-        col = {}
+        col_name    = 'title'
+        col         = {}
         render_text = Gtk.CellRendererText()
         render_text.set_property("ellipsize", Pango.EllipsizeMode.END)
-        col['renderer'] = ['markup', render_text]
-        col['value'] = [str, self.task_title_column]
-        col['visible'] = False
-        col['order'] = 0
+        col['renderer']     = ['markup', render_text]
+        col['value']        = [str, self.task_title_column]
+        col['visible']      = False
+        col['order']        = 0
         col['sorting_func'] = self.title_sorting
-        desc[col_name] = col
+        desc[col_name]      = col
 
         # "tags" column (no title)
-        col_name = 'tags'
-        col = {}
+        col_name    = 'tags'
+        col         = {}
         render_tags = CellRendererTags()
         render_tags.set_property('xalign', 0.0)
-        col['renderer'] = ['tag_list', render_tags]
-        col['value'] = [GObject.TYPE_PYOBJECT, self.task_tags_column]
+        col['renderer']   = ['tag_list', render_tags]
+        col['value']      = [GObject.TYPE_PYOBJECT, self.task_tags_column]
         col['expandable'] = False
-        col['resizable'] = False
-        col['order'] = 1
-        desc[col_name] = col
+        col['resizable']  = False
+        col['order']      = 1
+        desc[col_name]    = col
 
         # "label" column
-        col_name = 'label'
-        col = {}
+        col_name     = 'label'
+        col          = {}
         col['title'] = translate(title_label)
-        render_text = Gtk.CellRendererText()
+        render_text  = Gtk.CellRendererText()
         render_text.set_property("ellipsize", Pango.EllipsizeMode.END)
-        col['renderer'] = ['markup', render_text]
-        col['value'] = [str, self.task_label_column]
+        col['renderer']   = ['markup', render_text]
+        col['value']      = [str, self.task_label_column]
         col['expandable'] = True
-        col['resizable'] = True
-        col['sorting'] = 'title'
-        col['order'] = 2
-        desc[col_name] = col
+        col['resizable']  = True
+        col['sorting']    = 'title'
+        col['order']      = 2
+        desc[col_name]    = col
         return desc
 
     def build_task_treeview(self, tree, desc):

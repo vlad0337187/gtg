@@ -10,10 +10,10 @@ for a tag.
 
 from gi.repository import GObject, Gtk, Gdk, GdkPixbuf
 
-from GTG.core.translations import translate
+from GTG.core.translations                 import translate
 from GTG.gtk.browser.simple_color_selector import SimpleColorSelector
-from GTG.gtk.colors import color_add, color_remove
-from GTG.tools.logger import Log
+from GTG.gtk.colors                        import color_add, color_remove
+from GTG.tools.logger                      import Log
 
 
 class TagIconSelector(Gtk.Window):
@@ -62,7 +62,7 @@ class TagIconSelector(Gtk.Window):
         scld_win.add(self.symbol_iv)
         # icon remove button
         self.remove_bt = Gtk.Button()
-        self.remove_bt.set_label(_("Remove selected icon"))
+        self.remove_bt.set_label(translate("Remove selected icon"))
         vbox.pack_start(self.remove_bt, False, False, 0)
         # set the callbacks
         self.symbol_iv.connect("selection-changed", self.on_selection_changed)
@@ -203,7 +203,7 @@ class TagEditor(Gtk.Window):
         self.hdr_align.add(self.hdr_box)
         self.hdr_box.set_spacing(10)
         # Button to tag icon selector
-        self.ti_bt = Gtk.Button()
+        self.ti_bt       = Gtk.Button()
         self.ti_bt_label = Gtk.Label()
         self.ti_bt.add(self.ti_bt_label)
         self.hdr_box.pack_start(self.ti_bt, True, True, 0)
@@ -224,7 +224,7 @@ class TagEditor(Gtk.Window):
         self.tp_grid.attach(self.tn_entry, 1, 0, 1, 1)
         self.tn_cb_lbl_align = Gtk.Alignment.new(0, 0.5, 0, 0)
         self.tp_grid.attach(self.tn_cb_lbl_align, 0, 1, 1, 1)
-        self.tn_cb_lbl = Gtk.Label(label=_("Show Tag in Work View :"))
+        self.tn_cb_lbl = Gtk.Label(label=translate("Show Tag in Work View :"))
         self.tn_cb_lbl_align.add(self.tn_cb_lbl)
         self.tn_cb = Gtk.CheckButton()
         self.tp_grid.attach(self.tn_cb, 1, 1, 1, 1)
@@ -294,7 +294,7 @@ class TagEditor(Gtk.Window):
         # Show in WV
         self.tn_cb.set_active(True)
         # Name entry
-        self.tn_entry.set_text(_("Enter tag name here"))
+        self.tn_entry.set_text(translate("Enter tag name here"))
         self.tn_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
                                               None)
         # Color selection

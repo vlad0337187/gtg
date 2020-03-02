@@ -9,10 +9,10 @@ import xml.dom.minidom
 import xml.sax.saxutils as saxutils
 
 from GTG.core.translations import translate
-from GTG.tools.dates import Date
-from GTG.tools.logger import Log
-from GTG.tools.tags import extract_tags_from_text
-from liblarch import TreeNode
+from GTG.tools.dates       import Date
+from GTG.tools.logger      import Log
+from GTG.tools.tags        import extract_tags_from_text
+from liblarch              import TreeNode
 
 
 class Task(TreeNode):
